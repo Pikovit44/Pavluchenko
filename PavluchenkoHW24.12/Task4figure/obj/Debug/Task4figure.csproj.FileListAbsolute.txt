@@ -1,0 +1,5 @@
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task4figure\bin\Debug\Task4figure.exe.config
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task4figure\bin\Debug\Task4figure.exe
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task4figure\bin\Debug\Task4figure.pdb
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task4figure\obj\Debug\Task4figure.exe
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task4figure\obj\Debug\Task4figure.pdb

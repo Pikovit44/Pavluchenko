@@ -1,0 +1,5 @@
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task8Invoice\bin\Debug\Task8Invoice.exe.config
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task8Invoice\bin\Debug\Task8Invoice.exe
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task8Invoice\bin\Debug\Task8Invoice.pdb
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task8Invoice\obj\Debug\Task8Invoice.exe
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task8Invoice\obj\Debug\Task8Invoice.pdb

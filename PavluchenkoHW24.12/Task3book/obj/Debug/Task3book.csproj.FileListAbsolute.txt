@@ -1,0 +1,5 @@
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task3book\bin\Debug\Task3book.exe.config
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task3book\bin\Debug\Task3book.exe
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task3book\bin\Debug\Task3book.pdb
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task3book\obj\Debug\Task3book.exe
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task3book\obj\Debug\Task3book.pdb

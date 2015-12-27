@@ -1,0 +1,5 @@
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task6converter\bin\Debug\Task6converter.exe.config
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task6converter\bin\Debug\Task6converter.exe
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task6converter\bin\Debug\Task6converter.pdb
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task6converter\obj\Debug\Task6converter.exe
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task6converter\obj\Debug\Task6converter.pdb

@@ -1,0 +1,5 @@
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task7employee\bin\Debug\Task7employee.exe.config
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task7employee\bin\Debug\Task7employee.exe
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task7employee\bin\Debug\Task7employee.pdb
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task7employee\obj\Debug\Task7employee.exe
+C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task7employee\obj\Debug\Task7employee.pdb

@@ -13,3 +13,6 @@ C:\Documents\GitHub\clear2\PavluchenkoHW18.01\Task1\obj\Debug\PavluchenkoHW24.12
 C:\Documents\GitHub\clear2\PavluchenkoHW18.01\Task1\bin\Debug\PavluchenkoHW24.12.exe
 C:\Documents\GitHub\clear2\PavluchenkoHW18.01\Task1\bin\Debug\PavluchenkoHW24.12.pdb
 C:\Documents\GitHub\clear2\PavluchenkoHW18.01\Task1\obj\Debug\Task1.csprojResolveAssemblyReference.cache
+C:\Documents\GitHub\Pavluchenko\PavluchenkoHW18.01\Task1\bin\Debug\PavluchenkoHW24.12.exe.config
+C:\Documents\GitHub\Pavluchenko\PavluchenkoHW18.01\Task1\obj\Debug\PavluchenkoHW24.12.exe
+C:\Documents\GitHub\Pavluchenko\PavluchenkoHW18.01\Task1\obj\Debug\PavluchenkoHW24.12.pdb

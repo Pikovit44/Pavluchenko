@@ -4,3 +4,6 @@ C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task1adress\bin\Debug\Task1adress.
 C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task1adress\obj\Debug\Task1adress.csprojResolveAssemblyReference.cache
 C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task1adress\obj\Debug\Task1adress.exe
 C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task1adress\obj\Debug\Task1adress.pdb
+C:\Documents\GitHub\Pavluchenko\PavluchenkoHW24.12\Task1adress\bin\Debug\Task1adress.exe.config
+C:\Documents\GitHub\Pavluchenko\PavluchenkoHW24.12\Task1adress\obj\Debug\Task1adress.exe
+C:\Documents\GitHub\Pavluchenko\PavluchenkoHW24.12\Task1adress\obj\Debug\Task1adress.pdb

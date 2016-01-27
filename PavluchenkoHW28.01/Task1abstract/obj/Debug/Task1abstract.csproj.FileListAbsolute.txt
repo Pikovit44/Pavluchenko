@@ -1,0 +1,9 @@
+C:\Users\Konstantin\Documents\тренируемся\PavluchenkoHW28.01\Task1abstract\bin\Debug\Task1abstract.exe.config
+C:\Users\Konstantin\Documents\тренируемся\PavluchenkoHW28.01\Task1abstract\bin\Debug\Task1abstract.exe
+C:\Users\Konstantin\Documents\тренируемся\PavluchenkoHW28.01\Task1abstract\bin\Debug\Task1abstract.pdb
+C:\Users\Konstantin\Documents\тренируемся\PavluchenkoHW28.01\Task1abstract\obj\Debug\Task1abstract.csprojResolveAssemblyReference.cache
+C:\Users\Konstantin\Documents\тренируемся\PavluchenkoHW28.01\Task1abstract\obj\Debug\Task1abstract.exe
+C:\Users\Konstantin\Documents\тренируемся\PavluchenkoHW28.01\Task1abstract\obj\Debug\Task1abstract.pdb
+C:\Users\Konstantin\Documents\GitHub\Pavluchenko\PavluchenkoHW28.01\Task1abstract\bin\Debug\Task1abstract.exe.config
+C:\Users\Konstantin\Documents\GitHub\Pavluchenko\PavluchenkoHW28.01\Task1abstract\obj\Debug\Task1abstract.exe
+C:\Users\Konstantin\Documents\GitHub\Pavluchenko\PavluchenkoHW28.01\Task1abstract\obj\Debug\Task1abstract.pdb

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PavluchenkoHW28._01
+namespace Task1abstract
 {
     class XMLHandler : AbstractHandler
     {

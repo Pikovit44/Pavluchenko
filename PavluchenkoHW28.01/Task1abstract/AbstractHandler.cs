@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PavluchenkoHW28._01
+namespace Task1abstract
 {
     public abstract class AbstractHandler
     {
         public abstract void Open();
         public abstract void Create();
         public abstract void Change();
-        public abstract void Save(); 
+        public abstract void Save();
     }
 }

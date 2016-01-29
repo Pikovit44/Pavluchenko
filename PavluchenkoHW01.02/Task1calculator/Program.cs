@@ -10,11 +10,11 @@ namespace Task1calculator
     {
         static void Main(string[] args)
         {
-            //Вариант калькулятора для вычисления чисел введенных через консоль:
-            //Calculator.Start();
 
-            //Вариант калькулятора с параметрами:
-            Calculator.Start(4, 6);
+            Calculator.Addition(5, 10);
+            Calculator.Subtraction(0, 10);
+            Calculator.Multiplication(5, 20);
+            Calculator.Division(20, 0);
 
         }
     }

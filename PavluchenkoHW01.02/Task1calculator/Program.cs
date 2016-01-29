@@ -10,33 +10,12 @@ namespace Task1calculator
     {
         static void Main(string[] args)
         {
-            int firstNum = Helper.EnterInt("Number 1");
-            Console.WriteLine("Select a mathematical operation: \n1)+\n2)-\n3)*\n4)\\");
-            int operation = Helper.EnterMenu("menu");
-            int secondNum = Helper.EnterInt("Number 2");
+            //Вариант калькулятора для вычисления чисел введенных через консоль:
+            //Calculator.Start();
 
-            switch (operation)
-            {
-                case 1:
-                    Calculator.Addition(firstNum, secondNum);
-                    break;
-                case 2:
-                    Calculator.Subtraction(firstNum, secondNum);
-                    break;
-                case 3:
-                    Calculator.Multiplication(firstNum, secondNum);
-                    break;
-                case 4:
-                    Calculator.Division(firstNum, secondNum);
-                    break;
-                default:
-                    break;
-            }
+            //Вариант калькулятора с параметрами:
+            Calculator.Start(4, 6);
 
-            
-            
-            
-            
         }
     }
 }

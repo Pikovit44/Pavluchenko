@@ -11,11 +11,9 @@ namespace Task1calculator
 
 
         public static void Addition (int first, int second)
-        {
-            
+        {   
             Console.WriteLine("\nAnswer: ");
             Console.WriteLine ( first + second);
-           
         }
 
         public static void Subtraction(int first, int second)

@@ -5,7 +5,9 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1calculator", "Task1calculator\Task1calculator.csproj", "{0A8266A9-4126-4825-A4F7-95E58ADE8550}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2extensionV1.0", "Task2extensionV1.0\Task2extensionV1.0.csproj", "{A6E07C9E-DA9D-4B8E-9AF1-3E60AB472B03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2,3extension", "Task2extensionV1.0\Task2,3extension.csproj", "{A6E07C9E-DA9D-4B8E-9AF1-3E60AB472B03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4extension", "Task4extension\Task4extension.csproj", "{0925A14B-A277-4D7B-9670-692125960508}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A6E07C9E-DA9D-4B8E-9AF1-3E60AB472B03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6E07C9E-DA9D-4B8E-9AF1-3E60AB472B03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6E07C9E-DA9D-4B8E-9AF1-3E60AB472B03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0925A14B-A277-4D7B-9670-692125960508}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0925A14B-A277-4D7B-9670-692125960508}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0925A14B-A277-4D7B-9670-692125960508}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0925A14B-A277-4D7B-9670-692125960508}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

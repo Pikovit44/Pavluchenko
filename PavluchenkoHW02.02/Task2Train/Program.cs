@@ -18,6 +18,7 @@ namespace Task2Train
             {
                 Console.WriteLine("{0}, {1}, {2}", numberOfTrain, destination, timeOfDeparture);
             }
+
             int IComparable.CompareTo(object input)
             {
                 Train tmp = (Train)input;
@@ -45,7 +46,7 @@ namespace Task2Train
                 tablo[i].numberOfTrain = Helper.EnterInt("number of train");
                 tablo[i].destination = Helper.EnterStr("destination");
                 Console.WriteLine("Enter time of depaкture." );
-                hour = Helper.EnterInt("Enter hours:");
+                hour = Helper.EnterInt("Enter hours");
                 minute = Helper.EnterInt("Enter minutes");
                 tablo[i].timeOfDeparture = new DateTime(2016, 2, 2, hour, minute, 0);
             }

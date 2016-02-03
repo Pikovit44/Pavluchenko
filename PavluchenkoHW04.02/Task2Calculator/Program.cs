@@ -18,7 +18,7 @@ namespace Task2Calculator
             {
                 if (y == 0)
                 {
-                    Console.WriteLine("You can not divide by zero");
+                    Console.WriteLine("You can't divide by zero");
                     return (double)x / y;
                 }
                 else return (double)x / y;
@@ -30,28 +30,27 @@ namespace Task2Calculator
             int operation = Helper.GetMenu(menuItems);
 
             int second = Helper.GetInt("Second number", int.MinValue, int.MaxValue);
-            double result = 0; 
+           
             switch (operation)
             {
                 case 1:
-                    result = Add(first, second);
+                    Console.WriteLine(Add(first, second));
                     break;
                 case 2:
-                    result = Sub(first, second);
+                    Console.WriteLine(Sub(first, second));
                     break;
                 case 3:
-                    result = Sub(first, second);
+                    Console.WriteLine(Mul(first, second));
                     break;
                 case 4:
-                    result = Div(first, second);
+                    Console.WriteLine(Div(first, second));
                     break;
 
                 default:
                     break;
             }
 
-            Console.WriteLine(result);
-
+           
             Console.WriteLine(Div(2,0));
             
 

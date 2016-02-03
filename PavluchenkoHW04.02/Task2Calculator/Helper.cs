@@ -39,11 +39,7 @@ namespace Task2Calculator
 
                 finally
                 {
-                    if (result == 0)
-                    {
-                        result = 1;
-                    }
-
+                   
                 }
 
             } while (!correct);
@@ -108,15 +104,11 @@ namespace Task2Calculator
                     Console.WriteLine("incorrect value, try again");
                     correct = false;
                 }
-
                 finally
                 {
-                    if (result == 0)
-                    {
-                        result = 1;
-                    }
 
                 }
+
 
             } while (!correct);
 

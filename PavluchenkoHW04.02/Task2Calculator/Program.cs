@@ -50,10 +50,6 @@ namespace Task2Calculator
                     break;
             }
 
-           
-            Console.WriteLine(Div(2,0));
-            
-
         }
     }
 }

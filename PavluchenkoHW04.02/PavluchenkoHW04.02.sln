@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1Average", "Task1Averag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2Calculator", "Task2Calculator\Task2Calculator.csproj", "{DF154D05-46E1-47C3-B5D5-74CB1816E588}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task3DelArray", "Task3DelArray\Task3DelArray.csproj", "{83A582C0-E043-4FF3-8BD0-4D681DDE7FA8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DF154D05-46E1-47C3-B5D5-74CB1816E588}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF154D05-46E1-47C3-B5D5-74CB1816E588}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF154D05-46E1-47C3-B5D5-74CB1816E588}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83A582C0-E043-4FF3-8BD0-4D681DDE7FA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83A582C0-E043-4FF3-8BD0-4D681DDE7FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83A582C0-E043-4FF3-8BD0-4D681DDE7FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83A582C0-E043-4FF3-8BD0-4D681DDE7FA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

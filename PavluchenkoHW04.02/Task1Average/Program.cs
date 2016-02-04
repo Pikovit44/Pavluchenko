@@ -12,8 +12,7 @@ namespace Task1Average
         static void Main(string[] args)
         {
             MyDelegate MyDelegate = (x, y, z) => (float)(x + y + z) / 3;
-            float result = MyDelegate(2,10,4);
-            Console.WriteLine(result);
+            Console.WriteLine(MyDelegate(2, 10, 4));
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Task3DelArray
 
             RandDel[] delArr = { Del1, Del2, Del3 };
 
-            AverageDel result = arr => 
+            AverageDel delRresult = arr => 
             {
                 float res = 0; 
                 for (int i = 0; i < arr.Length; i++)
@@ -32,7 +32,7 @@ namespace Task3DelArray
                 return res/3;
             };
 
-            Console.WriteLine(result(delArr));
+            Console.WriteLine(delRresult(delArr));
 
         }
     }

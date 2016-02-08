@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4Extension", "Task4Exte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task5AutoPark", "Task5AutoPark\Task5AutoPark.csproj", "{D5299098-D65F-496C-8FB7-186C1FF4B677}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task7MyArrayList", "Task7MyArrayList\Task7MyArrayList.csproj", "{752C42CE-A6C7-4ACE-A230-F38AF3DCEB27}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D5299098-D65F-496C-8FB7-186C1FF4B677}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5299098-D65F-496C-8FB7-186C1FF4B677}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5299098-D65F-496C-8FB7-186C1FF4B677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{752C42CE-A6C7-4ACE-A230-F38AF3DCEB27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{752C42CE-A6C7-4ACE-A230-F38AF3DCEB27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{752C42CE-A6C7-4ACE-A230-F38AF3DCEB27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{752C42CE-A6C7-4ACE-A230-F38AF3DCEB27}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

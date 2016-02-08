@@ -12,7 +12,7 @@ namespace Task1Facroty
         static void Main(string[] args)
         {
             MyClass<int> w = new MyClass<int>();
-            w.FacrotyMethod();            
+            Console.WriteLine(w.FacrotyMethod().GetType());            
         }
     }
 }

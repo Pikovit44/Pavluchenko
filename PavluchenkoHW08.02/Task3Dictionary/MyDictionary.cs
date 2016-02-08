@@ -16,7 +16,7 @@ namespace Task3Dictionary
 
 
         int count = 0;
-        List<TKey> KeysList = null;
+        List<TKey> KeyList = null;
         List<TValue> ValueList = null;
 
         public int Count
@@ -29,9 +29,9 @@ namespace Task3Dictionary
             get
             {
                 int index = 0;
-                for (int i = 0; i < KeysList.Count; i++)
+                for (int i = 0; i < KeyList.Count; i++)
                 {
-                    if (key.Equals(KeysList[i]))
+                    if (key.Equals(KeyList[i]))
                     {
                         index = i;
                     }
@@ -44,7 +44,7 @@ namespace Task3Dictionary
         public void Add (TKey key, TValue value)
         {
             count++;
-            KeysList.Add(key);
+            KeyList.Add(key);
             ValueList.Add(value);
         }
          

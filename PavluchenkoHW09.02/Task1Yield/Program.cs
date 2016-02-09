@@ -14,10 +14,13 @@ namespace Task1Yield
             int[] arrey = { 1, 2, 7, 8, 9, 23 };
             EvenList first = new EvenList();
             MyList<int> evenList =  first.GetEvenList(arrey);
-            for (int i = 0; i < evenList.Count; i++)
+
+            foreach (int  item in evenList)
             {
-                Console.WriteLine(evenList[i]);
+                Console.WriteLine(item);
             }
+
+            
         }
     }
 

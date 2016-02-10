@@ -8,37 +8,26 @@ using System.Threading.Tasks;
 
 namespace Task1Yield
 {
-    class EvenList: IEnumerable
+    class EvenList
     {
-        int[] numbers;
-        public EvenList()
-        {
-            int [] newArr = new int[0];
-            numbers = newArr;
-
-        }
-           
-        public MyList<int> GetEvenList(int[] arr)
-        {
-            numbers = arr;
-            MyList<int> evenNumb = new MyList<int>();
-            foreach (int item in numbers)
-            {
-                evenNumb.Add(item);
-            }
-            return evenNumb;
-        }
-
+        
         public IEnumerator GetEnumerator()
         {
-            for (int i = 0; i < numbers.Length; i++)
+            return (IEnumerator)this ;
+        }
+            
+        public IEnumerable<int> GetEvenClass (int [] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
             {
-                if (numbers[i]%2 == 0)
+                if (arr[i]%2 == 0) 
                 {
-                    yield return numbers[i];
+                    yield return arr[i];
                 }
-                
             }
         }
+
+       
     }
 }
+

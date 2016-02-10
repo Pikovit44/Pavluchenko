@@ -11,17 +11,25 @@ namespace Task1Yield
     {
         static void Main(string[] args)
         {
-            int[] arrey = { 1, 2, 7, 8, 9, 23 };
-            EvenList first = new EvenList();
-            MyList<int> evenList =  first.GetEvenList(arrey);
-
-            foreach (int  item in evenList)
+            int[] arr = new int [25];
+            for (int i = 0; i < arr.Length; i++)
             {
-                Console.WriteLine(item);
+                arr[i] = i;
             }
 
-            
+            EvenList test = new EvenList();
+
+                
+
+            foreach (int item in test.GetEvenClass(arr))
+            {
+                Console.WriteLine( item );
+            }
+
+         
+
         }
+
     }
 
    

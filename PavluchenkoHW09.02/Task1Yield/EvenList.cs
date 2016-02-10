@@ -25,9 +25,12 @@ namespace Task1Yield
                     yield return arr[i];
                 }
             }
-        }
 
-       
+            
+
     }
+
+
+}
 }
 

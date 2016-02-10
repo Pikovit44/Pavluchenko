@@ -37,10 +37,10 @@ namespace TestEInterface
 
         public IEnumerator GetEnumerator()
         {
-            return array.GetEnumerator(); 
+            return array.GetEnumerator();
         }
 
 
-            
+
     }
 }

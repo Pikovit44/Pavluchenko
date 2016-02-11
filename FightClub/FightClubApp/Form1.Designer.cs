@@ -28,190 +28,192 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.PlayerName = new System.Windows.Forms.Label();
+            this.groupAttack = new System.Windows.Forms.GroupBox();
+            this.attLegs = new System.Windows.Forms.RadioButton();
+            this.attTors = new System.Windows.Forms.RadioButton();
+            this.attHead = new System.Windows.Forms.RadioButton();
+            this.groupProtect = new System.Windows.Forms.GroupBox();
+            this.protLegs = new System.Windows.Forms.RadioButton();
+            this.protTors = new System.Windows.Forms.RadioButton();
+            this.protHead = new System.Windows.Forms.RadioButton();
+            this.progrPlayer = new System.Windows.Forms.ProgressBar();
+            this.progrPC = new System.Windows.Forms.ProgressBar();
+            this.PCName = new System.Windows.Forms.Label();
+            this.Log = new System.Windows.Forms.TextBox();
+            this.buttFight = new System.Windows.Forms.Button();
+            this.buttEndFight = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.groupAttack.SuspendLayout();
+            this.groupProtect.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // PlayerName
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(278, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Ваше здоровье";
+            this.PlayerName.AutoSize = true;
+            this.PlayerName.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PlayerName.Location = new System.Drawing.Point(301, 42);
+            this.PlayerName.Name = "PlayerName";
+            this.PlayerName.Size = new System.Drawing.Size(95, 20);
+            this.PlayerName.TabIndex = 1;
+            this.PlayerName.Text = "Имя игрока";
+            this.PlayerName.Click += new System.EventHandler(this.label1_Click);
             // 
-            // groupBox1
+            // groupAttack
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Silver;
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox1.Location = new System.Drawing.Point(30, 65);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(126, 153);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Атака";
+            this.groupAttack.BackColor = System.Drawing.Color.Silver;
+            this.groupAttack.Controls.Add(this.attLegs);
+            this.groupAttack.Controls.Add(this.attTors);
+            this.groupAttack.Controls.Add(this.attHead);
+            this.groupAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupAttack.Location = new System.Drawing.Point(30, 65);
+            this.groupAttack.Name = "groupAttack";
+            this.groupAttack.Size = new System.Drawing.Size(126, 153);
+            this.groupAttack.TabIndex = 2;
+            this.groupAttack.TabStop = false;
+            this.groupAttack.Text = "Атака";
             // 
-            // radioButton1
+            // attLegs
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton1.Location = new System.Drawing.Point(21, 34);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(82, 24);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Голова";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.attLegs.AutoSize = true;
+            this.attLegs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.attLegs.Location = new System.Drawing.Point(21, 114);
+            this.attLegs.Name = "attLegs";
+            this.attLegs.Size = new System.Drawing.Size(64, 24);
+            this.attLegs.TabIndex = 6;
+            this.attLegs.TabStop = true;
+            this.attLegs.Text = "Ноги";
+            this.attLegs.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // attTors
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton2.Location = new System.Drawing.Point(21, 75);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(79, 24);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Корпус";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.attTors.AutoSize = true;
+            this.attTors.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.attTors.Location = new System.Drawing.Point(21, 75);
+            this.attTors.Name = "attTors";
+            this.attTors.Size = new System.Drawing.Size(79, 24);
+            this.attTors.TabIndex = 5;
+            this.attTors.TabStop = true;
+            this.attTors.Text = "Корпус";
+            this.attTors.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // attHead
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton3.Location = new System.Drawing.Point(21, 114);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(64, 24);
-            this.radioButton3.TabIndex = 6;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Ноги";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.attHead.AutoSize = true;
+            this.attHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.attHead.Location = new System.Drawing.Point(21, 34);
+            this.attHead.Name = "attHead";
+            this.attHead.Size = new System.Drawing.Size(82, 24);
+            this.attHead.TabIndex = 4;
+            this.attHead.TabStop = true;
+            this.attHead.Text = "Голова";
+            this.attHead.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
+            // groupProtect
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.Silver;
-            this.groupBox3.Controls.Add(this.radioButton4);
-            this.groupBox3.Controls.Add(this.radioButton5);
-            this.groupBox3.Controls.Add(this.radioButton6);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox3.Location = new System.Drawing.Point(30, 239);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(126, 153);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Защита";
+            this.groupProtect.BackColor = System.Drawing.Color.Silver;
+            this.groupProtect.Controls.Add(this.protLegs);
+            this.groupProtect.Controls.Add(this.protTors);
+            this.groupProtect.Controls.Add(this.protHead);
+            this.groupProtect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupProtect.Location = new System.Drawing.Point(30, 239);
+            this.groupProtect.Name = "groupProtect";
+            this.groupProtect.Size = new System.Drawing.Size(126, 153);
+            this.groupProtect.TabIndex = 7;
+            this.groupProtect.TabStop = false;
+            this.groupProtect.Text = "Защита";
             // 
-            // radioButton4
+            // protLegs
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton4.Location = new System.Drawing.Point(21, 114);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(64, 24);
-            this.radioButton4.TabIndex = 6;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Ноги";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.protLegs.AutoSize = true;
+            this.protLegs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.protLegs.Location = new System.Drawing.Point(21, 114);
+            this.protLegs.Name = "protLegs";
+            this.protLegs.Size = new System.Drawing.Size(64, 24);
+            this.protLegs.TabIndex = 6;
+            this.protLegs.TabStop = true;
+            this.protLegs.Text = "Ноги";
+            this.protLegs.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // protTors
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton5.Location = new System.Drawing.Point(21, 75);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(79, 24);
-            this.radioButton5.TabIndex = 5;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Корпус";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.protTors.AutoSize = true;
+            this.protTors.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.protTors.Location = new System.Drawing.Point(21, 75);
+            this.protTors.Name = "protTors";
+            this.protTors.Size = new System.Drawing.Size(79, 24);
+            this.protTors.TabIndex = 5;
+            this.protTors.TabStop = true;
+            this.protTors.Text = "Корпус";
+            this.protTors.UseVisualStyleBackColor = true;
             // 
-            // radioButton6
+            // protHead
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton6.Location = new System.Drawing.Point(21, 34);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(82, 24);
-            this.radioButton6.TabIndex = 4;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Голова";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.protHead.AutoSize = true;
+            this.protHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.protHead.Location = new System.Drawing.Point(21, 34);
+            this.protHead.Name = "protHead";
+            this.protHead.Size = new System.Drawing.Size(82, 24);
+            this.protHead.TabIndex = 4;
+            this.protHead.TabStop = true;
+            this.protHead.Text = "Голова";
+            this.protHead.UseVisualStyleBackColor = true;
             // 
-            // progressBar1
+            // progrPlayer
             // 
-            this.progressBar1.Location = new System.Drawing.Point(211, 65);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(274, 40);
-            this.progressBar1.TabIndex = 8;
+            this.progrPlayer.Location = new System.Drawing.Point(211, 65);
+            this.progrPlayer.Name = "progrPlayer";
+            this.progrPlayer.Size = new System.Drawing.Size(274, 40);
+            this.progrPlayer.TabIndex = 8;
             // 
-            // progressBar2
+            // progrPC
             // 
-            this.progressBar2.Location = new System.Drawing.Point(211, 163);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(274, 40);
-            this.progressBar2.TabIndex = 10;
+            this.progrPC.Location = new System.Drawing.Point(211, 163);
+            this.progrPC.Name = "progrPC";
+            this.progrPC.Size = new System.Drawing.Size(274, 40);
+            this.progrPC.TabIndex = 10;
             // 
-            // label2
+            // PCName
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(278, 140);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 20);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Здоровье врага";
+            this.PCName.AutoSize = true;
+            this.PCName.BackColor = System.Drawing.Color.Transparent;
+            this.PCName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PCName.Location = new System.Drawing.Point(304, 140);
+            this.PCName.Name = "PCName";
+            this.PCName.Size = new System.Drawing.Size(87, 20);
+            this.PCName.TabIndex = 9;
+            this.PCName.Text = "Имя врага";
             // 
-            // textBox1
+            // Log
             // 
-            this.textBox1.Location = new System.Drawing.Point(211, 255);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(274, 93);
-            this.textBox1.TabIndex = 11;
+            this.Log.Location = new System.Drawing.Point(211, 255);
+            this.Log.Multiline = true;
+            this.Log.Name = "Log";
+            this.Log.Size = new System.Drawing.Size(274, 93);
+            this.Log.TabIndex = 11;
             // 
-            // button1
+            // buttFight
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(282, 365);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 36);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Бой";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttFight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttFight.Location = new System.Drawing.Point(282, 365);
+            this.buttFight.Name = "buttFight";
+            this.buttFight.Size = new System.Drawing.Size(114, 36);
+            this.buttFight.TabIndex = 12;
+            this.buttFight.Text = "Бой";
+            this.buttFight.UseVisualStyleBackColor = true;
+            this.buttFight.Click += new System.EventHandler(this.buttFight_Click);
             // 
-            // button2
+            // buttEndFight
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(616, 353);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 48);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Закончить схватку";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttEndFight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttEndFight.Location = new System.Drawing.Point(616, 353);
+            this.buttEndFight.Name = "buttEndFight";
+            this.buttEndFight.Size = new System.Drawing.Size(114, 48);
+            this.buttEndFight.TabIndex = 13;
+            this.buttEndFight.Text = "Закончить схватку";
+            this.buttEndFight.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -245,44 +247,44 @@
             this.ClientSize = new System.Drawing.Size(742, 410);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.progressBar2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttEndFight);
+            this.Controls.Add(this.buttFight);
+            this.Controls.Add(this.Log);
+            this.Controls.Add(this.progrPC);
+            this.Controls.Add(this.PCName);
+            this.Controls.Add(this.progrPlayer);
+            this.Controls.Add(this.groupProtect);
+            this.Controls.Add(this.groupAttack);
+            this.Controls.Add(this.PlayerName);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Fight club";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.groupAttack.ResumeLayout(false);
+            this.groupAttack.PerformLayout();
+            this.groupProtect.ResumeLayout(false);
+            this.groupProtect.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.ProgressBar progressBar2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label PlayerName;
+        private System.Windows.Forms.GroupBox groupAttack;
+        private System.Windows.Forms.RadioButton attLegs;
+        private System.Windows.Forms.RadioButton attTors;
+        private System.Windows.Forms.RadioButton attHead;
+        private System.Windows.Forms.GroupBox groupProtect;
+        private System.Windows.Forms.RadioButton protLegs;
+        private System.Windows.Forms.RadioButton protTors;
+        private System.Windows.Forms.RadioButton protHead;
+        private System.Windows.Forms.ProgressBar progrPlayer;
+        private System.Windows.Forms.ProgressBar progrPC;
+        private System.Windows.Forms.Label PCName;
+        private System.Windows.Forms.TextBox Log;
+        private System.Windows.Forms.Button buttFight;
+        private System.Windows.Forms.Button buttEndFight;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
     }

@@ -38,13 +38,13 @@
             this.protTors = new System.Windows.Forms.RadioButton();
             this.protHead = new System.Windows.Forms.RadioButton();
             this.progrPlayer = new System.Windows.Forms.ProgressBar();
-            this.progrPC = new System.Windows.Forms.ProgressBar();
+            this.progrBot = new System.Windows.Forms.ProgressBar();
             this.PCName = new System.Windows.Forms.Label();
             this.Log = new System.Windows.Forms.TextBox();
             this.buttFight = new System.Windows.Forms.Button();
             this.buttEndFight = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbRound = new System.Windows.Forms.Label();
             this.groupAttack.SuspendLayout();
             this.groupProtect.SuspendLayout();
             this.SuspendLayout();
@@ -168,12 +168,12 @@
             this.progrPlayer.Size = new System.Drawing.Size(274, 40);
             this.progrPlayer.TabIndex = 8;
             // 
-            // progrPC
+            // progrBot
             // 
-            this.progrPC.Location = new System.Drawing.Point(211, 163);
-            this.progrPC.Name = "progrPC";
-            this.progrPC.Size = new System.Drawing.Size(274, 40);
-            this.progrPC.TabIndex = 10;
+            this.progrBot.Location = new System.Drawing.Point(211, 163);
+            this.progrBot.Name = "progrBot";
+            this.progrBot.Size = new System.Drawing.Size(274, 40);
+            this.progrBot.TabIndex = 10;
             // 
             // PCName
             // 
@@ -226,16 +226,16 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Ход боя";
             // 
-            // label4
+            // lbRound
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(45, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 31);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Раунд 1";
+            this.lbRound.AutoSize = true;
+            this.lbRound.BackColor = System.Drawing.Color.Transparent;
+            this.lbRound.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbRound.Location = new System.Drawing.Point(45, 20);
+            this.lbRound.Name = "lbRound";
+            this.lbRound.Size = new System.Drawing.Size(95, 31);
+            this.lbRound.TabIndex = 15;
+            this.lbRound.Text = "Раунд 1";
             // 
             // Form1
             // 
@@ -245,12 +245,12 @@
             this.BackgroundImage = global::FightClubApp.Properties.Resources.tumblr_inline_nlma5dDlRQ1s811jo_1280;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(742, 410);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbRound);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttEndFight);
             this.Controls.Add(this.buttFight);
             this.Controls.Add(this.Log);
-            this.Controls.Add(this.progrPC);
+            this.Controls.Add(this.progrBot);
             this.Controls.Add(this.PCName);
             this.Controls.Add(this.progrPlayer);
             this.Controls.Add(this.groupProtect);
@@ -280,13 +280,13 @@
         private System.Windows.Forms.RadioButton protTors;
         private System.Windows.Forms.RadioButton protHead;
         private System.Windows.Forms.ProgressBar progrPlayer;
-        private System.Windows.Forms.ProgressBar progrPC;
+        private System.Windows.Forms.ProgressBar progrBot;
         private System.Windows.Forms.Label PCName;
         private System.Windows.Forms.TextBox Log;
         private System.Windows.Forms.Button buttFight;
         private System.Windows.Forms.Button buttEndFight;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbRound;
     }
 }
 

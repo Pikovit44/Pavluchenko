@@ -33,9 +33,10 @@ namespace FightClubApp
 
         private void buttFight_Click(object sender, EventArgs e)
         {
-            
+            Bot.Name = "Bot";
             Log.Text = "";
-            Log.Text += "Раунд" + round; 
+            Log.Text += "Раунд" + round + Environment.NewLine;
+            lbRound.Text = "Раунд " + round;
 
             //Проверяем атаку игрока, сделать события?
             if (attHead.Checked)
@@ -46,7 +47,7 @@ namespace FightClubApp
             else if (attTors.Checked)
             {
                 Player.GetHit(PartOfBody.torso);
-                Log.Text += Player.Name + " пытается нанести удар в торс";
+                Log.Text += Player.Name + " пытается нанести удар в корпус";
             }
             else
             {
@@ -73,7 +74,7 @@ namespace FightClubApp
             }
 
             //Результат атаки игрока
-            Log.Text =  Fighter.BattleResult(ref Player, ref Bot);
+            Log.Text +=  Fighter.BattleResult(ref Player, ref Bot);
 
             //Проверяем защиту
             if (protHead.Checked)
@@ -95,13 +96,16 @@ namespace FightClubApp
             {
                 case 1:
                     Bot.GetHit(PartOfBody.head);
+                    Log.Text += Bot.Name + " пытается нанести удар в голову";
                     break;
 
                 case 2:
                     Bot.GetHit(PartOfBody.torso);
+                    Log.Text += Bot.Name + " пытается нанести удар в корпус";
                     break;
                 case 3:
                     Bot.GetHit(PartOfBody.legs);
+                    Log.Text += Bot.Name + " пытается нанести удар в ноги";
                     break;
 
                 default:
@@ -109,7 +113,10 @@ namespace FightClubApp
             }
 
             //Результат атаки бота
-            Log.Text = Fighter.BattleResult(ref Bot, ref Player);
+            Log.Text += Environment.NewLine + Fighter.BattleResult(ref Bot, ref Player);
+
+            progrPlayer.Value = Player.HP;
+            progrBot.Value = Bot.HP;
 
             if (Player.HP <= 0 || Bot.HP <= 0)
             {
@@ -117,16 +124,16 @@ namespace FightClubApp
                 {
                     MessageBox.Show(Player.Name + " победил!" );
                 }
-                
+                else
+                {
+                    MessageBox.Show(Bot.Name + " победил!");
+                }
             }
-            progrPlayer.Increment(Player.HP);
-            progrPC.Increment(Bot.HP);
+
+            round++;
+            
             
         }
-
-
-
-
 
 
         private void label1_Click(object sender, EventArgs e)

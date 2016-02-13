@@ -75,7 +75,7 @@ namespace FightClubApp
                     text += "голову";
                     break;
                 case PartOfBody.torso:
-                    text += "торс";
+                    text += "корпус";
                     break;
                 case PartOfBody.legs:
                     text += "ноги";

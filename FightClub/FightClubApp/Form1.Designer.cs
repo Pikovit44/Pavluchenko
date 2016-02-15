@@ -1,6 +1,6 @@
 ﻿namespace FightClubApp
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -165,14 +165,14 @@
             // 
             this.progrPlayer.Location = new System.Drawing.Point(211, 65);
             this.progrPlayer.Name = "progrPlayer";
-            this.progrPlayer.Size = new System.Drawing.Size(274, 40);
+            this.progrPlayer.Size = new System.Drawing.Size(274, 23);
             this.progrPlayer.TabIndex = 8;
             // 
             // progrBot
             // 
-            this.progrBot.Location = new System.Drawing.Point(211, 163);
+            this.progrBot.Location = new System.Drawing.Point(211, 122);
             this.progrBot.Name = "progrBot";
-            this.progrBot.Size = new System.Drawing.Size(274, 40);
+            this.progrBot.Size = new System.Drawing.Size(274, 24);
             this.progrBot.TabIndex = 10;
             // 
             // PCName
@@ -180,7 +180,7 @@
             this.PCName.AutoSize = true;
             this.PCName.BackColor = System.Drawing.Color.Transparent;
             this.PCName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.PCName.Location = new System.Drawing.Point(304, 140);
+            this.PCName.Location = new System.Drawing.Point(304, 99);
             this.PCName.Name = "PCName";
             this.PCName.Size = new System.Drawing.Size(87, 20);
             this.PCName.TabIndex = 9;
@@ -188,10 +188,11 @@
             // 
             // Log
             // 
-            this.Log.Location = new System.Drawing.Point(211, 255);
+            this.Log.Location = new System.Drawing.Point(211, 181);
             this.Log.Multiline = true;
             this.Log.Name = "Log";
-            this.Log.Size = new System.Drawing.Size(274, 93);
+            this.Log.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.Log.Size = new System.Drawing.Size(274, 167);
             this.Log.TabIndex = 11;
             // 
             // buttFight
@@ -220,7 +221,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(304, 230);
+            this.label3.Location = new System.Drawing.Point(304, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 14;
@@ -237,7 +238,7 @@
             this.lbRound.TabIndex = 15;
             this.lbRound.Text = "Раунд 1";
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -256,7 +257,7 @@
             this.Controls.Add(this.groupProtect);
             this.Controls.Add(this.groupAttack);
             this.Controls.Add(this.PlayerName);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fight club";
             this.Load += new System.EventHandler(this.Form1_Load);

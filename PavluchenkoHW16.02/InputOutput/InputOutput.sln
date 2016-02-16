@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1Folders", "Task1Folders\Task1Folders.csproj", "{BB25D694-B628-4F25-86C6-83E4E7569145}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2CreateFile", "CreateFile\Task2CreateFile.csproj", "{050395EE-1160-4860-83FA-33FA81389987}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateFile", "CreateFile\CreateFile.csproj", "{050395EE-1160-4860-83FA-33FA81389987}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

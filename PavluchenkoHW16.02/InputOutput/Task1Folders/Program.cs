@@ -11,7 +11,7 @@ namespace Task1Folders
     {
         static void Main(string[] args)
         {
-            string path =   
+            string path = @"C:\Users\Konstantin\Documents\GitHub\Pavluchenko\PavluchenkoHW16.02\InputOutput\Folders";
             string subPath = "Folder_";
             try
             {

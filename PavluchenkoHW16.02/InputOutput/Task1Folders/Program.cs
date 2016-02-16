@@ -11,7 +11,7 @@ namespace Task1Folders
     {
         static void Main(string[] args)
         {
-            string path = @"C:\Users\Konstantin\Documents\GitHub\Pavluchenko\PavluchenkoHW16.02\InputOutput\Folders";
+            string path =   
             string subPath = "Folder_";
             try
             {
@@ -19,7 +19,7 @@ namespace Task1Folders
 
                 if (!foldersInfo.Exists)
                 {
-                    foldersInfo.Create();
+                    foldersInfo.Create();   
                 }
 
                 

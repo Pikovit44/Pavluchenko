@@ -12,7 +12,6 @@ namespace CreateFile
             string fileName = "MyNewFile.txt";
             path = Path.Combine(path, fileName);
 
-
             try
             {
                 if (!File.Exists(path))

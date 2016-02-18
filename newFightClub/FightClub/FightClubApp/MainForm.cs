@@ -43,10 +43,10 @@ namespace FightClubApp
         {
             get { return round; }
         }
-        // Player Name 
+        
         public string PlayerName
         {
-            set { nameBoxLb.Text = value; }
+            set { namePlayerLb.Text = value; }
         }
 
         public int PlayerHp
@@ -57,7 +57,7 @@ namespace FightClubApp
 
         public string BotName
         {
-            set { botNameLb.Text = value; }
+            set { nameBotLb.Text = value; }
         }
 
         public int BotHp
@@ -80,14 +80,7 @@ namespace FightClubApp
             set { LogFld.Text += value + Environment.NewLine; }
         }
 
-        private void fldNameBox_TextChanged(object sender, EventArgs e)
-        {
-            if (nameBoxLb.Text != "")
-            {
-                fightButton.Enabled = true;
-            }
-            lbPlayerName.Text = nameBoxLb.Text;
-        }
+       
 
         private void butFight_Click(object sender, EventArgs e)
         {
@@ -100,9 +93,8 @@ namespace FightClubApp
 
             if (playerHpPrgrBar.Value != 0 && botHpPrgrBar.Value != 0)
             {
-                FightClick(this, EventArgs.Empty);
-                //presenter.onFightClick(this, EventArgs.Empty);
-                
+                //FightClick(this, EventArgs.Empty);
+                presenter.onFightClick(this, EventArgs.Empty);
             }
 
             attHeadRb.Checked = attTorsRb.Checked = attLegsRb.Checked = protHeadRb.Checked = protTorsRb.Checked = protLegsRb.Checked = false;
@@ -131,7 +123,10 @@ namespace FightClubApp
         {
 
         }
+        private void fldNameox_TextChanged(object sender, EventArgs e)
+        {
 
+        }
         private void view_FightClick(object sender, EventArgs e)
         {
 

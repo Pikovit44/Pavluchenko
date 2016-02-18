@@ -40,14 +40,13 @@
             this.protHeadRb = new System.Windows.Forms.RadioButton();
             this.playerHpPrgrBar = new System.Windows.Forms.ProgressBar();
             this.botHpPrgrBar = new System.Windows.Forms.ProgressBar();
-            this.botNameLb = new System.Windows.Forms.Label();
+            this.nameBotLb = new System.Windows.Forms.Label();
             this.LogFld = new System.Windows.Forms.TextBox();
             this.fightButton = new System.Windows.Forms.Button();
             this.endFightButt = new System.Windows.Forms.Button();
             this.logLb = new System.Windows.Forms.Label();
             this.lbRound = new System.Windows.Forms.Label();
-            this.nameBoxLb = new System.Windows.Forms.TextBox();
-            this.enterNameLb = new System.Windows.Forms.Label();
+            this.namePlayerLb = new System.Windows.Forms.Label();
             this.groupAttack.SuspendLayout();
             this.groupProtect.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +69,7 @@
             this.groupAttack.Controls.Add(this.attTorsRb);
             this.groupAttack.Controls.Add(this.attHeadRb);
             this.groupAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupAttack.Location = new System.Drawing.Point(30, 12);
+            this.groupAttack.Location = new System.Drawing.Point(30, 78);
             this.groupAttack.Name = "groupAttack";
             this.groupAttack.Size = new System.Drawing.Size(126, 153);
             this.groupAttack.TabIndex = 2;
@@ -120,7 +119,7 @@
             this.groupProtect.Controls.Add(this.protTorsRb);
             this.groupProtect.Controls.Add(this.protHeadRb);
             this.groupProtect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupProtect.Location = new System.Drawing.Point(30, 195);
+            this.groupProtect.Location = new System.Drawing.Point(30, 262);
             this.groupProtect.Name = "groupProtect";
             this.groupProtect.Size = new System.Drawing.Size(126, 153);
             this.groupProtect.TabIndex = 7;
@@ -179,20 +178,20 @@
             this.botHpPrgrBar.TabIndex = 10;
             this.botHpPrgrBar.Value = 100;
             // 
-            // botNameLb
+            // nameBotLb
             // 
-            this.botNameLb.AutoSize = true;
-            this.botNameLb.BackColor = System.Drawing.Color.Transparent;
-            this.botNameLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.botNameLb.Location = new System.Drawing.Point(323, 119);
-            this.botNameLb.Name = "botNameLb";
-            this.botNameLb.Size = new System.Drawing.Size(38, 20);
-            this.botNameLb.TabIndex = 9;
-            this.botNameLb.Text = "Бот";
+            this.nameBotLb.AutoSize = true;
+            this.nameBotLb.BackColor = System.Drawing.Color.Transparent;
+            this.nameBotLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameBotLb.Location = new System.Drawing.Point(323, 119);
+            this.nameBotLb.Name = "nameBotLb";
+            this.nameBotLb.Size = new System.Drawing.Size(38, 20);
+            this.nameBotLb.TabIndex = 9;
+            this.nameBotLb.Text = "Бот";
             // 
             // LogFld
             // 
-            this.LogFld.Location = new System.Drawing.Point(211, 195);
+            this.LogFld.Location = new System.Drawing.Point(211, 208);
             this.LogFld.Multiline = true;
             this.LogFld.Name = "LogFld";
             this.LogFld.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -201,7 +200,6 @@
             // 
             // fightButton
             // 
-            this.fightButton.Enabled = false;
             this.fightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fightButton.Location = new System.Drawing.Point(280, 379);
             this.fightButton.Name = "fightButton";
@@ -227,7 +225,7 @@
             this.logLb.AutoSize = true;
             this.logLb.BackColor = System.Drawing.Color.Transparent;
             this.logLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.logLb.Location = new System.Drawing.Point(310, 167);
+            this.logLb.Location = new System.Drawing.Point(305, 185);
             this.logLb.Name = "logLb";
             this.logLb.Size = new System.Drawing.Size(71, 20);
             this.logLb.TabIndex = 14;
@@ -238,30 +236,22 @@
             this.lbRound.AutoSize = true;
             this.lbRound.BackColor = System.Drawing.Color.Transparent;
             this.lbRound.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbRound.Location = new System.Drawing.Point(299, 24);
+            this.lbRound.Location = new System.Drawing.Point(45, 25);
             this.lbRound.Name = "lbRound";
             this.lbRound.Size = new System.Drawing.Size(95, 31);
             this.lbRound.TabIndex = 15;
             this.lbRound.Text = "Раунд 1";
             // 
-            // nameBoxLb
+            // namePlayerLb
             // 
-            this.nameBoxLb.Location = new System.Drawing.Point(33, 395);
-            this.nameBoxLb.Name = "nameBoxLb";
-            this.nameBoxLb.Size = new System.Drawing.Size(123, 20);
-            this.nameBoxLb.TabIndex = 16;
-            this.nameBoxLb.TextChanged += new System.EventHandler(this.fldNameBox_TextChanged);
-            // 
-            // enterNameLb
-            // 
-            this.enterNameLb.AutoSize = true;
-            this.enterNameLb.BackColor = System.Drawing.Color.Transparent;
-            this.enterNameLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.enterNameLb.Location = new System.Drawing.Point(12, 367);
-            this.enterNameLb.Name = "enterNameLb";
-            this.enterNameLb.Size = new System.Drawing.Size(157, 20);
-            this.enterNameLb.TabIndex = 17;
-            this.enterNameLb.Text = "Введите ваше имя:";
+            this.namePlayerLb.AutoSize = true;
+            this.namePlayerLb.BackColor = System.Drawing.Color.Transparent;
+            this.namePlayerLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.namePlayerLb.Location = new System.Drawing.Point(323, 55);
+            this.namePlayerLb.Name = "namePlayerLb";
+            this.namePlayerLb.Size = new System.Drawing.Size(53, 20);
+            this.namePlayerLb.TabIndex = 16;
+            this.namePlayerLb.Text = "Игрок";
             // 
             // MainForm
             // 
@@ -271,15 +261,14 @@
             this.BackgroundImage = global::FightClubApp.Properties.Resources.tumblr_inline_nlma5dDlRQ1s811jo_1280;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(742, 427);
-            this.Controls.Add(this.enterNameLb);
-            this.Controls.Add(this.nameBoxLb);
+            this.Controls.Add(this.namePlayerLb);
             this.Controls.Add(this.lbRound);
             this.Controls.Add(this.logLb);
             this.Controls.Add(this.endFightButt);
             this.Controls.Add(this.fightButton);
             this.Controls.Add(this.LogFld);
             this.Controls.Add(this.botHpPrgrBar);
-            this.Controls.Add(this.botNameLb);
+            this.Controls.Add(this.nameBotLb);
             this.Controls.Add(this.playerHpPrgrBar);
             this.Controls.Add(this.groupProtect);
             this.Controls.Add(this.groupAttack);
@@ -310,14 +299,13 @@
         private System.Windows.Forms.RadioButton protHeadRb;
         private System.Windows.Forms.ProgressBar playerHpPrgrBar;
         private System.Windows.Forms.ProgressBar botHpPrgrBar;
-        private System.Windows.Forms.Label botNameLb;
+        private System.Windows.Forms.Label nameBotLb;
         private System.Windows.Forms.TextBox LogFld;
         private System.Windows.Forms.Button fightButton;
         private System.Windows.Forms.Button endFightButt;
         private System.Windows.Forms.Label logLb;
         private System.Windows.Forms.Label lbRound;
-        private System.Windows.Forms.TextBox nameBoxLb;
-        private System.Windows.Forms.Label enterNameLb;
+        private System.Windows.Forms.Label namePlayerLb;
     }
 }
 

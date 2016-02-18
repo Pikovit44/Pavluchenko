@@ -14,7 +14,6 @@ namespace FightClubApp
         private readonly IMainForm view;
         private readonly ITextInfo textInfo;
         private readonly IGameController controller;
-        //private readonly IGameController
 
         public Presenter(IMainForm view)
         {

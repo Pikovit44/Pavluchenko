@@ -32,7 +32,7 @@ namespace FightClubApp
         public event EventHandler FightClick;
         PartOfBody hit;
         PartOfBody block;
-        int round = 1;
+        int round = 1; // константа
         
         public MainForm()
         {

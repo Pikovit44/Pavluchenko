@@ -70,7 +70,7 @@ namespace FightClubApp
 
         private void player_Death(object sender, MyEventArgs e)
         {
-            view.Log = e.Name + " побежден, с " + e.Hp + " hp " + "он больше не может сопротивляться.";
+            view.Log = e.Name + " побежден, с " + e.Hp + " hp он больше не может сопротивляться.";
         }
 
 

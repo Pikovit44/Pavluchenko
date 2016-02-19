@@ -65,7 +65,7 @@ namespace FightClubApp
 
         private void player_Block(object sender, MyEventArgs e)
         {
-            view.Log = e.Name + " успешно защищтил " + PatrtToString(e.Block) + ". Удар не прошел и e него по прежнему остается " + e.Hp + "hp.";
+            view.Log = e.Name + " успешно защитил " + PatrtToString(e.Block) + ". Удар не прошел и у него по прежнему остается " + e.Hp + " hp.";
         }
 
         private void player_Death(object sender, MyEventArgs e)

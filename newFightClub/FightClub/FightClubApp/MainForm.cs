@@ -13,6 +13,7 @@ namespace FightClubApp
 {
     public interface IMainForm
     {
+
         int Round { get; }
         string PlayerName { set; }
         int PlayerHp { set; }
@@ -31,7 +32,7 @@ namespace FightClubApp
         public event EventHandler FightClick;
         PartOfBody hit;
         PartOfBody block;
-        int round;
+        int round = 1;
         
         public MainForm()
         {
@@ -75,33 +76,29 @@ namespace FightClubApp
             get { return block; }
         }
 
-        public string Log
-        {
-            set { LogFld.Text += value + Environment.NewLine; }
-        }
-
-       
-
         private void butFight_Click(object sender, EventArgs e)
         {
-            if (attHeadRb.Checked) { hit = PartOfBody.head; }
-            if (attTorsRb.Checked) { hit = PartOfBody.tors; }
-            if (attLegsRb.Checked) { hit = PartOfBody.legs; }
-            if (protHeadRb.Checked) { block = PartOfBody.head; }
-            if (protTorsRb.Checked) { block = PartOfBody.tors; }
-            if (protLegsRb.Checked) { block = PartOfBody.legs; }
-
-            if (playerHpPrgrBar.Value != 0 && botHpPrgrBar.Value != 0)
-            {
-                //FightClick(this, EventArgs.Empty);
-                presenter.onFightClick(this, EventArgs.Empty);
-            }
-
-            attHeadRb.Checked = attTorsRb.Checked = attLegsRb.Checked = protHeadRb.Checked = protTorsRb.Checked = protLegsRb.Checked = false;
-
-            Log = lbRound.Text = "Раунд" + round;
-            round++;
+            roundLb.Text = Log = "Раунд " + round;
             
+            if (attHeadRb.Checked) { block = PartOfBody.head; }
+            if (attTorsRb.Checked) { block = PartOfBody.tors; }
+            if (attLegsRb.Checked) { block = PartOfBody.legs; }
+            if (protHeadRb.Checked) { hit = PartOfBody.head; }
+            if (protTorsRb.Checked) { hit = PartOfBody.tors; }
+            if (protLegsRb.Checked) { hit = PartOfBody.legs; }
+            if (attHeadRb.Checked == attTorsRb.Checked == attLegsRb.Checked && protHeadRb.Checked == protTorsRb.Checked == protLegsRb.Checked)
+            {
+                if (playerHpPrgrBar.Value != 0 && botHpPrgrBar.Value != 0)
+                {
+                    if (FightClick != null) { FightClick(this, EventArgs.Empty); }
+                }
+            }
+            round++;
+        }
+
+        public string Log
+        {
+            set { logFld.Text += value + Environment.NewLine; }
         }
 
         private void endFightButt_Click(object sender, EventArgs e)
@@ -119,17 +116,7 @@ namespace FightClubApp
         {
 
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-        private void fldNameox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void view_FightClick(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

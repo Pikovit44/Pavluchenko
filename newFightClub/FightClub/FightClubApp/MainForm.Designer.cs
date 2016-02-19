@@ -41,11 +41,11 @@
             this.playerHpPrgrBar = new System.Windows.Forms.ProgressBar();
             this.botHpPrgrBar = new System.Windows.Forms.ProgressBar();
             this.nameBotLb = new System.Windows.Forms.Label();
-            this.LogFld = new System.Windows.Forms.TextBox();
+            this.logFld = new System.Windows.Forms.TextBox();
             this.fightButton = new System.Windows.Forms.Button();
             this.endFightButt = new System.Windows.Forms.Button();
             this.logLb = new System.Windows.Forms.Label();
-            this.lbRound = new System.Windows.Forms.Label();
+            this.roundLb = new System.Windows.Forms.Label();
             this.namePlayerLb = new System.Windows.Forms.Label();
             this.groupAttack.SuspendLayout();
             this.groupProtect.SuspendLayout();
@@ -134,7 +134,6 @@
             this.protLegsRb.Name = "protLegsRb";
             this.protLegsRb.Size = new System.Drawing.Size(64, 24);
             this.protLegsRb.TabIndex = 6;
-            this.protLegsRb.TabStop = true;
             this.protLegsRb.Text = "Ноги";
             this.protLegsRb.UseVisualStyleBackColor = true;
             // 
@@ -146,7 +145,6 @@
             this.protTorsRb.Name = "protTorsRb";
             this.protTorsRb.Size = new System.Drawing.Size(79, 24);
             this.protTorsRb.TabIndex = 5;
-            this.protTorsRb.TabStop = true;
             this.protTorsRb.Text = "Корпус";
             this.protTorsRb.UseVisualStyleBackColor = true;
             // 
@@ -158,9 +156,9 @@
             this.protHeadRb.Name = "protHeadRb";
             this.protHeadRb.Size = new System.Drawing.Size(82, 24);
             this.protHeadRb.TabIndex = 4;
-            this.protHeadRb.TabStop = true;
             this.protHeadRb.Text = "Голова";
             this.protHeadRb.UseVisualStyleBackColor = true;
+            this.protHeadRb.Click += new System.EventHandler(this.butFight_Click);
             // 
             // playerHpPrgrBar
             // 
@@ -189,14 +187,14 @@
             this.nameBotLb.TabIndex = 9;
             this.nameBotLb.Text = "Бот";
             // 
-            // LogFld
+            // logFld
             // 
-            this.LogFld.Location = new System.Drawing.Point(211, 208);
-            this.LogFld.Multiline = true;
-            this.LogFld.Name = "LogFld";
-            this.LogFld.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LogFld.Size = new System.Drawing.Size(274, 153);
-            this.LogFld.TabIndex = 11;
+            this.logFld.Location = new System.Drawing.Point(211, 208);
+            this.logFld.Multiline = true;
+            this.logFld.Name = "logFld";
+            this.logFld.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.logFld.Size = new System.Drawing.Size(274, 153);
+            this.logFld.TabIndex = 11;
             // 
             // fightButton
             // 
@@ -207,7 +205,7 @@
             this.fightButton.TabIndex = 12;
             this.fightButton.Text = "Бой";
             this.fightButton.UseVisualStyleBackColor = true;
-            this.fightButton.Click += new System.EventHandler(this.view_FightClick);
+            this.fightButton.Click += new System.EventHandler(this.butFight_Click);
             // 
             // endFightButt
             // 
@@ -231,16 +229,16 @@
             this.logLb.TabIndex = 14;
             this.logLb.Text = "Ход боя";
             // 
-            // lbRound
+            // roundLb
             // 
-            this.lbRound.AutoSize = true;
-            this.lbRound.BackColor = System.Drawing.Color.Transparent;
-            this.lbRound.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbRound.Location = new System.Drawing.Point(45, 25);
-            this.lbRound.Name = "lbRound";
-            this.lbRound.Size = new System.Drawing.Size(95, 31);
-            this.lbRound.TabIndex = 15;
-            this.lbRound.Text = "Раунд 1";
+            this.roundLb.AutoSize = true;
+            this.roundLb.BackColor = System.Drawing.Color.Transparent;
+            this.roundLb.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.roundLb.Location = new System.Drawing.Point(45, 25);
+            this.roundLb.Name = "roundLb";
+            this.roundLb.Size = new System.Drawing.Size(95, 31);
+            this.roundLb.TabIndex = 15;
+            this.roundLb.Text = "Раунд 1";
             // 
             // namePlayerLb
             // 
@@ -262,11 +260,11 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(742, 427);
             this.Controls.Add(this.namePlayerLb);
-            this.Controls.Add(this.lbRound);
+            this.Controls.Add(this.roundLb);
             this.Controls.Add(this.logLb);
             this.Controls.Add(this.endFightButt);
             this.Controls.Add(this.fightButton);
-            this.Controls.Add(this.LogFld);
+            this.Controls.Add(this.logFld);
             this.Controls.Add(this.botHpPrgrBar);
             this.Controls.Add(this.nameBotLb);
             this.Controls.Add(this.playerHpPrgrBar);
@@ -300,11 +298,11 @@
         private System.Windows.Forms.ProgressBar playerHpPrgrBar;
         private System.Windows.Forms.ProgressBar botHpPrgrBar;
         private System.Windows.Forms.Label nameBotLb;
-        private System.Windows.Forms.TextBox LogFld;
+        private System.Windows.Forms.TextBox logFld;
         private System.Windows.Forms.Button fightButton;
         private System.Windows.Forms.Button endFightButt;
         private System.Windows.Forms.Label logLb;
-        private System.Windows.Forms.Label lbRound;
+        private System.Windows.Forms.Label roundLb;
         private System.Windows.Forms.Label namePlayerLb;
     }
 }

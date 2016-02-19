@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace FightClubApp
 {
-    public enum PartOfBody
-    { unknown, head, tors, legs }
+    
 
     public class MyEventArgs : EventArgs
     {

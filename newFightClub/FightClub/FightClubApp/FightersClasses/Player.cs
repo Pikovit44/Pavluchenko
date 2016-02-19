@@ -26,7 +26,7 @@ namespace FightClubApp.FightersClasses
     public class Player: IPlayer
     {
         protected string name = "Игрок";
-        protected int hp = 100;
+        protected int hp = 100; // константа
         protected PartOfBody block = PartOfBody.unknown;
         protected PartOfBody hit = PartOfBody.unknown;
 
@@ -37,8 +37,8 @@ namespace FightClubApp.FightersClasses
             {
                 if (hp > 0)
                 {
-                    hp -= 25;
-                    if (Wound != null) //?
+                    hp -= 20; // сделать константку
+                    if (Wound != null) 
                     {
                         Wound(this, new MyEventArgs(hp, name, part, block));
                     }

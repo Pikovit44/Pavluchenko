@@ -10,13 +10,12 @@ namespace FightClubApp
 {
     public interface IStatistics
     {
-        int HitLegs { get; set; }
-        int HitTors { get; set; }
-        int HitHead { get; set; }
-        int BlockLegs { get; set; }
-        int BlockTors { get; set; }
-        int BlockHead { get; set; }
-
+        int HitLegs { get; }
+        int HitTors { get; }
+        int HitHead { get; }
+        int BlockLegs { get; }
+        int BlockTors { get; }
+        int BlockHead { get; }
     }
     class Statistics: IStatistics
     {
@@ -27,7 +26,6 @@ namespace FightClubApp
         int blockTors = 0;
         int blockHead = 0;
         private readonly IMainForm view;
-
 
         public Statistics(IMainForm view)
         {
@@ -49,6 +47,7 @@ namespace FightClubApp
         public void ShowInfo()
         {
             int round = hitHead + hitLegs + hitTors; 
+
             string info = "Количество проведенных раундов: " + round + Environment.NewLine + Environment.NewLine + "Статистика ударов игрока: " + Environment.NewLine
                            + "В голову: " + hitHead + Environment.NewLine + "В корпус: " + hitTors + Environment.NewLine + "В ноги: " 
                            + hitLegs + Environment.NewLine + Environment.NewLine 
@@ -64,35 +63,27 @@ namespace FightClubApp
         {
             get
             { return hitLegs; }
-            set
-            { hitLegs = value; }
+            
         }
         public int HitTors
         {
             get { return hitTors;}
-            set { hitTors = value;}
         }
         public int HitHead
         {
             get { return hitHead;}
-            set { hitHead = value;}
         }
         public int BlockLegs
         {
             get {return blockLegs;}
-            set {blockLegs = value;}
         }
         public int BlockTors
         {
             get { return blockTors;}
-
-            set {blockTors = value;}
         }
         public int BlockHead
         {
             get { return blockHead;}
-
-            set { blockHead = value;}
         }
 
         public void FightStatis ()

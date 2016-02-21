@@ -32,8 +32,6 @@ namespace FightClubApp
             this.view = view;
 
             
-
-
             view.NextFightClick += onNextFightClick;
             view.FightClick += onFightClick;
             View();
@@ -67,7 +65,6 @@ namespace FightClubApp
         public void onNextFightClick (object sender, EventArgs e)
         {
             SetHp();
-            
         }
 
        

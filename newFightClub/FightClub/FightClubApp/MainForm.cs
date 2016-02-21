@@ -24,14 +24,17 @@ namespace FightClubApp
         string Log { set; }
         event EventHandler FightClick;
         event EventHandler NextFightClick;
+        event EventHandler StatisticsClick;
     }
 
     public partial class MainForm : Form, IMainForm
     {
         
         Presenter presenter = null;
+        Statistics statistics = null;
         public event EventHandler FightClick;
         public event EventHandler NextFightClick;
+        public event EventHandler StatisticsClick;
         PartOfBody hit;
         PartOfBody block;
         int round = 1; // константа
@@ -40,6 +43,7 @@ namespace FightClubApp
         {
             InitializeComponent();
             presenter = new Presenter(this);
+            statistics = new Statistics(this);
         }
         
         public int Round
@@ -88,7 +92,6 @@ namespace FightClubApp
             if (protHeadRb.Checked) { hit = PartOfBody.head; }
             if (protTorsRb.Checked) { hit = PartOfBody.tors; }
             if (protLegsRb.Checked) { hit = PartOfBody.legs; }
-          //if (attHeadRb.Checked == attTorsRb.Checked == attLegsRb.Checked && protHeadRb.Checked == protTorsRb.Checked == protLegsRb.Checked)
             {
                 if (playerHpPrgrBar.Value != 0 && botHpPrgrBar.Value != 0)
                 {
@@ -105,6 +108,11 @@ namespace FightClubApp
             }
 
             round++;
+        }
+
+        private void statistButton_Click(object sender, EventArgs e)
+        {
+            if (StatisticsClick != null) { StatisticsClick(this, EventArgs.Empty); }
         }
 
         private void nextFightButton_Click(object sender, EventArgs e)
@@ -140,6 +148,6 @@ namespace FightClubApp
 
         }
 
-       
+        
     }
 }

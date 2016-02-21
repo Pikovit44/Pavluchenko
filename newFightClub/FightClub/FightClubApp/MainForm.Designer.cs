@@ -151,7 +151,6 @@
             // 
             // protHeadRb
             // 
-            this.protHeadRb.AutoEllipsis = true;
             this.protHeadRb.AutoSize = true;
             this.protHeadRb.Checked = true;
             this.protHeadRb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -283,6 +282,7 @@
             this.statistButton.TabIndex = 17;
             this.statistButton.Text = "Статистика боя";
             this.statistButton.UseVisualStyleBackColor = true;
+            this.statistButton.Click += new System.EventHandler(this.statistButton_Click);
             // 
             // nextFightButton
             // 

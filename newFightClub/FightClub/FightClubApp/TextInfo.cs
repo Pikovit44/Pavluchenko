@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using FightClubApp.FightersClasses;
+using System.Windows.Forms;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,15 +15,17 @@ namespace FightClubApp
 
     class TextInfo: ITextInfo
     {
+        IStatistics statistics;
         IPlayer player;
         IBot bot;
         IMainForm view;
 
-        public TextInfo(IPlayer player, IBot bot, IMainForm view)
+        public TextInfo(IPlayer player, IBot bot, IMainForm view, IStatistics statistics)
         {
             this.player = player;
             this.bot = bot;
             this.view = view;
+            this.statistics = statistics;
         }
 
         public void SetMessage()
@@ -71,7 +74,7 @@ namespace FightClubApp
         private void player_Death(object sender, MyEventArgs e)
         {
             view.Log = e.Name + " побежден, с " + e.Hp + " hp он больше не может сопротивляться.";
-            
+
         }
 
 

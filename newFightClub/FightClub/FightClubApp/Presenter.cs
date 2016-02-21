@@ -17,16 +17,22 @@ namespace FightClubApp
         private readonly IMainForm view;
         private readonly ITextInfo textInfo;
         private readonly IGameController controller;
+        private readonly IStatistics statistics;
 
         public Presenter(IMainForm view)
         {
+
             Player player = new Player();
             Bot bot = new Bot();
             this.controller = new GameController(player, bot);
-            this.textInfo = new TextInfo(player, bot, view);
+            this.textInfo = new TextInfo(player, bot, view, statistics);
+            this.statistics = new Statistics(view);
             this.player = player;
             this.bot = bot;
             this.view = view;
+
+            
+
 
             view.NextFightClick += onNextFightClick;
             view.FightClick += onFightClick;
@@ -64,7 +70,10 @@ namespace FightClubApp
             
         }
 
+       
+
+        }
 
     }
     
-}
+

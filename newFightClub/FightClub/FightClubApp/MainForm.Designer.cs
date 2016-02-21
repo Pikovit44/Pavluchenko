@@ -47,6 +47,8 @@
             this.logLb = new System.Windows.Forms.Label();
             this.roundLb = new System.Windows.Forms.Label();
             this.namePlayerLb = new System.Windows.Forms.Label();
+            this.statistButton = new System.Windows.Forms.Button();
+            this.nextFightButton = new System.Windows.Forms.Button();
             this.groupAttack.SuspendLayout();
             this.groupProtect.SuspendLayout();
             this.SuspendLayout();
@@ -84,7 +86,6 @@
             this.attLegsRb.Name = "attLegsRb";
             this.attLegsRb.Size = new System.Drawing.Size(64, 24);
             this.attLegsRb.TabIndex = 6;
-            this.attLegsRb.TabStop = true;
             this.attLegsRb.Text = "Ноги";
             this.attLegsRb.UseVisualStyleBackColor = true;
             // 
@@ -96,13 +97,13 @@
             this.attTorsRb.Name = "attTorsRb";
             this.attTorsRb.Size = new System.Drawing.Size(79, 24);
             this.attTorsRb.TabIndex = 5;
-            this.attTorsRb.TabStop = true;
             this.attTorsRb.Text = "Корпус";
             this.attTorsRb.UseVisualStyleBackColor = true;
             // 
             // attHeadRb
             // 
             this.attHeadRb.AutoSize = true;
+            this.attHeadRb.Checked = true;
             this.attHeadRb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.attHeadRb.Location = new System.Drawing.Point(21, 34);
             this.attHeadRb.Name = "attHeadRb";
@@ -150,18 +151,22 @@
             // 
             // protHeadRb
             // 
+            this.protHeadRb.AutoEllipsis = true;
             this.protHeadRb.AutoSize = true;
+            this.protHeadRb.Checked = true;
             this.protHeadRb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.protHeadRb.Location = new System.Drawing.Point(21, 34);
             this.protHeadRb.Name = "protHeadRb";
             this.protHeadRb.Size = new System.Drawing.Size(82, 24);
             this.protHeadRb.TabIndex = 4;
+            this.protHeadRb.TabStop = true;
             this.protHeadRb.Text = "Голова";
             this.protHeadRb.UseVisualStyleBackColor = true;
-            this.protHeadRb.Click += new System.EventHandler(this.butFight_Click);
             // 
             // playerHpPrgrBar
             // 
+            this.playerHpPrgrBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.playerHpPrgrBar.Location = new System.Drawing.Point(211, 78);
             this.playerHpPrgrBar.Name = "playerHpPrgrBar";
             this.playerHpPrgrBar.Size = new System.Drawing.Size(274, 22);
@@ -170,6 +175,8 @@
             // 
             // botHpPrgrBar
             // 
+            this.botHpPrgrBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.botHpPrgrBar.Location = new System.Drawing.Point(211, 142);
             this.botHpPrgrBar.Name = "botHpPrgrBar";
             this.botHpPrgrBar.Size = new System.Drawing.Size(274, 22);
@@ -178,6 +185,9 @@
             // 
             // nameBotLb
             // 
+            this.nameBotLb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nameBotLb.AutoSize = true;
             this.nameBotLb.BackColor = System.Drawing.Color.Transparent;
             this.nameBotLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -189,6 +199,9 @@
             // 
             // logFld
             // 
+            this.logFld.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.logFld.Location = new System.Drawing.Point(211, 208);
             this.logFld.Multiline = true;
             this.logFld.Name = "logFld";
@@ -198,10 +211,11 @@
             // 
             // fightButton
             // 
+            this.fightButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.fightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fightButton.Location = new System.Drawing.Point(280, 379);
+            this.fightButton.Location = new System.Drawing.Point(308, 376);
             this.fightButton.Name = "fightButton";
-            this.fightButton.Size = new System.Drawing.Size(114, 36);
+            this.fightButton.Size = new System.Drawing.Size(81, 39);
             this.fightButton.TabIndex = 12;
             this.fightButton.Text = "Бой";
             this.fightButton.UseVisualStyleBackColor = true;
@@ -209,6 +223,7 @@
             // 
             // endFightButt
             // 
+            this.endFightButt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.endFightButt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.endFightButt.Location = new System.Drawing.Point(616, 367);
             this.endFightButt.Name = "endFightButt";
@@ -220,6 +235,9 @@
             // 
             // logLb
             // 
+            this.logLb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.logLb.AutoSize = true;
             this.logLb.BackColor = System.Drawing.Color.Transparent;
             this.logLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -242,6 +260,9 @@
             // 
             // namePlayerLb
             // 
+            this.namePlayerLb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.namePlayerLb.AutoSize = true;
             this.namePlayerLb.BackColor = System.Drawing.Color.Transparent;
             this.namePlayerLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -251,6 +272,31 @@
             this.namePlayerLb.TabIndex = 16;
             this.namePlayerLb.Text = "Игрок";
             // 
+            // statistButton
+            // 
+            this.statistButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.statistButton.Enabled = false;
+            this.statistButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.statistButton.Location = new System.Drawing.Point(211, 376);
+            this.statistButton.Name = "statistButton";
+            this.statistButton.Size = new System.Drawing.Size(90, 39);
+            this.statistButton.TabIndex = 17;
+            this.statistButton.Text = "Статистика боя";
+            this.statistButton.UseVisualStyleBackColor = true;
+            // 
+            // nextFightButton
+            // 
+            this.nextFightButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.nextFightButton.Enabled = false;
+            this.nextFightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nextFightButton.Location = new System.Drawing.Point(395, 376);
+            this.nextFightButton.Name = "nextFightButton";
+            this.nextFightButton.Size = new System.Drawing.Size(90, 39);
+            this.nextFightButton.TabIndex = 18;
+            this.nextFightButton.Text = "Слелующий бой";
+            this.nextFightButton.UseVisualStyleBackColor = true;
+            this.nextFightButton.Click += new System.EventHandler(this.nextFightButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,6 +305,8 @@
             this.BackgroundImage = global::FightClubApp.Properties.Resources.tumblr_inline_nlma5dDlRQ1s811jo_1280;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(742, 427);
+            this.Controls.Add(this.nextFightButton);
+            this.Controls.Add(this.statistButton);
             this.Controls.Add(this.namePlayerLb);
             this.Controls.Add(this.roundLb);
             this.Controls.Add(this.logLb);
@@ -271,7 +319,9 @@
             this.Controls.Add(this.groupProtect);
             this.Controls.Add(this.groupAttack);
             this.Controls.Add(this.lbPlayerName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fight club";
@@ -304,6 +354,8 @@
         private System.Windows.Forms.Label logLb;
         private System.Windows.Forms.Label roundLb;
         private System.Windows.Forms.Label namePlayerLb;
+        private System.Windows.Forms.Button statistButton;
+        private System.Windows.Forms.Button nextFightButton;
     }
 }
 

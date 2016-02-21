@@ -13,7 +13,7 @@ namespace FightClubApp.FightersClasses
     public interface IPlayer
     {
         string Name { get; }
-        int HP { get; }
+        int HP { get; set; }
         void GetHit(PartOfBody part);
         void SetBlock(PartOfBody part);
         PartOfBody BlockPart { get; set; }
@@ -29,18 +29,22 @@ namespace FightClubApp.FightersClasses
         protected int hp = 100; // константа
         protected PartOfBody block = PartOfBody.unknown;
         protected PartOfBody hit = PartOfBody.unknown;
+        protected int numberOfHits = 0;
 
 
+        //поле статистики
+        //персонажи вампир, человек, троль 
         public void GetHit(PartOfBody part)
         {
             if(block != part)
             {
-                if (hp > 0)
+                if (hp > 20) 
                 {
                     hp -= 20; // сделать константку
                     if (Wound != null) 
                     {
                         Wound(this, new MyEventArgs(hp, name, part, block));
+                        numberOfHits++;
                     }
                 }
                 else
@@ -56,6 +60,7 @@ namespace FightClubApp.FightersClasses
                 if (Block != null)
                 {
                     Block(this, new MyEventArgs(hp, name, block));
+
                 }
         }
 
@@ -68,10 +73,11 @@ namespace FightClubApp.FightersClasses
         {
             get { return name; }
         }
-
+        
         public int HP
         {
             get { return hp; }
+            set { hp = value; }
         }
 
         public PartOfBody BlockPart
@@ -83,6 +89,10 @@ namespace FightClubApp.FightersClasses
         {
             get { return hit; }
             set { hit = value; }
+        }
+        public int NumberOfHit
+        {
+            get { return numberOfHits; }
         }
 
         public event EventHandler<MyEventArgs> Wound;

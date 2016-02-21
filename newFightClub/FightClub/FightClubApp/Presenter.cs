@@ -46,6 +46,10 @@ namespace FightClubApp
             view.BotName = bot.Name;
             view.BotHp = bot.HP;
         }
+        public void SetHp()
+        {
+            player.HP = bot.HP = 100; // constant
+        }
 
         public void onFightClick(object sender, EventArgs e)
         {
@@ -53,6 +57,8 @@ namespace FightClubApp
             controller.Fight();
             View();
         }
+
+
     }
     
 }

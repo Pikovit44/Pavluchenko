@@ -23,6 +23,7 @@ namespace FightClubApp
         PartOfBody Block { get; }
         string Log { set; }
         event EventHandler FightClick;
+        event EventHandler NextFightClick;
     }
 
     public partial class MainForm : Form, IMainForm
@@ -30,6 +31,7 @@ namespace FightClubApp
         
         Presenter presenter = null;
         public event EventHandler FightClick;
+        public event EventHandler NextFightClick;
         PartOfBody hit;
         PartOfBody block;
         int round = 1; // константа
@@ -39,7 +41,7 @@ namespace FightClubApp
             InitializeComponent();
             presenter = new Presenter(this);
         }
-
+        
         public int Round
         {
             get { return round; }
@@ -86,14 +88,28 @@ namespace FightClubApp
             if (protHeadRb.Checked) { hit = PartOfBody.head; }
             if (protTorsRb.Checked) { hit = PartOfBody.tors; }
             if (protLegsRb.Checked) { hit = PartOfBody.legs; }
-            if (attHeadRb.Checked == attTorsRb.Checked == attLegsRb.Checked && protHeadRb.Checked == protTorsRb.Checked == protLegsRb.Checked)
+          //if (attHeadRb.Checked == attTorsRb.Checked == attLegsRb.Checked && protHeadRb.Checked == protTorsRb.Checked == protLegsRb.Checked)
             {
                 if (playerHpPrgrBar.Value != 0 && botHpPrgrBar.Value != 0)
                 {
                     if (FightClick != null) { FightClick(this, EventArgs.Empty); }
                 }
+                if (playerHpPrgrBar.Value == 0 || botHpPrgrBar.Value == 0)
+                {
+                    fightButton.Enabled = false;
+                    statistButton.Enabled = true;
+                    nextFightButton.Enabled = true;
+                    Log = "Схватка окончена.";
+                    //посмотреть статистику+ bool 
+                }
             }
+
             round++;
+        }
+
+        private void nextFightButton_Click(object sender, EventArgs e)
+        {
+            if (NextFightClick != null) { NextFightClick(this, EventArgs.Empty); }
         }
 
         public string Log
@@ -117,6 +133,6 @@ namespace FightClubApp
 
         }
 
-        
+       
     }
 }

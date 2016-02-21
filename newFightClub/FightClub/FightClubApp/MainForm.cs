@@ -96,7 +96,7 @@ namespace FightClubApp
                 }
                 if (playerHpPrgrBar.Value == 0 || botHpPrgrBar.Value == 0)
                 {
-                    fightButton.Enabled = false;
+                    fightButton.Enabled = false; // method
                     statistButton.Enabled = true;
                     nextFightButton.Enabled = true;
                     Log = "Схватка окончена.";
@@ -109,6 +109,13 @@ namespace FightClubApp
 
         private void nextFightButton_Click(object sender, EventArgs e)
         {
+            logFld.Text = "";
+            playerHpPrgrBar.Value = botHpPrgrBar.Value = 100;
+            round = 1;
+            roundLb.Text = "Раунд " + round;
+            fightButton.Enabled = true;
+            statistButton.Enabled = false;
+            nextFightButton.Enabled = false;
             if (NextFightClick != null) { NextFightClick(this, EventArgs.Empty); }
         }
 

@@ -28,7 +28,7 @@ namespace FightClubApp
             this.bot = bot;
             this.view = view;
 
-
+            view.NextFightClick += onNextFightClick;
             view.FightClick += onFightClick;
             View();
             textInfo.SetMessage();
@@ -56,6 +56,12 @@ namespace FightClubApp
             SetupPosition();
             controller.Fight();
             View();
+        }
+
+        public void onNextFightClick (object sender, EventArgs e)
+        {
+            SetHp();
+            
         }
 
 

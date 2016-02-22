@@ -10,6 +10,14 @@ namespace FightClubApp
 {
     public enum PartOfBody
     { unknown, head, tors, legs }
+    public enum Constant //или константы
+    {
+        startHP = 100,
+        woundHP = 20,
+        deathHP = 0,
+        firstRound = 1
+    }
+
 
     public class Presenter
     {
@@ -64,8 +72,8 @@ namespace FightClubApp
             controller.SetHp();
         }
 
-        }
-
     }
+
+}
     
 

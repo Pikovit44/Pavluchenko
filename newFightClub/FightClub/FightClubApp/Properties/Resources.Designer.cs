@@ -63,6 +63,44 @@ namespace FightClubApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fight_club_rule_you_do_not_talk_about_fight_club_336_1920x1080 {
+            get {
+                object obj = ResourceManager.GetObject("fight_club_rule_you_do_not_talk_about_fight_club_336_1920x1080", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fight_club_wallpaper_fight_club_34620453_1440_900 {
+            get {
+                object obj = ResourceManager.GetObject("fight-club-wallpaper-fight-club-34620453-1440-900", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream muse_map_of_the_problematique_NaitiMP3 {
+            get {
+                return ResourceManager.GetStream("muse_map_of_the_problematique_NaitiMP3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream One_Republic_Everybody_Loves_Me_OST_Happily_Ever_A {
+            get {
+                return ResourceManager.GetStream("One_Republic_Everybody_Loves_Me_OST_Happily_Ever_A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap tumblr_inline_nlma5dDlRQ1s811jo_1280 {
             get {
                 object obj = ResourceManager.GetObject("tumblr_inline_nlma5dDlRQ1s811jo_1280", resourceCulture);

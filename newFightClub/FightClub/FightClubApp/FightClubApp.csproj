@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FightersClasses\Fighter.cs" />
     <Compile Include="FightersClasses\Bot.cs" />
     <Compile Include="GameController.cs" />
     <Compile Include="Inerfaces\IBot.cs" />
@@ -54,6 +55,12 @@
     <Compile Include="Inerfaces\IPlayer.cs" />
     <Compile Include="Inerfaces\IStatistics.cs" />
     <Compile Include="Inerfaces\ITextInfo.cs" />
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Statistics.cs" />
     <Compile Include="TextInfo.cs" />
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +105,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tumblr_inline_nlma5dDlRQ1s811jo_1280.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\muse_map_of_the_problematique_NaitiMP3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\One_Republic-Everybody_Loves_Me_OST_Happily_Ever_A.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fight-club-wallpaper-fight-club-34620453-1440-900.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fight_club_rule_you_do_not_talk_about_fight_club_336_1920x1080.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

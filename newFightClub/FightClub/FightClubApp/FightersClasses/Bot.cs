@@ -9,12 +9,11 @@ namespace FightClubApp.FightersClasses
 {
     
 
-    class Bot : Player, IBot
+    class Bot : Fighter, IBot
     {
         Random rand = new Random();
         public Bot()
         {
-            this.hp = 100;
             this.name = "Бот";
         }
 

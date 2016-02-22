@@ -65,8 +65,6 @@ namespace FightClubApp
             MessageBox.Show(info, "Итоги боя", MessageBoxButtons.OK, MessageBoxIcon.Information); // срабатывает 2 раза
         }
 
-
-
         public void FightStatis()
         {
             switch (view.Block)

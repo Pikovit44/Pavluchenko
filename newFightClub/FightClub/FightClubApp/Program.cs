@@ -16,8 +16,8 @@ namespace FightClubApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainForm form = new MainForm();
-            Application.Run(form);
+            MainForm Fightform = new MainForm();
+            Application.Run(Fightform);
         }
     }
 }

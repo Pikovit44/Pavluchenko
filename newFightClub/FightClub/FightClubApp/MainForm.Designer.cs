@@ -49,6 +49,7 @@
             this.namePlayerLb = new System.Windows.Forms.Label();
             this.statistButton = new System.Windows.Forms.Button();
             this.nextFightButton = new System.Windows.Forms.Button();
+            this.musicCb = new System.Windows.Forms.CheckBox();
             this.groupAttack.SuspendLayout();
             this.groupProtect.SuspendLayout();
             this.SuspendLayout();
@@ -168,7 +169,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.playerHpPrgrBar.Location = new System.Drawing.Point(211, 78);
             this.playerHpPrgrBar.Name = "playerHpPrgrBar";
-            this.playerHpPrgrBar.Size = new System.Drawing.Size(274, 22);
+            this.playerHpPrgrBar.Size = new System.Drawing.Size(276, 22);
             this.playerHpPrgrBar.TabIndex = 8;
             this.playerHpPrgrBar.Value = 100;
             // 
@@ -178,7 +179,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.botHpPrgrBar.Location = new System.Drawing.Point(211, 142);
             this.botHpPrgrBar.Name = "botHpPrgrBar";
-            this.botHpPrgrBar.Size = new System.Drawing.Size(274, 22);
+            this.botHpPrgrBar.Size = new System.Drawing.Size(276, 22);
             this.botHpPrgrBar.TabIndex = 10;
             this.botHpPrgrBar.Value = 100;
             // 
@@ -205,14 +206,14 @@
             this.logFld.Multiline = true;
             this.logFld.Name = "logFld";
             this.logFld.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.logFld.Size = new System.Drawing.Size(274, 153);
+            this.logFld.Size = new System.Drawing.Size(276, 157);
             this.logFld.TabIndex = 11;
             // 
             // fightButton
             // 
             this.fightButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.fightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fightButton.Location = new System.Drawing.Point(308, 376);
+            this.fightButton.Location = new System.Drawing.Point(310, 380);
             this.fightButton.Name = "fightButton";
             this.fightButton.Size = new System.Drawing.Size(81, 39);
             this.fightButton.TabIndex = 12;
@@ -224,7 +225,7 @@
             // 
             this.endFightButt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.endFightButt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.endFightButt.Location = new System.Drawing.Point(616, 367);
+            this.endFightButt.Location = new System.Drawing.Point(618, 371);
             this.endFightButt.Name = "endFightButt";
             this.endFightButt.Size = new System.Drawing.Size(114, 48);
             this.endFightButt.TabIndex = 13;
@@ -276,7 +277,7 @@
             this.statistButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.statistButton.Enabled = false;
             this.statistButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.statistButton.Location = new System.Drawing.Point(211, 376);
+            this.statistButton.Location = new System.Drawing.Point(213, 380);
             this.statistButton.Name = "statistButton";
             this.statistButton.Size = new System.Drawing.Size(90, 39);
             this.statistButton.TabIndex = 17;
@@ -289,13 +290,27 @@
             this.nextFightButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nextFightButton.Enabled = false;
             this.nextFightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nextFightButton.Location = new System.Drawing.Point(395, 376);
+            this.nextFightButton.Location = new System.Drawing.Point(397, 380);
             this.nextFightButton.Name = "nextFightButton";
             this.nextFightButton.Size = new System.Drawing.Size(90, 39);
             this.nextFightButton.TabIndex = 18;
             this.nextFightButton.Text = "Слелующий бой";
             this.nextFightButton.UseVisualStyleBackColor = true;
             this.nextFightButton.Click += new System.EventHandler(this.nextFightButton_Click);
+            // 
+            // musicCb
+            // 
+            this.musicCb.AutoSize = true;
+            this.musicCb.BackColor = System.Drawing.Color.Transparent;
+            this.musicCb.Checked = true;
+            this.musicCb.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.musicCb.Location = new System.Drawing.Point(643, 12);
+            this.musicCb.Name = "musicCb";
+            this.musicCb.Size = new System.Drawing.Size(66, 17);
+            this.musicCb.TabIndex = 19;
+            this.musicCb.Text = "Музыка";
+            this.musicCb.UseVisualStyleBackColor = false;
+            this.musicCb.CheckedChanged += new System.EventHandler(this.musicCb_CheckedChanged);
             // 
             // MainForm
             // 
@@ -304,7 +319,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::FightClubApp.Properties.Resources.tumblr_inline_nlma5dDlRQ1s811jo_1280;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(742, 427);
+            this.ClientSize = new System.Drawing.Size(744, 431);
+            this.Controls.Add(this.musicCb);
             this.Controls.Add(this.nextFightButton);
             this.Controls.Add(this.statistButton);
             this.Controls.Add(this.namePlayerLb);
@@ -356,6 +372,7 @@
         private System.Windows.Forms.Label namePlayerLb;
         private System.Windows.Forms.Button statistButton;
         private System.Windows.Forms.Button nextFightButton;
+        private System.Windows.Forms.CheckBox musicCb;
     }
 }
 

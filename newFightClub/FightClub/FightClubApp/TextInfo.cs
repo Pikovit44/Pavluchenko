@@ -4,15 +4,12 @@ using System.Linq;
 using FightClubApp.FightersClasses;
 using System.Windows.Forms;
 using System.Text;
+using FightClubApp.Inerfaces;
 using System.Threading.Tasks;
 
 namespace FightClubApp
 {
-    public interface ITextInfo
-    {
-        void SetMessage();
-        string PatrtToString(PartOfBody part);
-    }
+    
 
     class TextInfo: ITextInfo
     {

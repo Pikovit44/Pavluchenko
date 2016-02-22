@@ -7,25 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FightClubApp.FightersClasses;
+using FightClubApp.Inerfaces;
 using System.Windows.Forms;
 
 namespace FightClubApp
 {
-    public interface IMainForm
-    {
-
-        int Round { get; }
-        string PlayerName { set; }
-        int PlayerHp { set; }
-        string BotName { set; }
-        int BotHp { set; }
-        PartOfBody Hit { get; }
-        PartOfBody Block { get; }
-        string Log { set; }
-        event EventHandler FightClick;
-        event EventHandler NextFightClick;
-        event EventHandler StatisticsClick;
-    }
 
     public partial class MainForm : Form, IMainForm
     {

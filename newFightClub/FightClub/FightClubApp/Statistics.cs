@@ -2,23 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FightClubApp.Inerfaces;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using FightClubApp.FightersClasses;
 
 namespace FightClubApp
 {
-    public interface IStatistics
-    {
-        int HitLegs { get; }
-        int HitTors { get; }
-        int HitHead { get; }
-        int BlockLegs { get; }
-        int BlockTors { get; }
-        int BlockHead { get; }
-        void ShowInfo();
-        void FightStatis();
-    }
+    
     class Statistics: IStatistics
     {
         int hitLegs = 0;

@@ -1,4 +1,5 @@
 ﻿using System;
+using FightClubApp.Inerfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,7 @@ using System.Threading.Tasks;
 
 namespace FightClubApp.FightersClasses
 {
-    public interface IBot : IPlayer
-    {
-        PartOfBody BotBlock { get; }
-        PartOfBody BotHit { get; }
-    }
+    
 
     class Bot : Player, IBot
     {

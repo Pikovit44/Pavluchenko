@@ -1,4 +1,5 @@
 ﻿using System;
+using FightClubApp.Inerfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,22 +8,6 @@ using System.Threading.Tasks;
 
 namespace FightClubApp.FightersClasses
 {
-    
-
-
-    public interface IPlayer
-    {
-        string Name { get; }
-        int HP { get; set; }
-        void GetHit(PartOfBody part);
-        void SetBlock(PartOfBody part);
-        PartOfBody BlockPart { get; set; }
-        PartOfBody HitPart { get; set; }
-        event EventHandler<MyEventArgs> Wound;
-        event EventHandler<MyEventArgs> Block;
-        event EventHandler<MyEventArgs> Death;
-    }
-
     public class Player: IPlayer
     {
         protected string name = "Игрок";

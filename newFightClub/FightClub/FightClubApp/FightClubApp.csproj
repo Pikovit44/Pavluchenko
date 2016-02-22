@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="FightersClasses\Bot.cs" />
     <Compile Include="GameController.cs" />
+    <Compile Include="Inerfaces\IBot.cs" />
+    <Compile Include="Inerfaces\IGameController.cs" />
+    <Compile Include="Inerfaces\IMainForm.cs" />
+    <Compile Include="Inerfaces\IPlayer.cs" />
+    <Compile Include="Inerfaces\IStatistics.cs" />
+    <Compile Include="Inerfaces\ITextInfo.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

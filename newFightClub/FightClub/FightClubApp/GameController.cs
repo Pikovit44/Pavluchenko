@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FightClubApp.FightersClasses;
+using FightClubApp.Inerfaces;
 using System.Threading.Tasks;
 
 namespace FightClubApp
-{
-    public interface IGameController
-    {
-        void Fight();
-        void SetHp();
-    }
-
+{  
     public class GameController: IGameController
     {
         private readonly IPlayer player;
@@ -30,7 +25,6 @@ namespace FightClubApp
             bot.SetBlock(bot.BotBlock);
             bot.GetHit(player.HitPart);
         }
-
         public void SetHp()
         {
             player.HP = bot.HP = 100; // constant

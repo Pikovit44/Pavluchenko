@@ -11,6 +11,7 @@ namespace FightClubApp
     public interface ITextInfo
     {
         void SetMessage();
+        string PatrtToString(PartOfBody part);
     }
 
     class TextInfo: ITextInfo
@@ -38,7 +39,7 @@ namespace FightClubApp
             bot.Death += player_Death;
         }
 
-        public static string PatrtToString(PartOfBody part)
+        public string PatrtToString(PartOfBody part)
         {
             string result = "";
             switch (part)

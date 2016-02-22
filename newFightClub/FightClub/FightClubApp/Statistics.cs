@@ -16,6 +16,8 @@ namespace FightClubApp
         int BlockLegs { get; }
         int BlockTors { get; }
         int BlockHead { get; }
+        void ShowInfo();
+        void FightStatis();
     }
     class Statistics: IStatistics
     {
@@ -32,61 +34,49 @@ namespace FightClubApp
             this.view = view;
             view.FightClick += onFightClick;
             view.StatisticsClick += onStatisticsClick;
+            view.NextFightClick += onNextFightClick;
         }
-
-        private void onStatisticsClick(object sender, EventArgs e)
-        {
-            ShowInfo();
-        }
-
-        public void onFightClick(object sender, EventArgs e)
-        {
-            FightStatis();
-        }
-
-        public void ShowInfo()
-        {
-            int round = hitHead + hitLegs + hitTors; 
-
-            string info = "Количество проведенных раундов: " + round + Environment.NewLine + Environment.NewLine + "Статистика ударов игрока: " + Environment.NewLine
-                           + "В голову: " + hitHead + Environment.NewLine + "В корпус: " + hitTors + Environment.NewLine + "В ноги: " 
-                           + hitLegs + Environment.NewLine + Environment.NewLine 
-                           + "Статистика блоков игрока: " + Environment.NewLine
-                           +  "Голова: " + blockHead + Environment.NewLine + "Корпус: " + blockTors + Environment.NewLine + "Ноги: "
-                           + blockLegs + Environment.NewLine;
-
-            MessageBox.Show(info, "Итоги боя", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        //maybe without set
         public int HitLegs
         {
-            get
-            { return hitLegs; }
-            
+            get { return hitLegs; }
         }
         public int HitTors
         {
-            get { return hitTors;}
+            get { return hitTors; }
         }
         public int HitHead
         {
-            get { return hitHead;}
+            get { return hitHead; }
         }
         public int BlockLegs
         {
-            get {return blockLegs;}
+            get { return blockLegs; }
         }
         public int BlockTors
         {
-            get { return blockTors;}
+            get { return blockTors; }
         }
         public int BlockHead
         {
-            get { return blockHead;}
+            get { return blockHead; }
+        }
+        public void ShowInfo()
+        {
+            int round = hitHead + hitLegs + hitTors;
+
+            string info = "Количество проведенных раундов: " + round + Environment.NewLine + Environment.NewLine + "Статистика ударов игрока: " + Environment.NewLine
+                           + "В голову: " + hitHead + Environment.NewLine + "В корпус: " + hitTors + Environment.NewLine + "В ноги: "
+                           + hitLegs + Environment.NewLine + Environment.NewLine
+                           + "Статистика блоков игрока: " + Environment.NewLine
+                           + "Голова: " + blockHead + Environment.NewLine + "Корпус: " + blockTors + Environment.NewLine + "Ноги: "
+                           + blockLegs + Environment.NewLine;
+
+            MessageBox.Show(info, "Итоги боя", MessageBoxButtons.OK, MessageBoxIcon.Information); // срабатывает 2 раза
         }
 
-        public void FightStatis ()
+
+
+        public void FightStatis()
         {
             switch (view.Block)
             {
@@ -121,6 +111,23 @@ namespace FightClubApp
                     break;
             }
         }
+        private void onStatisticsClick(object sender, EventArgs e)
+        {
+            ShowInfo();
+        }
+
+        public void onFightClick(object sender, EventArgs e)
+        {
+            FightStatis();
+        }
+
+        public void onNextFightClick (object sender, EventArgs e)
+        {
+            hitLegs = hitTors = hitHead = blockLegs = blockTors = blockHead = 0;
+        }
+
+
+       
         
     }
 }

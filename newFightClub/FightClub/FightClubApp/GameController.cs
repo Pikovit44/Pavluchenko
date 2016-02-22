@@ -10,6 +10,7 @@ namespace FightClubApp
     public interface IGameController
     {
         void Fight();
+        void SetHp();
     }
 
     public class GameController: IGameController
@@ -28,6 +29,11 @@ namespace FightClubApp
             player.SetBlock(player.BlockPart);
             bot.SetBlock(bot.BotBlock);
             bot.GetHit(player.HitPart);
+        }
+
+        public void SetHp()
+        {
+            player.HP = bot.HP = 100; // constant
         }
 
     }

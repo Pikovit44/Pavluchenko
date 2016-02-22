@@ -23,11 +23,11 @@ namespace FightClubApp.FightersClasses
 
         public PartOfBody BotBlock
         {
-            get { return (PartOfBody)rand.Next(1, 3); }
+            get { return (PartOfBody)rand.Next(1, 4); }
         }
         public PartOfBody BotHit
         {
-            get { return (PartOfBody)rand.Next(1, 3); }
+            get { return (PartOfBody)rand.Next(1, 4); }
         }
     }
 }

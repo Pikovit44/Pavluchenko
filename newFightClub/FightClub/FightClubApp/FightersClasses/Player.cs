@@ -32,9 +32,9 @@ namespace FightClubApp.FightersClasses
         protected int numberOfHits = 0;
 
 
-        //поле статистики +
+        //вывод статистики +-
         //на fightClick сделать проверку успешности бота и игрока. эти данные перекинуть в статистику. 
-        //персонажи вампир, человек, берсерк
+       
 
         public void GetHit(PartOfBody part)
         {

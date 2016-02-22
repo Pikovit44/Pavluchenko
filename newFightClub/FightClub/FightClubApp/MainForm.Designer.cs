@@ -228,7 +228,7 @@
             this.endFightButt.Name = "endFightButt";
             this.endFightButt.Size = new System.Drawing.Size(114, 48);
             this.endFightButt.TabIndex = 13;
-            this.endFightButt.Text = "Закончить схватку";
+            this.endFightButt.Text = "Новая схватка\r\n";
             this.endFightButt.UseVisualStyleBackColor = true;
             this.endFightButt.Click += new System.EventHandler(this.endFightButt_Click);
             // 

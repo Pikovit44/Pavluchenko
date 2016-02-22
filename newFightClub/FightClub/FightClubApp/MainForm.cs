@@ -37,7 +37,7 @@ namespace FightClubApp
         public event EventHandler StatisticsClick;
         PartOfBody hit;
         PartOfBody block;
-        int round = 1; // константа
+        int round = 1; // первый раунд по умолчанию. константа?
         
         public MainForm()
         {
@@ -82,6 +82,11 @@ namespace FightClubApp
             get { return block; }
         }
 
+        public string Log
+        {
+            set { logFld.Text += value + Environment.NewLine; }
+        }
+
         private void butFight_Click(object sender, EventArgs e)
         {
             roundLb.Text = Log = "Раунд " + round;
@@ -97,16 +102,14 @@ namespace FightClubApp
                 {
                     if (FightClick != null) { FightClick(this, EventArgs.Empty); }
                 }
-                if (playerHpPrgrBar.Value == 0 || botHpPrgrBar.Value == 0)
+                if (playerHpPrgrBar.Value == 0 || botHpPrgrBar.Value == 0) // константа на значение смерти
                 {
                     fightButton.Enabled = false; // method
                     statistButton.Enabled = true;
                     nextFightButton.Enabled = true;
                     Log = "Схватка окончена.";
-                    //посмотреть статистику+ bool 
                 }
             }
-
             round++;
         }
 
@@ -125,11 +128,6 @@ namespace FightClubApp
             statistButton.Enabled = false;
             nextFightButton.Enabled = false;
             if (NextFightClick != null) { NextFightClick(this, EventArgs.Empty); }
-        }
-
-        public string Log
-        {
-            set { logFld.Text += value + Environment.NewLine; }
         }
 
         private void endFightButt_Click(object sender, EventArgs e)

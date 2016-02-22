@@ -16,20 +16,17 @@ namespace FightClubApp
             Name = name;
             Part = part;
             Block = block;
-
         }
         public MyEventArgs(int hp, string name, PartOfBody block)
         {
             Hp = hp;
             Name = name;
             Block = block;
-
         }
         public MyEventArgs(int hp, string name)
         {
             Hp = hp;
             Name = name;
-
         }
         public int Hp { get; private set; }
         public string Name { get; private set; }

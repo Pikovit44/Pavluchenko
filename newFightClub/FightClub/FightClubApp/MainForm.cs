@@ -106,12 +106,12 @@ namespace FightClubApp
         {
             roundLb.Text = Log = "Раунд " + round;
             
-            if (attHeadRb.Checked) { block = PartOfBody.head; }
-            if (attTorsRb.Checked) { block = PartOfBody.tors; }
-            if (attLegsRb.Checked) { block = PartOfBody.legs; }
-            if (protHeadRb.Checked) { hit = PartOfBody.head; }
-            if (protTorsRb.Checked) { hit = PartOfBody.tors; }
-            if (protLegsRb.Checked) { hit = PartOfBody.legs; }
+            if (protHeadRb.Checked) { block = PartOfBody.head; }
+            if (protTorsRb.Checked) { block = PartOfBody.tors; }
+            if (protLegsRb.Checked) { block = PartOfBody.legs; }
+            if (attHeadRb.Checked) { hit = PartOfBody.head; }
+            if (attTorsRb.Checked) { hit = PartOfBody.tors; }
+            if (attLegsRb.Checked) { hit = PartOfBody.legs; }
             {
                 if (playerHpPrgrBar.Value != 0 && botHpPrgrBar.Value != 0)
                 {

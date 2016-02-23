@@ -25,7 +25,7 @@ namespace FightClubApp
         public event EventHandler EndRound;
         PartOfBody hit;
         PartOfBody block;
-        int round = (int)Constant.firstRound;
+        int round = (int)Constant.FirstRound;
         SoundPlayer music; // музыка заднего плана во время игры
         
         public MainForm()
@@ -86,18 +86,18 @@ namespace FightClubApp
         {
             roundLb.Text = Log = "Раунд " + round;
             
-            if (protHead.Checked) { block = PartOfBody.head; } // method
-            if (protTors.Checked) { block = PartOfBody.tors; }
-            if (protLegs.Checked) { block = PartOfBody.legs; }
-            if (attHead.Checked) { hit = PartOfBody.head; }
-            if (attTors.Checked) { hit = PartOfBody.tors; }
-            if (attLegs.Checked) { hit = PartOfBody.legs; }
+            if (protHead.Checked) { block = PartOfBody.Head; } // method
+            if (protTors.Checked) { block = PartOfBody.Tors; }
+            if (protLegs.Checked) { block = PartOfBody.Legs; }
+            if (attHead.Checked) { hit = PartOfBody.Head; }
+            if (attTors.Checked) { hit = PartOfBody.Tors; }
+            if (attLegs.Checked) { hit = PartOfBody.Legs; }
             {
                 if (playerHpProgress.Value != 0 && botHpProgress.Value != 0)
                 {
                     if (FightClick != null) { FightClick(this, EventArgs.Empty); }
                 }
-                if (playerHpProgress.Value == (int)Constant.deathHP || botHpProgress.Value == (int)Constant.deathHP) 
+                if (playerHpProgress.Value == (int)Constant.DeathHP || botHpProgress.Value == (int)Constant.DeathHP) 
                 {
                     fight.Enabled = false; // method
                     statistBtn.Enabled = true;
@@ -120,8 +120,8 @@ namespace FightClubApp
             logFld.SelectionStart = logFld.Text.Length; // установка курсора в конец лога?
             //logFld.Select(0, 0); 
             logFld.Text = "";
-            playerHpProgress.Value = botHpProgress.Value = (int)Constant.startHP;
-            round = (int)Constant.firstRound;
+            playerHpProgress.Value = botHpProgress.Value = (int)Constant.StartHP;
+            round = (int)Constant.FirstRound;
             roundLb.Text = "Раунд " + round;
             fight.Enabled = true;
             statistBtn.Enabled = false;

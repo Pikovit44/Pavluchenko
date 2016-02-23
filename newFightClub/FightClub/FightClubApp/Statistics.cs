@@ -69,15 +69,15 @@ namespace FightClubApp
         {
             switch (view.Block)
             {
-                case PartOfBody.unknown:
+                case PartOfBody.Unknown:
                     break;
-                case PartOfBody.head:
+                case PartOfBody.Head:
                     blockHead++;
                     break;
-                case PartOfBody.tors:
+                case PartOfBody.Tors:
                     blockTors++;
                     break;
-                case PartOfBody.legs:
+                case PartOfBody.Legs:
                     blockLegs++;
                     break;
                 default:
@@ -85,15 +85,15 @@ namespace FightClubApp
             }
             switch (view.Hit)
             {
-                case PartOfBody.unknown:
+                case PartOfBody.Unknown:
                     break;
-                case PartOfBody.head:
+                case PartOfBody.Head:
                     hitHead++;
                     break;
-                case PartOfBody.tors:
+                case PartOfBody.Tors:
                     hitTors++;
                     break;
-                case PartOfBody.legs:
+                case PartOfBody.Legs:
                     hitLegs++;
                     break;
                 default:

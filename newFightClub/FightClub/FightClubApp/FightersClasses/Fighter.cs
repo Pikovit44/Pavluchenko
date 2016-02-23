@@ -9,9 +9,9 @@ namespace FightClubApp.FightersClasses
     abstract public class Fighter
     {
         protected string name = "";
-        protected int hp = (int)Constant.startHP;
-        protected PartOfBody block = PartOfBody.unknown;
-        protected PartOfBody hit = PartOfBody.unknown;
+        protected int hp = (int)Constant.StartHP;
+        protected PartOfBody block = PartOfBody.Unknown;
+        protected PartOfBody hit = PartOfBody.Unknown;
         //protected int numberOfHits = 0;
         //на fightClick сделать проверку успешности бота и игрока. эти данные перекинуть в статистику. 
 
@@ -20,9 +20,9 @@ namespace FightClubApp.FightersClasses
         {
             if (block != part)
             {
-                if (hp > (int)Constant.woundHP)
+                if (hp > (int)Constant.WoundHP)
                 {
-                    hp -= (int)Constant.woundHP;
+                    hp -= (int)Constant.WoundHP;
                     if (Wound != null)
                     {
                         Wound(this, new MyEventArgs(hp, name, part, block));
@@ -31,7 +31,7 @@ namespace FightClubApp.FightersClasses
                 }
                 else
                 {
-                    hp = (int)Constant.deathHP;
+                    hp = (int)Constant.DeathHP;
                     if (Death != null)
                     {
                         Death(this, new MyEventArgs(hp, name));

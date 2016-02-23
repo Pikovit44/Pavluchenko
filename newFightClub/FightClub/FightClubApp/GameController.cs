@@ -27,7 +27,7 @@ namespace FightClubApp
         }
         public void SetHp()
         {
-            player.HP = bot.HP = (int)Constant.startHP; 
+            player.HP = bot.HP = (int)Constant.StartHP; 
         }
 
     }

@@ -42,15 +42,15 @@ namespace FightClubApp
             string result = "";
             switch (part)
             {
-                case PartOfBody.unknown:
+                case PartOfBody.Unknown:
                     break;
-                case PartOfBody.head:
+                case PartOfBody.Head:
                     result = "голову";
                     break;
-                case PartOfBody.tors:
+                case PartOfBody.Tors:
                     result = "корпус";
                     break;
-                case PartOfBody.legs:
+                case PartOfBody.Legs:
                     result = "ноги";
                     break;
                 default:
@@ -63,13 +63,13 @@ namespace FightClubApp
         {
             string info;
 
-            if (player.HP == (int)Constant.deathHP && bot.HP == (int)Constant.deathHP)
+            if (player.HP == (int)Constant.DeathHP && bot.HP == (int)Constant.DeathHP)
             {
                 view.Log = info = "Бой не выявил победителя. Пали оба бойца...";
                 MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
 
             }
-            else if (bot.HP == (int)Constant.deathHP)
+            else if (bot.HP == (int)Constant.DeathHP)
             {
                 view.Log = info = "Игрок победил!";
                 MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);

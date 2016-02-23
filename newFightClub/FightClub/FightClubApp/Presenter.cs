@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 namespace FightClubApp
 {
     public enum PartOfBody
-    { unknown, head, tors, legs }
+    { Unknown, Head, Tors, Legs }
     public enum Constant //или константы
     {
-        startHP = 100,
-        woundHP = 20,
-        deathHP = 0,
-        firstRound = 1
+        StartHP = 100,
+        WoundHP = 20,
+        DeathHP = 0,
+        FirstRound = 1
     }
 
 

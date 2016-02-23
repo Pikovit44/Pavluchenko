@@ -121,9 +121,6 @@
   <data name="tumblr_inline_nlma5dDlRQ1s811jo_1280" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tumblr_inline_nlma5dDlRQ1s811jo_1280.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="muse_map_of_the_problematique_NaitiMP3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\muse_map_of_the_problematique_NaitiMP3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="fight-club-wallpaper-fight-club-34620453-1440-900" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fight-club-wallpaper-fight-club-34620453-1440-900.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

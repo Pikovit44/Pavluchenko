@@ -83,15 +83,6 @@ namespace FightClubApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream muse_map_of_the_problematique_NaitiMP3 {
-            get {
-                return ResourceManager.GetStream("muse_map_of_the_problematique_NaitiMP3", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
         internal static System.IO.UnmanagedMemoryStream One_Republic_Everybody_Loves_Me_OST_Happily_Ever_A {
             get {
                 return ResourceManager.GetStream("One_Republic_Everybody_Loves_Me_OST_Happily_Ever_A", resourceCulture);

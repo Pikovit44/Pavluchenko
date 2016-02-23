@@ -29,48 +29,36 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.lbPlayerName = new System.Windows.Forms.Label();
             this.groupAttack = new System.Windows.Forms.GroupBox();
-            this.attLegsRb = new System.Windows.Forms.RadioButton();
-            this.attTorsRb = new System.Windows.Forms.RadioButton();
-            this.attHeadRb = new System.Windows.Forms.RadioButton();
+            this.attLegs = new System.Windows.Forms.RadioButton();
+            this.attTors = new System.Windows.Forms.RadioButton();
+            this.attHead = new System.Windows.Forms.RadioButton();
             this.groupProtect = new System.Windows.Forms.GroupBox();
-            this.protLegsRb = new System.Windows.Forms.RadioButton();
-            this.protTorsRb = new System.Windows.Forms.RadioButton();
-            this.protHeadRb = new System.Windows.Forms.RadioButton();
-            this.playerHpPrgrBar = new System.Windows.Forms.ProgressBar();
-            this.botHpPrgrBar = new System.Windows.Forms.ProgressBar();
-            this.nameBotLb = new System.Windows.Forms.Label();
+            this.protLegs = new System.Windows.Forms.RadioButton();
+            this.protTors = new System.Windows.Forms.RadioButton();
+            this.protHead = new System.Windows.Forms.RadioButton();
+            this.playerHpProgress = new System.Windows.Forms.ProgressBar();
+            this.botHpProgress = new System.Windows.Forms.ProgressBar();
+            this.nameBot = new System.Windows.Forms.Label();
             this.logFld = new System.Windows.Forms.TextBox();
-            this.fightButton = new System.Windows.Forms.Button();
-            this.endFightButt = new System.Windows.Forms.Button();
+            this.fight = new System.Windows.Forms.Button();
+            this.newFight = new System.Windows.Forms.Button();
             this.logLb = new System.Windows.Forms.Label();
             this.roundLb = new System.Windows.Forms.Label();
-            this.namePlayerLb = new System.Windows.Forms.Label();
-            this.statistButton = new System.Windows.Forms.Button();
-            this.nextFightButton = new System.Windows.Forms.Button();
-            this.musicCb = new System.Windows.Forms.CheckBox();
+            this.namePlayer = new System.Windows.Forms.Label();
+            this.statistBtn = new System.Windows.Forms.Button();
+            this.nextFight = new System.Windows.Forms.Button();
+            this.musicOnOf = new System.Windows.Forms.CheckBox();
             this.groupAttack.SuspendLayout();
             this.groupProtect.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbPlayerName
-            // 
-            this.lbPlayerName.AutoSize = true;
-            this.lbPlayerName.BackColor = System.Drawing.Color.Transparent;
-            this.lbPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbPlayerName.Location = new System.Drawing.Point(301, 55);
-            this.lbPlayerName.Name = "lbPlayerName";
-            this.lbPlayerName.Size = new System.Drawing.Size(0, 20);
-            this.lbPlayerName.TabIndex = 1;
-            this.lbPlayerName.Click += new System.EventHandler(this.label1_Click);
-            // 
             // groupAttack
             // 
             this.groupAttack.BackColor = System.Drawing.Color.Silver;
-            this.groupAttack.Controls.Add(this.attLegsRb);
-            this.groupAttack.Controls.Add(this.attTorsRb);
-            this.groupAttack.Controls.Add(this.attHeadRb);
+            this.groupAttack.Controls.Add(this.attLegs);
+            this.groupAttack.Controls.Add(this.attTors);
+            this.groupAttack.Controls.Add(this.attHead);
             this.groupAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupAttack.Location = new System.Drawing.Point(30, 78);
             this.groupAttack.Name = "groupAttack";
@@ -79,47 +67,47 @@
             this.groupAttack.TabStop = false;
             this.groupAttack.Text = "Атака";
             // 
-            // attLegsRb
+            // attLegs
             // 
-            this.attLegsRb.AutoSize = true;
-            this.attLegsRb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.attLegsRb.Location = new System.Drawing.Point(21, 114);
-            this.attLegsRb.Name = "attLegsRb";
-            this.attLegsRb.Size = new System.Drawing.Size(64, 24);
-            this.attLegsRb.TabIndex = 6;
-            this.attLegsRb.Text = "Ноги";
-            this.attLegsRb.UseVisualStyleBackColor = true;
+            this.attLegs.AutoSize = true;
+            this.attLegs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.attLegs.Location = new System.Drawing.Point(21, 114);
+            this.attLegs.Name = "attLegs";
+            this.attLegs.Size = new System.Drawing.Size(64, 24);
+            this.attLegs.TabIndex = 6;
+            this.attLegs.Text = "Ноги";
+            this.attLegs.UseVisualStyleBackColor = true;
             // 
-            // attTorsRb
+            // attTors
             // 
-            this.attTorsRb.AutoSize = true;
-            this.attTorsRb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.attTorsRb.Location = new System.Drawing.Point(21, 75);
-            this.attTorsRb.Name = "attTorsRb";
-            this.attTorsRb.Size = new System.Drawing.Size(79, 24);
-            this.attTorsRb.TabIndex = 5;
-            this.attTorsRb.Text = "Корпус";
-            this.attTorsRb.UseVisualStyleBackColor = true;
+            this.attTors.AutoSize = true;
+            this.attTors.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.attTors.Location = new System.Drawing.Point(21, 75);
+            this.attTors.Name = "attTors";
+            this.attTors.Size = new System.Drawing.Size(79, 24);
+            this.attTors.TabIndex = 5;
+            this.attTors.Text = "Корпус";
+            this.attTors.UseVisualStyleBackColor = true;
             // 
-            // attHeadRb
+            // attHead
             // 
-            this.attHeadRb.AutoSize = true;
-            this.attHeadRb.Checked = true;
-            this.attHeadRb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.attHeadRb.Location = new System.Drawing.Point(21, 34);
-            this.attHeadRb.Name = "attHeadRb";
-            this.attHeadRb.Size = new System.Drawing.Size(82, 24);
-            this.attHeadRb.TabIndex = 4;
-            this.attHeadRb.TabStop = true;
-            this.attHeadRb.Text = "Голова";
-            this.attHeadRb.UseVisualStyleBackColor = true;
+            this.attHead.AutoSize = true;
+            this.attHead.Checked = true;
+            this.attHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.attHead.Location = new System.Drawing.Point(21, 34);
+            this.attHead.Name = "attHead";
+            this.attHead.Size = new System.Drawing.Size(82, 24);
+            this.attHead.TabIndex = 4;
+            this.attHead.TabStop = true;
+            this.attHead.Text = "Голова";
+            this.attHead.UseVisualStyleBackColor = true;
             // 
             // groupProtect
             // 
             this.groupProtect.BackColor = System.Drawing.Color.Silver;
-            this.groupProtect.Controls.Add(this.protLegsRb);
-            this.groupProtect.Controls.Add(this.protTorsRb);
-            this.groupProtect.Controls.Add(this.protHeadRb);
+            this.groupProtect.Controls.Add(this.protLegs);
+            this.groupProtect.Controls.Add(this.protTors);
+            this.groupProtect.Controls.Add(this.protHead);
             this.groupProtect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupProtect.Location = new System.Drawing.Point(30, 262);
             this.groupProtect.Name = "groupProtect";
@@ -128,74 +116,74 @@
             this.groupProtect.TabStop = false;
             this.groupProtect.Text = "Защита";
             // 
-            // protLegsRb
+            // protLegs
             // 
-            this.protLegsRb.AutoSize = true;
-            this.protLegsRb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.protLegsRb.Location = new System.Drawing.Point(21, 114);
-            this.protLegsRb.Name = "protLegsRb";
-            this.protLegsRb.Size = new System.Drawing.Size(64, 24);
-            this.protLegsRb.TabIndex = 6;
-            this.protLegsRb.Text = "Ноги";
-            this.protLegsRb.UseVisualStyleBackColor = true;
+            this.protLegs.AutoSize = true;
+            this.protLegs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.protLegs.Location = new System.Drawing.Point(21, 114);
+            this.protLegs.Name = "protLegs";
+            this.protLegs.Size = new System.Drawing.Size(64, 24);
+            this.protLegs.TabIndex = 6;
+            this.protLegs.Text = "Ноги";
+            this.protLegs.UseVisualStyleBackColor = true;
             // 
-            // protTorsRb
+            // protTors
             // 
-            this.protTorsRb.AutoSize = true;
-            this.protTorsRb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.protTorsRb.Location = new System.Drawing.Point(21, 75);
-            this.protTorsRb.Name = "protTorsRb";
-            this.protTorsRb.Size = new System.Drawing.Size(79, 24);
-            this.protTorsRb.TabIndex = 5;
-            this.protTorsRb.Text = "Корпус";
-            this.protTorsRb.UseVisualStyleBackColor = true;
+            this.protTors.AutoSize = true;
+            this.protTors.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.protTors.Location = new System.Drawing.Point(21, 75);
+            this.protTors.Name = "protTors";
+            this.protTors.Size = new System.Drawing.Size(79, 24);
+            this.protTors.TabIndex = 5;
+            this.protTors.Text = "Корпус";
+            this.protTors.UseVisualStyleBackColor = true;
             // 
-            // protHeadRb
+            // protHead
             // 
-            this.protHeadRb.AutoSize = true;
-            this.protHeadRb.Checked = true;
-            this.protHeadRb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.protHeadRb.Location = new System.Drawing.Point(21, 34);
-            this.protHeadRb.Name = "protHeadRb";
-            this.protHeadRb.Size = new System.Drawing.Size(82, 24);
-            this.protHeadRb.TabIndex = 4;
-            this.protHeadRb.TabStop = true;
-            this.protHeadRb.Text = "Голова";
-            this.protHeadRb.UseVisualStyleBackColor = true;
+            this.protHead.AutoSize = true;
+            this.protHead.Checked = true;
+            this.protHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.protHead.Location = new System.Drawing.Point(21, 34);
+            this.protHead.Name = "protHead";
+            this.protHead.Size = new System.Drawing.Size(82, 24);
+            this.protHead.TabIndex = 4;
+            this.protHead.TabStop = true;
+            this.protHead.Text = "Голова";
+            this.protHead.UseVisualStyleBackColor = true;
             // 
-            // playerHpPrgrBar
+            // playerHpProgress
             // 
-            this.playerHpPrgrBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.playerHpProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.playerHpPrgrBar.Location = new System.Drawing.Point(211, 78);
-            this.playerHpPrgrBar.Name = "playerHpPrgrBar";
-            this.playerHpPrgrBar.Size = new System.Drawing.Size(276, 22);
-            this.playerHpPrgrBar.TabIndex = 8;
-            this.playerHpPrgrBar.Value = 100;
+            this.playerHpProgress.Location = new System.Drawing.Point(211, 78);
+            this.playerHpProgress.Name = "playerHpProgress";
+            this.playerHpProgress.Size = new System.Drawing.Size(276, 22);
+            this.playerHpProgress.TabIndex = 8;
+            this.playerHpProgress.Value = 100;
             // 
-            // botHpPrgrBar
+            // botHpProgress
             // 
-            this.botHpPrgrBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.botHpProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.botHpPrgrBar.Location = new System.Drawing.Point(211, 142);
-            this.botHpPrgrBar.Name = "botHpPrgrBar";
-            this.botHpPrgrBar.Size = new System.Drawing.Size(276, 22);
-            this.botHpPrgrBar.TabIndex = 10;
-            this.botHpPrgrBar.Value = 100;
+            this.botHpProgress.Location = new System.Drawing.Point(211, 142);
+            this.botHpProgress.Name = "botHpProgress";
+            this.botHpProgress.Size = new System.Drawing.Size(276, 22);
+            this.botHpProgress.TabIndex = 10;
+            this.botHpProgress.Value = 100;
             // 
-            // nameBotLb
+            // nameBot
             // 
-            this.nameBotLb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.nameBot.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.nameBotLb.AutoSize = true;
-            this.nameBotLb.BackColor = System.Drawing.Color.Transparent;
-            this.nameBotLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameBotLb.Location = new System.Drawing.Point(323, 119);
-            this.nameBotLb.Name = "nameBotLb";
-            this.nameBotLb.Size = new System.Drawing.Size(38, 20);
-            this.nameBotLb.TabIndex = 9;
-            this.nameBotLb.Text = "Бот";
+            this.nameBot.AutoSize = true;
+            this.nameBot.BackColor = System.Drawing.Color.Transparent;
+            this.nameBot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nameBot.Location = new System.Drawing.Point(323, 119);
+            this.nameBot.Name = "nameBot";
+            this.nameBot.Size = new System.Drawing.Size(38, 20);
+            this.nameBot.TabIndex = 9;
+            this.nameBot.Text = "Бот";
             // 
             // logFld
             // 
@@ -209,29 +197,29 @@
             this.logFld.Size = new System.Drawing.Size(276, 157);
             this.logFld.TabIndex = 11;
             // 
-            // fightButton
+            // fight
             // 
-            this.fightButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.fightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fightButton.Location = new System.Drawing.Point(310, 380);
-            this.fightButton.Name = "fightButton";
-            this.fightButton.Size = new System.Drawing.Size(81, 39);
-            this.fightButton.TabIndex = 12;
-            this.fightButton.Text = "Бой";
-            this.fightButton.UseVisualStyleBackColor = true;
-            this.fightButton.Click += new System.EventHandler(this.butFight_Click);
+            this.fight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.fight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.fight.Location = new System.Drawing.Point(310, 380);
+            this.fight.Name = "fight";
+            this.fight.Size = new System.Drawing.Size(81, 39);
+            this.fight.TabIndex = 12;
+            this.fight.Text = "Бой";
+            this.fight.UseVisualStyleBackColor = true;
+            this.fight.Click += new System.EventHandler(this.butFight_Click);
             // 
-            // endFightButt
+            // newFight
             // 
-            this.endFightButt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.endFightButt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.endFightButt.Location = new System.Drawing.Point(618, 371);
-            this.endFightButt.Name = "endFightButt";
-            this.endFightButt.Size = new System.Drawing.Size(114, 48);
-            this.endFightButt.TabIndex = 13;
-            this.endFightButt.Text = "Новая схватка\r\n";
-            this.endFightButt.UseVisualStyleBackColor = true;
-            this.endFightButt.Click += new System.EventHandler(this.endFightButt_Click);
+            this.newFight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.newFight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.newFight.Location = new System.Drawing.Point(618, 371);
+            this.newFight.Name = "newFight";
+            this.newFight.Size = new System.Drawing.Size(114, 48);
+            this.newFight.TabIndex = 13;
+            this.newFight.Text = "Новая схватка\r\n";
+            this.newFight.UseVisualStyleBackColor = true;
+            this.newFight.Click += new System.EventHandler(this.endFightButt_Click);
             // 
             // logLb
             // 
@@ -258,59 +246,59 @@
             this.roundLb.TabIndex = 15;
             this.roundLb.Text = "Раунд 1";
             // 
-            // namePlayerLb
+            // namePlayer
             // 
-            this.namePlayerLb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.namePlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.namePlayerLb.AutoSize = true;
-            this.namePlayerLb.BackColor = System.Drawing.Color.Transparent;
-            this.namePlayerLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.namePlayerLb.Location = new System.Drawing.Point(323, 55);
-            this.namePlayerLb.Name = "namePlayerLb";
-            this.namePlayerLb.Size = new System.Drawing.Size(53, 20);
-            this.namePlayerLb.TabIndex = 16;
-            this.namePlayerLb.Text = "Игрок";
+            this.namePlayer.AutoSize = true;
+            this.namePlayer.BackColor = System.Drawing.Color.Transparent;
+            this.namePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.namePlayer.Location = new System.Drawing.Point(323, 55);
+            this.namePlayer.Name = "namePlayer";
+            this.namePlayer.Size = new System.Drawing.Size(53, 20);
+            this.namePlayer.TabIndex = 16;
+            this.namePlayer.Text = "Игрок";
             // 
-            // statistButton
+            // statistBtn
             // 
-            this.statistButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.statistButton.Enabled = false;
-            this.statistButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.statistButton.Location = new System.Drawing.Point(213, 380);
-            this.statistButton.Name = "statistButton";
-            this.statistButton.Size = new System.Drawing.Size(90, 39);
-            this.statistButton.TabIndex = 17;
-            this.statistButton.Text = "Статистика боя";
-            this.statistButton.UseVisualStyleBackColor = true;
-            this.statistButton.Click += new System.EventHandler(this.statistButton_Click);
+            this.statistBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.statistBtn.Enabled = false;
+            this.statistBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.statistBtn.Location = new System.Drawing.Point(213, 380);
+            this.statistBtn.Name = "statistBtn";
+            this.statistBtn.Size = new System.Drawing.Size(90, 39);
+            this.statistBtn.TabIndex = 17;
+            this.statistBtn.Text = "Статистика боя";
+            this.statistBtn.UseVisualStyleBackColor = true;
+            this.statistBtn.Click += new System.EventHandler(this.statistButton_Click);
             // 
-            // nextFightButton
+            // nextFight
             // 
-            this.nextFightButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.nextFightButton.Enabled = false;
-            this.nextFightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nextFightButton.Location = new System.Drawing.Point(397, 380);
-            this.nextFightButton.Name = "nextFightButton";
-            this.nextFightButton.Size = new System.Drawing.Size(90, 39);
-            this.nextFightButton.TabIndex = 18;
-            this.nextFightButton.Text = "Слелующий бой";
-            this.nextFightButton.UseVisualStyleBackColor = true;
-            this.nextFightButton.Click += new System.EventHandler(this.nextFightButton_Click);
+            this.nextFight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.nextFight.Enabled = false;
+            this.nextFight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nextFight.Location = new System.Drawing.Point(397, 380);
+            this.nextFight.Name = "nextFight";
+            this.nextFight.Size = new System.Drawing.Size(90, 39);
+            this.nextFight.TabIndex = 18;
+            this.nextFight.Text = "Слелующий бой";
+            this.nextFight.UseVisualStyleBackColor = true;
+            this.nextFight.Click += new System.EventHandler(this.nextFightButton_Click);
             // 
-            // musicCb
+            // musicOnOf
             // 
-            this.musicCb.AutoSize = true;
-            this.musicCb.BackColor = System.Drawing.Color.Transparent;
-            this.musicCb.Checked = true;
-            this.musicCb.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.musicCb.Location = new System.Drawing.Point(643, 12);
-            this.musicCb.Name = "musicCb";
-            this.musicCb.Size = new System.Drawing.Size(66, 17);
-            this.musicCb.TabIndex = 19;
-            this.musicCb.Text = "Музыка";
-            this.musicCb.UseVisualStyleBackColor = false;
-            this.musicCb.CheckedChanged += new System.EventHandler(this.musicCb_CheckedChanged);
+            this.musicOnOf.AutoSize = true;
+            this.musicOnOf.BackColor = System.Drawing.Color.Transparent;
+            this.musicOnOf.Checked = true;
+            this.musicOnOf.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.musicOnOf.Location = new System.Drawing.Point(643, 12);
+            this.musicOnOf.Name = "musicOnOf";
+            this.musicOnOf.Size = new System.Drawing.Size(66, 17);
+            this.musicOnOf.TabIndex = 19;
+            this.musicOnOf.Text = "Музыка";
+            this.musicOnOf.UseVisualStyleBackColor = false;
+            this.musicOnOf.CheckedChanged += new System.EventHandler(this.musicCb_CheckedChanged);
             // 
             // MainForm
             // 
@@ -320,21 +308,20 @@
             this.BackgroundImage = global::FightClubApp.Properties.Resources.tumblr_inline_nlma5dDlRQ1s811jo_1280;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(744, 431);
-            this.Controls.Add(this.musicCb);
-            this.Controls.Add(this.nextFightButton);
-            this.Controls.Add(this.statistButton);
-            this.Controls.Add(this.namePlayerLb);
+            this.Controls.Add(this.musicOnOf);
+            this.Controls.Add(this.nextFight);
+            this.Controls.Add(this.statistBtn);
+            this.Controls.Add(this.namePlayer);
             this.Controls.Add(this.roundLb);
             this.Controls.Add(this.logLb);
-            this.Controls.Add(this.endFightButt);
-            this.Controls.Add(this.fightButton);
+            this.Controls.Add(this.newFight);
+            this.Controls.Add(this.fight);
             this.Controls.Add(this.logFld);
-            this.Controls.Add(this.botHpPrgrBar);
-            this.Controls.Add(this.nameBotLb);
-            this.Controls.Add(this.playerHpPrgrBar);
+            this.Controls.Add(this.botHpProgress);
+            this.Controls.Add(this.nameBot);
+            this.Controls.Add(this.playerHpProgress);
             this.Controls.Add(this.groupProtect);
             this.Controls.Add(this.groupAttack);
-            this.Controls.Add(this.lbPlayerName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -352,27 +339,26 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label lbPlayerName;
         private System.Windows.Forms.GroupBox groupAttack;
-        private System.Windows.Forms.RadioButton attLegsRb;
-        private System.Windows.Forms.RadioButton attTorsRb;
-        private System.Windows.Forms.RadioButton attHeadRb;
+        private System.Windows.Forms.RadioButton attLegs;
+        private System.Windows.Forms.RadioButton attTors;
+        private System.Windows.Forms.RadioButton attHead;
         private System.Windows.Forms.GroupBox groupProtect;
-        private System.Windows.Forms.RadioButton protLegsRb;
-        private System.Windows.Forms.RadioButton protTorsRb;
-        private System.Windows.Forms.RadioButton protHeadRb;
-        private System.Windows.Forms.ProgressBar playerHpPrgrBar;
-        private System.Windows.Forms.ProgressBar botHpPrgrBar;
-        private System.Windows.Forms.Label nameBotLb;
+        private System.Windows.Forms.RadioButton protLegs;
+        private System.Windows.Forms.RadioButton protTors;
+        private System.Windows.Forms.RadioButton protHead;
+        private System.Windows.Forms.ProgressBar playerHpProgress;
+        private System.Windows.Forms.ProgressBar botHpProgress;
+        private System.Windows.Forms.Label nameBot;
         private System.Windows.Forms.TextBox logFld;
-        private System.Windows.Forms.Button fightButton;
-        private System.Windows.Forms.Button endFightButt;
+        private System.Windows.Forms.Button fight;
+        private System.Windows.Forms.Button newFight;
         private System.Windows.Forms.Label logLb;
         private System.Windows.Forms.Label roundLb;
-        private System.Windows.Forms.Label namePlayerLb;
-        private System.Windows.Forms.Button statistButton;
-        private System.Windows.Forms.Button nextFightButton;
-        private System.Windows.Forms.CheckBox musicCb;
+        private System.Windows.Forms.Label namePlayer;
+        private System.Windows.Forms.Button statistBtn;
+        private System.Windows.Forms.Button nextFight;
+        private System.Windows.Forms.CheckBox musicOnOf;
     }
 }
 

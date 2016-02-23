@@ -34,6 +34,7 @@ namespace FightClubApp
             bot.Wound += player_Wound;
             bot.Block += player_Block;
             bot.Death += player_Death;
+            view.FightClick += onFightClick;
         }
 
         public string PatrtToString(PartOfBody part)
@@ -58,6 +59,7 @@ namespace FightClubApp
             return result;
         }
 
+
         private void player_Wound(object sender, MyEventArgs e)
         {
             view.Log =  e.Name + " неудачно защищал " + PatrtToString(e.Block) + " и получил удар в " 
@@ -75,6 +77,10 @@ namespace FightClubApp
 
         }
 
+        private void onFightClick(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

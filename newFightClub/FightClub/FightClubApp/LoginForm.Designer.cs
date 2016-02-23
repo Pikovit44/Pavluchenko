@@ -29,86 +29,86 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
-            this.recordsButton = new System.Windows.Forms.Button();
-            this.choosePlayerCombBox = new System.Windows.Forms.ComboBox();
-            this.fightButton = new System.Windows.Forms.Button();
-            this.ruleButton = new System.Windows.Forms.Button();
-            this.signInLb = new System.Windows.Forms.Label();
-            this.newPlayerFld = new System.Windows.Forms.TextBox();
-            this.newPlayerСhB = new System.Windows.Forms.CheckBox();
+            this.records = new System.Windows.Forms.Button();
+            this.choosePlayer = new System.Windows.Forms.ComboBox();
+            this.toFightMenu = new System.Windows.Forms.Button();
+            this.rules = new System.Windows.Forms.Button();
+            this.signIn = new System.Windows.Forms.Label();
+            this.newPlayerName = new System.Windows.Forms.TextBox();
+            this.newPlayer = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
-            // recordsButton
+            // records
             // 
-            this.recordsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.recordsButton.Location = new System.Drawing.Point(284, 22);
-            this.recordsButton.Name = "recordsButton";
-            this.recordsButton.Size = new System.Drawing.Size(110, 31);
-            this.recordsButton.TabIndex = 2;
-            this.recordsButton.Text = "Рекорды";
-            this.recordsButton.UseVisualStyleBackColor = true;
+            this.records.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.records.Location = new System.Drawing.Point(284, 22);
+            this.records.Name = "records";
+            this.records.Size = new System.Drawing.Size(110, 31);
+            this.records.TabIndex = 2;
+            this.records.Text = "Рекорды";
+            this.records.UseVisualStyleBackColor = true;
             // 
-            // choosePlayerCombBox
+            // choosePlayer
             // 
-            this.choosePlayerCombBox.FormattingEnabled = true;
-            this.choosePlayerCombBox.Location = new System.Drawing.Point(500, 96);
-            this.choosePlayerCombBox.Name = "choosePlayerCombBox";
-            this.choosePlayerCombBox.Size = new System.Drawing.Size(153, 21);
-            this.choosePlayerCombBox.TabIndex = 3;
+            this.choosePlayer.FormattingEnabled = true;
+            this.choosePlayer.Location = new System.Drawing.Point(500, 96);
+            this.choosePlayer.Name = "choosePlayer";
+            this.choosePlayer.Size = new System.Drawing.Size(153, 21);
+            this.choosePlayer.TabIndex = 3;
             // 
-            // fightButton
+            // toFightMenu
             // 
-            this.fightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fightButton.Location = new System.Drawing.Point(500, 360);
-            this.fightButton.Name = "fightButton";
-            this.fightButton.Size = new System.Drawing.Size(153, 31);
-            this.fightButton.TabIndex = 5;
-            this.fightButton.Text = "Начать схватку";
-            this.fightButton.UseVisualStyleBackColor = true;
-            this.fightButton.Click += new System.EventHandler(this.FightButton_Click);
+            this.toFightMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toFightMenu.Location = new System.Drawing.Point(500, 360);
+            this.toFightMenu.Name = "toFightMenu";
+            this.toFightMenu.Size = new System.Drawing.Size(153, 31);
+            this.toFightMenu.TabIndex = 5;
+            this.toFightMenu.Text = "Начать схватку";
+            this.toFightMenu.UseVisualStyleBackColor = true;
+            this.toFightMenu.Click += new System.EventHandler(this.FightButton_Click);
             // 
-            // ruleButton
+            // rules
             // 
-            this.ruleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ruleButton.Location = new System.Drawing.Point(128, 360);
-            this.ruleButton.Name = "ruleButton";
-            this.ruleButton.Size = new System.Drawing.Size(110, 31);
-            this.ruleButton.TabIndex = 6;
-            this.ruleButton.Text = "Правила";
-            this.ruleButton.UseVisualStyleBackColor = true;
+            this.rules.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rules.Location = new System.Drawing.Point(128, 360);
+            this.rules.Name = "rules";
+            this.rules.Size = new System.Drawing.Size(110, 31);
+            this.rules.TabIndex = 6;
+            this.rules.Text = "Правила";
+            this.rules.UseVisualStyleBackColor = true;
             // 
-            // signInLb
+            // signIn
             // 
-            this.signInLb.AutoSize = true;
-            this.signInLb.BackColor = System.Drawing.Color.Transparent;
-            this.signInLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.signInLb.ForeColor = System.Drawing.Color.White;
-            this.signInLb.Location = new System.Drawing.Point(471, 49);
-            this.signInLb.Name = "signInLb";
-            this.signInLb.Size = new System.Drawing.Size(221, 32);
-            this.signInLb.TabIndex = 7;
-            this.signInLb.Text = "Авторизируйтесь \r\nили создайте нового персонажа\r\n";
-            this.signInLb.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.signIn.AutoSize = true;
+            this.signIn.BackColor = System.Drawing.Color.Transparent;
+            this.signIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.signIn.ForeColor = System.Drawing.Color.White;
+            this.signIn.Location = new System.Drawing.Point(471, 49);
+            this.signIn.Name = "signIn";
+            this.signIn.Size = new System.Drawing.Size(221, 32);
+            this.signIn.TabIndex = 7;
+            this.signIn.Text = "Авторизируйтесь \r\nили создайте нового персонажа\r\n";
+            this.signIn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // newPlayerFld
+            // newPlayerName
             // 
-            this.newPlayerFld.Location = new System.Drawing.Point(500, 160);
-            this.newPlayerFld.Name = "newPlayerFld";
-            this.newPlayerFld.Size = new System.Drawing.Size(153, 20);
-            this.newPlayerFld.TabIndex = 8;
-            this.newPlayerFld.Visible = false;
+            this.newPlayerName.Location = new System.Drawing.Point(500, 160);
+            this.newPlayerName.Name = "newPlayerName";
+            this.newPlayerName.Size = new System.Drawing.Size(153, 20);
+            this.newPlayerName.TabIndex = 8;
+            this.newPlayerName.Visible = false;
             // 
-            // newPlayerСhB
+            // newPlayer
             // 
-            this.newPlayerСhB.AutoSize = true;
-            this.newPlayerСhB.BackColor = System.Drawing.Color.Transparent;
-            this.newPlayerСhB.ForeColor = System.Drawing.Color.White;
-            this.newPlayerСhB.Location = new System.Drawing.Point(509, 137);
-            this.newPlayerСhB.Name = "newPlayerСhB";
-            this.newPlayerСhB.Size = new System.Drawing.Size(144, 17);
-            this.newPlayerСhB.TabIndex = 9;
-            this.newPlayerСhB.Text = "Создать нового игрока";
-            this.newPlayerСhB.UseVisualStyleBackColor = false;
+            this.newPlayer.AutoSize = true;
+            this.newPlayer.BackColor = System.Drawing.Color.Transparent;
+            this.newPlayer.ForeColor = System.Drawing.Color.White;
+            this.newPlayer.Location = new System.Drawing.Point(509, 137);
+            this.newPlayer.Name = "newPlayer";
+            this.newPlayer.Size = new System.Drawing.Size(144, 17);
+            this.newPlayer.TabIndex = 9;
+            this.newPlayer.Text = "Создать нового игрока";
+            this.newPlayer.UseVisualStyleBackColor = false;
             // 
             // LoginForm
             // 
@@ -117,13 +117,13 @@
             this.BackgroundImage = global::FightClubApp.Properties.Resources.fight_club_rule_you_do_not_talk_about_fight_club_336_1920x1080;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(744, 431);
-            this.Controls.Add(this.newPlayerСhB);
-            this.Controls.Add(this.newPlayerFld);
-            this.Controls.Add(this.signInLb);
-            this.Controls.Add(this.ruleButton);
-            this.Controls.Add(this.fightButton);
-            this.Controls.Add(this.choosePlayerCombBox);
-            this.Controls.Add(this.recordsButton);
+            this.Controls.Add(this.newPlayer);
+            this.Controls.Add(this.newPlayerName);
+            this.Controls.Add(this.signIn);
+            this.Controls.Add(this.rules);
+            this.Controls.Add(this.toFightMenu);
+            this.Controls.Add(this.choosePlayer);
+            this.Controls.Add(this.records);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "LoginForm";
@@ -135,12 +135,12 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button recordsButton;
-        private System.Windows.Forms.ComboBox choosePlayerCombBox;
-        private System.Windows.Forms.Button fightButton;
-        private System.Windows.Forms.Button ruleButton;
-        private System.Windows.Forms.Label signInLb;
-        private System.Windows.Forms.TextBox newPlayerFld;
-        private System.Windows.Forms.CheckBox newPlayerСhB;
+        private System.Windows.Forms.Button records;
+        private System.Windows.Forms.ComboBox choosePlayer;
+        private System.Windows.Forms.Button toFightMenu;
+        private System.Windows.Forms.Button rules;
+        private System.Windows.Forms.Label signIn;
+        private System.Windows.Forms.TextBox newPlayerName;
+        private System.Windows.Forms.CheckBox newPlayer;
     }
 }

@@ -31,7 +31,6 @@ namespace FightClubApp
         {
             InitializeComponent();
             music = new SoundPlayer(Properties.Resources.One_Republic_Everybody_Loves_Me_OST_Happily_Ever_A);
-
             music.PlayLooping();
             presenter = new Presenter(this);
             statistics = new Statistics(this);
@@ -44,24 +43,24 @@ namespace FightClubApp
         
         public string PlayerName
         {
-            set { namePlayerLb.Text = value; }
+            set { namePlayer.Text = value; }
         }
 
         public int PlayerHp
         {
-            get { return playerHpPrgrBar.Value; }
-            set { playerHpPrgrBar.Value = value;}
+            get { return playerHpProgress.Value; }
+            set { playerHpProgress.Value = value;}
         }
 
         public string BotName
         {
-            set { nameBotLb.Text = value; }
+            set { nameBot.Text = value; }
         }
 
         public int BotHp
         {
-            get { return botHpPrgrBar.Value; }
-            set { botHpPrgrBar.Value = value;}
+            get { return botHpProgress.Value; }
+            set { botHpProgress.Value = value;}
         }
 
         public PartOfBody Hit
@@ -84,13 +83,13 @@ namespace FightClubApp
         {
             string info;
 
-            if (playerHpPrgrBar.Value ==  (int)Constant.deathHP && botHpPrgrBar.Value == (int)Constant.deathHP)
+            if (playerHpProgress.Value ==  (int)Constant.deathHP && botHpProgress.Value == (int)Constant.deathHP)
             {
                 Log = info = "Бой не выявил победителя. Пали оба бойца...";
                 MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
                
             }
-            else if (botHpPrgrBar.Value == (int)Constant.deathHP)
+            else if (botHpProgress.Value == (int)Constant.deathHP)
             {
                 Log = info = "Игрок победил!";
                 MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
@@ -106,23 +105,23 @@ namespace FightClubApp
         {
             roundLb.Text = Log = "Раунд " + round;
             
-            if (protHeadRb.Checked) { block = PartOfBody.head; }
-            if (protTorsRb.Checked) { block = PartOfBody.tors; }
-            if (protLegsRb.Checked) { block = PartOfBody.legs; }
-            if (attHeadRb.Checked) { hit = PartOfBody.head; }
-            if (attTorsRb.Checked) { hit = PartOfBody.tors; }
-            if (attLegsRb.Checked) { hit = PartOfBody.legs; }
+            if (protHead.Checked) { block = PartOfBody.head; }
+            if (protTors.Checked) { block = PartOfBody.tors; }
+            if (protLegs.Checked) { block = PartOfBody.legs; }
+            if (attHead.Checked) { hit = PartOfBody.head; }
+            if (attTors.Checked) { hit = PartOfBody.tors; }
+            if (attLegs.Checked) { hit = PartOfBody.legs; }
             {
-                if (playerHpPrgrBar.Value != 0 && botHpPrgrBar.Value != 0)
+                if (playerHpProgress.Value != 0 && botHpProgress.Value != 0)
                 {
                     if (FightClick != null) { FightClick(this, EventArgs.Empty); }
                 }
-                if (playerHpPrgrBar.Value == (int)Constant.deathHP || botHpPrgrBar.Value == (int)Constant.deathHP) 
+                if (playerHpProgress.Value == (int)Constant.deathHP || botHpProgress.Value == (int)Constant.deathHP) 
                 {
 
-                    fightButton.Enabled = false; // method
-                    statistButton.Enabled = true;
-                    nextFightButton.Enabled = true;
+                    fight.Enabled = false; // method
+                    statistBtn.Enabled = true;
+                    nextFight.Enabled = true;
                     Log = "Схватка окончена.";
                     WinnerName();
                 }
@@ -140,12 +139,12 @@ namespace FightClubApp
             logFld.SelectionStart = logFld.Text.Length; // установка курсора в конец лога?
             //logFld.Select(0, 0); 
             logFld.Text = "";
-            playerHpPrgrBar.Value = botHpPrgrBar.Value = (int)Constant.startHP;
+            playerHpProgress.Value = botHpProgress.Value = (int)Constant.startHP;
             round = (int)Constant.firstRound;
             roundLb.Text = "Раунд " + round;
-            fightButton.Enabled = true;
-            statistButton.Enabled = false;
-            nextFightButton.Enabled = false;
+            fight.Enabled = true;
+            statistBtn.Enabled = false;
+            nextFight.Enabled = false;
             if (NextFightClick != null) { NextFightClick(this, EventArgs.Empty); }
         }
 
@@ -156,7 +155,7 @@ namespace FightClubApp
 
         private void musicCb_CheckedChanged(object sender, EventArgs e)
         {
-            if (!musicCb.Checked)
+            if (!musicOnOf.Checked)
             {
                 music.Stop();
             }

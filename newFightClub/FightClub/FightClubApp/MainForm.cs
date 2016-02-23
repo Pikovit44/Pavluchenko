@@ -78,33 +78,38 @@ namespace FightClubApp
             set { logFld.Text += value + Environment.NewLine; }
         }
 
-      
-
-       
-
-        private void butFight_Click(object sender, EventArgs e)
+        public void ChooseBlockHit()
         {
-            roundLb.Text = Log = "Раунд " + round;
-            
             if (protHead.Checked) { block = PartOfBody.Head; } // method
             if (protTors.Checked) { block = PartOfBody.Tors; }
             if (protLegs.Checked) { block = PartOfBody.Legs; }
             if (attHead.Checked) { hit = PartOfBody.Head; }
             if (attTors.Checked) { hit = PartOfBody.Tors; }
             if (attLegs.Checked) { hit = PartOfBody.Legs; }
+        }
+
+        public void VisibleButtons(bool endRound)
+        {
+                fight.Enabled = !endRound; // method
+                statistBtn.Enabled = endRound;
+                nextFight.Enabled = endRound;
+  
+        }
+        
+        private void butFight_Click(object sender, EventArgs e)
+        {
+            roundLb.Text = Log = "Раунд " + round;
+            ChooseBlockHit();
+            
             {
-                if (playerHpProgress.Value != 0 && botHpProgress.Value != 0)
+                if (playerHpProgress.Value != (int)Constant.DeathHP && botHpProgress.Value != (int)Constant.DeathHP)
                 {
                     if (FightClick != null) { FightClick(this, EventArgs.Empty); }
                 }
                 if (playerHpProgress.Value == (int)Constant.DeathHP || botHpProgress.Value == (int)Constant.DeathHP) 
                 {
-                    fight.Enabled = false; // method
-                    statistBtn.Enabled = true;
-                    nextFight.Enabled = true;
-
+                    VisibleButtons(true);
                     if (EndRound != null) { EndRound(this, EventArgs.Empty); }
-                    
                 }
             }
             round++;
@@ -123,9 +128,7 @@ namespace FightClubApp
             playerHpProgress.Value = botHpProgress.Value = (int)Constant.StartHP;
             round = (int)Constant.FirstRound;
             roundLb.Text = "Раунд " + round;
-            fight.Enabled = true;
-            statistBtn.Enabled = false;
-            nextFight.Enabled = false;
+            VisibleButtons(false);
             if (NextFightClick != null) { NextFightClick(this, EventArgs.Empty); }
         }
 

@@ -28,12 +28,12 @@ namespace FightClubApp
 
         public void SetMessage()
         {
-            player.Wound += player_Wound;
-            player.Block += player_Block;
-            player.Death += player_Death;
-            bot.Wound += player_Wound;
-            bot.Block += player_Block;
-            bot.Death += player_Death;
+            player.Wound += onWound;
+            player.Block += onBlock;
+            player.Death += onDeath;
+            bot.Wound += onWound;
+            bot.Block += onBlock;
+            bot.Death += onDeath;
             view.EndRound += onEndRound;
         }
 
@@ -82,18 +82,18 @@ namespace FightClubApp
         }
 
 
-        private void player_Wound(object sender, MyEventArgs e)
+        private void onWound(object sender, MyEventArgs e)
         {
             view.Log =  e.Name + " неудачно защищал " + PatrtToString(e.Block) + " и получил удар в " 
                         + PatrtToString(e.Part) + ". " + e.Hp + " hp осталось.";
         }
 
-        private void player_Block(object sender, MyEventArgs e)
+        private void onBlock(object sender, MyEventArgs e)
         {
             view.Log = e.Name + " успешно защитил " + PatrtToString(e.Block) + ". Удар не прошел и у него по прежнему остается " + e.Hp + " hp.";
         }
 
-        private void player_Death(object sender, MyEventArgs e)
+        private void onDeath(object sender, MyEventArgs e)
         {
             view.Log = e.Name + " побежден, с " + e.Hp + " hp он больше не может сопротивляться.";
 

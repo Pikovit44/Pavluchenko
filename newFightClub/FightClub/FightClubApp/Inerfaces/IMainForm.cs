@@ -16,9 +16,9 @@ namespace FightClubApp.Inerfaces
         PartOfBody Hit { get; }
         PartOfBody Block { get; }
         string Log { set; }
-        void WinnerName();
         event EventHandler FightClick;
         event EventHandler NextFightClick;
         event EventHandler StatisticsClick;
+        event EventHandler EndRound;
     }
 }

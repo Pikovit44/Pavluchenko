@@ -22,6 +22,7 @@ namespace FightClubApp
         public event EventHandler FightClick;
         public event EventHandler NextFightClick;
         public event EventHandler StatisticsClick;
+        public event EventHandler EndRound;
         PartOfBody hit;
         PartOfBody block;
         int round = (int)Constant.firstRound;
@@ -79,33 +80,13 @@ namespace FightClubApp
 
       
 
-        public void WinnerName()
-        {
-            string info;
-
-            if (playerHpProgress.Value ==  (int)Constant.deathHP && botHpProgress.Value == (int)Constant.deathHP)
-            {
-                Log = info = "Бой не выявил победителя. Пали оба бойца...";
-                MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
-               
-            }
-            else if (botHpProgress.Value == (int)Constant.deathHP)
-            {
-                Log = info = "Игрок победил!";
-                MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
-            }
-            else
-            {
-                Log = info = "Победил Бот!";
-                MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
-            }
-        }
+       
 
         private void butFight_Click(object sender, EventArgs e)
         {
             roundLb.Text = Log = "Раунд " + round;
             
-            if (protHead.Checked) { block = PartOfBody.head; }
+            if (protHead.Checked) { block = PartOfBody.head; } // method
             if (protTors.Checked) { block = PartOfBody.tors; }
             if (protLegs.Checked) { block = PartOfBody.legs; }
             if (attHead.Checked) { hit = PartOfBody.head; }
@@ -118,12 +99,12 @@ namespace FightClubApp
                 }
                 if (playerHpProgress.Value == (int)Constant.deathHP || botHpProgress.Value == (int)Constant.deathHP) 
                 {
-
                     fight.Enabled = false; // method
                     statistBtn.Enabled = true;
                     nextFight.Enabled = true;
-                    Log = "Схватка окончена.";
-                    WinnerName();
+
+                    if (EndRound != null) { EndRound(this, EventArgs.Empty); }
+                    
                 }
             }
             round++;

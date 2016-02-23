@@ -9,6 +9,7 @@ namespace FightClubApp.Inerfaces
     public interface ITextInfo
     {
         void SetMessage();
+        void WinnerName();
         string PatrtToString(PartOfBody part);
     }
 }

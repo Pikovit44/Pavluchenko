@@ -34,7 +34,7 @@ namespace FightClubApp
             bot.Wound += player_Wound;
             bot.Block += player_Block;
             bot.Death += player_Death;
-            view.FightClick += onFightClick;
+            view.EndRound += onEndRound;
         }
 
         public string PatrtToString(PartOfBody part)
@@ -59,6 +59,28 @@ namespace FightClubApp
             return result;
         }
 
+        public void WinnerName()
+        {
+            string info;
+
+            if (player.HP == (int)Constant.deathHP && bot.HP == (int)Constant.deathHP)
+            {
+                view.Log = info = "Бой не выявил победителя. Пали оба бойца...";
+                MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
+
+            }
+            else if (bot.HP == (int)Constant.deathHP)
+            {
+                view.Log = info = "Игрок победил!";
+                MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
+            }
+            else
+            {
+                view.Log = info = "Победил Бот!";
+                MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
+            }
+        }
+
 
         private void player_Wound(object sender, MyEventArgs e)
         {
@@ -77,9 +99,10 @@ namespace FightClubApp
 
         }
 
-        private void onFightClick(object sender, EventArgs e)
+        private void onEndRound(object sender, EventArgs e)
         {
-
+            view.Log = "Схватка окончена.";
+            WinnerName();
         }
 
     }

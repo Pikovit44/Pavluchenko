@@ -34,7 +34,7 @@
             this.namePlayer = new System.Windows.Forms.Label();
             this.roundLb = new System.Windows.Forms.Label();
             this.logLb = new System.Windows.Forms.Label();
-            this.newFight = new System.Windows.Forms.Button();
+            this.toMenu = new System.Windows.Forms.Button();
             this.fight = new System.Windows.Forms.Button();
             this.logFld = new System.Windows.Forms.TextBox();
             this.botHpProgress = new System.Windows.Forms.ProgressBar();
@@ -48,6 +48,7 @@
             this.attLegs = new System.Windows.Forms.RadioButton();
             this.attTors = new System.Windows.Forms.RadioButton();
             this.attHead = new System.Windows.Forms.RadioButton();
+            this.save = new System.Windows.Forms.Button();
             this.groupProtect.SuspendLayout();
             this.groupAttack.SuspendLayout();
             this.SuspendLayout();
@@ -58,12 +59,13 @@
             this.musicOnOf.BackColor = System.Drawing.Color.Transparent;
             this.musicOnOf.Checked = true;
             this.musicOnOf.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.musicOnOf.Location = new System.Drawing.Point(642, 31);
+            this.musicOnOf.Location = new System.Drawing.Point(44, 404);
             this.musicOnOf.Name = "musicOnOf";
             this.musicOnOf.Size = new System.Drawing.Size(66, 17);
             this.musicOnOf.TabIndex = 33;
             this.musicOnOf.Text = "Музыка";
             this.musicOnOf.UseVisualStyleBackColor = false;
+            this.musicOnOf.CheckedChanged += new System.EventHandler(this.musicCb_CheckedChanged);
             // 
             // nextFight
             // 
@@ -76,6 +78,7 @@
             this.nextFight.TabIndex = 32;
             this.nextFight.Text = "Слелующий бой";
             this.nextFight.UseVisualStyleBackColor = true;
+            this.nextFight.Click += new System.EventHandler(this.nextFightButton_Click);
             // 
             // statistBtn
             // 
@@ -88,6 +91,7 @@
             this.statistBtn.TabIndex = 31;
             this.statistBtn.Text = "Статистика боя";
             this.statistBtn.UseVisualStyleBackColor = true;
+            this.statistBtn.Click += new System.EventHandler(this.statistButton_Click);
             // 
             // namePlayer
             // 
@@ -128,16 +132,17 @@
             this.logLb.TabIndex = 28;
             this.logLb.Text = "Ход боя";
             // 
-            // newFight
+            // toMenu
             // 
-            this.newFight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.newFight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.newFight.Location = new System.Drawing.Point(617, 390);
-            this.newFight.Name = "newFight";
-            this.newFight.Size = new System.Drawing.Size(114, 48);
-            this.newFight.TabIndex = 27;
-            this.newFight.Text = "Новая схватка\r\n";
-            this.newFight.UseVisualStyleBackColor = true;
+            this.toMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.toMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.toMenu.Location = new System.Drawing.Point(624, 47);
+            this.toMenu.Name = "toMenu";
+            this.toMenu.Size = new System.Drawing.Size(114, 30);
+            this.toMenu.TabIndex = 27;
+            this.toMenu.Text = "В меню";
+            this.toMenu.UseVisualStyleBackColor = true;
+            this.toMenu.Click += new System.EventHandler(this.toMenu_Click);
             // 
             // fight
             // 
@@ -149,6 +154,7 @@
             this.fight.TabIndex = 26;
             this.fight.Text = "Бой";
             this.fight.UseVisualStyleBackColor = true;
+            this.fight.Click += new System.EventHandler(this.butFight_Click);
             // 
             // logFld
             // 
@@ -294,19 +300,31 @@
             this.attHead.Text = "Голова";
             this.attHead.UseVisualStyleBackColor = true;
             // 
+            // save
+            // 
+            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.save.Location = new System.Drawing.Point(624, 404);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(114, 30);
+            this.save.TabIndex = 34;
+            this.save.Text = "Сохранить";
+            this.save.UseVisualStyleBackColor = true;
+            // 
             // FightUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FightClubApp.Properties.Resources.tumblr_inline_nlma5dDlRQ1s811jo_1280;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.save);
             this.Controls.Add(this.musicOnOf);
             this.Controls.Add(this.nextFight);
             this.Controls.Add(this.statistBtn);
             this.Controls.Add(this.namePlayer);
             this.Controls.Add(this.roundLb);
             this.Controls.Add(this.logLb);
-            this.Controls.Add(this.newFight);
+            this.Controls.Add(this.toMenu);
             this.Controls.Add(this.fight);
             this.Controls.Add(this.logFld);
             this.Controls.Add(this.botHpProgress);
@@ -333,7 +351,7 @@
         private System.Windows.Forms.Label namePlayer;
         private System.Windows.Forms.Label roundLb;
         private System.Windows.Forms.Label logLb;
-        private System.Windows.Forms.Button newFight;
+        private System.Windows.Forms.Button toMenu;
         private System.Windows.Forms.Button fight;
         private System.Windows.Forms.TextBox logFld;
         private System.Windows.Forms.ProgressBar botHpProgress;
@@ -347,5 +365,6 @@
         private System.Windows.Forms.RadioButton attLegs;
         private System.Windows.Forms.RadioButton attTors;
         private System.Windows.Forms.RadioButton attHead;
+        private System.Windows.Forms.Button save;
     }
 }

@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace FightClubApp.UI.Fight
 {
-    public partial class FightUserControl : UserControl, IMainForm
+    public partial class FightUserControl : BaseUserControl, IMainForm
     {
 
         Presenter presenter = null;
@@ -138,6 +138,11 @@ namespace FightClubApp.UI.Fight
             Application.Restart();
         }
 
+        private void toMenu_Click(object sender, EventArgs e)
+        {
+            SwitchScene(Scene.Login);
+        }
+
         private void musicCb_CheckedChanged(object sender, EventArgs e)
         {
             if (!musicOnOf.Checked)
@@ -159,6 +164,6 @@ namespace FightClubApp.UI.Fight
 
         }
 
-
+        
     }
 }

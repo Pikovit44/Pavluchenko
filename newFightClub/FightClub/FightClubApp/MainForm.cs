@@ -26,6 +26,7 @@ namespace FightClubApp
             InitializeComponent();
             SwitchScene(Scene.Login);
         }
+
         public void SwitchScene(Scene scene)
         {
             UserControl ctrl = null;
@@ -52,5 +53,6 @@ namespace FightClubApp
                 mainPanel.Controls.Add(ctrl);
             }
         }
+        
     }
 }

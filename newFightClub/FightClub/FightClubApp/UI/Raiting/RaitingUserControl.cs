@@ -1,25 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FightClubApp
+namespace FightClubApp.UI.Raiting
 {
-    public partial class LoginForm : Form
+    public partial class RaitingUserControl : BaseUserControl
     {
-        public LoginForm()
+        public RaitingUserControl()
         {
             InitializeComponent();
-        }
-
-        private void FightButton_Click(object sender, EventArgs e)
-        {
-           
         }
     }
 }

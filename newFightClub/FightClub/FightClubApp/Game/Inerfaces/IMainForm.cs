@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FightClubApp.Inerfaces
 {
-    public interface IMainForm
+    public interface IView
     {
         int Round { get; }
         string PlayerName { set; }

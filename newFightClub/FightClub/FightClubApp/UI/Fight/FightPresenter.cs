@@ -26,13 +26,13 @@ namespace FightClubApp
     {
         private readonly IPlayer player;
         private readonly IBot bot;
-        private readonly IMainForm view;
+        private readonly IView view;
         private readonly ITextInfo textInfo;
         private readonly IGameController controller;
         private readonly IStatistics statistics;
         
 
-        public Presenter(IMainForm view)
+        public Presenter(IView view)
         {
             Player player = new Player();
             Bot bot = new Bot();

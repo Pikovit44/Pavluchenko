@@ -16,7 +16,7 @@ using System.Windows.Forms;
 
 namespace FightClubApp.UI.Fight
 {
-    public partial class FightUserControl : BaseUserControl, IMainForm
+    public partial class FightUserControl : BaseUserControl, IView
     {
 
         Presenter presenter = null;

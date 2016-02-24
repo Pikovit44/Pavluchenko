@@ -19,10 +19,10 @@ namespace FightClubApp
         int blockLegs = 0;
         int blockTors = 0;
         int blockHead = 0;
-        private readonly IMainForm view;
+        private readonly IView view;
         private readonly ITextInfo textInfo;
 
-        public Statistics(IMainForm view, ITextInfo textInfo)
+        public Statistics(IView view, ITextInfo textInfo)
         {
             this.view = view;
             this.textInfo = textInfo;

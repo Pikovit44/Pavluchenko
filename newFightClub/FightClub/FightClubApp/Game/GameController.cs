@@ -39,8 +39,9 @@ namespace FightClubApp
         public void setData(int fight, int win, int tie, int losse)
         {
             this.data = new Data(player.Name, fight, win, tie, losse);
-
+            //SaveData();
         }
 
+        
     }
 }

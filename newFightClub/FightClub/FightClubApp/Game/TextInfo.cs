@@ -17,7 +17,7 @@ namespace FightClubApp
         IStatistics statistics;
         IPlayer player;
         IBot bot;
-        IMainForm view;
+        IView view;
         int numberOfFight = 0;
         int numberOfTie = 0;
         int numberOfWin = 0;
@@ -40,7 +40,7 @@ namespace FightClubApp
             get { return numberOfLoss; }
         }
 
-        public TextInfo(IPlayer player, IBot bot, IMainForm view, IStatistics statistics)
+        public TextInfo(IPlayer player, IBot bot, IView view, IStatistics statistics)
         {
             this.player = player;
             this.bot = bot;

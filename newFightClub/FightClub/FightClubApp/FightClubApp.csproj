@@ -142,7 +142,21 @@
   <ItemGroup>
     <None Include="Resources\fight_club_rule_you_do_not_talk_about_fight_club_336_1920x1080.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\tumblr_inline_nlma5dDlRQ1s811jo_1280.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jpg копия.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tumblr_inline_nlma5dDlRQ1s811jo_1280.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\jpgф копия.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\не насыщенный.JPG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

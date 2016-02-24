@@ -71,7 +71,7 @@ namespace FightClubApp
             }
             else if (bot.HP == (int)Constant.DeathHP)
             {
-                view.Log = info = "Игрок победил!";
+                view.Log = info = player.Name +  " победил!";
                 MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
             }
             else

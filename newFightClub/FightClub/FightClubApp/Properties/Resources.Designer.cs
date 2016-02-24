@@ -81,6 +81,26 @@ namespace FightClubApp.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jpg_копия {
+            get {
+                object obj = ResourceManager.GetObject("jpg копия", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap jpgф_копия {
+            get {
+                object obj = ResourceManager.GetObject("jpgф копия", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream One_Republic_Everybody_Loves_Me_OST_Happily_Ever_A {
@@ -95,6 +115,56 @@ namespace FightClubApp.Properties {
         internal static System.Drawing.Bitmap tumblr_inline_nlma5dDlRQ1s811jo_1280 {
             get {
                 object obj = ResourceManager.GetObject("tumblr_inline_nlma5dDlRQ1s811jo_1280", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tumblr_inline_nlma5dDlRQ1s811jo_12801 {
+            get {
+                object obj = ResourceManager.GetObject("tumblr_inline_nlma5dDlRQ1s811jo_12801", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tumblr_inline_nlma5dDlRQ1s811jo_12802 {
+            get {
+                object obj = ResourceManager.GetObject("tumblr_inline_nlma5dDlRQ1s811jo_12802", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tumblr_inline_nlma5dDlRQ1s811jo_12803 {
+            get {
+                object obj = ResourceManager.GetObject("tumblr_inline_nlma5dDlRQ1s811jo_12803", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tumblr_inline_nlma5dDlRQ1s811jo_12804 {
+            get {
+                object obj = ResourceManager.GetObject("tumblr_inline_nlma5dDlRQ1s811jo_12804", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap не_насыщенный {
+            get {
+                object obj = ResourceManager.GetObject("не насыщенный", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

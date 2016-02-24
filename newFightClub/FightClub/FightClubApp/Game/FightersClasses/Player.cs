@@ -1,5 +1,6 @@
 ﻿using System;
 using FightClubApp.Inerfaces;
+using FightClubApp.UI.Login;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace FightClubApp.FightersClasses
     {
         public  Player()
         {
-            this.name = "Игрок";
+            this.name = ""; 
         }
     }
 }

@@ -2,6 +2,7 @@
 using FightClubApp.FightersClasses;
 using FightClubApp.Inerfaces;
 using System.Media;
+using FightClubApp.UI.Login;
 using FightClubApp;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -36,6 +37,7 @@ namespace FightClubApp.UI.Fight
             music.PlayLooping();
             presenter = new Presenter(this);
             statistics = new Statistics(this);
+            namePlayer.Text = "Если готовы нажмите кнопку Бой"; 
         }
 
         public int Round

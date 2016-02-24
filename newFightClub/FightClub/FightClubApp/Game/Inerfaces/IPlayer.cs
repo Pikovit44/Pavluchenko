@@ -8,7 +8,7 @@ namespace FightClubApp.Inerfaces
 {
     public interface IPlayer
     {
-        string Name { get; }
+        string Name { get; set; }
         int HP { get; set; }
         void GetHit(PartOfBody part);
         void SetBlock(PartOfBody part);

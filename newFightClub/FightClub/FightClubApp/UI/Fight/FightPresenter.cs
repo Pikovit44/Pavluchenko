@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FightClubApp.UI.Login;
 using FightClubApp.FightersClasses;
 using FightClubApp.Inerfaces;
 using System.Threading.Tasks;
@@ -30,7 +31,6 @@ namespace FightClubApp
 
         public Presenter(IMainForm view)
         {
-
             Player player = new Player();
             Bot bot = new Bot();
             this.controller = new GameController(player, bot);
@@ -40,15 +40,15 @@ namespace FightClubApp
             this.bot = bot;
             this.view = view;
 
-            
             view.NextFightClick += onNextFightClick;
             view.FightClick += onFightClick;
             View();
             textInfo.SetMessage();
         }
 
-        public void SetupPosition()
+        public void Setup()
         {
+            player.Name = LoginUserControl.ChooseName;
             player.HitPart = view.Hit;
             player.BlockPart = view.Block;
         }
@@ -57,12 +57,15 @@ namespace FightClubApp
         {
             view.PlayerHp = player.HP;
             view.BotName = bot.Name;
+            view.PlayerName = LoginUserControl.ChooseName;
             view.BotHp = bot.HP;
         }
 
         public void onFightClick(object sender, EventArgs e)
         {
-            SetupPosition();
+
+            
+            Setup();
             controller.Fight();
             View();
         }

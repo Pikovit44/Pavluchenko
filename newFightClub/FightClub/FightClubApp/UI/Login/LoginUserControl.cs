@@ -13,19 +13,43 @@ namespace FightClubApp.UI.Login
 {
     public partial class LoginUserControl : BaseUserControl 
     {
+        static string chooseName;
+
         public LoginUserControl()
         {
             InitializeComponent();
         }
 
+        public static string ChooseName
+        {
+
+            get { return chooseName; }
+        }
+
+        public void SetName()
+        {
+            if (choosePlayerName.Text == string.Empty)
+            {
+                 chooseName = "Игрок";
+            }
+            else
+            {
+                chooseName = choosePlayerName.Text;
+            }
+        }
+
         private void toFightMenu_Click(object sender, EventArgs e)
         {
             SwitchScene(Scene.Fight);
+            SetName();
         }
 
         private void records_Click(object sender, EventArgs e)
         {
             SwitchScene(Scene.Raiting);
         }
+
+
+
     }
 }

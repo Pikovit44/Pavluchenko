@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.save = new System.Windows.Forms.Button();
             this.musicOnOf = new System.Windows.Forms.CheckBox();
             this.nextFight = new System.Windows.Forms.Button();
             this.statistBtn = new System.Windows.Forms.Button();
@@ -48,10 +49,20 @@
             this.attLegs = new System.Windows.Forms.RadioButton();
             this.attTors = new System.Windows.Forms.RadioButton();
             this.attHead = new System.Windows.Forms.RadioButton();
-            this.save = new System.Windows.Forms.Button();
             this.groupProtect.SuspendLayout();
             this.groupAttack.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // save
+            // 
+            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.save.Location = new System.Drawing.Point(624, 404);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(114, 30);
+            this.save.TabIndex = 34;
+            this.save.Text = "Сохранить";
+            this.save.UseVisualStyleBackColor = true;
             // 
             // musicOnOf
             // 
@@ -72,7 +83,7 @@
             this.nextFight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.nextFight.Enabled = false;
             this.nextFight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nextFight.Location = new System.Drawing.Point(396, 399);
+            this.nextFight.Location = new System.Drawing.Point(388, 399);
             this.nextFight.Name = "nextFight";
             this.nextFight.Size = new System.Drawing.Size(90, 39);
             this.nextFight.TabIndex = 32;
@@ -85,7 +96,7 @@
             this.statistBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.statistBtn.Enabled = false;
             this.statistBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.statistBtn.Location = new System.Drawing.Point(212, 399);
+            this.statistBtn.Location = new System.Drawing.Point(204, 399);
             this.statistBtn.Name = "statistBtn";
             this.statistBtn.Size = new System.Drawing.Size(90, 39);
             this.statistBtn.TabIndex = 31;
@@ -101,7 +112,7 @@
             this.namePlayer.AutoSize = true;
             this.namePlayer.BackColor = System.Drawing.Color.Transparent;
             this.namePlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.namePlayer.Location = new System.Drawing.Point(322, 74);
+            this.namePlayer.Location = new System.Drawing.Point(188, 73);
             this.namePlayer.Name = "namePlayer";
             this.namePlayer.Size = new System.Drawing.Size(53, 20);
             this.namePlayer.TabIndex = 30;
@@ -126,7 +137,7 @@
             this.logLb.AutoSize = true;
             this.logLb.BackColor = System.Drawing.Color.Transparent;
             this.logLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.logLb.Location = new System.Drawing.Point(304, 204);
+            this.logLb.Location = new System.Drawing.Point(297, 203);
             this.logLb.Name = "logLb";
             this.logLb.Size = new System.Drawing.Size(71, 20);
             this.logLb.TabIndex = 28;
@@ -148,7 +159,7 @@
             // 
             this.fight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.fight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fight.Location = new System.Drawing.Point(309, 399);
+            this.fight.Location = new System.Drawing.Point(301, 399);
             this.fight.Name = "fight";
             this.fight.Size = new System.Drawing.Size(81, 39);
             this.fight.TabIndex = 26;
@@ -161,20 +172,20 @@
             this.logFld.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.logFld.Location = new System.Drawing.Point(210, 227);
+            this.logFld.Location = new System.Drawing.Point(192, 226);
             this.logFld.Multiline = true;
             this.logFld.Name = "logFld";
             this.logFld.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.logFld.Size = new System.Drawing.Size(276, 157);
+            this.logFld.Size = new System.Drawing.Size(288, 157);
             this.logFld.TabIndex = 25;
             // 
             // botHpProgress
             // 
             this.botHpProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.botHpProgress.Location = new System.Drawing.Point(210, 161);
+            this.botHpProgress.Location = new System.Drawing.Point(192, 160);
             this.botHpProgress.Name = "botHpProgress";
-            this.botHpProgress.Size = new System.Drawing.Size(276, 22);
+            this.botHpProgress.Size = new System.Drawing.Size(288, 22);
             this.botHpProgress.TabIndex = 24;
             this.botHpProgress.Value = 100;
             // 
@@ -186,7 +197,7 @@
             this.nameBot.AutoSize = true;
             this.nameBot.BackColor = System.Drawing.Color.Transparent;
             this.nameBot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nameBot.Location = new System.Drawing.Point(322, 138);
+            this.nameBot.Location = new System.Drawing.Point(188, 136);
             this.nameBot.Name = "nameBot";
             this.nameBot.Size = new System.Drawing.Size(38, 20);
             this.nameBot.TabIndex = 23;
@@ -196,9 +207,9 @@
             // 
             this.playerHpProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.playerHpProgress.Location = new System.Drawing.Point(210, 97);
+            this.playerHpProgress.Location = new System.Drawing.Point(192, 96);
             this.playerHpProgress.Name = "playerHpProgress";
-            this.playerHpProgress.Size = new System.Drawing.Size(276, 22);
+            this.playerHpProgress.Size = new System.Drawing.Size(288, 22);
             this.playerHpProgress.TabIndex = 22;
             this.playerHpProgress.Value = 100;
             // 
@@ -300,22 +311,11 @@
             this.attHead.Text = "Голова";
             this.attHead.UseVisualStyleBackColor = true;
             // 
-            // save
-            // 
-            this.save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.save.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.save.Location = new System.Drawing.Point(624, 404);
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(114, 30);
-            this.save.TabIndex = 34;
-            this.save.Text = "Сохранить";
-            this.save.UseVisualStyleBackColor = true;
-            // 
             // FightUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::FightClubApp.Properties.Resources.tumblr_inline_nlma5dDlRQ1s811jo_1280;
+            this.BackgroundImage = global::FightClubApp.Properties.Resources.tumblr_inline_nlma5dDlRQ1s811jo_12804;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.save);
             this.Controls.Add(this.musicOnOf);

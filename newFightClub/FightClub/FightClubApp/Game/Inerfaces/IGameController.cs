@@ -10,5 +10,6 @@ namespace FightClubApp.Inerfaces
     {
         void Fight();
         void SetHp();
+        void setData(int fight, int win, int tie, int losse);
     }
 }

@@ -20,5 +20,6 @@ namespace FightClubApp.Inerfaces
         event EventHandler NextFightClick;
         event EventHandler StatisticsClick;
         event EventHandler EndRound;
+        event EventHandler Save;
     }
 }

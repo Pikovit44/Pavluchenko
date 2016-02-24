@@ -12,22 +12,20 @@ namespace FightClubApp.Game
 {
     public class Data : IData
     {
-        private readonly IPlayer player;
-        private readonly IMainForm view;
-        private readonly IStatistics statistics;
         public string Name { get; set; }
         public int NumberOfFight { get; set; }
         public int NumberOfWin { get; set; }
         public int NumberOfTie { get; set; }
         public int NumberOfLoss { get; set; }
 
-        public Data( IPlayer player, IMainForm view, IStatistics statistics)
+        public Data( string name, int fight, int win, int tie, int losse)
         {
-            this.player = player;
-            this.view = view;
-            this.statistics = statistics;
+            Name = name;
+            NumberOfFight = fight;
+            NumberOfWin = win;
+            NumberOfTie = tie;
+            NumberOfLoss = losse;
         }
-
 
 
     }

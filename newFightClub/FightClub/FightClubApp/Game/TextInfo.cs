@@ -18,6 +18,27 @@ namespace FightClubApp
         IPlayer player;
         IBot bot;
         IMainForm view;
+        int numberOfFight = 0;
+        int numberOfTie = 0;
+        int numberOfWin = 0;
+        int numberOfLoss = 0;
+
+        public int NumberOfFight
+        {
+            get { return numberOfFight; }
+        }
+        public int NumberOfTie
+        {
+            get { return numberOfTie; }
+        }
+        public int NumberOfWin
+        {
+            get { return numberOfWin; }
+        }
+        public int NumberOfLoss
+        {
+            get { return numberOfLoss; }
+        }
 
         public TextInfo(IPlayer player, IBot bot, IMainForm view, IStatistics statistics)
         {
@@ -26,6 +47,7 @@ namespace FightClubApp
             this.view = view;
             this.statistics = statistics;
         }
+
 
         public void SetMessage()
         {
@@ -68,23 +90,23 @@ namespace FightClubApp
             {
                 view.Log = info = "Бой не выявил победителя. Пали оба бойца...";
                 MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
-                FightUserControl.numberOfTie++;
-                FightUserControl.numberOfFight++;
+                numberOfTie++;
+                numberOfFight++;
 
             }
             else if (bot.HP == (int)Constant.DeathHP)
             {
                 view.Log = info = player.Name +  " победил!";
                 MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
-                FightUserControl.numberOfWinFight++;
-                FightUserControl.numberOfFight++;
+                numberOfWin++;
+                numberOfFight++;
             }
             else
             {
                 view.Log = info = "Победил Бот!";
                 MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
-                FightUserControl.numberOfLoss++;
-                FightUserControl.numberOfFight++;
+                numberOfLoss++;
+                numberOfFight++;
             }
         }
 

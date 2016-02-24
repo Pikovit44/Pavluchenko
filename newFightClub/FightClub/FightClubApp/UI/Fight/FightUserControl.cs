@@ -20,7 +20,7 @@ namespace FightClubApp.UI.Fight
     {
 
         Presenter presenter = null;
-        Statistics statistics = null;
+      //Statistics statistics = null;
         public event EventHandler FightClick;
         public event EventHandler NextFightClick;
         public event EventHandler StatisticsClick;
@@ -29,10 +29,7 @@ namespace FightClubApp.UI.Fight
         PartOfBody hit;
         PartOfBody block;
         int round = (int)Constant.FirstRound;
-        public static int numberOfFight = 0;
-        public static int numberOfTie = 0;
-        public static int numberOfWinFight = 0;
-        public static int numberOfLoss = 0;
+        
         SoundPlayer music; // музыка заднего плана во время игры
 
         public FightUserControl()
@@ -41,7 +38,7 @@ namespace FightClubApp.UI.Fight
             music = new SoundPlayer(Properties.Resources.One_Republic_Everybody_Loves_Me_OST_Happily_Ever_A);
             music.PlayLooping();
             presenter = new Presenter(this);
-            statistics = new Statistics(this);
+          //statistics = new Statistics(this);
             namePlayer.Text = "Если готовы нажмите кнопку Бой"; 
         }
 

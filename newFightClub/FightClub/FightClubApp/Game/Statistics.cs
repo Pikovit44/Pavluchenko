@@ -20,10 +20,12 @@ namespace FightClubApp
         int blockTors = 0;
         int blockHead = 0;
         private readonly IMainForm view;
+        private readonly ITextInfo textInfo;
 
-        public Statistics(IMainForm view)
+        public Statistics(IMainForm view, ITextInfo textInfo)
         {
             this.view = view;
+            this.textInfo = textInfo;
             view.FightClick += onFightClick;
             view.StatisticsClick += onStatisticsClick;
             view.NextFightClick += onNextFightClick;
@@ -62,9 +64,9 @@ namespace FightClubApp
                            + "Статистика блоков игрока: " + Environment.NewLine
                            + "Голова: " + blockHead + Environment.NewLine + "Корпус: " + blockTors + Environment.NewLine + "Ноги: "
                            + blockLegs + Environment.NewLine + Environment.NewLine
-                           + "Всего за эту сессию боев : " + FightUserControl.numberOfFight + Environment.NewLine 
-                           + "из них " + " побед: " + FightUserControl.numberOfWinFight + ", ничьи: " + FightUserControl.numberOfTie
-                           + ", поражений: " + FightUserControl.numberOfLoss;
+                           + "Всего за эту сессию боев : " + textInfo.NumberOfFight + Environment.NewLine 
+                           + "из них " + " побед: " + textInfo.NumberOfWin + ", ничьи: " + textInfo.NumberOfTie
+                           + ", поражений: " + textInfo.NumberOfLoss;
 
             MessageBox.Show(info, "Итоги боя", MessageBoxButtons.OK, MessageBoxIcon.Information); // срабатывает 2 раза
         }

@@ -5,6 +5,8 @@ using System.Text;
 using FightClubApp.UI.Login;
 using FightClubApp.FightersClasses;
 using FightClubApp.Inerfaces;
+using FightClubApp.Game.Inerfaces;
+using FightClubApp.Game; 
 using System.Threading.Tasks;
 
 namespace FightClubApp
@@ -28,7 +30,7 @@ namespace FightClubApp
         private readonly ITextInfo textInfo;
         private readonly IGameController controller;
         private readonly IStatistics statistics;
-       // private readonly IData data;
+        
 
         public Presenter(IMainForm view)
         {
@@ -36,7 +38,7 @@ namespace FightClubApp
             Bot bot = new Bot();
             this.controller = new GameController(player, bot);
             this.textInfo = new TextInfo(player, bot, view, statistics);
-            this.statistics = new Statistics(view);
+            this.statistics = new Statistics(view, textInfo);
 
             this.player = player;
             this.bot = bot;
@@ -44,6 +46,7 @@ namespace FightClubApp
 
             view.NextFightClick += onNextFightClick;
             view.FightClick += onFightClick;
+            view.Save += onSave;
             View();
             textInfo.SetMessage();
         }
@@ -64,9 +67,7 @@ namespace FightClubApp
         }
 
         public void onFightClick(object sender, EventArgs e)
-        {
-
-            
+        { 
             Setup();
             controller.Fight();
             View();
@@ -75,6 +76,11 @@ namespace FightClubApp
         public void onNextFightClick (object sender, EventArgs e)
         {
             controller.SetHp();
+        }
+
+        public void onSave (object sender, EventArgs e)
+        {
+            controller.setData(textInfo.NumberOfFight, textInfo.NumberOfWin, textInfo.NumberOfTie, textInfo.NumberOfLoss);
         }
 
     }

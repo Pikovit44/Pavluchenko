@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FightClubApp.Inerfaces;
 using System.Windows.Forms;
+using FightClubApp.UI.Fight;
 using System.Threading.Tasks;
 using FightClubApp.FightersClasses;
 
@@ -60,7 +61,10 @@ namespace FightClubApp
                            + hitLegs + Environment.NewLine + Environment.NewLine
                            + "Статистика блоков игрока: " + Environment.NewLine
                            + "Голова: " + blockHead + Environment.NewLine + "Корпус: " + blockTors + Environment.NewLine + "Ноги: "
-                           + blockLegs + Environment.NewLine;
+                           + blockLegs + Environment.NewLine + Environment.NewLine
+                           + "Всего за эту сессию боев : " + FightUserControl.numberOfFight + Environment.NewLine 
+                           + "из них " + " побед: " + FightUserControl.numberOfWinFight + ", ничьи: " + FightUserControl.numberOfTie
+                           + ", поражений: " + FightUserControl.numberOfLoss;
 
             MessageBox.Show(info, "Итоги боя", MessageBoxButtons.OK, MessageBoxIcon.Information); // срабатывает 2 раза
         }

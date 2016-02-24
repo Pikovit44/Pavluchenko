@@ -28,6 +28,7 @@ namespace FightClubApp
         private readonly ITextInfo textInfo;
         private readonly IGameController controller;
         private readonly IStatistics statistics;
+       // private readonly IData data;
 
         public Presenter(IMainForm view)
         {
@@ -36,6 +37,7 @@ namespace FightClubApp
             this.controller = new GameController(player, bot);
             this.textInfo = new TextInfo(player, bot, view, statistics);
             this.statistics = new Statistics(view);
+
             this.player = player;
             this.bot = bot;
             this.view = view;

@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,10 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game\Data.cs" />
     <Compile Include="Game\FightersClasses\Fighter.cs" />
     <Compile Include="Game\FightersClasses\Bot.cs" />
     <Compile Include="Game\GameController.cs" />
     <Compile Include="Game\Inerfaces\IBot.cs" />
+    <Compile Include="Game\Inerfaces\IData.cs" />
     <Compile Include="Game\Inerfaces\IGameController.cs" />
     <Compile Include="Game\Inerfaces\IMainForm.cs" />
     <Compile Include="Game\Inerfaces\IPlayer.cs" />

@@ -25,9 +25,14 @@ namespace FightClubApp.UI.Fight
         public event EventHandler NextFightClick;
         public event EventHandler StatisticsClick;
         public event EventHandler EndRound;
+        public event EventHandler Save;
         PartOfBody hit;
         PartOfBody block;
         int round = (int)Constant.FirstRound;
+        public static int numberOfFight = 0;
+        public static int numberOfTie = 0;
+        public static int numberOfWinFight = 0;
+        public static int numberOfLoss = 0;
         SoundPlayer music; // музыка заднего плана во время игры
 
         public FightUserControl()
@@ -39,6 +44,8 @@ namespace FightClubApp.UI.Fight
             statistics = new Statistics(this);
             namePlayer.Text = "Если готовы нажмите кнопку Бой"; 
         }
+
+        #region Свойства
 
         public int Round
         {
@@ -80,10 +87,12 @@ namespace FightClubApp.UI.Fight
         {
             set { logFld.Text += value + Environment.NewLine; }
         }
+        #endregion
 
+        #region Методы
         public void ChooseBlockHit()
         {
-            if (protHead.Checked) { block = PartOfBody.Head; } // method
+            if (protHead.Checked) { block = PartOfBody.Head; } 
             if (protTors.Checked) { block = PartOfBody.Tors; }
             if (protLegs.Checked) { block = PartOfBody.Legs; }
             if (attHead.Checked) { hit = PartOfBody.Head; }
@@ -98,7 +107,9 @@ namespace FightClubApp.UI.Fight
             nextFight.Enabled = endRound;
 
         }
+        #endregion
 
+        #region События
         private void butFight_Click(object sender, EventArgs e)
         {
             roundLb.Text = Log = "Раунд " + round;
@@ -154,6 +165,12 @@ namespace FightClubApp.UI.Fight
             else
                 music.PlayLooping();
         }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            if (Save != null) { Save (this, EventArgs.Empty); }
+        }
+        #endregion
 
         //Как от этого избавиться? :(
         private void Form1_Load(object sender, EventArgs e)

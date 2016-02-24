@@ -4,6 +4,7 @@ using System.Linq;
 using FightClubApp.FightersClasses;
 using System.Windows.Forms;
 using System.Text;
+using FightClubApp.UI.Fight;
 using FightClubApp.Inerfaces;
 using System.Threading.Tasks;
 
@@ -67,17 +68,23 @@ namespace FightClubApp
             {
                 view.Log = info = "Бой не выявил победителя. Пали оба бойца...";
                 MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
+                FightUserControl.numberOfTie++;
+                FightUserControl.numberOfFight++;
 
             }
             else if (bot.HP == (int)Constant.DeathHP)
             {
                 view.Log = info = player.Name +  " победил!";
                 MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
+                FightUserControl.numberOfWinFight++;
+                FightUserControl.numberOfFight++;
             }
             else
             {
                 view.Log = info = "Победил Бот!";
                 MessageBox.Show(info, "Бой окончен", MessageBoxButtons.OK);
+                FightUserControl.numberOfLoss++;
+                FightUserControl.numberOfFight++;
             }
         }
 

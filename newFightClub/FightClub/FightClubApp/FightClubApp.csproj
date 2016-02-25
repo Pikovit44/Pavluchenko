@@ -59,6 +59,7 @@
     <Compile Include="Game\Inerfaces\IStatistics.cs" />
     <Compile Include="Game\Inerfaces\ITextInfo.cs" />
     <Compile Include="Game\FightersClasses\Player.cs" />
+    <Compile Include="Game\WorkWithFile.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +84,7 @@
     <Compile Include="UI\Fight\FightUserControl.Designer.cs">
       <DependentUpon>FightUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Login\LoginPresenter.cs" />
     <Compile Include="UI\Login\LoginUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

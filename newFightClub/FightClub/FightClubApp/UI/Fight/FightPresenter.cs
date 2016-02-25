@@ -80,7 +80,7 @@ namespace FightClubApp
 
         public void onSave (object sender, EventArgs e)
         {
-            controller.setData(textInfo.NumberOfFight, textInfo.NumberOfWin, textInfo.NumberOfTie, textInfo.NumberOfLoss);
+            controller.saveData(textInfo.NumberOfFight, textInfo.NumberOfWin, textInfo.NumberOfTie, textInfo.NumberOfLoss);
         }
 
     }

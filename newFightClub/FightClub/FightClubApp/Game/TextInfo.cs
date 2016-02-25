@@ -126,7 +126,6 @@ namespace FightClubApp
         private void onDeath(object sender, MyEventArgs e)
         {
             view.Log = e.Name + " побежден, с " + e.Hp + " hp он больше не может сопротивляться.";
-
         }
 
         private void onEndRound(object sender, EventArgs e)

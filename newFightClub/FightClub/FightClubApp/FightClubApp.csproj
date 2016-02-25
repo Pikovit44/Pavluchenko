@@ -54,7 +54,7 @@
     <Compile Include="Game\Inerfaces\IBot.cs" />
     <Compile Include="Game\Inerfaces\IData.cs" />
     <Compile Include="Game\Inerfaces\IGameController.cs" />
-    <Compile Include="Game\Inerfaces\IMainForm.cs" />
+    <Compile Include="Game\Inerfaces\IView.cs" />
     <Compile Include="Game\Inerfaces\IPlayer.cs" />
     <Compile Include="Game\Inerfaces\IStatistics.cs" />
     <Compile Include="Game\Inerfaces\ITextInfo.cs" />
@@ -84,7 +84,6 @@
     <Compile Include="UI\Fight\FightUserControl.Designer.cs">
       <DependentUpon>FightUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Login\LoginPresenter.cs" />
     <Compile Include="UI\Login\LoginUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,6 +95,12 @@
     </Compile>
     <Compile Include="UI\Raiting\RaitingUserControl.Designer.cs">
       <DependentUpon>RaitingUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Rules\RulesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Rules\RulesUserControl.Designer.cs">
+      <DependentUpon>RulesUserControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -121,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Raiting\RaitingUserControl.resx">
       <DependentUpon>RaitingUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Rules\RulesUserControl.resx">
+      <DependentUpon>RulesUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

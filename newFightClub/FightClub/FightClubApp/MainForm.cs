@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FightClubApp.UI.Login;
 using FightClubApp.UI.Fight;
+using FightClubApp.UI.Rules;
 using FightClubApp.UI.Raiting;
 using System.Windows.Forms;
 
@@ -17,7 +18,8 @@ namespace FightClubApp
     {
         Login,
         Raiting,
-        Fight
+        Fight,
+        Rules
     }
     public partial class MainForm : Form
     {
@@ -41,6 +43,9 @@ namespace FightClubApp
                     break;
                 case Scene.Raiting:
                     ctrl = new RaitingUserControl();
+                    break;
+                case Scene.Rules:
+                    ctrl = new RulesUserControl();
                     break;
 
                 default:

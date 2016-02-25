@@ -30,10 +30,7 @@ namespace FightClubApp.UI.Raiting
                 raitingTable.Rows.Add(i + 1, table[i].Name, table[i].NumberOfWin, table[i].NumberOfTie, table[i].NumberOfLoss, table[i].NumberOfFight );
             }
         }
-
-
-
-
+        
         private void toMenu_Click(object sender, EventArgs e)
         {
             SwitchScene(Scene.Login);

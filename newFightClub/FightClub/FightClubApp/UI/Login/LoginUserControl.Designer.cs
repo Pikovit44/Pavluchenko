@@ -58,6 +58,7 @@
             this.rules.TabIndex = 13;
             this.rules.Text = "Правила";
             this.rules.UseVisualStyleBackColor = true;
+            this.rules.Click += new System.EventHandler(this.rules_Click);
             // 
             // toFightMenu
             // 

@@ -53,5 +53,10 @@ namespace FightClubApp.UI.Login
         {
             Application.Exit();
         }
+
+        private void rules_Click(object sender, EventArgs e)
+        {
+            SwitchScene(Scene.Rules);
+        }
     }
 }

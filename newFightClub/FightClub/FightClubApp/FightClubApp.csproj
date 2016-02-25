@@ -147,9 +147,6 @@
     <None Include="Resources\tumblr_inline_nlma5dDlRQ1s811jo_1280.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\muse_map_of_the_problematique_NaitiMP3.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\One_Republic-Everybody_Loves_Me_OST_Happily_Ever_A.wav" />
   </ItemGroup>
   <ItemGroup>

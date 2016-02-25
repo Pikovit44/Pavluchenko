@@ -58,17 +58,16 @@ namespace FightClubApp
         {
             int round = hitHead + hitLegs + hitTors;
 
-            string info = "Количество проведенных раундов: " + round + Environment.NewLine + Environment.NewLine + "Статистика ударов игрока: " + Environment.NewLine
-                           + "В голову: " + hitHead + Environment.NewLine + "В корпус: " + hitTors + Environment.NewLine + "В ноги: "
-                           + hitLegs + Environment.NewLine + Environment.NewLine
-                           + "Статистика блоков игрока: " + Environment.NewLine
-                           + "Голова: " + blockHead + Environment.NewLine + "Корпус: " + blockTors + Environment.NewLine + "Ноги: "
-                           + blockLegs + Environment.NewLine + Environment.NewLine
-                           + "Всего за эту сессию боев : " + textInfo.NumberOfFight + Environment.NewLine 
-                           + "из них " + " побед: " + textInfo.NumberOfWin + ", ничьи: " + textInfo.NumberOfTie
-                           + ", поражений: " + textInfo.NumberOfLoss;
-
-            MessageBox.Show(info, "Итоги боя", MessageBoxButtons.OK, MessageBoxIcon.Information); // срабатывает 2 раза
+            StringBuilder s = new StringBuilder();
+            s.AppendFormat("Количество проведенных раундов: {0}", round).AppendLine().AppendLine(); 
+            s.Append("Статистика ударов игрока: ").AppendLine();
+            s.AppendFormat("В голову: {0}\nВ корпус: {1}\nВ ноги:{2}\n", hitHead, hitTors, hitLegs).AppendLine();
+            s.Append("Статистика блоков игрока: ").AppendLine();
+            s.AppendFormat("Голова: {0}\nКрпус: {1}\nНоги:{2}\n", blockHead, blockTors, blockLegs).AppendLine();
+            s.AppendFormat("Всего за эту сессию боев: {0}\nиз них побед: {1}, ничьи: {2}, поражений: {3}",
+                            textInfo.NumberOfFight, textInfo.NumberOfWin, textInfo.NumberOfTie, textInfo.NumberOfLoss);
+ 
+            MessageBox.Show(s.ToString(), "Итоги боя", MessageBoxButtons.OK, MessageBoxIcon.Information); 
         }
 
         public void FightStatis()

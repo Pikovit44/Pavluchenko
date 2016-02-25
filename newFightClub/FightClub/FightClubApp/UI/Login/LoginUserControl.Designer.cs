@@ -28,13 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.choosePlayerName = new System.Windows.Forms.TextBox();
+            this.exitGame = new System.Windows.Forms.Button();
             this.signIn = new System.Windows.Forms.Label();
             this.rules = new System.Windows.Forms.Button();
             this.toFightMenu = new System.Windows.Forms.Button();
             this.records = new System.Windows.Forms.Button();
-            this.exitGame = new System.Windows.Forms.Button();
-            this.choosePlayerName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
+            // 
+            // choosePlayerName
+            // 
+            this.choosePlayerName.Location = new System.Drawing.Point(497, 96);
+            this.choosePlayerName.Name = "choosePlayerName";
+            this.choosePlayerName.Size = new System.Drawing.Size(153, 20);
+            this.choosePlayerName.TabIndex = 18;
+            // 
+            // exitGame
+            // 
+            this.exitGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.exitGame.Location = new System.Drawing.Point(16, 110);
+            this.exitGame.Name = "exitGame";
+            this.exitGame.Size = new System.Drawing.Size(110, 31);
+            this.exitGame.TabIndex = 17;
+            this.exitGame.Text = "Выход";
+            this.exitGame.UseVisualStyleBackColor = true;
+            this.exitGame.Click += new System.EventHandler(this.exitGame_Click);
             // 
             // signIn
             // 
@@ -81,24 +99,6 @@
             this.records.Text = "Рекорды";
             this.records.UseVisualStyleBackColor = true;
             this.records.Click += new System.EventHandler(this.records_Click);
-            // 
-            // exitGame
-            // 
-            this.exitGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.exitGame.Location = new System.Drawing.Point(16, 110);
-            this.exitGame.Name = "exitGame";
-            this.exitGame.Size = new System.Drawing.Size(110, 31);
-            this.exitGame.TabIndex = 17;
-            this.exitGame.Text = "Выход";
-            this.exitGame.UseVisualStyleBackColor = true;
-            this.exitGame.Click += new System.EventHandler(this.exitGame_Click);
-            // 
-            // choosePlayerName
-            // 
-            this.choosePlayerName.Location = new System.Drawing.Point(497, 96);
-            this.choosePlayerName.Name = "choosePlayerName";
-            this.choosePlayerName.Size = new System.Drawing.Size(153, 20);
-            this.choosePlayerName.TabIndex = 18;
             // 
             // LoginUserControl
             // 

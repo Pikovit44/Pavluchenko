@@ -58,6 +58,7 @@ namespace FightClubApp
             bot.Block += onBlock;
             bot.Death += onDeath;
             view.EndRound += onEndRound;
+            view.Save += onSave;
         }
 
         public string PatrtToString(PartOfBody part)
@@ -132,6 +133,11 @@ namespace FightClubApp
         {
             view.Log = "Схватка окончена.";
             WinnerName();
+        }
+
+        private void onSave(object sender, EventArgs e)
+        {
+            MessageBox.Show("Сохранение прошло успешно", "Save", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
     }

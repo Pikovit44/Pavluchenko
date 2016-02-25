@@ -18,7 +18,9 @@ namespace FightClubApp.Game
         {
             this.data = data;
         }
-
+        public WorkWithFile()
+        {
+        }
 
         Data [] table = new  Data [20];
 
@@ -27,28 +29,35 @@ namespace FightClubApp.Game
             table = ReadFile();
             for (int i = 0; i < table.Length; i++)
             {
-                if (!(table[i].Name == data.Name))
+                if (table[i].Name != data.Name)
                 {
-                    for (int j = 0; j < table.Length; j++)
-                    {
-                        if (table[j].Name == "пусто")
+                        if (table[i].Name == "пусто")
                         {
-                            table[j].Name = data.Name;
-                            table[j].NumberOfFight = data.NumberOfFight;
-                            table[j].NumberOfWin = data.NumberOfWin;
-                            table[j].NumberOfTie = data.NumberOfTie;
-                            table[j].NumberOfLoss = data.NumberOfLoss;
-                        }
-                    }    
+                            table[i].Name = data.Name;
+                            table[i].NumberOfFight += data.NumberOfFight;
+                            table[i].NumberOfWin += data.NumberOfWin;
+                            table[i].NumberOfTie += data.NumberOfTie;
+                            table[i].NumberOfLoss += data.NumberOfLoss;
+                            break;
+                        }    
+                }
+                else
+                { 
+                    // method
+                    table[i].NumberOfFight += data.NumberOfFight;
+                    table[i].NumberOfWin += data.NumberOfWin;
+                    table[i].NumberOfTie += data.NumberOfTie;
+                    table[i].NumberOfLoss += data.NumberOfLoss;
+                    break;
                 }
             }
             Array.Sort(table);
-            WriteFile();
+            SaveFile();
         }
 
         BinaryFormatter formatter = new BinaryFormatter();
 
-        public void WriteFile()
+        public void SaveFile()
         {
             using (FileStream fs = new FileStream(dataFile, FileMode.OpenOrCreate))
             {

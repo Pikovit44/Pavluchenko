@@ -34,7 +34,6 @@
             this.records = new System.Windows.Forms.Button();
             this.exitGame = new System.Windows.Forms.Button();
             this.choosePlayerName = new System.Windows.Forms.TextBox();
-            this.loadGame = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // signIn
@@ -43,7 +42,7 @@
             this.signIn.BackColor = System.Drawing.Color.Transparent;
             this.signIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.signIn.ForeColor = System.Drawing.Color.White;
-            this.signIn.Location = new System.Drawing.Point(474, 73);
+            this.signIn.Location = new System.Drawing.Point(472, 48);
             this.signIn.Name = "signIn";
             this.signIn.Size = new System.Drawing.Size(221, 32);
             this.signIn.TabIndex = 14;
@@ -63,11 +62,11 @@
             // toFightMenu
             // 
             this.toFightMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.toFightMenu.Location = new System.Drawing.Point(597, 405);
+            this.toFightMenu.Location = new System.Drawing.Point(521, 381);
             this.toFightMenu.Name = "toFightMenu";
             this.toFightMenu.Size = new System.Drawing.Size(107, 31);
             this.toFightMenu.TabIndex = 12;
-            this.toFightMenu.Text = "Новая игра";
+            this.toFightMenu.Text = "Играть";
             this.toFightMenu.UseVisualStyleBackColor = true;
             this.toFightMenu.Click += new System.EventHandler(this.toFightMenu_Click);
             // 
@@ -91,23 +90,14 @@
             this.exitGame.TabIndex = 17;
             this.exitGame.Text = "Выход";
             this.exitGame.UseVisualStyleBackColor = true;
+            this.exitGame.Click += new System.EventHandler(this.exitGame_Click);
             // 
             // choosePlayerName
             // 
-            this.choosePlayerName.Location = new System.Drawing.Point(499, 121);
+            this.choosePlayerName.Location = new System.Drawing.Point(497, 96);
             this.choosePlayerName.Name = "choosePlayerName";
             this.choosePlayerName.Size = new System.Drawing.Size(153, 20);
             this.choosePlayerName.TabIndex = 18;
-            // 
-            // loadGame
-            // 
-            this.loadGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loadGame.Location = new System.Drawing.Point(446, 405);
-            this.loadGame.Name = "loadGame";
-            this.loadGame.Size = new System.Drawing.Size(107, 31);
-            this.loadGame.TabIndex = 19;
-            this.loadGame.Text = "Загрузить ";
-            this.loadGame.UseVisualStyleBackColor = true;
             // 
             // LoginUserControl
             // 
@@ -115,7 +105,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::FightClubApp.Properties.Resources.fight_club_rule_you_do_not_talk_about_fight_club_336_1920x1080;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.loadGame);
             this.Controls.Add(this.choosePlayerName);
             this.Controls.Add(this.exitGame);
             this.Controls.Add(this.signIn);
@@ -136,6 +125,5 @@
         private System.Windows.Forms.Button records;
         private System.Windows.Forms.Button exitGame;
         private System.Windows.Forms.TextBox choosePlayerName;
-        private System.Windows.Forms.Button loadGame;
     }
 }

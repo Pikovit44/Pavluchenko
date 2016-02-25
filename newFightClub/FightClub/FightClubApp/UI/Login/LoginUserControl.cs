@@ -49,7 +49,9 @@ namespace FightClubApp.UI.Login
             SwitchScene(Scene.Raiting);
         }
 
-
-
+        private void exitGame_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -44,6 +44,11 @@ namespace FightClubApp.FightersClasses
                     Block(this, new MyEventArgs(hp, name, block));
 
                 }
+
+            if (part == PartOfBody.Unknown)
+            {
+                throw new InvalidOperationException();
+            }
         }
 
         public void SetBlock(PartOfBody part)

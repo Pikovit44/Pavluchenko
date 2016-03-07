@@ -18,7 +18,7 @@ namespace FightClubApp.Game
         public int NumberOfTie { get; set; }
         public int NumberOfLoss { get; set; }
 
-        public Data( string name, int fight, int win, int tie, int losse) // запилить напрямую
+        public Data( string name, int fight, int win, int tie, int losse) //  напрямую
         {
             Name = name;
             NumberOfFight = fight;

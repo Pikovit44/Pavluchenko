@@ -12,31 +12,39 @@ namespace NunitTestsNew
     [TestFixture]
     public class NunitTests
     {
+
+        [SetUp]
+        public void Init()
+        {
+            Player player = new Player();
+        }
+
         [Test]
         public void TestBlock()
         {
-            Player player = new Player(); // in future setup
-
-            player.SetBlock(PartOfBody.Head);
-            Assert.AreEqual(player.BlockPart, PartOfBody.Head);
-
-            player.SetBlock(PartOfBody.Tors);
-            Assert.AreEqual(player.BlockPart, PartOfBody.Tors);
-
-            player.SetBlock(PartOfBody.Legs);
-            Assert.AreEqual(player.BlockPart, PartOfBody.Legs);
-
-            player.SetBlock(PartOfBody.Unknown);
-            Assert.That(PartOfBody.Unknown, Throws.InvalidOperationException);
-
+            TestThis(PartOfBody.Head);
+            TestThis(PartOfBody.Tors);
+            TestThis(PartOfBody.Legs);
+            TestThis(PartOfBody.Unknown);
         }
 
-        [Test]
-        public void TestHit()
+        private void TestThis(PartOfBody part)
         {
+            Player player = new Player(); //SetUp?
+            player.SetBlock(part);
+
+            if (part == PartOfBody.Unknown)
+            {
+                Assert.That(PartOfBody.Unknown, Throws.InvalidOperationException);
+            }
+            else
+            {
+                Assert.AreEqual(player.BlockPart, part);
+            }
 
         }
-
 
     }
+    
 }
+

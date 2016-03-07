@@ -42,7 +42,6 @@ namespace FightClubApp.FightersClasses
                 if (Block != null)
                 {
                     Block(this, new MyEventArgs(hp, name, block));
-
                 }
 
             if (part == PartOfBody.Unknown)

@@ -17,6 +17,7 @@ namespace FightClubApp.UI.Raiting
         public RaitingUserControl()
         {
             InitializeComponent();
+            DoubleBuffered = true;
             WorkWithFile file = new WorkWithFile();
             this.table = file.ReadFile();
             DrowTableStat();

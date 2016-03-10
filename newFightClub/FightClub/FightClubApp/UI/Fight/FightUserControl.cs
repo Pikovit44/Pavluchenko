@@ -35,6 +35,7 @@ namespace FightClubApp.UI.Fight
         public FightUserControl()
         {
             InitializeComponent();
+            DoubleBuffered = true;
             music = new SoundPlayer(Properties.Resources.One_Republic_Everybody_Loves_Me_OST_Happily_Ever_A);
             music.PlayLooping();
             presenter = new Presenter(this);

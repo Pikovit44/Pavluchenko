@@ -26,6 +26,7 @@ namespace FightClubApp
         public MainForm()
         {
             InitializeComponent();
+            DoubleBuffered = true;
             SwitchScene(Scene.Login);
         }
 

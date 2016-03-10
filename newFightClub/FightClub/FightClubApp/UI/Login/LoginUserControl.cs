@@ -18,6 +18,7 @@ namespace FightClubApp.UI.Login
         public LoginUserControl()
         {
             InitializeComponent();
+            DoubleBuffered = true;
         }
 
         public static string ChooseName

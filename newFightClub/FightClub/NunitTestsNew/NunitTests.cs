@@ -35,23 +35,7 @@ namespace NunitTestsNew
             HitMethod(PartOfBody.Legs);
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 
         private void BlockMethod(PartOfBody part)
         {

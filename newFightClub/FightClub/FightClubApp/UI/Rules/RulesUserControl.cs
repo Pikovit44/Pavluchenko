@@ -15,6 +15,7 @@ namespace FightClubApp.UI.Rules
         public RulesUserControl()
         {
             InitializeComponent();
+            DoubleBuffered = true;
         }
 
         private void toMenu_Click(object sender, EventArgs e)

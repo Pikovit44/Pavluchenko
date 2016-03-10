@@ -12,7 +12,6 @@ namespace NunitTestsNew
     [TestFixture]
     public class NunitTests
     {
-
         [SetUp]
         public void Init()
         {
@@ -22,21 +21,60 @@ namespace NunitTestsNew
         [Test]
         public void TestBlock()
         {
-            TestThis(PartOfBody.Head);
-            TestThis(PartOfBody.Tors);
-            TestThis(PartOfBody.Legs);
+            BlockMethod(PartOfBody.Head);
+            BlockMethod(PartOfBody.Tors);
+            BlockMethod(PartOfBody.Legs);
+            BlockMethod(PartOfBody.Unknown);
         }
 
-        private void TestThis(PartOfBody part)
+        [Test]
+        public void TestHit()
+        {
+            HitMethod(PartOfBody.Head);
+            HitMethod(PartOfBody.Tors);
+            HitMethod(PartOfBody.Legs);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        private void BlockMethod(PartOfBody part)
         {
             Player player = new Player(); //SetUp?
             player.SetBlock(part);
+            Assert.AreEqual(player.BlockPart, part);
+          //Assert.That(PartOfBody.Unknown, Throws.InvalidOperationException);  
+        }
 
-            if (part == PartOfBody.Unknown)
+        private void HitMethod(PartOfBody part)
+        {
+            Player player = new Player(); //SetUp?
+            player.SetBlock(PartOfBody.Head);
+            player.GetHit(part);
+
+            if (PartOfBody.Head == part || PartOfBody.Unknown == part)
             {
-                Assert.That(PartOfBody.Unknown, Throws.InvalidOperationException);
+                Assert.AreEqual(player.HP, (int)Constant.StartHP);
             }
-           
+            else
+            {
+                Assert.AreEqual(player.HP, (int)Constant.StartHP - (int)Constant.WoundHP);
+            }
 
         }
 

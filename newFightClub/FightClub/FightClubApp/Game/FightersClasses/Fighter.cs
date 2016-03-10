@@ -43,16 +43,24 @@ namespace FightClubApp.FightersClasses
                 {
                     Block(this, new MyEventArgs(hp, name, block));
                 }
+            //if (PartOfBody.Unknown == part)
+            //{
+            //    throw new InvalidOperationException(@"Не выбрана часть тела для удара");
+            //}
 
-            if (part == PartOfBody.Unknown)
-            {
-                throw new InvalidOperationException();
-            }
         }
 
         public void SetBlock(PartOfBody part)
         {
-            block = part;
+            //if (PartOfBody.Unknown == part)
+            //{
+            //    throw new InvalidOperationException(@"Не выбрана часть тела для блока");
+            //}
+            //else
+            {   
+                block = part;
+            }
+            
         }
 
         public string Name

@@ -1,5 +1,0 @@
-C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task5user\bin\Debug\Task5user.exe.config
-C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task5user\bin\Debug\Task5user.exe
-C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task5user\bin\Debug\Task5user.pdb
-C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task5user\obj\Debug\Task5user.exe
-C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task5user\obj\Debug\Task5user.pdb

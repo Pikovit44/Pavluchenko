@@ -1,9 +1,0 @@
-C:\Documents\GitHub\clear2\PavluchenkoHW18.01\Task4\bin\Debug\Task4.exe.config
-C:\Documents\GitHub\clear2\PavluchenkoHW18.01\Task4\bin\Debug\Task4.exe
-C:\Documents\GitHub\clear2\PavluchenkoHW18.01\Task4\bin\Debug\Task4.pdb
-C:\Documents\GitHub\clear2\PavluchenkoHW18.01\Task4\obj\Debug\Task4.exe
-C:\Documents\GitHub\clear2\PavluchenkoHW18.01\Task4\obj\Debug\Task4.pdb
-C:\Documents\GitHub\clear2\PavluchenkoHW18.01\Task4\obj\Debug\Task4.csprojResolveAssemblyReference.cache
-C:\Documents\GitHub\CS_2015_Winter\PavluchenkoHW\PavluchenkoHW18.01\Task4\bin\Debug\Task4.exe.config
-C:\Documents\GitHub\CS_2015_Winter\PavluchenkoHW\PavluchenkoHW18.01\Task4\obj\Debug\Task4.exe
-C:\Documents\GitHub\CS_2015_Winter\PavluchenkoHW\PavluchenkoHW18.01\Task4\obj\Debug\Task4.pdb

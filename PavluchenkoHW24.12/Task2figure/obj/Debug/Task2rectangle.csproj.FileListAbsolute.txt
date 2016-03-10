@@ -1,5 +1,0 @@
-C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task2figure\bin\Debug\Task2figure.exe.config
-C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task2figure\bin\Debug\Task2figure.exe
-C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task2figure\bin\Debug\Task2figure.pdb
-C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task2figure\obj\Debug\Task2figure.exe
-C:\Documents\GitHub\clear2\PavluchenkoHW24.12\Task2figure\obj\Debug\Task2figure.pdb

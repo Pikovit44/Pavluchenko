@@ -14,10 +14,9 @@ namespace GeneratePrimeNumbers
         ///
         /// <param name=”maxValue”>Верхний порог.</param>
         /// 
-
-        private static int s;
-        private static bool[] f;
-        private static int[] primes;
+        
+        private static bool[] isCrossed;
+        private static int[] result;
 
         public static int[] GeneratePrimeNumbers(int maxValue)
         {
@@ -27,63 +26,55 @@ namespace GeneratePrimeNumbers
             }
             else
             {
-                InitializeSieve(maxValue);
-                Sieve();
-                LoadPrimes();
-                return primes; 
+                InitializeArrayOfIntegers(maxValue);
+                CrossOutMultiples();
+
+                return result; 
             }
         }
+        
 
-        private static void LoadPrimes()
+        private static void CrossOutMultiples()
         {
-            int i;//можно в одну строку?
-            int j;
-
-            int count = 0;
-            for (i = 0; i < s; i++)
+            int maxPrimeFactor = CalcMaxPrimeFactor();
+            for (int i = 2; i < maxPrimeFactor +1 ; i++)
             {
-                if (f[i])
+                if (NotCrossed(i))
                 {
-                    count++;
-                }
-            }
-            primes = new int[count];
-            for (i = 0, j = 0; i < s; i++)
-            {
-                if (f[i])
-                {
-                    primes[j++] = i;
+                    CrossOutputMultiplesOf(i);
                 }
             }
         }
 
-        private static void Sieve()
+        private static int CalcMaxPrimeFactor()
         {
-            int i;
-            int j;
+            double maxPrimeFactor = Math.Sqrt(isCrossed.Length) + 1;
+            return (int)maxPrimeFactor;
+        }
 
-            for (i = 2; i < Math.Sqrt(s); i++)
-            {
-                if (f[i])
-                {
-                    for (j = 2 * i; j < s; j += i)
-                    {
-                        f[j] = false; // кратное простому - не простое 
-                    }
-                }
-            }
-        }
-        private static void InitializeSieve(int maxValue)
+        private static void CrossOutputMultiplesOf(int i)
         {
-            s = maxValue + 1;
-            f = new bool[s];
-            int i; // объявлять i таким образом, а не в циклах?
-            for (i = 0; i < s; i++)
+            for (int multiple = 2 * 1; multiple < isCrossed.Length;  multiple += i)
             {
-                f[i] = true;
+                isCrossed[multiple] = true;
             }
-            // исключили заведомо не простые числа
-            f[0] = f[1] = false;
         }
+
+        private static bool NotCrossed(int i)
+        {
+            return isCrossed[i] == false;
+        }
+
+
+        private static void InitializeArrayOfIntegers(int maxValue)
+        {
+            isCrossed = new bool[maxValue + 1];
+            for (int i = 2; i < isCrossed.Length; i++)
+            {
+                isCrossed[i] = false;
+            }
+        }
+
+
     }
 }

@@ -29,7 +29,7 @@ namespace FirTree
         public Colour Condition
         { get { return condition; } }
 
-        public Shape Shape
+        public Shape Form
         { get { return form; } }
 
         public double Height

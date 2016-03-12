@@ -10,7 +10,7 @@ namespace FirTree.Interfaces
     public interface IFirTree // если в дальнейшем понадобится 
     {
         Colour Condition { get; }
-        Shape Shape { get; }
+        Shape Form { get; }
         double Height { get; }
         double Age { get; }
 

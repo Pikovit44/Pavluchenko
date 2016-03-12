@@ -15,10 +15,10 @@ namespace FirTree
             Forest Sherwood = new Forest(PartOfYear.Spring);
             
             Sherwood.NextSeason();
-            Sherwood.NextSeason();
 
             Sherwood.FirTreeBorn();
 
+            Sherwood.NextSeason();
             Sherwood.NextSeason();
 
             Sherwood.ShowFirTreesInfo();

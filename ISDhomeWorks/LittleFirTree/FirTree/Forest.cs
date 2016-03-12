@@ -25,6 +25,9 @@ namespace FirTree
         public PartOfYear ActualSeason
         { get { return actualSeason; } }
 
+        public double Age
+        { get { return age; } }
+
         public void FirTreeBorn()
         {
             firTrees.Add(new FirTree(this));
@@ -60,6 +63,26 @@ namespace FirTree
             }
         }
 
+        public Shape GetFormForIndex(int index)
+        {
+            return firTrees[index].Form;
+        }
+
+        public Colour GetConditionForIndex(int index)
+        {
+            return firTrees[index].Condition;
+        }
+
+        public double GetAgeForIndex(int index)
+        {
+            return firTrees[index].Age;
+        }
+
+        public double GetHeightForIndex(int index)
+        {
+            return firTrees[index].Height;
+        }
+
         public void ShowFirTreesInfo()
         {
             Console.WriteLine("Возраст леса на данный момент: {0}", age);
@@ -68,7 +91,7 @@ namespace FirTree
             for (int i = 0; i < firTrees.Count; i++)
             {
                 Console.WriteLine("Информация о ёлочке #{0}:", i + 1);
-                Console.WriteLine("Форма: {0}.", GetDescription(firTrees[i].Shape));
+                Console.WriteLine("Форма: {0}.", GetDescription(firTrees[i].Form));
                 Console.WriteLine("Цвет: {0}.", GetDescription(firTrees[i].Condition));
                 Console.WriteLine("Высота: {0} м.", firTrees[i].Height);
                 Console.WriteLine("Возраст: {0} года.", firTrees[i].Age);

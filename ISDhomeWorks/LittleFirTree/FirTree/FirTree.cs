@@ -16,9 +16,9 @@ namespace FirTree
         double height;
         double age;
         
-        public FirTree(IForest wood)
+        public FirTree(IForest forest)
         {
-            this.forest = wood;
+            this.forest = forest;
             height = 0;
             age = 0;
             ConditionAndFormChange();

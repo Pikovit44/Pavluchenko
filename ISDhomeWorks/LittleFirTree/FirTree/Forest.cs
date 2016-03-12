@@ -12,7 +12,7 @@ namespace FirTree
 {
     public class Forest: IForest
     {
-        List<FirTree> firTrees = new List<FirTree>();
+        List<FirTree> firTrees;
         PartOfYear actualSeason;
         double age;
         
@@ -20,6 +20,7 @@ namespace FirTree
         {
             age = 0;
             actualSeason = season;
+            firTrees = new List<FirTree>();
         }
 
         public PartOfYear ActualSeason

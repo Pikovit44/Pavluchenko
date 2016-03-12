@@ -135,7 +135,6 @@ namespace NunitTests
 
             age = forest.Age;
             Assert.AreEqual(0.5, age);
-
         }
     }
 }

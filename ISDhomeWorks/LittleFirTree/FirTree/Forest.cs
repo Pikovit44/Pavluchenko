@@ -12,7 +12,7 @@ namespace FirTree
 {
     public class Forest: IForest
     {
-        FirTree firTree; //заменить на простую переменную FirTree, переменные роста.
+        FirTree firTree; 
         PartOfYear actualSeason;
         double age;
         const double DeltaAge = 0.25;
@@ -65,14 +65,6 @@ namespace FirTree
             
         }
 
-        public void NextYear()
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                NextSeason();
-            }
-        }
-
         public Shape GetFormFirTree()
         {
             return firTree.Form;
@@ -95,10 +87,7 @@ namespace FirTree
 
         public void ShowFirTreesInfo()
         {
-          //Console.WriteLine("Возраст леса на данный момент: {0}", age);
-            Console.WriteLine("Сезон: {0}", GetDescription(actualSeason));
-
-            
+                Console.WriteLine("Сезон: {0}", GetDescription(actualSeason));
                 Console.WriteLine("Информация о ёлочке:");
                 Console.WriteLine("Форма: {0}.", GetDescription(firTree.Form));
                 Console.WriteLine("Цвет: {0}.", GetDescription(firTree.Condition));

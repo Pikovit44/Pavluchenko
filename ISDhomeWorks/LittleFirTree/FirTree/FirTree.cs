@@ -15,6 +15,8 @@ namespace FirTree
         Shape form; 
         double height;
         double age;
+        const double DeltaHeight = 0.5;
+        const double DeltaAge = 0.25;
         
         public FirTree(IForest forest)
         {
@@ -42,8 +44,8 @@ namespace FirTree
 
         public void Growth()
         {
-            height += 0.5; // рост елки за 1 сезон в метрах. Magic numbers?
-            age += 0.25;
+            height += DeltaHeight; 
+            age += DeltaAge;
             ConditionAndFormChange();
         }
 

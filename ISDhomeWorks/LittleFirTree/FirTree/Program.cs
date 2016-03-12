@@ -13,8 +13,6 @@ namespace FirTree
         static void Main(string[] args)
         {
             Forest Sherwood = new Forest(PartOfYear.Spring);
-            
-
             Sherwood.NextSeason();
 
             Sherwood.FirTreeBorn();
@@ -32,8 +30,6 @@ namespace FirTree
 
             Sherwood.ShowFirTreesInfo();
 
-            Sherwood.NextSeason();
-            Sherwood.NextSeason();
             Sherwood.NextSeason();
 
             Sherwood.ShowFirTreesInfo();

@@ -15,6 +15,7 @@ namespace FirTree
         FirTree firTree; //заменить на простую переменную FirTree, переменные роста.
         PartOfYear actualSeason;
         double age;
+        const double DeltaAge = 0.25;
         
         public Forest (PartOfYear season)
         {
@@ -35,7 +36,7 @@ namespace FirTree
         
         public void NextSeason()
         {
-            age += 0.25;
+            age += DeltaAge;
             switch (actualSeason)
             {
                 case PartOfYear.Spring:
@@ -94,7 +95,7 @@ namespace FirTree
 
         public void ShowFirTreesInfo()
         {
-            Console.WriteLine("Возраст леса на данный момент: {0}", age);
+          //Console.WriteLine("Возраст леса на данный момент: {0}", age);
             Console.WriteLine("Сезон: {0}", GetDescription(actualSeason));
 
             

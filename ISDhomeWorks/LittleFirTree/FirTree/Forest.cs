@@ -12,7 +12,7 @@ namespace FirTree
 {
     public class Forest: IForest
     {
-        List<FirTree> firTrees;
+        FirTree firTree; //заменить на простую переменную FirTree, переменные роста.
         PartOfYear actualSeason;
         double age;
         
@@ -20,7 +20,6 @@ namespace FirTree
         {
             age = 0;
             actualSeason = season;
-            firTrees = new List<FirTree>();
         }
 
         public PartOfYear ActualSeason
@@ -31,7 +30,7 @@ namespace FirTree
 
         public void FirTreeBorn()
         {
-            firTrees.Add(new FirTree(this));
+            firTree = new FirTree(this); ;
         }
         
         public void NextSeason()
@@ -58,10 +57,11 @@ namespace FirTree
                     break;
             }
 
-            foreach (FirTree ft in firTrees)
+            if (firTree != null)
             {
-                ft.Growth();
+                firTree.Growth();
             }
+            
         }
 
         public void NextYear()
@@ -72,24 +72,24 @@ namespace FirTree
             }
         }
 
-        public Shape GetFormForIndex(int index)
+        public Shape GetFormFirTree()
         {
-            return firTrees[index].Form;
+            return firTree.Form;
         }
 
-        public Colour GetConditionForIndex(int index)
+        public Colour GetConditionFirTree()
         {
-            return firTrees[index].Condition;
+            return firTree.Condition;
         }
 
-        public double GetAgeForIndex(int index)
+        public double GetAgeFirTree()
         {
-            return firTrees[index].Age;
+            return firTree.Age;
         }
 
-        public double GetHeightForIndex(int index)
+        public double GetHeightFirTree()
         {
-            return firTrees[index].Height;
+            return firTree.Height;
         }
 
         public void ShowFirTreesInfo()
@@ -97,15 +97,14 @@ namespace FirTree
             Console.WriteLine("Возраст леса на данный момент: {0}", age);
             Console.WriteLine("Сезон: {0}", GetDescription(actualSeason));
 
-            for (int i = 0; i < firTrees.Count; i++)
-            {
-                Console.WriteLine("Информация о ёлочке #{0}:", i + 1);
-                Console.WriteLine("Форма: {0}.", GetDescription(firTrees[i].Form));
-                Console.WriteLine("Цвет: {0}.", GetDescription(firTrees[i].Condition));
-                Console.WriteLine("Высота: {0} м.", firTrees[i].Height);
-                Console.WriteLine("Возраст: {0} года.", firTrees[i].Age);
+            
+                Console.WriteLine("Информация о ёлочке:");
+                Console.WriteLine("Форма: {0}.", GetDescription(firTree.Form));
+                Console.WriteLine("Цвет: {0}.", GetDescription(firTree.Condition));
+                Console.WriteLine("Высота: {0} м.", firTree.Height);
+                Console.WriteLine("Возраст: {0} года.", firTree.Age);
                 Console.WriteLine();
-            }
+            
             Console.ReadLine();
         }
 

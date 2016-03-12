@@ -12,11 +12,11 @@ namespace NunitTests
     [TestFixture]
     public class FirTreeTests
     {
-        [SetUp]
-        public void SetUp()
-        {
-            Forest forest = new Forest(PartOfYear.Winter); // вопрос по запуску
-        }
+        //[SetUp]
+        //public void SetUp()
+        //{
+        //    Forest forest = new Forest(PartOfYear.Winter); // вопрос по запуску
+        //}
 
         [Test]
         public void FormFirTreeForSeason()
@@ -24,22 +24,22 @@ namespace NunitTests
             Forest forest = new Forest(PartOfYear.Winter);
             forest.FirTreeBorn(); // ёлочка родилась (зимой. должна быть стройной).
 
-            Shape form = forest.GetFormForIndex(0);
+            Shape form = forest.GetFormFirTree();
             Assert.AreEqual(Shape.Shapely, form);
 
             forest.NextSeason(); // весна
             // в описании ничего не указано по поводу формы ёлочки весной и осенью
             // стройность в эти сезоны не должна быть определена
 
-            form = forest.GetFormForIndex(0);
+            form = forest.GetFormFirTree();
             Assert.AreEqual(Shape.Unknown, form);
 
             forest.NextSeason(); // лето. ёлочка по условию опять стройная
-            form = forest.GetFormForIndex(0);
+            form = forest.GetFormFirTree();
             Assert.AreEqual(Shape.Shapely, form);
 
             forest.NextSeason(); // осень. стройность неизвестна
-            form = forest.GetFormForIndex(0);
+            form = forest.GetFormFirTree();
             Assert.AreEqual(Shape.Unknown, form);
         }
 
@@ -50,19 +50,19 @@ namespace NunitTests
             Forest forest = new Forest(PartOfYear.Winter);
             forest.FirTreeBorn(); 
 
-            Colour condition = forest.GetConditionForIndex(0);
+            Colour condition = forest.GetConditionFirTree();
             Assert.AreEqual(Colour.Green, condition);
 
             forest.NextSeason(); 
-            condition = forest.GetConditionForIndex(0);
+            condition = forest.GetConditionFirTree();
             Assert.AreEqual(Colour.Unknown, condition);
 
             forest.NextSeason(); 
-            condition = forest.GetConditionForIndex(0);
+            condition = forest.GetConditionFirTree();
             Assert.AreEqual(Colour.Green, condition);
 
             forest.NextSeason();
-            condition = forest.GetConditionForIndex(0);
+            condition = forest.GetConditionFirTree();
             Assert.AreEqual(Colour.Unknown, condition);
         }
 
@@ -74,13 +74,13 @@ namespace NunitTests
             Forest forest = new Forest(PartOfYear.Winter);
             forest.FirTreeBorn();
 
-            double age = forest.GetAgeForIndex(0);
+            double age = forest.GetAgeFirTree();
             Assert.AreEqual(0, age);
 
             forest.NextSeason();
             forest.NextSeason();
             
-            age = forest.GetAgeForIndex(0);
+            age = forest.GetAgeFirTree();
             Assert.AreEqual(0.5, age);
         }
 
@@ -92,13 +92,13 @@ namespace NunitTests
             Forest forest = new Forest(PartOfYear.Winter);
             forest.FirTreeBorn();
 
-            double height = forest.GetHeightForIndex(0);
+            double height = forest.GetHeightFirTree();
             Assert.AreEqual(0, height);
 
             forest.NextSeason();
             forest.NextSeason();
 
-            height = forest.GetHeightForIndex(0);
+            height = forest.GetHeightFirTree();
             Assert.AreEqual(1, height);
         }
         [Test]
@@ -106,6 +106,7 @@ namespace NunitTests
         {
             Forest forest = new Forest(PartOfYear.Winter);
             //циклическая последовательность сезонов зима -> весна -> лето -> осень и тд.
+            Assert.AreEqual(PartOfYear.Winter, forest.ActualSeason);
 
             forest.NextSeason();
             Assert.AreEqual(PartOfYear.Spring, forest.ActualSeason);
@@ -121,7 +122,7 @@ namespace NunitTests
         }
 
         [Test]
-        public void AgeWoodForSeason()
+        public void AgeForestForSeason()
         {
             //при рождении леса его возраст = 0
             //с каждым новым сезоном возраст увеличивается на 0,25 года

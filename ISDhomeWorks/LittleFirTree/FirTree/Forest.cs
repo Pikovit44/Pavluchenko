@@ -63,6 +63,14 @@ namespace FirTree
             }
         }
 
+        public void NextYear()
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                NextSeason();
+            }
+        }
+
         public Shape GetFormForIndex(int index)
         {
             return firTrees[index].Form;

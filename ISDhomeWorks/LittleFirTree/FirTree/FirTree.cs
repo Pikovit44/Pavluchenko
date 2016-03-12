@@ -42,12 +42,12 @@ namespace FirTree
 
         public void Growth()
         {
-            height += 0.5; // рост елки за 1 сезон в метрах. Magic numbers
+            height += 0.5; // рост елки за 1 сезон в метрах. Magic numbers?
             age += 0.25;
             ConditionAndFormChange();
         }
 
-        void ConditionAndFormChange()
+            void ConditionAndFormChange()
         {
             if (forest.ActualSeason == PartOfYear.Autumn || forest.ActualSeason == PartOfYear.Spring)
             {

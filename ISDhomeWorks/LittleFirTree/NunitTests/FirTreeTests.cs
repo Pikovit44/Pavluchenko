@@ -13,10 +13,9 @@ namespace NunitTests
     public class FirTreeTests
     {
         [SetUp]
-        public void Init()
+        public void SetUp()
         {
-            Forest forest = new Forest(PartOfYear.Winter);
-            forest.FirTreeBorn();
+            Forest forest = new Forest(PartOfYear.Winter); // вопрос по запуску
         }
 
         [Test]
@@ -72,7 +71,6 @@ namespace NunitTests
         {
             //при рождении ёлочки ее возраст = 0
             //с каждым новым сезоном возраст увеличивается на 0,25 года
-
             Forest forest = new Forest(PartOfYear.Winter);
             forest.FirTreeBorn();
 
@@ -84,7 +82,6 @@ namespace NunitTests
             
             age = forest.GetAgeForIndex(0);
             Assert.AreEqual(0.5, age);
-            
         }
 
         [Test]
@@ -128,7 +125,6 @@ namespace NunitTests
         {
             //при рождении леса его возраст = 0
             //с каждым новым сезоном возраст увеличивается на 0,25 года
-
             Forest forest = new Forest(PartOfYear.Winter);
 
             double age = forest.Age;

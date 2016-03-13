@@ -8,14 +8,7 @@ namespace GeneratePrimeNumbers
 {
     public class PrimeGenerator
     {
-        ///<summary>
-        /// Генерирует массив простых чисел.
-        ///</summary>
-        ///
-        /// <param name=”maxValue”>Верхний порог.</param>
-        /// 
-        
-        private static bool[] isCrossed;
+        private static bool[] crossedOut;
         private static int[] result;
 
         public static int[] GeneratePrimeNumbers(int maxValue)
@@ -26,18 +19,51 @@ namespace GeneratePrimeNumbers
             }
             else
             {
-                InitializeArrayOfIntegers(maxValue);
+                UncrossIntegersUpTo(maxValue);
                 CrossOutMultiples();
-
+                PutUncrossedIntegersIntoResult();
                 return result; 
             }
         }
-        
+
+        private static void UncrossIntegersUpTo(int maxValue)
+        {
+            crossedOut = new bool[maxValue + 1];
+            for (int i = 2; i < crossedOut.Length; i++)
+            {
+                crossedOut[i] = false;
+            }
+        }
+
+        private static void PutUncrossedIntegersIntoResult()
+        {
+            result = new int[NumberOfUncrossedIntegers()];
+            for (int i = 2, j = 0; i < crossedOut.Length; i++)
+            {
+                if (NotCrossed(i))
+                {
+                    result[j++] = i;
+                }
+            }
+        }
+
+        private static int NumberOfUncrossedIntegers()
+        {
+            int count = 0;
+            for (int i = 2; i < crossedOut.Length; i++)
+            {
+                if (NotCrossed(i))
+                {
+                   count++;
+                }
+            }
+            return count;
+        }
 
         private static void CrossOutMultiples()
         {
-            int maxPrimeFactor = CalcMaxPrimeFactor();
-            for (int i = 2; i < maxPrimeFactor +1 ; i++)
+            int limit = DetermineInterationLimit();
+            for (int i = 2; i <= limit; i++)
             {
                 if (NotCrossed(i))
                 {
@@ -46,34 +72,28 @@ namespace GeneratePrimeNumbers
             }
         }
 
-        private static int CalcMaxPrimeFactor()
+        private static int DetermineInterationLimit()
         {
-            double maxPrimeFactor = Math.Sqrt(isCrossed.Length) + 1;
-            return (int)maxPrimeFactor;
+            double interationLimit = Math.Sqrt(crossedOut.Length);
+            return (int)interationLimit;
         }
 
         private static void CrossOutputMultiplesOf(int i)
         {
-            for (int multiple = 2 * 1; multiple < isCrossed.Length;  multiple += i)
+            for (int multiple = 2 * i; multiple < crossedOut.Length;  multiple += i)
             {
-                isCrossed[multiple] = true;
+                crossedOut[multiple] = true;
             }
         }
+        
 
         private static bool NotCrossed(int i)
         {
-            return isCrossed[i] == false;
+            return crossedOut[i] == false;
         }
 
 
-        private static void InitializeArrayOfIntegers(int maxValue)
-        {
-            isCrossed = new bool[maxValue + 1];
-            for (int i = 2; i < isCrossed.Length; i++)
-            {
-                isCrossed[i] = false;
-            }
-        }
+        
 
 
     }

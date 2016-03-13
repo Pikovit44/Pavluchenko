@@ -13,7 +13,6 @@ namespace NunitTests
     public class FirTreeTests
     {
         Forest forest;
-
         [SetUp]
         public void SetUp()
         {

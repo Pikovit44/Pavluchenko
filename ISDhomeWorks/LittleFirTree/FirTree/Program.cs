@@ -12,27 +12,26 @@ namespace FirTree
     {
         static void Main(string[] args)
         {
-            Forest Sherwood = new Forest(PartOfYear.Spring);
-            Sherwood.NextSeason();
+            Forest Sherwood = new Forest(PartOfYear.Spring); 
+            Sherwood.NextSeason(); 
 
             Sherwood.FirTreeBorn();
 
-            Sherwood.NextSeason();
-            Sherwood.NextSeason();
+            Sherwood.NextSeason(); 
+            Sherwood.NextSeason(); 
 
-            Sherwood.ShowFirTreesInfo();
+            Sherwood.ShowFirTreesInfo(); // зима стройность (+) зеленость (+) рост (+)
 
-            Sherwood.NextSeason();
+            Sherwood.NextSeason(); 
 
-            Sherwood.ShowFirTreesInfo();
+            Sherwood.ShowFirTreesInfo(); // весна - - +
+            Sherwood.NextSeason(); 
 
-            Sherwood.NextSeason();
+            Sherwood.ShowFirTreesInfo(); // лето + + + 
 
-            Sherwood.ShowFirTreesInfo();
+            Sherwood.NextSeason(); 
 
-            Sherwood.NextSeason();
-
-            Sherwood.ShowFirTreesInfo();
+            Sherwood.ShowFirTreesInfo(); // осень - - +
 
 
 

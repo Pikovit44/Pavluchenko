@@ -12,17 +12,19 @@ namespace NunitTests
     [TestFixture]
     public class FirTreeTests
     {
-        //[SetUp]
-        //public void SetUp()
-        //{
-        //    Forest forest = new Forest(PartOfYear.Winter); // вопрос по запуску
-        //}
+        Forest forest;
+
+        [SetUp]
+        public void SetUp()
+        {
+            forest = new Forest(PartOfYear.Winter);
+            forest.FirTreeBorn(); 
+        }
 
         [Test]
         public void FormFirTreeForSeason()
         {
-            Forest forest = new Forest(PartOfYear.Winter);
-            forest.FirTreeBorn(); // ёлочка родилась (зимой. должна быть стройной).
+            // ёлочка родилась (зимой. должна быть стройной)
 
             Shape form = forest.GetFormFirTree();
             Assert.AreEqual(Shape.Shapely, form);
@@ -47,9 +49,7 @@ namespace NunitTests
         public void ConditionFirTreeForSeason()
         {
             //цвет ёлочки меняется по сезонам аналогично форме
-            Forest forest = new Forest(PartOfYear.Winter);
-            forest.FirTreeBorn(); 
-
+            
             Colour condition = forest.GetConditionFirTree();
             Assert.AreEqual(Colour.Green, condition);
 
@@ -70,9 +70,7 @@ namespace NunitTests
         public void AgeFirTreeForSeason()
         {
             //при рождении ёлочки ее возраст = 0
-            //с каждым новым сезоном возраст увеличивается на 0,25 года
-            Forest forest = new Forest(PartOfYear.Winter);
-            forest.FirTreeBorn();
+            //с каждым новым сезоном возраст увеличивается на 0,25 года (сделать константу)
 
             double age = forest.GetAgeFirTree();
             Assert.AreEqual(0, age);
@@ -88,9 +86,7 @@ namespace NunitTests
         public void HeightFirTreeForSeason()
         {
             //при рождении ёлочки ее рост = 0
-            //с каждым новым сезоном возраст увеличивается на 0,5 метра
-            Forest forest = new Forest(PartOfYear.Winter);
-            forest.FirTreeBorn();
+            //с каждым новым сезоном возраст увеличивается на 0,5 метра (сделать константу)
 
             double height = forest.GetHeightFirTree();
             Assert.AreEqual(0, height);
@@ -104,7 +100,6 @@ namespace NunitTests
         [Test]
         public void SeasonActuality()
         {
-            Forest forest = new Forest(PartOfYear.Winter);
             //циклическая последовательность сезонов зима -> весна -> лето -> осень и тд.
             Assert.AreEqual(PartOfYear.Winter, forest.ActualSeason);
 
@@ -126,7 +121,6 @@ namespace NunitTests
         {
             //при рождении леса его возраст = 0
             //с каждым новым сезоном возраст увеличивается на 0,25 года
-            Forest forest = new Forest(PartOfYear.Winter);
 
             double age = forest.Age;
             Assert.AreEqual(0, age);

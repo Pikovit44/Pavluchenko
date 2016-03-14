@@ -37,6 +37,12 @@ namespace FirTree
         public void NextSeason()
         {
             age += DeltaAge;
+            ChooseSeason();
+            IfExistGrowth();
+        }
+
+        private void ChooseSeason()
+        {
             switch (actualSeason)
             {
                 case PartOfYear.Spring:
@@ -57,12 +63,14 @@ namespace FirTree
                 default:
                     break;
             }
+        }
 
+        private void IfExistGrowth()
+        {
             if (firTree != null)
             {
                 firTree.Growth();
             }
-            
         }
 
         public Shape GetFormFirTree()
@@ -87,18 +95,17 @@ namespace FirTree
 
         public void ShowFirTreesInfo()
         {
-                Console.WriteLine("Сезон: {0}", GetDescription(actualSeason));
-                Console.WriteLine("Информация о ёлочке:");
-                Console.WriteLine("Форма: {0}.", GetDescription(firTree.Form));
-                Console.WriteLine("Цвет: {0}.", GetDescription(firTree.Condition));
-                Console.WriteLine("Высота: {0} м.", firTree.Height);
-                Console.WriteLine("Возраст: {0} года.", firTree.Age);
-                Console.WriteLine();
+            Console.WriteLine("Сезон: {0}", GetDescription(actualSeason));
+            Console.WriteLine("Информация о ёлочке:");
+            Console.WriteLine("Форма: {0}.", GetDescription(firTree.Form));
+            Console.WriteLine("Цвет: {0}.", GetDescription(firTree.Condition));
+            Console.WriteLine("Высота: {0} м.", firTree.Height);
+            Console.WriteLine("Возраст: {0} года.", firTree.Age);
+            Console.WriteLine();
             
             Console.ReadLine();
         }
-
-
+        
         static string GetDescription(Enum value)
         {
             FieldInfo fi = value.GetType().GetField(value.ToString());

@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="FightClubReports.Player">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="0.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAEAAAgAAAAAQAAAAAAAAAAIAAQAgQAEAA=</HashCode>
       <FileName>Entitys\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FightClubReports.Entitys.Transaction">
-    <Position X="2.5" Y="3.25" Width="1.5" />
+    <Position X="2.75" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAA=</HashCode>
       <FileName>Entitys\Transaction.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FightClubReports.Entitys.Combat.ActionLog">
-    <Position X="7.5" Y="0.5" Width="1.5" />
+    <Position X="7.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAAAAAAAAAAAAAAAIAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
       <FileName>Entitys\Combat\ActionLog.cs</FileName>
@@ -25,12 +25,12 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FightClubReports.Entitys.Combat.BlockLog">
-    <Position X="8.75" Y="2.75" Width="1.5" />
+    <Position X="9" Y="9.25" Width="1.5" />
     <AssociationLine Name="blockLog" Type="FightClubReports.Entitys.Combat.ActionLog" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="9.625" Y="2.75" />
-        <Point X="9.625" Y="1.438" />
-        <Point X="9" Y="1.438" />
+        <Point X="9.875" Y="9.25" />
+        <Point X="9.875" Y="7.938" />
+        <Point X="9.25" Y="7.938" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -42,12 +42,12 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FightClubReports.Entitys.Combat.Hitlog">
-    <Position X="6.25" Y="2.75" Width="1.5" />
+    <Position X="6.5" Y="9.25" Width="1.5" />
     <AssociationLine Name="hitLog" Type="FightClubReports.Entitys.Combat.ActionLog" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="6.875" Y="2.75" />
-        <Point X="6.875" Y="1.625" />
-        <Point X="7.5" Y="1.625" />
+        <Point X="7.125" Y="9.25" />
+        <Point X="7.125" Y="8.125" />
+        <Point X="7.75" Y="8.125" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -59,18 +59,18 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="FightClubReports.Combat">
-    <Position X="2.5" Y="0.5" Width="1.5" />
+    <Position X="2.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>wAAAAAAEAAEAAIAAAAAACAAAAAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entitys\Combat\Combat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="FightClubReports.RoundLog">
-    <Position X="4.75" Y="0.5" Width="1.5" />
+    <Position X="5" Y="7" Width="1.5" />
     <AssociationLine Name="log" Type="FightClubReports.Combat" FixedToPoint="true">
       <Path>
-        <Point X="4.75" Y="1.125" />
-        <Point X="4" Y="1.125" />
+        <Point X="5" Y="7.625" />
+        <Point X="4.25" Y="7.625" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -81,5 +81,40 @@
       <Property Name="log" />
     </ShowAsAssociation>
   </Class>
+  <Interface Name="FightClubReports.Repository.Interfaces.ICombatRepository">
+    <Position X="1.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Repository\Interfaces\ICombatRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FightClubReports.Repository.Interfaces.IPlayerRepository">
+    <Position X="6" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAQAABAAAAAAAAAAAAAAgEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repository\Interfaces\IPlayerRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FightClubReports.Repository.Interfaces.IRepository&lt;TEntity&gt;">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAABAAAAABAAAAAAAAAAAAgAAAIAEAAA=</HashCode>
+      <FileName>Repository\Interfaces\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FightClubReports.Repository.Interfaces.ITransaction">
+    <Position X="3.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Repository\Interfaces\ITransaction.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FightClubReports.Entitys.Combat.IRoundLog">
+    <Position X="8.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repository\Interfaces\IRoundLog.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

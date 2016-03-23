@@ -4,19 +4,8 @@ namespace FightClubReports.Entitys.Combat
 {
     public class Hitlog
     {
-        PartOfBody hitPart;
-        bool isSuccess;
-
-        public ActionLog hitLog
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+        public int Id { get; set; }
+        public PartOfBody HitPart { get; set; }
+        bool IsSuccess { get; set; }
     }
 }

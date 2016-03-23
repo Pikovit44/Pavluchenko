@@ -7,39 +7,13 @@ namespace FightClubReports
 {
     public class Player
     {
+        public int Id { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public string EMail { get; set; }        
+        public bool IsEmaillValid { get; set; }
+        public DateTime DateOfRegistr { get; set; }
+        public List<Combat> GameData { get; set; }
         
-        string login;
-        int password;
-        DateTime dateOfRegistr;
-        string email;
-        bool isEmaillValid;
-        List<Combat> gameData;
-
-        public Player(int password, string login, string email)
-        {
-            this.password = password;
-            this.login = login;
-            this.email = email;
-            dateOfRegistr = DateTime.Now;
-        }
-
-        public string Login
-        {
-            get { return login; }
-        }
-
-        public DateTime DateOfRegistr
-        {
-            get { return dateOfRegistr; }
-        }
-
-        public string Email
-        {
-            get { return email; }
-        }
-
-
-
-
     }
 }

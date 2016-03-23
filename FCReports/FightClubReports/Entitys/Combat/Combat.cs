@@ -5,12 +5,13 @@ namespace FightClubReports
 {
     public class Combat
     {
-        DateTime timeOfCombat; 
-        string type; // pvp or pve 
-        List<RoundLog> log;
-        Player player1;
-        Player player2;
-        bool winnerIsExist;
-        Player winner;
+        public int Id { get; set; }
+        public DateTime TimeOfStartCombat { get; set; }
+        public string Type { get; set; } // pvp or pve 
+        public List<RoundLog> Log { get; set; }
+        public Player Player1 { get; set; }
+        public Player Player2 { get; set; }
+        public bool WinnerIsExist { get; set; }
+        public Player Winner { get; set; }
     }
 }

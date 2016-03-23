@@ -8,8 +8,9 @@ namespace FightClubReports.Entitys
 {
     public class Transaction
     {
-        DateTime date;
-        Player player;
-        decimal sum; 
+        public int Id { get; set; }
+        public DateTime Date { get; set; }
+        public Player Player { get; set; }
+        public decimal Sum { get; set; }
     }
 }

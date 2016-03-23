@@ -8,19 +8,8 @@ namespace FightClubReports.Entitys.Combat
 {
     public class ActionLog
     {
-        Hitlog hitLog;
-        BlockLog blockLog;
-
-        public RoundLog RoundLog
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+        public int Id { get; set; }
+        public Hitlog HitLog { get; set; }
+        public BlockLog BlockLog { get; set; }
     }
 }

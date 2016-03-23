@@ -3,20 +3,9 @@
 namespace FightClubReports
 {
     public class RoundLog
-    {
-        ActionLog player1;
-        ActionLog player2;
-
-        public Combat log
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+    {   
+        public int Id { get; set; }
+        public ActionLog Player1 { get; set; }
+        public ActionLog Player2 { get; set; }
     }
 }

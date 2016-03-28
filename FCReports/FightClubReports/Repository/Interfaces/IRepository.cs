@@ -11,11 +11,13 @@ namespace FightClubReports.Repository.Interfaces
     {
         TEntity Get(int id);
         IEnumerable<TEntity> GetAll();
-
-        void Add(TEntity entity);
-        void AddRange(IEnumerable<TEntity> entities);
-
-        void Remove(TEntity entity);
-        void RemoveRange(IEnumerable<TEntity> entities);
+        void Create(TEntity item);
+        void CreateRange(IEnumerable<TEntity> entities);
+        void Delete(TEntity item);
+        void DeleteById(int id);
+        void DeleteRange(IEnumerable<TEntity> entities);
+        void Update(TEntity item);
+        
+        void Save();
     }
 }

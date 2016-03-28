@@ -11,7 +11,7 @@ namespace FightClubReports.Repository.Interfaces
         List<Player> GetTopPlayers();
         List<Player> GetValidEmailPlayers();
         List<Player> GetPlayersByRegist();
-        List<Player> GetListOfPlayersByName();
+        List<Player> GetListOfPlayersByLogin();
         List<Player> GetListOfPlayersByNumberOfGame();
     }
 }

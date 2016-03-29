@@ -8,10 +8,10 @@ namespace FightClubReports.Repository.Interfaces
 {
     public interface IPlayerRepository : IRepository<Player>
     {
-        List<Player> GetTopPlayers();
-        List<Player> GetValidEmailPlayers();
-        List<Player> GetPlayersByRegist();
-        List<Player> GetListOfPlayersByLogin();
-        List<Player> GetListOfPlayersByNumberOfGame();
+        IEnumerable<Player> GetTopPlayers();
+        IEnumerable<Player> GetValidEmailPlayers();
+        IEnumerable<Player> GetPlayersByRegist();
+        IEnumerable<Player> GetListOfPlayersByLogin();
+        IEnumerable<Player> GetPlayersByNumberOfGame();
     }
 }

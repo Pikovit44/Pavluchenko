@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FightClubReports.Data.Entitys;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,6 @@ namespace FightClubReports
         public bool IsEmaillValid { get; set; }
         public DateTime DateOfRegistr { get; set; }
         public List<Combat> GameData { get; set; }
-        
+        public Statistics Statistics { get; set; }
     }
 }

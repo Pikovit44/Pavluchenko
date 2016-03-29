@@ -13,11 +13,7 @@ namespace FightClubReports.Repository
     {
         protected Context db;
 
-        public BaseRepository(Context db)
-        {
-            this.db = db;
-        }
-
+        
         public void Create(TEntity item)
         {
             db.Set<TEntity>().Add(item);
@@ -42,34 +38,29 @@ namespace FightClubReports.Repository
             }
         }
 
+        public void DeleteRange(IEnumerable<TEntity> entities)
+        {
+            db.Set<TEntity>().RemoveRange(entities);
+        }
+
         public TEntity Get(int id)
         {
-            throw new NotImplementedException();
+            return db.Set<TEntity>().Find(id);
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            return db.Set<TEntity>();
-        }
-
-        public void Remove(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteRange(IEnumerable<TEntity> entities)
-        {
-            throw new NotImplementedException();
+            return db.Set<TEntity>().ToList();
         }
 
         public void Save()
         {
-            throw new NotImplementedException();
+            db.SaveChanges();
         }
 
         public void Update(TEntity item)
         {
-            throw new NotImplementedException();
+            db.Entry(item).State = EntityState.Modified;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace FightClubReports.Repository.Interfaces
 {
     public interface ICombatRepository : IRepository<Combat>
     {
-        List<Combat> GetCombatsByType(string type);
-        List<Combat> GetCombatsByPlayer(string login);
+        IEnumerable<Combat> GetCombatsByType(string type);
+        IEnumerable<Combat> GetCombatsByPlayer(string login);
     }
 }

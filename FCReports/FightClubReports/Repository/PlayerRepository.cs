@@ -8,37 +8,43 @@ using System.Threading.Tasks;
 
 namespace FightClubReports.Repository
 {
-    public class PlayerRepository :BaseRepository<Player> , IPlayerRepository
+    public class PlayerRepository :BaseRepository<Player>, IPlayerRepository
     {
-
         public PlayerRepository()
         {
             this.db = new Context(); // сделать фассад 
         }
 
-        public List<Player> GetListOfPlayersByLogin()
+        public IEnumerable<Player> GetListOfPlayersByLogin()
         {
-            throw new NotImplementedException();
+            return db.Player
+                .OrderBy(l => l.Login)
+                .ToList();
         }
 
-        public List<Player> GetListOfPlayersByNumberOfGame()
+        public IEnumerable<Player> GetPlayersByNumberOfGame()
         {
-            throw new NotImplementedException();
+            return db.Player
+                .OrderByDescending(s => s.Statistics.Combats);
         }
 
-        public List<Player> GetPlayersByRegist()
+        public IEnumerable<Player> GetPlayersByRegist()
         {
-            throw new NotImplementedException();
+            return db.Player
+               .OrderBy(t => t.DateOfRegistr);
         }
 
-        public List<Player> GetTopPlayers()
+        public IEnumerable<Player> GetTopPlayers()
         {
-            throw new NotImplementedException();
+            return db.Player
+                .OrderByDescending(w => w.Statistics.Wins)
+                .ThenByDescending(d => d.Statistics.Draws);
         }
 
-        public List<Player> GetValidEmailPlayers()
+        public IEnumerable<Player> GetValidEmailPlayers()
         {
-            throw new NotImplementedException();
+            return db.Player
+               .Where(e => e.IsEmaillValid == true);
         }
     }
 }

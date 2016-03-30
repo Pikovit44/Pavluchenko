@@ -20,19 +20,22 @@ namespace FightClubReports.Repository
         public IEnumerable<Transaction> GetTransactionsByDate()
         {
             return db.Transaction
-                .OrderBy(d => d.Date);
+                .OrderBy(d => d.Date)
+                .ToList();
         }
 
         public IEnumerable<Transaction> GetTransactionsByLogin(string login)
         {
             return db.Transaction
-                .Where(p => p.Player.Login == login);
+                .Where(p => p.Player.Login == login)
+                .ToList();
         }
 
         public IEnumerable<Transaction> GetTransactionsBySum()
         {
             return db.Transaction
-                .OrderByDescending(s => s.Sum);
+                .OrderByDescending(s => s.Sum)
+                .ToList();
         }
     }
 }

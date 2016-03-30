@@ -13,3 +13,4 @@ namespace FightClubReports.Repository.Interfaces
 
     }
 }
+    

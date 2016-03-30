@@ -19,13 +19,15 @@ namespace FightClubReports.Repository
         public IEnumerable<Combat> GetCombatsByPlayer(string login)
         {
             return db.Combat
-                .Where(p => (p.Player1.Login == login) || (p.Player2.Login == login));
+                .Where(p => (p.Player1.Login == login) || (p.Player2.Login == login))
+                .ToList();
         }
 
         public IEnumerable<Combat> GetCombatsByType(string type)
         {
             return db.Combat
-                .Where(t => (t.Type == type));
+                .Where(t => (t.Type == type))
+                .ToList();
         }
     }
 }

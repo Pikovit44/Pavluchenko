@@ -14,4 +14,4 @@ namespace FightClubReports.Repository.Interfaces
         IEnumerable<Transaction> GetTransactionsByLogin(string login);
     }
 }
-}
+

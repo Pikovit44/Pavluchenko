@@ -28,27 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.title = new System.Windows.Forms.Label();
             this.usersLb = new System.Windows.Forms.Label();
             this.combats = new System.Windows.Forms.Label();
             this.transactions = new System.Windows.Forms.Label();
             this.usersCb = new System.Windows.Forms.ComboBox();
             this.transactionsCb = new System.Windows.Forms.ComboBox();
             this.loginForTransactions = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.combatsCb = new System.Windows.Forms.ComboBox();
             this.loginForCombats = new System.Windows.Forms.TextBox();
+            this.loginForTransactionsLb = new System.Windows.Forms.Label();
+            this.ok = new System.Windows.Forms.Button();
+            this.loginForCombatsLb = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // title
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(44, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(561, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Выберете какого типа информацию необходимо отобразить";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.title.Location = new System.Drawing.Point(44, 18);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(561, 24);
+            this.title.TabIndex = 0;
+            this.title.Text = "Выберете какого типа информацию необходимо отобразить";
+            this.title.Click += new System.EventHandler(this.label1_Click);
             // 
             // usersLb
             // 
@@ -90,6 +93,7 @@
             this.usersCb.Name = "usersCb";
             this.usersCb.Size = new System.Drawing.Size(159, 21);
             this.usersCb.TabIndex = 9;
+            this.usersCb.SelectedIndexChanged += new System.EventHandler(this.usersCb_SelectedIndexChanged);
             // 
             // transactionsCb
             // 
@@ -102,55 +106,86 @@
             this.transactionsCb.Name = "transactionsCb";
             this.transactionsCb.Size = new System.Drawing.Size(159, 21);
             this.transactionsCb.TabIndex = 11;
+            this.transactionsCb.SelectedIndexChanged += new System.EventHandler(this.transactionsCb_SelectedIndexChanged);
             // 
             // loginForTransactions
             // 
-            this.loginForTransactions.Location = new System.Drawing.Point(251, 100);
+            this.loginForTransactions.Location = new System.Drawing.Point(235, 120);
             this.loginForTransactions.Name = "loginForTransactions";
-            this.loginForTransactions.Size = new System.Drawing.Size(122, 20);
+            this.loginForTransactions.Size = new System.Drawing.Size(159, 20);
             this.loginForTransactions.TabIndex = 12;
-            this.loginForTransactions.Text = "Введите логин";
             this.loginForTransactions.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.loginForTransactions.Visible = false;
             // 
-            // comboBox1
+            // combatsCb
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.combatsCb.FormattingEnabled = true;
+            this.combatsCb.Items.AddRange(new object[] {
             "По сумме",
             "По дате ",
             "По логину игрока"});
-            this.comboBox1.Location = new System.Drawing.Point(463, 73);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(159, 21);
-            this.comboBox1.TabIndex = 13;
+            this.combatsCb.Location = new System.Drawing.Point(463, 73);
+            this.combatsCb.Name = "combatsCb";
+            this.combatsCb.Size = new System.Drawing.Size(159, 21);
+            this.combatsCb.TabIndex = 13;
+            this.combatsCb.SelectedIndexChanged += new System.EventHandler(this.CombatsCb_SelectedIndexChanged);
             // 
             // loginForCombats
             // 
-            this.loginForCombats.Location = new System.Drawing.Point(483, 100);
+            this.loginForCombats.Location = new System.Drawing.Point(462, 120);
             this.loginForCombats.Name = "loginForCombats";
-            this.loginForCombats.Size = new System.Drawing.Size(122, 20);
+            this.loginForCombats.Size = new System.Drawing.Size(159, 20);
             this.loginForCombats.TabIndex = 14;
-            this.loginForCombats.Text = "Введите логин";
             this.loginForCombats.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.loginForCombats.Visible = false;
+            // 
+            // loginForTransactionsLb
+            // 
+            this.loginForTransactionsLb.AutoSize = true;
+            this.loginForTransactionsLb.Location = new System.Drawing.Point(261, 103);
+            this.loginForTransactionsLb.Name = "loginForTransactionsLb";
+            this.loginForTransactionsLb.Size = new System.Drawing.Size(110, 13);
+            this.loginForTransactionsLb.TabIndex = 15;
+            this.loginForTransactionsLb.Text = "Введите логин ниже";
+            this.loginForTransactionsLb.Visible = false;
+            // 
+            // ok
+            // 
+            this.ok.Location = new System.Drawing.Point(530, 356);
+            this.ok.Name = "ok";
+            this.ok.Size = new System.Drawing.Size(75, 23);
+            this.ok.TabIndex = 16;
+            this.ok.Text = "OK";
+            this.ok.UseVisualStyleBackColor = true;
+            // 
+            // loginForCombatsLb
+            // 
+            this.loginForCombatsLb.AutoSize = true;
+            this.loginForCombatsLb.Location = new System.Drawing.Point(495, 103);
+            this.loginForCombatsLb.Name = "loginForCombatsLb";
+            this.loginForCombatsLb.Size = new System.Drawing.Size(110, 13);
+            this.loginForCombatsLb.TabIndex = 17;
+            this.loginForCombatsLb.Text = "Введите логин ниже";
+            this.loginForCombatsLb.Visible = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 391);
+            this.Controls.Add(this.loginForCombatsLb);
+            this.Controls.Add(this.ok);
+            this.Controls.Add(this.loginForTransactionsLb);
             this.Controls.Add(this.loginForCombats);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.combatsCb);
             this.Controls.Add(this.loginForTransactions);
             this.Controls.Add(this.transactionsCb);
             this.Controls.Add(this.usersCb);
             this.Controls.Add(this.transactions);
             this.Controls.Add(this.combats);
             this.Controls.Add(this.usersLb);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.title);
             this.Name = "MainForm";
-            this.Text = "title";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,15 +193,18 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label title;
         private System.Windows.Forms.Label usersLb;
         private System.Windows.Forms.Label combats;
         private System.Windows.Forms.Label transactions;
         private System.Windows.Forms.ComboBox usersCb;
         private System.Windows.Forms.ComboBox transactionsCb;
         private System.Windows.Forms.TextBox loginForTransactions;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox combatsCb;
         private System.Windows.Forms.TextBox loginForCombats;
+        private System.Windows.Forms.Label loginForTransactionsLb;
+        private System.Windows.Forms.Button ok;
+        private System.Windows.Forms.Label loginForCombatsLb;
     }
 }
 

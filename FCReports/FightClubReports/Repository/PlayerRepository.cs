@@ -18,14 +18,20 @@ namespace FightClubReports.Repository
         public IEnumerable<Player> GetListOfPlayersByLogin()
         {
             return db.Player
-                .OrderBy(l => l.Login)
-                .ToList();
+                .OrderBy(l => l.Login);
         }
 
         public IEnumerable<Player> GetPlayersByNumberOfGame()
         {
             return db.Player
                 .OrderByDescending(s => s.Statistics.Combats);
+        }
+
+        public IEnumerable<Player> GetPlayersByNumberOfTransactions()
+        {
+            return db.Player
+                .Where(t => t.Transactions != null) //?
+                .OrderByDescending(tr => tr.Transactions.Count);
         }
 
         public IEnumerable<Player> GetPlayersByRegist()

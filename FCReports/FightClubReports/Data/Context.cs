@@ -12,7 +12,7 @@ namespace FightClubReports.Data
     {
         public DbSet<Player> Player { get; set; }
         public DbSet<Combat> Combat { get; set; }
-        public DbSet<RoundLog> RoundLog { get; set; }
+        public DbSet<RoundLog> RoundLog { get; set; } //?
         public DbSet<Transaction> Transaction { get; set; }
     }
 }

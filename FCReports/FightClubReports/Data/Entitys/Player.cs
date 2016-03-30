@@ -1,4 +1,5 @@
 ﻿using FightClubReports.Data.Entitys;
+using FightClubReports.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,5 +17,6 @@ namespace FightClubReports
         public DateTime DateOfRegistr { get; set; }
         public List<Combat> GameData { get; set; }
         public Statistics Statistics { get; set; }
+        public List<Transaction>  Transactions { get; set; }
     }
 }

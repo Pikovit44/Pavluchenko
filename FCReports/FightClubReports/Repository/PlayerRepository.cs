@@ -10,9 +10,9 @@ namespace FightClubReports.Repository
 {
     public class PlayerRepository :BaseRepository<Player>, IPlayerRepository
     {
-        public PlayerRepository()
+        public PlayerRepository( Context db) : base(db)
         {
-            this.db = new Context(); // сделать фассад 
+           
         }
 
         public IEnumerable<Player> GetListOfPlayersByLogin()

@@ -13,6 +13,10 @@ namespace FightClubReports.Repository
     {
         protected Context db;
 
+        public BaseRepository(Context db)
+        {
+            this.db = db;
+        }
         
         public void Create(TEntity item)
         {

@@ -11,9 +11,9 @@ namespace FightClubReports.Repository
     public class CombatRepository : BaseRepository<Combat>, ICombatRepository
     {
 
-        public CombatRepository()
+        public CombatRepository(Context db) : base(db)
         {
-            this.db = new Context(); // сделать фассад 
+           
         }
 
         public IEnumerable<Combat> GetCombatsByPlayer(string login)

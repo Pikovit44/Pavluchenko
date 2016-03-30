@@ -12,9 +12,9 @@ namespace FightClubReports.Repository
     public class TransactionRepository : BaseRepository<Transaction>, ITransactionRepository
     {
 
-        public TransactionRepository()
+        public TransactionRepository(Context db) : base(db)
         {
-            this.db = new Context(); // сделать фассад 
+            
         }
 
         public IEnumerable<Transaction> GetTransactionsByDate()

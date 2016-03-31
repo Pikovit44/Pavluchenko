@@ -17,7 +17,6 @@ namespace FightClubReports.Repository.Interfaces
         void DeleteById(int id);
         void DeleteRange(IEnumerable<TEntity> entities);
         void Update(TEntity item);
-        
         void Save();
     }
 }

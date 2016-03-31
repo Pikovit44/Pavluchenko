@@ -1,4 +1,5 @@
-﻿using FightClubReports.Interfaces;
+﻿using Enums;
+using FightClubReports.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,11 +12,6 @@ using System.Windows.Forms;
 
 namespace FightClubReports
 {
-    public enum ViewInfoType { User, Transaction, Combat }
-    public enum OutputInfoType { Unknown, UTop, UDate, UAlphabet, UNumOfComb, UNumOfTransact, TSum, TDate, TLogin, CType, CLogin };
-
-
-     
     public partial class MainForm : Form, IView 
     {
         OutputInfoType outputInfo = OutputInfoType.Unknown;

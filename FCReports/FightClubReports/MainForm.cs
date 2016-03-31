@@ -10,66 +10,120 @@ using System.Windows.Forms;
 
 namespace FightClubReports
 {
+    enum InfoType { User, Transaction, Combat }
+     
     public partial class MainForm : Form
     {
         public MainForm()
         {
             InitializeComponent();
         }
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void usersCb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loginForCombatsLb.Visible = false;
-            loginForCombats.Visible = false;
-            loginForTransactionsLb.Visible = false;
-            loginForTransactions.Visible = false;
-            combatsCb.Text = "";
-            transactionsCb.Text = "";
-            ok.Focus();
+            ChangeVisible(InfoType.User);
         }
 
         private void transactionsCb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loginForCombatsLb.Visible = false;
-            loginForCombats.Visible = false;
-            combatsCb.Text = "";
-            usersCb.Text = "";
-
-            ok.Focus();
-
-            if (transactionsCb.Text == "По логину игрока")
-            {
-                loginForTransactions.Visible = true;
-                loginForTransactionsLb.Visible = true;
-                loginForTransactions.Focus();
-            }
+            ChangeVisible(InfoType.Transaction);
         }
 
         private void CombatsCb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loginForTransactionsLb.Visible = false;
-            loginForTransactions.Visible = false;
-            transactionsCb.Text = "";
-            usersCb.Text = "";
-            ok.Focus();
+            ChangeVisible(InfoType.Combat);
+        }
 
-            if (combatsCb.Text == "По логину игрока")
+        private void ChangeVisible(InfoType type)
+        {
+            switch (type)
             {
-                loginForCombats.Visible = true;
-                loginForCombatsLb.Visible = true;
-                if (loginForCombats.Text != "")
+                case InfoType.User:
+                    UserVisible(true);
+                    break;
+                case InfoType.Transaction:
+                    TransactionVisible(true);
+                    break;
+                case InfoType.Combat:
+                    CombatVisible(true);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void UserVisible(bool flag)//flag?
+        {
+            if (flag)
+            {
+                TransactionVisible(false);
+                CombatVisible(false);
+                if (usersCb.Text != "")
                 {
                     ok.Focus();
                 }
-                loginForCombats.Focus();
-                
             }
+            else
+            {
+                usersCb.Text = "";
+            }
+        }
+
+        private void TransactionVisible( bool flag)
+        {
+            if (flag)
+            {
+                if (transactionsCb.Text != "")
+                {
+                    ok.Focus();
+                }
+                if (transactionsCb.Text == "По логину игрока")
+                {
+                    loginForTransactions.Visible = true;
+                    loginForTransactionsLb.Visible = true;
+                    loginForTransactions.Focus();
+                }
+                UserVisible(false);
+                CombatVisible(false);
+            }
+            else
+            {
+                loginForTransactionsLb.Visible = false;
+                loginForTransactions.Visible = false;
+                transactionsCb.Text = "";
+                loginForTransactions.Text = "";
+            }
+        } 
+
+        private void CombatVisible(bool flag)
+        {
+            if (flag)
+            {
+                if (combatsCb.Text != "")
+                {
+                    ok.Focus();
+                }
+
+                if (combatsCb.Text == "По логину игрока")
+                {
+                    loginForCombats.Visible = true;
+                    loginForCombatsLb.Visible = true;
+                    loginForCombats.Focus();
+                }
+                UserVisible(false);
+                TransactionVisible(false);
+            }
+            else
+            {
+                loginForCombats.Visible = false;
+                loginForCombatsLb.Visible = false;
+                combatsCb.Text = "";
+                loginForCombats.Text = "";
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

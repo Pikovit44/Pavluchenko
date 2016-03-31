@@ -44,14 +44,14 @@
             // 
             // title
             // 
+            this.title.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.title.Location = new System.Drawing.Point(44, 18);
+            this.title.Location = new System.Drawing.Point(101, 9);
             this.title.Name = "title";
-            this.title.Size = new System.Drawing.Size(561, 24);
+            this.title.Size = new System.Drawing.Size(419, 24);
             this.title.TabIndex = 0;
-            this.title.Text = "Выберете какого типа информацию необходимо отобразить";
-            this.title.Click += new System.EventHandler(this.label1_Click);
+            this.title.Text = "Выберете тип информации для отображения";
             // 
             // usersLb
             // 
@@ -64,6 +64,7 @@
             // 
             // combats
             // 
+            this.combats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.combats.AutoSize = true;
             this.combats.Location = new System.Drawing.Point(526, 57);
             this.combats.Name = "combats";
@@ -73,6 +74,7 @@
             // 
             // transactions
             // 
+            this.transactions.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.transactions.AutoSize = true;
             this.transactions.Location = new System.Drawing.Point(281, 57);
             this.transactions.Name = "transactions";
@@ -89,7 +91,7 @@
             "По алфавиту",
             "По количеству боев",
             "По количеству транзакций"});
-            this.usersCb.Location = new System.Drawing.Point(12, 73);
+            this.usersCb.Location = new System.Drawing.Point(10, 73);
             this.usersCb.Name = "usersCb";
             this.usersCb.Size = new System.Drawing.Size(159, 21);
             this.usersCb.TabIndex = 9;
@@ -97,6 +99,7 @@
             // 
             // transactionsCb
             // 
+            this.transactionsCb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.transactionsCb.FormattingEnabled = true;
             this.transactionsCb.Items.AddRange(new object[] {
             "По сумме",
@@ -110,6 +113,7 @@
             // 
             // loginForTransactions
             // 
+            this.loginForTransactions.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.loginForTransactions.Location = new System.Drawing.Point(235, 120);
             this.loginForTransactions.Name = "loginForTransactions";
             this.loginForTransactions.Size = new System.Drawing.Size(159, 20);
@@ -119,12 +123,12 @@
             // 
             // combatsCb
             // 
+            this.combatsCb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.combatsCb.FormattingEnabled = true;
             this.combatsCb.Items.AddRange(new object[] {
-            "По сумме",
-            "По дате ",
+            "По типу",
             "По логину игрока"});
-            this.combatsCb.Location = new System.Drawing.Point(463, 73);
+            this.combatsCb.Location = new System.Drawing.Point(460, 73);
             this.combatsCb.Name = "combatsCb";
             this.combatsCb.Size = new System.Drawing.Size(159, 21);
             this.combatsCb.TabIndex = 13;
@@ -132,7 +136,8 @@
             // 
             // loginForCombats
             // 
-            this.loginForCombats.Location = new System.Drawing.Point(462, 120);
+            this.loginForCombats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginForCombats.Location = new System.Drawing.Point(460, 120);
             this.loginForCombats.Name = "loginForCombats";
             this.loginForCombats.Size = new System.Drawing.Size(159, 20);
             this.loginForCombats.TabIndex = 14;
@@ -141,6 +146,7 @@
             // 
             // loginForTransactionsLb
             // 
+            this.loginForTransactionsLb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.loginForTransactionsLb.AutoSize = true;
             this.loginForTransactionsLb.Location = new System.Drawing.Point(261, 103);
             this.loginForTransactionsLb.Name = "loginForTransactionsLb";
@@ -151,15 +157,18 @@
             // 
             // ok
             // 
-            this.ok.Location = new System.Drawing.Point(530, 356);
+            this.ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ok.Location = new System.Drawing.Point(530, 406);
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(75, 23);
             this.ok.TabIndex = 16;
             this.ok.Text = "OK";
             this.ok.UseVisualStyleBackColor = true;
+            this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
             // loginForCombatsLb
             // 
+            this.loginForCombatsLb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loginForCombatsLb.AutoSize = true;
             this.loginForCombatsLb.Location = new System.Drawing.Point(495, 103);
             this.loginForCombatsLb.Name = "loginForCombatsLb";
@@ -172,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 391);
+            this.ClientSize = new System.Drawing.Size(633, 441);
             this.Controls.Add(this.loginForCombatsLb);
             this.Controls.Add(this.ok);
             this.Controls.Add(this.loginForTransactionsLb);
@@ -185,7 +194,9 @@
             this.Controls.Add(this.combats);
             this.Controls.Add(this.usersLb);
             this.Controls.Add(this.title);
+            this.MinimumSize = new System.Drawing.Size(480, 480);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();
 

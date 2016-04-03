@@ -9,51 +9,70 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FightClubReports.Data;
 
 namespace FightClubReports
 {
     public partial class MainForm : Form, IView 
     {
         OutputInfoType outputInfo = OutputInfoType.Unknown;
-        string login = string.Empty;
-        public event EventHandler Ok;
+        ViewInfoType infoType;
+        string currentLogin = string.Empty;
+        public event EventHandler OkClick;
+        public MainPresenter presenter;
 
         public MainForm()
         {
             InitializeComponent();
+            presenter = new MainPresenter(this);
         }
         
-        public string Login
+        public string CurrentLogin
         {
-            get { return login; }
+            get { return currentLogin; }
         }
 
         public OutputInfoType OutputInfo
         {
             get { return outputInfo; }
-        } 
+        }
+
+        public ViewInfoType InfoType
+        {
+            get { return infoType; }
+        }
+
+        public object PlayerTable
+        {
+            set { playerTable.DataSource = value; }
+        }
 
         private void usersCb_SelectedIndexChanged(object sender, EventArgs e)
         {
             ChangeVisible(ViewInfoType.User);
+            infoType = ViewInfoType.User;
         }
 
         private void transactionsCb_SelectedIndexChanged(object sender, EventArgs e)
         {
             ChangeVisible(ViewInfoType.Transaction);
+            infoType = ViewInfoType.Transaction;
         }
 
         private void CombatsCb_SelectedIndexChanged(object sender, EventArgs e)
         {
             ChangeVisible(ViewInfoType.Combat);
+            infoType = ViewInfoType.Combat;
         }
 
         private void ok_Click(object sender, EventArgs e)
         {
             ChooseOutputInfo();
-            if (Ok != null) { Ok(this, EventArgs.Empty); }
+            if (SafeOk())
+            {
+                if (OkClick != null) { OkClick(this, EventArgs.Empty); }
+            }
         }
-
 
         private void ChangeVisible(ViewInfoType type)
         {
@@ -104,6 +123,11 @@ namespace FightClubReports
                     loginForTransactionsLb.Visible = true;
                     loginForTransactions.Focus();
                 }
+                else
+                {
+                    loginForTransactions.Visible = false;
+                    loginForTransactionsLb.Visible = false;
+                }
                 UserVisible(false);
                 CombatVisible(false);
             }
@@ -147,12 +171,13 @@ namespace FightClubReports
                 combatsCb.Text = "";
                 loginForCombats.Text = "";
             }
+
         }
+
+
 
         private void ChooseOutputInfo()
         {
-            if (outputInfo != OutputInfoType.Unknown)
-            {
                 if (usersCb.Text == "Топ лучших") { outputInfo = OutputInfoType.UTop; }
                 if (usersCb.Text == "По дате регистрации") { outputInfo = OutputInfoType.UDate; }
                 if (usersCb.Text == "По алфавиту") { outputInfo = OutputInfoType.UAlphabet; }
@@ -170,23 +195,35 @@ namespace FightClubReports
                     }
                     else
                     {
-                        outputInfo = OutputInfoType.TLogin; login = loginForTransactions.Text;
+                        outputInfo = OutputInfoType.TLogin; currentLogin = loginForTransactions.Text;
                     }
                 }
                 if (combatsCb.Text == "По типу") { outputInfo = OutputInfoType.CType; }
                 if (combatsCb.Text == "По логину игрока")
                 {
+                    if (loginForTransactions.Text == "")
+                    {
                     MessageBox.Show("Введите логин игрока в соответствующее поле", "Логин игрока не введен", MessageBoxButtons.OK);
                     loginForCombats.Focus();
+                    }
+                    else
+                    {
+                        outputInfo = OutputInfoType.CLogin; currentLogin = loginForCombats.Text;
+                    }
                 }
-                else
-                {
-                    outputInfo = OutputInfoType.CLogin; login = loginForCombats.Text;
-                }
+                
+        }
+
+        public bool SafeOk()
+        {
+            if (outputInfo == OutputInfoType.Unknown)
+            {
+                MessageBox.Show("Выберете информацию для отображения", "Ни один вариант не выбран", MessageBoxButtons.OK);
+                return false;
             }
             else
             {
-                MessageBox.Show("Выберете информацию для отображения", "Ни один вариант не выбран", MessageBoxButtons.OK);
+                return true;
             }
         }
         

@@ -40,6 +40,8 @@
             this.loginForTransactionsLb = new System.Windows.Forms.Label();
             this.ok = new System.Windows.Forms.Button();
             this.loginForCombatsLb = new System.Windows.Forms.Label();
+            this.playerTable = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.playerTable)).BeginInit();
             this.SuspendLayout();
             // 
             // title
@@ -177,11 +179,20 @@
             this.loginForCombatsLb.Text = "Введите логин ниже";
             this.loginForCombatsLb.Visible = false;
             // 
+            // playerTable
+            // 
+            this.playerTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.playerTable.Location = new System.Drawing.Point(12, 146);
+            this.playerTable.Name = "playerTable";
+            this.playerTable.Size = new System.Drawing.Size(607, 254);
+            this.playerTable.TabIndex = 18;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(633, 441);
+            this.Controls.Add(this.playerTable);
             this.Controls.Add(this.loginForCombatsLb);
             this.Controls.Add(this.ok);
             this.Controls.Add(this.loginForTransactionsLb);
@@ -197,6 +208,7 @@
             this.MinimumSize = new System.Drawing.Size(480, 480);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            ((System.ComponentModel.ISupportInitialize)(this.playerTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,6 +228,7 @@
         private System.Windows.Forms.Label loginForTransactionsLb;
         private System.Windows.Forms.Button ok;
         private System.Windows.Forms.Label loginForCombatsLb;
+        private System.Windows.Forms.DataGridView playerTable;
     }
 }
 

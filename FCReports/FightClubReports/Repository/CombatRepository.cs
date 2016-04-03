@@ -23,10 +23,11 @@ namespace FightClubReports.Repository
                 .ToList();
         }
 
-        public IEnumerable<Combat> GetCombatsByType(string type)
+        public IEnumerable<Combat> GetCombatsByType()
         {
             return db.Combat
-                .Where(t => (t.Type == type))
+                .OrderBy(t => (t.TypePVP))
+                .ThenBy(tr => (!tr.TypePVP))
                 .ToList();
         }
     }

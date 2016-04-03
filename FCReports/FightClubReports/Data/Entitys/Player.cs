@@ -16,7 +16,7 @@ namespace FightClubReports
         public bool IsEmaillValid { get; set; }
         public DateTime DateOfRegistr { get; set; }
         public List<Combat> GameData { get; set; }
-        public Statistics Statistics { get; set; }
-        public List<Transaction>  Transactions { get; set; }
+        public Statistics Statistics { get; set; } // -> foreign key
+        public List<Transaction> Transactions { get; set; }
     }
 }

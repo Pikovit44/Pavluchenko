@@ -20,8 +20,6 @@ namespace FightClubReports
             view.OkClick += onOkClick;
         }
 
-
-
         private void onOkClick(object sender, EventArgs e)
         {
             ChooseTypeOfRequest();
@@ -35,8 +33,10 @@ namespace FightClubReports
                     InfoForPlayerTable();
                     break;
                 case Enums.ViewInfoType.Transaction:
+                    InfoForTransactionTable();
                     break;
                 case Enums.ViewInfoType.Combat:
+                    InfoForCombatTable();
                     break;
                 default:
                     break;
@@ -48,60 +48,65 @@ namespace FightClubReports
             switch (view.OutputInfo)
             {
                 case Enums.OutputInfoType.UTop:
-                    view.PlayerTable = facade.Player.GetTopPlayers();
+                    view.Table = facade.Player.GetTopPlayers();
                     break;
+
                 case Enums.OutputInfoType.UDate:
-                    view.PlayerTable = facade.Player.GetPlayersByRegist();
+                    view.Table = facade.Player.GetPlayersByRegist();
                     break;
+
                 case Enums.OutputInfoType.UAlphabet:
-                    view.PlayerTable = facade.Player.GetPlayersByLogin();
+                    view.Table = facade.Player.GetPlayersByLogin();
                     break;
+
                 case Enums.OutputInfoType.UNumOfComb:
-                    view.PlayerTable = facade.Player.GetPlayersByNumberOfGame();
+                    view.Table = facade.Player.GetPlayersByNumberOfGame();
                     break;
+
                 case Enums.OutputInfoType.UNumOfTransact:
-                    view.PlayerTable = facade.Player.GetPlayersByNumberOfTransactions();
+                    view.Table = facade.Player.GetPlayersByNumberOfTransactions();
                     break;
+
+                case Enums.OutputInfoType.UValidEmail:
+                    view.Table = facade.Player.GetValidEmailPlayers();
+                    break;
+
                 default:
                     break;
             }
         }
 
-
-
-
-
-        private void InfoFowrPlayerTable()
+        private void InfoForTransactionTable()
         {
             switch (view.OutputInfo)
             {
-                case Enums.OutputInfoType.Unknown:
-                    break;
-                case Enums.OutputInfoType.UTop:
-                    break;
-                case Enums.OutputInfoType.UDate:
-                    break;
-                case Enums.OutputInfoType.UAlphabet:
-                    break;
-                case Enums.OutputInfoType.UNumOfComb:
-                    break;
-                case Enums.OutputInfoType.UNumOfTransact:
-                    break;
                 case Enums.OutputInfoType.TSum:
+                    view.Table = facade.Transaction.GetTransactionsBySum();
                     break;
                 case Enums.OutputInfoType.TDate:
+                    view.Table = facade.Transaction.GetTransactionsByDate();
                     break;
                 case Enums.OutputInfoType.TLogin:
-                    break;
-                case Enums.OutputInfoType.CType:
-                    break;
-                case Enums.OutputInfoType.CLogin:
+                    view.Table = facade.Transaction.GetTransactionsByLogin(view.CurrentLogin);
                     break;
                 default:
                     break;
             }
-
-
         }
+        private void InfoForCombatTable()
+        {
+            switch (view.OutputInfo)
+            {
+                case Enums.OutputInfoType.CType:
+                    view.Table = facade.Combat.GetCombatsByType();
+                    break;
+                case Enums.OutputInfoType.CLogin:
+                    view.Table = facade.Combat.GetCombatsByPlayer(view.CurrentLogin);
+                    break;
+                default:
+                    break;
+            }
+        }
+        
     }
 }

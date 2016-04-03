@@ -9,8 +9,8 @@ namespace Enums
     public enum PartOfBody
     { Unknown, Head, Tors, Legs }
     public enum ViewInfoType
-    { User, Transaction, Combat }
+    { Unknown, User, Transaction, Combat }
     public enum OutputInfoType
-    { Unknown, UTop, UDate, UAlphabet, UNumOfComb, UNumOfTransact, TSum, TDate, TLogin, CType, CLogin };
+    { Unknown, UTop, UDate, UAlphabet, UNumOfComb, UNumOfTransact, UValidEmail, TSum, TDate, TLogin, CType, CLogin };
 
 }

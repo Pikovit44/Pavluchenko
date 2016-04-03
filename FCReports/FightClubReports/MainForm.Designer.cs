@@ -40,8 +40,8 @@
             this.loginForTransactionsLb = new System.Windows.Forms.Label();
             this.ok = new System.Windows.Forms.Button();
             this.loginForCombatsLb = new System.Windows.Forms.Label();
-            this.playerTable = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.playerTable)).BeginInit();
+            this.table = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
             // title
@@ -49,7 +49,7 @@
             this.title.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.title.Location = new System.Drawing.Point(101, 9);
+            this.title.Location = new System.Drawing.Point(169, 9);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(419, 24);
             this.title.TabIndex = 0;
@@ -66,9 +66,8 @@
             // 
             // combats
             // 
-            this.combats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.combats.AutoSize = true;
-            this.combats.Location = new System.Drawing.Point(526, 57);
+            this.combats.Location = new System.Drawing.Point(408, 57);
             this.combats.Name = "combats";
             this.combats.Size = new System.Drawing.Size(26, 13);
             this.combats.TabIndex = 2;
@@ -76,9 +75,8 @@
             // 
             // transactions
             // 
-            this.transactions.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.transactions.AutoSize = true;
-            this.transactions.Location = new System.Drawing.Point(281, 57);
+            this.transactions.Location = new System.Drawing.Point(223, 57);
             this.transactions.Name = "transactions";
             this.transactions.Size = new System.Drawing.Size(68, 13);
             this.transactions.TabIndex = 3;
@@ -89,6 +87,7 @@
             this.usersCb.FormattingEnabled = true;
             this.usersCb.Items.AddRange(new object[] {
             "Топ лучших",
+            "По валидным Email",
             "По дате регистрации",
             "По алфавиту",
             "По количеству боев",
@@ -101,13 +100,12 @@
             // 
             // transactionsCb
             // 
-            this.transactionsCb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.transactionsCb.FormattingEnabled = true;
             this.transactionsCb.Items.AddRange(new object[] {
             "По сумме",
-            "По дате ",
+            "По дате",
             "По логину игрока"});
-            this.transactionsCb.Location = new System.Drawing.Point(235, 73);
+            this.transactionsCb.Location = new System.Drawing.Point(177, 73);
             this.transactionsCb.Name = "transactionsCb";
             this.transactionsCb.Size = new System.Drawing.Size(159, 21);
             this.transactionsCb.TabIndex = 11;
@@ -115,8 +113,7 @@
             // 
             // loginForTransactions
             // 
-            this.loginForTransactions.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.loginForTransactions.Location = new System.Drawing.Point(235, 120);
+            this.loginForTransactions.Location = new System.Drawing.Point(177, 120);
             this.loginForTransactions.Name = "loginForTransactions";
             this.loginForTransactions.Size = new System.Drawing.Size(159, 20);
             this.loginForTransactions.TabIndex = 12;
@@ -125,12 +122,11 @@
             // 
             // combatsCb
             // 
-            this.combatsCb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.combatsCb.FormattingEnabled = true;
             this.combatsCb.Items.AddRange(new object[] {
             "По типу",
             "По логину игрока"});
-            this.combatsCb.Location = new System.Drawing.Point(460, 73);
+            this.combatsCb.Location = new System.Drawing.Point(342, 73);
             this.combatsCb.Name = "combatsCb";
             this.combatsCb.Size = new System.Drawing.Size(159, 21);
             this.combatsCb.TabIndex = 13;
@@ -138,8 +134,7 @@
             // 
             // loginForCombats
             // 
-            this.loginForCombats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.loginForCombats.Location = new System.Drawing.Point(460, 120);
+            this.loginForCombats.Location = new System.Drawing.Point(342, 120);
             this.loginForCombats.Name = "loginForCombats";
             this.loginForCombats.Size = new System.Drawing.Size(159, 20);
             this.loginForCombats.TabIndex = 14;
@@ -148,9 +143,8 @@
             // 
             // loginForTransactionsLb
             // 
-            this.loginForTransactionsLb.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.loginForTransactionsLb.AutoSize = true;
-            this.loginForTransactionsLb.Location = new System.Drawing.Point(261, 103);
+            this.loginForTransactionsLb.Location = new System.Drawing.Point(203, 103);
             this.loginForTransactionsLb.Name = "loginForTransactionsLb";
             this.loginForTransactionsLb.Size = new System.Drawing.Size(110, 13);
             this.loginForTransactionsLb.TabIndex = 15;
@@ -160,7 +154,7 @@
             // ok
             // 
             this.ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ok.Location = new System.Drawing.Point(530, 406);
+            this.ok.Location = new System.Drawing.Point(666, 406);
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(75, 23);
             this.ok.TabIndex = 16;
@@ -170,29 +164,31 @@
             // 
             // loginForCombatsLb
             // 
-            this.loginForCombatsLb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.loginForCombatsLb.AutoSize = true;
-            this.loginForCombatsLb.Location = new System.Drawing.Point(495, 103);
+            this.loginForCombatsLb.Location = new System.Drawing.Point(377, 103);
             this.loginForCombatsLb.Name = "loginForCombatsLb";
             this.loginForCombatsLb.Size = new System.Drawing.Size(110, 13);
             this.loginForCombatsLb.TabIndex = 17;
             this.loginForCombatsLb.Text = "Введите логин ниже";
             this.loginForCombatsLb.Visible = false;
             // 
-            // playerTable
+            // table
             // 
-            this.playerTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.playerTable.Location = new System.Drawing.Point(12, 146);
-            this.playerTable.Name = "playerTable";
-            this.playerTable.Size = new System.Drawing.Size(607, 254);
-            this.playerTable.TabIndex = 18;
+            this.table.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.table.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.table.Location = new System.Drawing.Point(12, 146);
+            this.table.Name = "table";
+            this.table.Size = new System.Drawing.Size(743, 254);
+            this.table.TabIndex = 18;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 441);
-            this.Controls.Add(this.playerTable);
+            this.ClientSize = new System.Drawing.Size(769, 441);
+            this.Controls.Add(this.table);
             this.Controls.Add(this.loginForCombatsLb);
             this.Controls.Add(this.ok);
             this.Controls.Add(this.loginForTransactionsLb);
@@ -205,10 +201,10 @@
             this.Controls.Add(this.combats);
             this.Controls.Add(this.usersLb);
             this.Controls.Add(this.title);
-            this.MinimumSize = new System.Drawing.Size(480, 480);
+            this.MinimumSize = new System.Drawing.Size(530, 480);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            ((System.ComponentModel.ISupportInitialize)(this.playerTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.table)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +224,7 @@
         private System.Windows.Forms.Label loginForTransactionsLb;
         private System.Windows.Forms.Button ok;
         private System.Windows.Forms.Label loginForCombatsLb;
-        private System.Windows.Forms.DataGridView playerTable;
+        private System.Windows.Forms.DataGridView table;
     }
 }
 

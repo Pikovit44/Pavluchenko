@@ -42,9 +42,9 @@ namespace FightClubReports
             get { return infoType; }
         }
 
-        public object PlayerTable
+        public object Table
         {
-            set { playerTable.DataSource = value; }
+            set { table.DataSource = value; }
         }
 
         private void usersCb_SelectedIndexChanged(object sender, EventArgs e)
@@ -173,9 +173,7 @@ namespace FightClubReports
             }
 
         }
-
-
-
+        
         private void ChooseOutputInfo()
         {
                 if (usersCb.Text == "Топ лучших") { outputInfo = OutputInfoType.UTop; }
@@ -184,6 +182,7 @@ namespace FightClubReports
                 if (usersCb.Text == "По дате регистрации") { outputInfo = OutputInfoType.UDate; }
                 if (usersCb.Text == "По количеству боев") { outputInfo = OutputInfoType.UNumOfComb; }
                 if (usersCb.Text == "По количеству транзакций") { outputInfo = OutputInfoType.UNumOfTransact; }
+                if (usersCb.Text == "По валидным Email") { outputInfo = OutputInfoType.UValidEmail; }
                 if (transactionsCb.Text == "По сумме") { outputInfo = OutputInfoType.TSum; }
                 if (transactionsCb.Text == "По дате") { outputInfo = OutputInfoType.TDate; }
                 if (transactionsCb.Text == "По логину игрока")
@@ -201,7 +200,7 @@ namespace FightClubReports
                 if (combatsCb.Text == "По типу") { outputInfo = OutputInfoType.CType; }
                 if (combatsCb.Text == "По логину игрока")
                 {
-                    if (loginForTransactions.Text == "")
+                    if (loginForCombats.Text == "")
                     {
                     MessageBox.Show("Введите логин игрока в соответствующее поле", "Логин игрока не введен", MessageBoxButtons.OK);
                     loginForCombats.Focus();
@@ -216,7 +215,7 @@ namespace FightClubReports
 
         public bool SafeOk()
         {
-            if (outputInfo == OutputInfoType.Unknown)
+            if (InfoType == ViewInfoType.Unknown)
             {
                 MessageBox.Show("Выберете информацию для отображения", "Ни один вариант не выбран", MessageBoxButtons.OK);
                 return false;
@@ -226,7 +225,6 @@ namespace FightClubReports
                 return true;
             }
         }
-        
 
         private void label1_Click(object sender, EventArgs e)
         {

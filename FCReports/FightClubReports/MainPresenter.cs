@@ -24,6 +24,7 @@ namespace FightClubReports
             view.SaveClick += onSaveClick;
         }
 
+        #region Events
         private void onSaveClick(object sender, EventArgs e)
         {
             SaveByType();
@@ -34,9 +35,9 @@ namespace FightClubReports
         {
             ChooseTypeOfRequest();
         }
+        #endregion
 
-
-
+        #region Methods
         private void ChooseTypeOfRequest()
         {
             switch (view.InfoType)
@@ -137,6 +138,6 @@ namespace FightClubReports
                     break;
             }
         }
-        
+        #endregion
     }
 }

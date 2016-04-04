@@ -26,8 +26,8 @@ namespace FightClubReports.Repository
         public IEnumerable<Combat> GetCombatsByType()
         {
             return db.Combat
-                .OrderBy(t => (t.TypePVP))
-                .ThenBy(tr => (!tr.TypePVP))
+                .OrderBy(t => (!t.TypePVP))
+                .ThenBy(tr => (tr.TypePVP))
                 .ToList();
         }
     }

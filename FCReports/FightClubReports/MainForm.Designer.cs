@@ -42,6 +42,8 @@ namespace FightClubReports
             this.ok = new System.Windows.Forms.Button();
             this.loginForCombatsLb = new System.Windows.Forms.Label();
             this.table = new System.Windows.Forms.DataGridView();
+            this.saveChanges = new System.Windows.Forms.Button();
+            this.сancelСhanges = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +56,7 @@ namespace FightClubReports
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(419, 24);
             this.title.TabIndex = 0;
-            this.title.Text = Resources.chooseInfoTypeForShow;
+            this.title.Text = "Выберете тип информации для отображения";
             // 
             // usersLb
             // 
@@ -63,7 +65,7 @@ namespace FightClubReports
             this.usersLb.Name = "usersLb";
             this.usersLb.Size = new System.Drawing.Size(80, 13);
             this.usersLb.TabIndex = 1;
-            this.usersLb.Text = Resources.users;
+            this.usersLb.Text = "Пользователи";
             // 
             // combats
             // 
@@ -72,7 +74,7 @@ namespace FightClubReports
             this.combats.Name = "combats";
             this.combats.Size = new System.Drawing.Size(26, 13);
             this.combats.TabIndex = 2;
-            this.combats.Text = Resources.combats;
+            this.combats.Text = "Бои";
             // 
             // transactions
             // 
@@ -81,18 +83,18 @@ namespace FightClubReports
             this.transactions.Name = "transactions";
             this.transactions.Size = new System.Drawing.Size(68, 13);
             this.transactions.TabIndex = 3;
-            this.transactions.Text = Resources.transactions;
+            this.transactions.Text = "Транзакции";
             // 
             // usersCb
             // 
             this.usersCb.FormattingEnabled = true;
             this.usersCb.Items.AddRange(new object[] {
-            Resources.topPlayers,
-            Resources.playersByValidEmail,
-            Resources.playersByDate,
-            Resources.playersByAlphabet,
-            Resources.playersByNumberOfCombats,
-            Resources.playersByNumberOfTransactions});
+            global::FightClubReports.Properties.Resources.topPlayers,
+            global::FightClubReports.Properties.Resources.playersByValidEmail,
+            global::FightClubReports.Properties.Resources.playersByDate,
+            global::FightClubReports.Properties.Resources.playersByAlphabet,
+            global::FightClubReports.Properties.Resources.playersByNumberOfCombats,
+            global::FightClubReports.Properties.Resources.playersByNumberOfTransactions});
             this.usersCb.Location = new System.Drawing.Point(10, 73);
             this.usersCb.Name = "usersCb";
             this.usersCb.Size = new System.Drawing.Size(159, 21);
@@ -103,9 +105,9 @@ namespace FightClubReports
             // 
             this.transactionsCb.FormattingEnabled = true;
             this.transactionsCb.Items.AddRange(new object[] {
-            Resources.transactionsBySum,
-            Resources.transactionsByDate,
-            Resources.transactionsByLogin});
+            global::FightClubReports.Properties.Resources.transactionsBySum,
+            global::FightClubReports.Properties.Resources.transactionsByDate,
+            global::FightClubReports.Properties.Resources.transactionsByLogin});
             this.transactionsCb.Location = new System.Drawing.Point(177, 73);
             this.transactionsCb.Name = "transactionsCb";
             this.transactionsCb.Size = new System.Drawing.Size(159, 21);
@@ -125,8 +127,8 @@ namespace FightClubReports
             // 
             this.combatsCb.FormattingEnabled = true;
             this.combatsCb.Items.AddRange(new object[] {
-            Resources.combatsByType,
-            Resources.combatsByLogin});
+            global::FightClubReports.Properties.Resources.combatsByType,
+            global::FightClubReports.Properties.Resources.combatsByLogin});
             this.combatsCb.Location = new System.Drawing.Point(342, 73);
             this.combatsCb.Name = "combatsCb";
             this.combatsCb.Size = new System.Drawing.Size(159, 21);
@@ -149,7 +151,7 @@ namespace FightClubReports
             this.loginForTransactionsLb.Name = "loginForTransactionsLb";
             this.loginForTransactionsLb.Size = new System.Drawing.Size(110, 13);
             this.loginForTransactionsLb.TabIndex = 15;
-            this.loginForTransactionsLb.Text = Resources.enterLogin;
+            this.loginForTransactionsLb.Text = "Введите логин ниже";
             this.loginForTransactionsLb.Visible = false;
             // 
             // ok
@@ -159,7 +161,7 @@ namespace FightClubReports
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(75, 23);
             this.ok.TabIndex = 16;
-            this.ok.Text = Resources.ok;
+            this.ok.Text = global::FightClubReports.Properties.Resources.ok;
             this.ok.UseVisualStyleBackColor = true;
             this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
@@ -170,7 +172,7 @@ namespace FightClubReports
             this.loginForCombatsLb.Name = "loginForCombatsLb";
             this.loginForCombatsLb.Size = new System.Drawing.Size(110, 13);
             this.loginForCombatsLb.TabIndex = 17;
-            this.loginForCombatsLb.Text = Resources.enterLogin;
+            this.loginForCombatsLb.Text = "Введите логин ниже";
             this.loginForCombatsLb.Visible = false;
             // 
             // table
@@ -184,11 +186,35 @@ namespace FightClubReports
             this.table.Size = new System.Drawing.Size(743, 254);
             this.table.TabIndex = 18;
             // 
+            // saveChanges
+            // 
+            this.saveChanges.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.saveChanges.Location = new System.Drawing.Point(12, 406);
+            this.saveChanges.Name = "saveChanges";
+            this.saveChanges.Size = new System.Drawing.Size(175, 23);
+            this.saveChanges.TabIndex = 19;
+            this.saveChanges.Text = global::FightClubReports.Properties.Resources.saveChanges;
+            this.saveChanges.UseVisualStyleBackColor = true;
+            this.saveChanges.Click += new System.EventHandler(this.saveChanges_Click);
+            // 
+            // сancelСhanges
+            // 
+            this.сancelСhanges.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.сancelСhanges.Location = new System.Drawing.Point(193, 406);
+            this.сancelСhanges.Name = "сancelСhanges";
+            this.сancelСhanges.Size = new System.Drawing.Size(175, 23);
+            this.сancelСhanges.TabIndex = 20;
+            this.сancelСhanges.Text = global::FightClubReports.Properties.Resources.cancelChanges;
+            this.сancelСhanges.UseVisualStyleBackColor = true;
+            this.сancelСhanges.Click += new System.EventHandler(this.сancelСhanges_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(769, 441);
+            this.Controls.Add(this.сancelСhanges);
+            this.Controls.Add(this.saveChanges);
             this.Controls.Add(this.table);
             this.Controls.Add(this.loginForCombatsLb);
             this.Controls.Add(this.ok);
@@ -226,6 +252,8 @@ namespace FightClubReports
         private System.Windows.Forms.Button ok;
         private System.Windows.Forms.Label loginForCombatsLb;
         private System.Windows.Forms.DataGridView table;
+        private System.Windows.Forms.Button saveChanges;
+        private System.Windows.Forms.Button сancelСhanges;
     }
 }
 

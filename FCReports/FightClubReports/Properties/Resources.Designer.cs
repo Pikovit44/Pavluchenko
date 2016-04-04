@@ -61,6 +61,15 @@ namespace FightClubReports.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Отменить изменения.
+        /// </summary>
+        internal static string cancelChanges {
+            get {
+                return ResourceManager.GetString("cancelChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Выберете информацию для отображения.
         /// </summary>
         internal static string chooseInfoForShow {
@@ -192,6 +201,24 @@ namespace FightClubReports.Properties {
         internal static string playersByValidEmail {
             get {
                 return ResourceManager.GetString("playersByValidEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранить изменения .
+        /// </summary>
+        internal static string saveChanges {
+            get {
+                return ResourceManager.GetString("saveChanges", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сохранение прошло успешно.
+        /// </summary>
+        internal static string successfulSaving {
+            get {
+                return ResourceManager.GetString("successfulSaving", resourceCulture);
             }
         }
         

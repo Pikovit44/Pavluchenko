@@ -1,11 +1,14 @@
 ﻿using FightClubReports.Data;
 using FightClubReports.Interfaces;
+using FightClubReports.Properties;
 using FightClubReports.Repository;
+using FightClubReports.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FightClubReports
 {
@@ -18,12 +21,21 @@ namespace FightClubReports
             this.view = view;
             facade = new FacadeRepository(new Context());
             view.OkClick += onOkClick;
+            view.SaveClick += onSaveClick;
+        }
+
+        private void onSaveClick(object sender, EventArgs e)
+        {
+            SaveByType();
+            MessageBox.Show(Resources.successfulSaving, Resources.saveChanges, MessageBoxButtons.OK);
         }
 
         private void onOkClick(object sender, EventArgs e)
         {
             ChooseTypeOfRequest();
         }
+
+
 
         private void ChooseTypeOfRequest()
         {
@@ -37,6 +49,24 @@ namespace FightClubReports
                     break;
                 case Enums.ViewInfoType.Combat:
                     InfoForCombatTable();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void SaveByType()
+        {
+            switch (view.InfoType)
+            {
+                case Enums.ViewInfoType.User:
+                    facade.Player.Save();
+                    break;
+                case Enums.ViewInfoType.Transaction:
+                    facade.Transaction.Save();
+                    break;
+                case Enums.ViewInfoType.Combat:
+                    facade.Combat.Save();
                     break;
                 default:
                     break;

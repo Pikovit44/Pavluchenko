@@ -13,6 +13,7 @@ namespace FightClubReports.Interfaces
         ViewInfoType InfoType {  get; }
         string CurrentLogin { get; }
         event EventHandler OkClick;
-        object Table { set; }
+        event EventHandler SaveClick;
+        object Table {  set; }
     }
 }

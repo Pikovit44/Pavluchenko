@@ -20,6 +20,7 @@ namespace FightClubReports
         ViewInfoType infoType;
         string currentLogin = string.Empty;
         public event EventHandler OkClick;
+        public event EventHandler SaveClick;
         public MainPresenter presenter;
 
         public MainForm()
@@ -27,7 +28,8 @@ namespace FightClubReports
             InitializeComponent();
             presenter = new MainPresenter(this);
         }
-        
+
+        #region Properties
         public string CurrentLogin
         {
             get { return currentLogin; }
@@ -47,7 +49,9 @@ namespace FightClubReports
         {
             set { table.DataSource = value; }
         }
+        #endregion
 
+        #region Events
         private void usersCb_SelectedIndexChanged(object sender, EventArgs e)
         {
             ChangeVisible(ViewInfoType.User);
@@ -75,6 +79,21 @@ namespace FightClubReports
             }
         }
 
+        private void saveChanges_Click(object sender, EventArgs e)
+        {
+            if(SaveClick != null) { SaveClick(this, EventArgs.Empty); }
+        }
+
+        private void сancelСhanges_Click(object sender, EventArgs e)
+        {
+            
+                if (OkClick != null) { OkClick(this, EventArgs.Empty); }
+            
+        }
+
+        #endregion
+
+        #region Methods
         private void ChangeVisible(ViewInfoType type)
         {
             switch (type)
@@ -213,7 +232,7 @@ namespace FightClubReports
                 
         }
 
-        public bool SafeOk()
+        private bool SafeOk()
         {
             if (InfoType == ViewInfoType.Unknown)
             {
@@ -225,12 +244,13 @@ namespace FightClubReports
                 return true;
             }
         }
+        #endregion
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        
+       
     }
 }

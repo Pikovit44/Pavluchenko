@@ -10,7 +10,7 @@ namespace FightClubReports.Entitys
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public Player Player { get; set; }
+        public Player Player { get; set; } //Id? 
         public decimal Sum { get; set; }
     }
 }

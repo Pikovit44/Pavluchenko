@@ -1,4 +1,5 @@
-﻿namespace FightClubReports
+﻿using FightClubReports.Properties;
+namespace FightClubReports
 {
     partial class MainForm
     {
@@ -53,7 +54,7 @@
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(419, 24);
             this.title.TabIndex = 0;
-            this.title.Text = "Выберете тип информации для отображения";
+            this.title.Text = Resources.chooseInfoTypeForShow;
             // 
             // usersLb
             // 
@@ -62,7 +63,7 @@
             this.usersLb.Name = "usersLb";
             this.usersLb.Size = new System.Drawing.Size(80, 13);
             this.usersLb.TabIndex = 1;
-            this.usersLb.Text = "Пользователи";
+            this.usersLb.Text = Resources.users;
             // 
             // combats
             // 
@@ -71,7 +72,7 @@
             this.combats.Name = "combats";
             this.combats.Size = new System.Drawing.Size(26, 13);
             this.combats.TabIndex = 2;
-            this.combats.Text = "Бои";
+            this.combats.Text = Resources.combats;
             // 
             // transactions
             // 
@@ -80,18 +81,18 @@
             this.transactions.Name = "transactions";
             this.transactions.Size = new System.Drawing.Size(68, 13);
             this.transactions.TabIndex = 3;
-            this.transactions.Text = "Транзакции";
+            this.transactions.Text = Resources.transactions;
             // 
             // usersCb
             // 
             this.usersCb.FormattingEnabled = true;
             this.usersCb.Items.AddRange(new object[] {
-            "Топ лучших",
-            "По валидным Email",
-            "По дате регистрации",
-            "По алфавиту",
-            "По количеству боев",
-            "По количеству транзакций"});
+            Resources.topPlayers,
+            Resources.playersByValidEmail,
+            Resources.playersByDate,
+            Resources.playersByAlphabet,
+            Resources.playersByNumberOfCombats,
+            Resources.playersByNumberOfTransactions});
             this.usersCb.Location = new System.Drawing.Point(10, 73);
             this.usersCb.Name = "usersCb";
             this.usersCb.Size = new System.Drawing.Size(159, 21);
@@ -102,9 +103,9 @@
             // 
             this.transactionsCb.FormattingEnabled = true;
             this.transactionsCb.Items.AddRange(new object[] {
-            "По сумме",
-            "По дате",
-            "По логину игрока"});
+            Resources.transactionsBySum,
+            Resources.transactionsByDate,
+            Resources.transactionsByLogin});
             this.transactionsCb.Location = new System.Drawing.Point(177, 73);
             this.transactionsCb.Name = "transactionsCb";
             this.transactionsCb.Size = new System.Drawing.Size(159, 21);
@@ -124,8 +125,8 @@
             // 
             this.combatsCb.FormattingEnabled = true;
             this.combatsCb.Items.AddRange(new object[] {
-            "По типу",
-            "По логину игрока"});
+            Resources.combatsByType,
+            Resources.combatsByLogin});
             this.combatsCb.Location = new System.Drawing.Point(342, 73);
             this.combatsCb.Name = "combatsCb";
             this.combatsCb.Size = new System.Drawing.Size(159, 21);
@@ -148,7 +149,7 @@
             this.loginForTransactionsLb.Name = "loginForTransactionsLb";
             this.loginForTransactionsLb.Size = new System.Drawing.Size(110, 13);
             this.loginForTransactionsLb.TabIndex = 15;
-            this.loginForTransactionsLb.Text = "Введите логин ниже";
+            this.loginForTransactionsLb.Text = Resources.enterLogin;
             this.loginForTransactionsLb.Visible = false;
             // 
             // ok
@@ -158,7 +159,7 @@
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(75, 23);
             this.ok.TabIndex = 16;
-            this.ok.Text = "OK";
+            this.ok.Text = Resources.ok;
             this.ok.UseVisualStyleBackColor = true;
             this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
@@ -169,7 +170,7 @@
             this.loginForCombatsLb.Name = "loginForCombatsLb";
             this.loginForCombatsLb.Size = new System.Drawing.Size(110, 13);
             this.loginForCombatsLb.TabIndex = 17;
-            this.loginForCombatsLb.Text = "Введите логин ниже";
+            this.loginForCombatsLb.Text = Resources.enterLogin;
             this.loginForCombatsLb.Visible = false;
             // 
             // table

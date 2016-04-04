@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FightClubReports.Properties;
 using FightClubReports.Data;
 
 namespace FightClubReports
@@ -98,7 +99,7 @@ namespace FightClubReports
             {
                 TransactionVisible(false);
                 CombatVisible(false);
-                if (usersCb.Text != "")
+                if (usersCb.Text != string.Empty)
                 {
                     ok.Focus();
                 }
@@ -113,11 +114,11 @@ namespace FightClubReports
         {
             if (flag)
             {
-                if (transactionsCb.Text != "")
+                if (transactionsCb.Text != string.Empty)
                 {
                     ok.Focus();
                 }
-                if (transactionsCb.Text == "По логину игрока")
+                if (transactionsCb.Text == Resources.transactionsByLogin)
                 {
                     loginForTransactions.Visible = true;
                     loginForTransactionsLb.Visible = true;
@@ -135,8 +136,8 @@ namespace FightClubReports
             {
                 loginForTransactionsLb.Visible = false;
                 loginForTransactions.Visible = false;
-                transactionsCb.Text = "";
-                loginForTransactions.Text = "";
+                transactionsCb.Text = string.Empty;
+                loginForTransactions.Text = string.Empty;
             }
         } 
 
@@ -144,12 +145,12 @@ namespace FightClubReports
         {
             if (flag)
             {
-                if (combatsCb.Text != "")
+                if (combatsCb.Text != string.Empty)
                 {
                     ok.Focus();
                 }
 
-                if (combatsCb.Text == "По логину игрока")
+                if (combatsCb.Text == Resources.combatsByLogin)
                 {
                     loginForCombats.Visible = true;
                     loginForCombatsLb.Visible = true;
@@ -168,28 +169,27 @@ namespace FightClubReports
             {
                 loginForCombats.Visible = false;
                 loginForCombatsLb.Visible = false;
-                combatsCb.Text = "";
-                loginForCombats.Text = "";
+                combatsCb.Text = string.Empty;
+                loginForCombats.Text = string.Empty;
             }
 
         }
         
         private void ChooseOutputInfo()
         {
-                if (usersCb.Text == "Топ лучших") { outputInfo = OutputInfoType.UTop; }
-                if (usersCb.Text == "По дате регистрации") { outputInfo = OutputInfoType.UDate; }
-                if (usersCb.Text == "По алфавиту") { outputInfo = OutputInfoType.UAlphabet; }
-                if (usersCb.Text == "По дате регистрации") { outputInfo = OutputInfoType.UDate; }
-                if (usersCb.Text == "По количеству боев") { outputInfo = OutputInfoType.UNumOfComb; }
-                if (usersCb.Text == "По количеству транзакций") { outputInfo = OutputInfoType.UNumOfTransact; }
-                if (usersCb.Text == "По валидным Email") { outputInfo = OutputInfoType.UValidEmail; }
-                if (transactionsCb.Text == "По сумме") { outputInfo = OutputInfoType.TSum; }
-                if (transactionsCb.Text == "По дате") { outputInfo = OutputInfoType.TDate; }
-                if (transactionsCb.Text == "По логину игрока")
+                if (usersCb.Text == Resources.topPlayers) { outputInfo = OutputInfoType.UTop; }
+                if (usersCb.Text == Resources.playersByDate) { outputInfo = OutputInfoType.UDate; }
+                if (usersCb.Text == Resources.playersByAlphabet) { outputInfo = OutputInfoType.UAlphabet; }
+                if (usersCb.Text == Resources.playersByNumberOfCombats) { outputInfo = OutputInfoType.UNumOfComb; }
+                if (usersCb.Text == Resources.playersByNumberOfTransactions) { outputInfo = OutputInfoType.UNumOfTransact; }
+                if (usersCb.Text == Resources.playersByValidEmail) { outputInfo = OutputInfoType.UValidEmail; }
+                if (transactionsCb.Text == Resources.transactionsBySum) { outputInfo = OutputInfoType.TSum; }
+                if (transactionsCb.Text == Resources.transactionsByDate) { outputInfo = OutputInfoType.TDate; }
+                if (transactionsCb.Text == Resources.transactionsByLogin)
                 {
-                    if (loginForTransactions.Text == "")
+                    if (loginForTransactions.Text == string.Empty)
                     {
-                        MessageBox.Show("Введите логин игрока в соответствующее поле", "Логин игрока не введен", MessageBoxButtons.OK);
+                        MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
                         loginForTransactions.Focus();
                     }
                     else
@@ -197,12 +197,12 @@ namespace FightClubReports
                         outputInfo = OutputInfoType.TLogin; currentLogin = loginForTransactions.Text;
                     }
                 }
-                if (combatsCb.Text == "По типу") { outputInfo = OutputInfoType.CType; }
-                if (combatsCb.Text == "По логину игрока")
+                if (combatsCb.Text == Resources.combatsByType) { outputInfo = OutputInfoType.CType; }
+                if (combatsCb.Text == Resources.combatsByLogin)
                 {
-                    if (loginForCombats.Text == "")
+                    if (loginForCombats.Text == string.Empty)
                     {
-                    MessageBox.Show("Введите логин игрока в соответствующее поле", "Логин игрока не введен", MessageBoxButtons.OK);
+                    MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
                     loginForCombats.Focus();
                     }
                     else
@@ -217,7 +217,7 @@ namespace FightClubReports
         {
             if (InfoType == ViewInfoType.Unknown)
             {
-                MessageBox.Show("Выберете информацию для отображения", "Ни один вариант не выбран", MessageBoxButtons.OK);
+                MessageBox.Show(Resources.chooseInfoForShow, Resources.noOneOptionIsNotSelected, MessageBoxButtons.OK);
                 return false;
             }
             else

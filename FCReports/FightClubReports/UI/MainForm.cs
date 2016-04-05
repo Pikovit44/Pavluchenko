@@ -47,7 +47,7 @@ namespace FightClubReports
 
         public object Table
         {
-            set { table.DataSource = value; }
+            set { PlayerTable.DataSource = value; }
         }
         #endregion
 
@@ -245,6 +245,15 @@ namespace FightClubReports
             }
         }
         #endregion
-        
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

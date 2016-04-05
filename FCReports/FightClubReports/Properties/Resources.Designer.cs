@@ -61,6 +61,24 @@ namespace FightClubReports.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to По дате регистрации.
+        /// </summary>
+        internal static string ByDate {
+            get {
+                return ResourceManager.GetString("ByDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to По логину игрока.
+        /// </summary>
+        internal static string ByLogin {
+            get {
+                return ResourceManager.GetString("ByLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отменить изменения.
         /// </summary>
         internal static string cancelChanges {
@@ -93,15 +111,6 @@ namespace FightClubReports.Properties {
         internal static string combats {
             get {
                 return ResourceManager.GetString("combats", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to По логину игрока.
-        /// </summary>
-        internal static string combatsByLogin {
-            get {
-                return ResourceManager.GetString("combatsByLogin", resourceCulture);
             }
         }
         
@@ -169,15 +178,6 @@ namespace FightClubReports.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to По дате регистрации.
-        /// </summary>
-        internal static string playersByDate {
-            get {
-                return ResourceManager.GetString("playersByDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to По количеству боев.
         /// </summary>
         internal static string playersByNumberOfCombats {
@@ -237,24 +237,6 @@ namespace FightClubReports.Properties {
         internal static string transactions {
             get {
                 return ResourceManager.GetString("transactions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to По дате.
-        /// </summary>
-        internal static string transactionsByDate {
-            get {
-                return ResourceManager.GetString("transactionsByDate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to По логину игрока.
-        /// </summary>
-        internal static string transactionsByLogin {
-            get {
-                return ResourceManager.GetString("transactionsByLogin", resourceCulture);
             }
         }
         

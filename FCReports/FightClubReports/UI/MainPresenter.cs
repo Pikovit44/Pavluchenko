@@ -19,7 +19,7 @@ namespace FightClubReports
         public MainPresenter(IView view)
         {
             this.view = view;
-            facade = new ServiceRepository(new Context());
+            facade = new ServiceRepository();
             view.OkClick += onOkClick;
             view.SaveClick += onSaveClick;
         }

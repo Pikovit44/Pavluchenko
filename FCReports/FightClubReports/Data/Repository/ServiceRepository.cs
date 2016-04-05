@@ -15,9 +15,9 @@ namespace FightClubReports.Repository
         private ICombatRepository combatRepository;
         private ITransactionRepository transactionRepository;
 
-        public ServiceRepository(Context db)
+        public ServiceRepository()
         {
-            this.db = db;
+            db = new Context();
         }
 
         public ICombatRepository Combat

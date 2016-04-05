@@ -48,7 +48,7 @@
     <Compile Include="Entitys\Player.cs" />
     <Compile Include="Entitys\Statistics.cs" />
     <Compile Include="Entitys\Transaction.cs" />
-    <Compile Include="Enums.cs" />
+    <Compile Include="EnumsLib.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -14,13 +14,14 @@ using FightClubReports.Data;
 
 namespace FightClubReports
 {
-    public partial class MainForm : Form, IView 
+    public partial class MainForm : Form, IView
     {
         OutputInfoType outputInfo = OutputInfoType.Unknown;
-        ViewInfoType infoType;
+        ViewInfoType infoType = ViewInfoType.Player;
         string currentLogin = string.Empty;
-        public event EventHandler OkClick;
-        public event EventHandler SaveClick;
+        public event EventHandler playersOkClick;
+        public event EventHandler transactionsOkClick;
+        public event EventHandler combatsOkClick;
         public MainPresenter presenter;
 
         public MainForm()
@@ -45,215 +46,124 @@ namespace FightClubReports
             get { return infoType; }
         }
 
-        public object Table
+        public object PlayerTable
         {
-            set { PlayerTable.DataSource = value; }
+            set { playersTable.DataSource = value; }
+        }
+
+        public object TransactionsTable
+        {
+            set { transactionsTable.DataSource = value; }
+        }
+
+        public object CombatsTable
+        {
+            set { combatsTable.DataSource = value; }
         }
         #endregion
 
         #region Events
-        private void usersCb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ChangeVisible(ViewInfoType.User);
-            infoType = ViewInfoType.User;
-        }
 
-        private void transactionsCb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ChangeVisible(ViewInfoType.Transaction);
-            infoType = ViewInfoType.Transaction;
-        }
+       
 
-        private void CombatsCb_SelectedIndexChanged(object sender, EventArgs e)
+        private void playersOk_Click(object sender, EventArgs e)
         {
-            ChangeVisible(ViewInfoType.Combat);
-            infoType = ViewInfoType.Combat;
-        }
-
-        private void ok_Click(object sender, EventArgs e)
-        {
+            infoType = ViewInfoType.Player;
             ChooseOutputInfo();
-            if (SafeOk())
-            {
-                if (OkClick != null) { OkClick(this, EventArgs.Empty); }
-            }
+            if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
         }
 
-        private void saveChanges_Click(object sender, EventArgs e)
+        private void transactionsOk_Click(object sender, EventArgs e)
         {
-            if(SaveClick != null) { SaveClick(this, EventArgs.Empty); }
+            infoType = ViewInfoType.Transaction;
+            ChooseOutputInfo();
+            if (transactionsOkClick != null) { transactionsOkClick(this, EventArgs.Empty); }
         }
 
-        private void сancelСhanges_Click(object sender, EventArgs e)
+        private void combatsOk_Click(object sender, EventArgs e)
         {
-            
-                if (OkClick != null) { OkClick(this, EventArgs.Empty); }
-            
+            infoType = ViewInfoType.Combat;
+            ChooseOutputInfo();
+            if (combatsOkClick != null) { combatsOkClick(this, EventArgs.Empty); }
         }
 
         #endregion
 
         #region Methods
-        private void ChangeVisible(ViewInfoType type)
+
+        private void ChooseOutputInfo()
         {
-            switch (type)
+            switch (infoType)
             {
-                case ViewInfoType.User:
-                    UserVisible(true);
+                case ViewInfoType.Player:
+                    ChoosePlayersOuputInfo();
                     break;
+
                 case ViewInfoType.Transaction:
-                    TransactionVisible(true);
+                    ChooseTransactionsOuputInfo();
                     break;
+
                 case ViewInfoType.Combat:
-                    CombatVisible(true);
+                    ChooseCombatsOutputInfo();
                     break;
+
                 default:
                     break;
             }
         }
 
-        private void UserVisible(bool flag)//flag?
+        private void ChoosePlayersOuputInfo()
         {
-            if (flag)
-            {
-                TransactionVisible(false);
-                CombatVisible(false);
-                if (usersCb.Text != string.Empty)
-                {
-                    ok.Focus();
-                }
-            }
-            else
-            {
-                usersCb.Text = "";
-            }
+            
+            if (topPlayers.Checked == true) { outputInfo = OutputInfoType.UTop; }
+            if (playersByDate.Checked == true) { outputInfo = OutputInfoType.UDate; }
+            if (playersByAlphabet.Checked == true) { outputInfo = OutputInfoType.UAlphabet; }
+            if (playersByNumberOfCombats.Checked == true) { outputInfo = OutputInfoType.UNumOfComb; }
+            if (playersByNumberOfTransactions.Checked == true) { outputInfo = OutputInfoType.UNumOfTransact; }
+            if (playersByValidEmail.Checked == true) { outputInfo = OutputInfoType.UValidEmail; }
         }
 
-        private void TransactionVisible( bool flag)
+        private void ChooseTransactionsOuputInfo()
         {
-            if (flag)
+            if (transactionsBySum.Checked == true) { outputInfo = OutputInfoType.TSum; }
+            if (transactionsByDate.Checked == true) { outputInfo = OutputInfoType.TDate; }
+            if (transactionsByLogin.Checked == true)
             {
-                if (transactionsCb.Text != string.Empty)
+                if (loginForTransactions.Text == string.Empty) // safe ok?
                 {
-                    ok.Focus();
-                }
-                if (transactionsCb.Text == Resources.transactionsByLogin)
-                {
-                    loginForTransactions.Visible = true;
-                    loginForTransactionsLb.Visible = true;
+                    MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
                     loginForTransactions.Focus();
                 }
                 else
                 {
-                    loginForTransactions.Visible = false;
-                    loginForTransactionsLb.Visible = false;
+                    outputInfo = OutputInfoType.TLogin; currentLogin = loginForTransactions.Text;
                 }
-                UserVisible(false);
-                CombatVisible(false);
             }
-            else
-            {
-                loginForTransactionsLb.Visible = false;
-                loginForTransactions.Visible = false;
-                transactionsCb.Text = string.Empty;
-                loginForTransactions.Text = string.Empty;
-            }
-        } 
+        }
 
-        private void CombatVisible(bool flag)
+        private void ChooseCombatsOutputInfo()
         {
-            if (flag)
+            if (combatsByType.Checked == true) { outputInfo = OutputInfoType.CType; }
+            if (combatsByLogin.Checked == true)
             {
-                if (combatsCb.Text != string.Empty)
+                if (loginForCombats.Text == string.Empty)
                 {
-                    ok.Focus();
-                }
-
-                if (combatsCb.Text == Resources.combatsByLogin)
-                {
-                    loginForCombats.Visible = true;
-                    loginForCombatsLb.Visible = true;
+                    MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
                     loginForCombats.Focus();
                 }
                 else
                 {
-                    loginForCombats.Visible = false;
-                    loginForCombatsLb.Visible = false;
+                    outputInfo = OutputInfoType.CLogin; currentLogin = loginForCombats.Text;
                 }
-                UserVisible(false);
-                TransactionVisible(false);
-
             }
-            else
-            {
-                loginForCombats.Visible = false;
-                loginForCombatsLb.Visible = false;
-                combatsCb.Text = string.Empty;
-                loginForCombats.Text = string.Empty;
-            }
-
-        }
-        
-        private void ChooseOutputInfo()
-        {
-                if (usersCb.Text == Resources.topPlayers) { outputInfo = OutputInfoType.UTop; }
-                if (usersCb.Text == Resources.playersByDate) { outputInfo = OutputInfoType.UDate; }
-                if (usersCb.Text == Resources.playersByAlphabet) { outputInfo = OutputInfoType.UAlphabet; }
-                if (usersCb.Text == Resources.playersByNumberOfCombats) { outputInfo = OutputInfoType.UNumOfComb; }
-                if (usersCb.Text == Resources.playersByNumberOfTransactions) { outputInfo = OutputInfoType.UNumOfTransact; }
-                if (usersCb.Text == Resources.playersByValidEmail) { outputInfo = OutputInfoType.UValidEmail; }
-                if (transactionsCb.Text == Resources.transactionsBySum) { outputInfo = OutputInfoType.TSum; }
-                if (transactionsCb.Text == Resources.transactionsByDate) { outputInfo = OutputInfoType.TDate; }
-                if (transactionsCb.Text == Resources.transactionsByLogin)
-                {
-                    if (loginForTransactions.Text == string.Empty)
-                    {
-                        MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
-                        loginForTransactions.Focus();
-                    }
-                    else
-                    {
-                        outputInfo = OutputInfoType.TLogin; currentLogin = loginForTransactions.Text;
-                    }
-                }
-                if (combatsCb.Text == Resources.combatsByType) { outputInfo = OutputInfoType.CType; }
-                if (combatsCb.Text == Resources.combatsByLogin)
-                {
-                    if (loginForCombats.Text == string.Empty)
-                    {
-                    MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
-                    loginForCombats.Focus();
-                    }
-                    else
-                    {
-                        outputInfo = OutputInfoType.CLogin; currentLogin = loginForCombats.Text;
-                    }
-                }
-                
         }
 
-        private bool SafeOk()
-        {
-            if (InfoType == ViewInfoType.Unknown)
-            {
-                MessageBox.Show(Resources.chooseInfoForShow, Resources.noOneOptionIsNotSelected, MessageBoxButtons.OK);
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+
+
+
+
+
         #endregion
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
+

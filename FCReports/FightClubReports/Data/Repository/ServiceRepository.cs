@@ -17,7 +17,7 @@ namespace FightClubReports.Repository
 
         public ServiceRepository()
         {
-            db = new Context();
+            this.db = new Context();
         }
 
         public ICombatRepository Combat

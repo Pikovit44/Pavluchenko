@@ -135,9 +135,6 @@
   <data name="combats" xml:space="preserve">
     <value>Бои</value>
   </data>
-  <data name="combatsByLogin" xml:space="preserve">
-    <value>По логину игрока</value>
-  </data>
   <data name="combatsByType" xml:space="preserve">
     <value>По типу</value>
   </data>

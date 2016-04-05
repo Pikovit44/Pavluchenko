@@ -21,7 +21,7 @@ namespace FightClubReports
 
         public override string ToString()
         {
-            return string.Format("{0}[{1}]",Login,EMail);
+            return string.Format("{0}",Login);
         }
     }
 }

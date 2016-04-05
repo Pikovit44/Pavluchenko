@@ -12,8 +12,11 @@ namespace FightClubReports.Interfaces
         OutputInfoType OutputInfo { get; }
         ViewInfoType InfoType {  get; }
         string CurrentLogin { get; }
-        event EventHandler OkClick;
-        event EventHandler SaveClick;
-        object Table {  set; }
+        event EventHandler playersOkClick;
+        event EventHandler transactionsOkClick;
+        event EventHandler combatsOkClick;
+        object PlayerTable {  set; }
+        object TransactionsTable { set; }
+        object CombatsTable { set; }
     }
 }

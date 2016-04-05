@@ -15,91 +15,64 @@ namespace FightClubReports
     public class MainPresenter
     {
         private readonly IView view;
-        private readonly ServiceRepository facade;
+        private readonly ServiceRepository service;
+
         public MainPresenter(IView view)
         {
             this.view = view;
-            facade = new ServiceRepository();
-            view.OkClick += onOkClick;
-            view.SaveClick += onSaveClick;
+            service = new ServiceRepository();
+            view.playersOkClick += onPlayersOkClick;
+            view.transactionsOkClick += onTransactionsOkClick;
+            view.combatsOkClick += onCombatsOkClick;
         }
 
         #region EventHandlers
-        private void onSaveClick(object sender, EventArgs e)
+
+        private void onPlayersOkClick(object sender, EventArgs e)
         {
-            SaveByType();
-            MessageBox.Show(Resources.successfulSaving, Resources.saveChanges, MessageBoxButtons.OK);
+            InfoForPlayerTable();
         }
 
-        private void onOkClick(object sender, EventArgs e)
+        private void onTransactionsOkClick(object sender, EventArgs e)
         {
-            ChooseTypeOfRequest();
+            InfoForTransactionTable();
         }
+
+        private void onCombatsOkClick(object sender, EventArgs e)
+        {
+            InfoForCombatTable();
+        }
+
         #endregion
 
         #region Methods
-        private void ChooseTypeOfRequest()
-        {
-            switch (view.InfoType)
-            {
-                case Enums.ViewInfoType.User:
-                    InfoForPlayerTable();
-                    break;
-                case Enums.ViewInfoType.Transaction:
-                    InfoForTransactionTable();
-                    break;
-                case Enums.ViewInfoType.Combat:
-                    InfoForCombatTable();
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void SaveByType()
-        {
-            switch (view.InfoType)
-            {
-                case Enums.ViewInfoType.User:
-                    facade.Player.Save();
-                    break;
-                case Enums.ViewInfoType.Transaction:
-                    facade.Transaction.Save();
-                    break;
-                case Enums.ViewInfoType.Combat:
-                    facade.Combat.Save();
-                    break;
-                default:
-                    break;
-            }
-        }
-
+       
         private void  InfoForPlayerTable()
         {
             switch (view.OutputInfo)
             {
                 case Enums.OutputInfoType.UTop:
-                    view.Table = facade.Player.GetTopPlayers();
+                    view.PlayerTable = service.Player.GetTopPlayers();
                     break;
 
                 case Enums.OutputInfoType.UDate:
-                    view.Table = facade.Player.GetPlayersByRegist();
+                    view.PlayerTable = service.Player.GetPlayersByRegist();
                     break;
 
                 case Enums.OutputInfoType.UAlphabet:
-                    view.Table = facade.Player.GetPlayersByLogin();
+                    view.PlayerTable = service.Player.GetPlayersByLogin();
                     break;
 
                 case Enums.OutputInfoType.UNumOfComb:
-                    view.Table = facade.Player.GetPlayersByNumberOfGame();
+                    view.PlayerTable = service.Player.GetPlayersByNumberOfGame();
                     break;
 
                 case Enums.OutputInfoType.UNumOfTransact:
-                    view.Table = facade.Player.GetPlayersByNumberOfTransactions();
+                    view.PlayerTable = service.Player.GetPlayersByNumberOfTransactions();
                     break;
 
                 case Enums.OutputInfoType.UValidEmail:
-                    view.Table = facade.Player.GetValidEmailPlayers();
+                    view.PlayerTable = service.Player.GetValidEmailPlayers();
                     break;
 
                 default:
@@ -112,13 +85,13 @@ namespace FightClubReports
             switch (view.OutputInfo)
             {
                 case Enums.OutputInfoType.TSum:
-                    view.Table = facade.Transaction.GetTransactionsBySum();
+                    view.TransactionsTable = service.Transaction.GetTransactionsBySum();
                     break;
                 case Enums.OutputInfoType.TDate:
-                    view.Table = facade.Transaction.GetTransactionsByDate();
+                    view.TransactionsTable = service.Transaction.GetTransactionsByDate();
                     break;
                 case Enums.OutputInfoType.TLogin:
-                    view.Table = facade.Transaction.GetTransactionsByLogin(view.CurrentLogin);
+                    view.TransactionsTable = service.Transaction.GetTransactionsByLogin(view.CurrentLogin);
                     break;
                 default:
                     break;
@@ -129,10 +102,10 @@ namespace FightClubReports
             switch (view.OutputInfo)
             {
                 case Enums.OutputInfoType.CType:
-                    view.Table = facade.Combat.GetCombatsByType();
+                    view.CombatsTable = service.Combat.GetCombatsByType();
                     break;
                 case Enums.OutputInfoType.CLogin:
-                    view.Table = facade.Combat.GetCombatsByPlayer(view.CurrentLogin);
+                    view.CombatsTable = service.Combat.GetCombatsByPlayer(view.CurrentLogin);
                     break;
                 default:
                     break;

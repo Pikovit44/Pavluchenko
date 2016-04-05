@@ -40,6 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entitys\Combat\ActionLog.cs" />
+    <Compile Include="Entitys\Combat\BlockLog.cs" />
+    <Compile Include="Entitys\Combat\Combat.cs" />
+    <Compile Include="Entitys\Combat\Hitlog.cs" />
+    <Compile Include="Entitys\Combat\RoundLog.cs" />
+    <Compile Include="Entitys\Player.cs" />
+    <Compile Include="Entitys\Statistics.cs" />
+    <Compile Include="Entitys\Transaction.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

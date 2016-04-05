@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FightClubReports.Repository.Interfaces
 {
-    public interface IFacadeRepository
+    public interface IServiceRepository
     {
         IPlayerRepository Player { get; }
         ICombatRepository Combat { get; }

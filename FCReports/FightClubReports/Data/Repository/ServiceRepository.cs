@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace FightClubReports.Repository
 {
-    public class FacadeRepository : IFacadeRepository
+    public class ServiceRepository : IServiceRepository
     {
         private readonly Context db;
         private IPlayerRepository playerRepository;
         private ICombatRepository combatRepository;
         private ITransactionRepository transactionRepository;
 
-        public FacadeRepository(Context db)
+        public ServiceRepository(Context db)
         {
             this.db = db;
         }

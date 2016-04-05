@@ -87,6 +87,46 @@ namespace FightClubReports
             if (combatsOkClick != null) { combatsOkClick(this, EventArgs.Empty); }
         }
 
+        private void transactionsByLogin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (transactionsByLogin.Checked == true)
+            {
+                loginForTransactions.Visible = loginForTransactionsLb.Visible = true;
+                loginForTransactions.Focus();
+            }
+            else
+            {
+                loginForTransactions.Visible = loginForTransactionsLb.Visible = false;
+            }
+        }
+        private void playersByLogin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (playersByLogin.Checked == true)
+            {
+                loginForPlayers.Visible = true;
+                loginForPlayers.Focus();
+            }
+            else
+            {
+                loginForPlayers.Visible = false;
+            }
+
+        }
+
+        private void combatsByLogin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (combatsByLogin.Checked == true)
+            {
+                loginForCombats.Visible = loginForCombatsLb.Visible = true;
+            }
+            else
+            {
+                loginForCombatsLb.Visible = loginForCombats.Visible = false;
+            }
+
+        }
+
+
         #endregion
 
         #region Methods
@@ -121,6 +161,18 @@ namespace FightClubReports
             if (playersByNumberOfCombats.Checked == true) { outputInfo = OutputInfoType.UNumOfComb; }
             if (playersByNumberOfTransactions.Checked == true) { outputInfo = OutputInfoType.UNumOfTransact; }
             if (playersByValidEmail.Checked == true) { outputInfo = OutputInfoType.UValidEmail; }
+            if (playersByLogin.Checked == true)
+            {
+                if (loginForPlayers.Text == string.Empty) 
+                {
+                    MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
+                    loginForTransactions.Focus();
+                }
+                else
+                {
+                    outputInfo = OutputInfoType.ULogin; currentLogin = loginForPlayers.Text;
+                }
+            }
         }
 
         private void ChooseTransactionsOuputInfo()
@@ -129,7 +181,7 @@ namespace FightClubReports
             if (transactionsByDate.Checked == true) { outputInfo = OutputInfoType.TDate; }
             if (transactionsByLogin.Checked == true)
             {
-                if (loginForTransactions.Text == string.Empty) // safe ok?
+                if (loginForTransactions.Text == string.Empty) 
                 {
                     MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
                     loginForTransactions.Focus();
@@ -144,6 +196,7 @@ namespace FightClubReports
         private void ChooseCombatsOutputInfo()
         {
             if (combatsByType.Checked == true) { outputInfo = OutputInfoType.CType; }
+            if (combatsByDate.Checked == true) { outputInfo = OutputInfoType.CDate; }
             if (combatsByLogin.Checked == true)
             {
                 if (loginForCombats.Text == string.Empty)
@@ -163,7 +216,12 @@ namespace FightClubReports
 
 
 
+
+
+
         #endregion
+
+       
     }
 }
 

@@ -22,6 +22,13 @@ namespace FightClubReports.Repository
                 .ToList();
         }
 
+        public IEnumerable<Player> GetPlayerByPlayer(string login)
+        {
+            return db.Player
+                .Where(l => l.Login == login)
+                .ToList();
+        }
+
         public IEnumerable<Player> GetPlayersByNumberOfGame()
         {
             return db.Player

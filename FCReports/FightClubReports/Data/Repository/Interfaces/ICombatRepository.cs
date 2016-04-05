@@ -10,7 +10,7 @@ namespace FightClubReports.Repository.Interfaces
     {
         IEnumerable<Combat> GetCombatsByType();
         IEnumerable<Combat> GetCombatsByPlayer(string login);
-
+        IEnumerable<Combat> GetCombatsByDate();
     }
 }
     

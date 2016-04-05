@@ -30,5 +30,12 @@ namespace FightClubReports.Repository
                 .ThenBy(tr => (tr.TypePVP))
                 .ToList();
         }
+
+        public IEnumerable<Combat> GetCombatsByDate()
+        {
+            return db.Combat
+                .OrderBy(d => d.TimeOfStart)
+                .ToList();
+        }
     }
 }

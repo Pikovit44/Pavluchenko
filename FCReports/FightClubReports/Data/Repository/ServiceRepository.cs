@@ -65,5 +65,12 @@ namespace FightClubReports.Repository
         {
             db.SaveChanges();
         }
+
+        //public IEnumerable<Player> GetPlayerByTransactions()
+        //{
+
+        //}
+            
+
     }
 }

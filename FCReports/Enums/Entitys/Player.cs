@@ -19,6 +19,8 @@ namespace FightClubReports
         public Statistics Statistics { get; set; } // -> foreign key
         public List<Transaction> Transactions { get; set; }
 
+
+
         public override string ToString()
         {
             return string.Format("{0}",Login);

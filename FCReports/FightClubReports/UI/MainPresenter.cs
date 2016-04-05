@@ -74,6 +74,9 @@ namespace FightClubReports
                 case Enums.OutputInfoType.UValidEmail:
                     view.PlayerTable = service.Player.GetValidEmailPlayers();
                     break;
+                case Enums.OutputInfoType.ULogin:
+                    view.PlayerTable = service.Player.GetPlayerByPlayer(view.CurrentLogin);
+                    break;
 
                 default:
                     break;
@@ -106,6 +109,9 @@ namespace FightClubReports
                     break;
                 case Enums.OutputInfoType.CLogin:
                     view.CombatsTable = service.Combat.GetCombatsByPlayer(view.CurrentLogin);
+                    break;
+                case Enums.OutputInfoType.CDate:
+                    view.CombatsTable = service.Combat.GetCombatsByDate();
                     break;
                 default:
                     break;

@@ -59,9 +59,6 @@ namespace FightClubReports
             this.combatsByLogin = new System.Windows.Forms.RadioButton();
             this.combatsByDate = new System.Windows.Forms.RadioButton();
             this.combatsByType = new System.Windows.Forms.RadioButton();
-            this.dBContextDataSet = new FightClubReports.DBContextDataSet();
-            this.playersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.playersTableAdapter = new FightClubReports.DBContextDataSetTableAdapters.PlayersTableAdapter();
             this.mainPresenterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainPresenterBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.infoControl.SuspendLayout();
@@ -71,8 +68,6 @@ namespace FightClubReports
             ((System.ComponentModel.ISupportInitialize)(this.transactionsTable)).BeginInit();
             this.combatsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.combatsTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBContextDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainPresenterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainPresenterBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -392,20 +387,6 @@ namespace FightClubReports
             this.combatsByType.Text = "По типу";
             this.combatsByType.UseVisualStyleBackColor = true;
             // 
-            // dBContextDataSet
-            // 
-            this.dBContextDataSet.DataSetName = "DBContextDataSet";
-            this.dBContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // playersBindingSource
-            // 
-            this.playersBindingSource.DataMember = "Players";
-            this.playersBindingSource.DataSource = this.dBContextDataSet;
-            // 
-            // playersTableAdapter
-            // 
-            this.playersTableAdapter.ClearBeforeFill = true;
-            // 
             // mainPresenterBindingSource
             // 
             this.mainPresenterBindingSource.DataSource = typeof(FightClubReports.MainPresenter);
@@ -437,8 +418,6 @@ namespace FightClubReports
             this.combatsPage.ResumeLayout(false);
             this.combatsPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.combatsTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBContextDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainPresenterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainPresenterBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -478,9 +457,6 @@ namespace FightClubReports
         private System.Windows.Forms.RadioButton playersByLogin;
         private System.Windows.Forms.BindingSource mainPresenterBindingSource;
         private System.Windows.Forms.BindingSource mainPresenterBindingSource1;
-        private DBContextDataSet dBContextDataSet;
-        private System.Windows.Forms.BindingSource playersBindingSource;
-        private DBContextDataSetTableAdapters.PlayersTableAdapter playersTableAdapter;
     }
 }
 

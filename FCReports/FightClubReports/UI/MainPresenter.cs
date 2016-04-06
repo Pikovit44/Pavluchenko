@@ -15,11 +15,7 @@ namespace FightClubReports
     public class MainPresenter
     {
         private readonly IView view;
-        private IEnumerable<Player> players;
-        private IEnumerable<Transaction> transactions;
-        private IEnumerable<Combat> combats;
         private readonly ServiceRepository service;
-
         public MainPresenter(IView view)
         {
             this.view = view;

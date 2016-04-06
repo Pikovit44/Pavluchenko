@@ -118,6 +118,7 @@ namespace FightClubReports
             if (combatsByLogin.Checked == true)
             {
                 loginForCombats.Visible = loginForCombatsLb.Visible = true;
+                loginForCombats.Focus();
             }
             else
             {
@@ -159,7 +160,6 @@ namespace FightClubReports
             if (playersByDate.Checked == true) { outputInfo = OutputInfoType.UDate; }
             if (playersByAlphabet.Checked == true) { outputInfo = OutputInfoType.UAlphabet; }
             if (playersByNumberOfCombats.Checked == true) { outputInfo = OutputInfoType.UNumOfComb; }
-            if (playersByNumberOfTransactions.Checked == true) { outputInfo = OutputInfoType.UNumOfTransact; }
             if (playersByValidEmail.Checked == true) { outputInfo = OutputInfoType.UValidEmail; }
             if (playersByLogin.Checked == true)
             {
@@ -210,18 +210,9 @@ namespace FightClubReports
                 }
             }
         }
-
-
-
-
-
-
-
-
-
         #endregion
 
-       
+        
     }
 }
 

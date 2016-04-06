@@ -29,6 +29,7 @@ namespace FightClubReports
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.title = new System.Windows.Forms.Label();
             this.playersOk = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@ namespace FightClubReports
             this.playersPage = new System.Windows.Forms.TabPage();
             this.playersByLogin = new System.Windows.Forms.RadioButton();
             this.loginForPlayers = new System.Windows.Forms.TextBox();
-            this.playersByNumberOfTransactions = new System.Windows.Forms.RadioButton();
             this.playersByNumberOfCombats = new System.Windows.Forms.RadioButton();
             this.playersByAlphabet = new System.Windows.Forms.RadioButton();
             this.playersByDate = new System.Windows.Forms.RadioButton();
@@ -59,6 +59,11 @@ namespace FightClubReports
             this.combatsByLogin = new System.Windows.Forms.RadioButton();
             this.combatsByDate = new System.Windows.Forms.RadioButton();
             this.combatsByType = new System.Windows.Forms.RadioButton();
+            this.dBContextDataSet = new FightClubReports.DBContextDataSet();
+            this.playersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.playersTableAdapter = new FightClubReports.DBContextDataSetTableAdapters.PlayersTableAdapter();
+            this.mainPresenterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mainPresenterBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.infoControl.SuspendLayout();
             this.playersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playersTable)).BeginInit();
@@ -66,6 +71,10 @@ namespace FightClubReports
             ((System.ComponentModel.ISupportInitialize)(this.transactionsTable)).BeginInit();
             this.combatsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.combatsTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBContextDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainPresenterBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainPresenterBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // title
@@ -73,7 +82,7 @@ namespace FightClubReports
             this.title.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.title.Location = new System.Drawing.Point(207, 9);
+            this.title.Location = new System.Drawing.Point(197, 9);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(419, 24);
             this.title.TabIndex = 0;
@@ -81,8 +90,7 @@ namespace FightClubReports
             // 
             // playersOk
             // 
-            this.playersOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.playersOk.Location = new System.Drawing.Point(641, 35);
+            this.playersOk.Location = new System.Drawing.Point(616, 37);
             this.playersOk.Name = "playersOk";
             this.playersOk.Size = new System.Drawing.Size(75, 23);
             this.playersOk.TabIndex = 16;
@@ -102,13 +110,14 @@ namespace FightClubReports
             // 
             // infoControl
             // 
+            this.infoControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.infoControl.Controls.Add(this.playersPage);
             this.infoControl.Controls.Add(this.transactionsPage);
             this.infoControl.Controls.Add(this.combatsPage);
-            this.infoControl.Location = new System.Drawing.Point(31, 36);
+            this.infoControl.Location = new System.Drawing.Point(21, 36);
             this.infoControl.Name = "infoControl";
             this.infoControl.SelectedIndex = 0;
-            this.infoControl.Size = new System.Drawing.Size(785, 334);
+            this.infoControl.Size = new System.Drawing.Size(785, 379);
             this.infoControl.TabIndex = 21;
             // 
             // playersPage
@@ -116,7 +125,6 @@ namespace FightClubReports
             this.playersPage.Controls.Add(this.playersByLogin);
             this.playersPage.Controls.Add(this.playersOk);
             this.playersPage.Controls.Add(this.loginForPlayers);
-            this.playersPage.Controls.Add(this.playersByNumberOfTransactions);
             this.playersPage.Controls.Add(this.playersByNumberOfCombats);
             this.playersPage.Controls.Add(this.playersByAlphabet);
             this.playersPage.Controls.Add(this.playersByDate);
@@ -126,7 +134,7 @@ namespace FightClubReports
             this.playersPage.Location = new System.Drawing.Point(4, 22);
             this.playersPage.Name = "playersPage";
             this.playersPage.Padding = new System.Windows.Forms.Padding(3);
-            this.playersPage.Size = new System.Drawing.Size(777, 308);
+            this.playersPage.Size = new System.Drawing.Size(777, 353);
             this.playersPage.TabIndex = 0;
             this.playersPage.Text = "Пользователи";
             this.playersPage.UseVisualStyleBackColor = true;
@@ -134,7 +142,7 @@ namespace FightClubReports
             // playersByLogin
             // 
             this.playersByLogin.AutoSize = true;
-            this.playersByLogin.Location = new System.Drawing.Point(514, 15);
+            this.playersByLogin.Location = new System.Drawing.Point(360, 38);
             this.playersByLogin.Name = "playersByLogin";
             this.playersByLogin.Size = new System.Drawing.Size(76, 17);
             this.playersByLogin.TabIndex = 26;
@@ -144,28 +152,17 @@ namespace FightClubReports
             // 
             // loginForPlayers
             // 
-            this.loginForPlayers.Location = new System.Drawing.Point(493, 37);
+            this.loginForPlayers.Location = new System.Drawing.Point(467, 37);
             this.loginForPlayers.Name = "loginForPlayers";
             this.loginForPlayers.Size = new System.Drawing.Size(124, 20);
             this.loginForPlayers.TabIndex = 25;
             this.loginForPlayers.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.loginForPlayers.Visible = false;
             // 
-            // playersByNumberOfTransactions
-            // 
-            this.playersByNumberOfTransactions.AutoSize = true;
-            this.playersByNumberOfTransactions.Location = new System.Drawing.Point(175, 38);
-            this.playersByNumberOfTransactions.Name = "playersByNumberOfTransactions";
-            this.playersByNumberOfTransactions.Size = new System.Drawing.Size(167, 17);
-            this.playersByNumberOfTransactions.TabIndex = 24;
-            this.playersByNumberOfTransactions.Text = "По колличеству транзакций";
-            this.playersByNumberOfTransactions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.playersByNumberOfTransactions.UseVisualStyleBackColor = true;
-            // 
             // playersByNumberOfCombats
             // 
             this.playersByNumberOfCombats.AutoSize = true;
-            this.playersByNumberOfCombats.Location = new System.Drawing.Point(175, 15);
+            this.playersByNumberOfCombats.Location = new System.Drawing.Point(194, 15);
             this.playersByNumberOfCombats.Name = "playersByNumberOfCombats";
             this.playersByNumberOfCombats.Size = new System.Drawing.Size(125, 17);
             this.playersByNumberOfCombats.TabIndex = 23;
@@ -176,7 +173,7 @@ namespace FightClubReports
             // playersByAlphabet
             // 
             this.playersByAlphabet.AutoSize = true;
-            this.playersByAlphabet.Location = new System.Drawing.Point(360, 38);
+            this.playersByAlphabet.Location = new System.Drawing.Point(194, 38);
             this.playersByAlphabet.Name = "playersByAlphabet";
             this.playersByAlphabet.Size = new System.Drawing.Size(90, 17);
             this.playersByAlphabet.TabIndex = 22;
@@ -217,13 +214,14 @@ namespace FightClubReports
             // 
             // playersTable
             // 
-            this.playersTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.playersTable.AllowUserToAddRows = false;
+            this.playersTable.AllowUserToDeleteRows = false;
+            this.playersTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.playersTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.playersTable.Location = new System.Drawing.Point(16, 67);
             this.playersTable.Name = "playersTable";
-            this.playersTable.Size = new System.Drawing.Size(743, 219);
+            this.playersTable.ReadOnly = true;
+            this.playersTable.Size = new System.Drawing.Size(743, 264);
             this.playersTable.TabIndex = 18;
             // 
             // transactionsPage
@@ -238,7 +236,7 @@ namespace FightClubReports
             this.transactionsPage.Location = new System.Drawing.Point(4, 22);
             this.transactionsPage.Name = "transactionsPage";
             this.transactionsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.transactionsPage.Size = new System.Drawing.Size(777, 308);
+            this.transactionsPage.Size = new System.Drawing.Size(777, 353);
             this.transactionsPage.TabIndex = 1;
             this.transactionsPage.Text = "Транзакции";
             this.transactionsPage.UseVisualStyleBackColor = true;
@@ -251,12 +249,12 @@ namespace FightClubReports
             this.transactionsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.transactionsTable.Location = new System.Drawing.Point(162, 58);
             this.transactionsTable.Name = "transactionsTable";
-            this.transactionsTable.Size = new System.Drawing.Size(443, 230);
+            this.transactionsTable.Size = new System.Drawing.Size(443, 275);
             this.transactionsTable.TabIndex = 26;
             // 
             // transactionsOk
             // 
-            this.transactionsOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.transactionsOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.transactionsOk.Location = new System.Drawing.Point(548, 19);
             this.transactionsOk.Name = "transactionsOk";
             this.transactionsOk.Size = new System.Drawing.Size(75, 23);
@@ -328,7 +326,7 @@ namespace FightClubReports
             this.combatsPage.Controls.Add(this.loginForCombatsLb);
             this.combatsPage.Location = new System.Drawing.Point(4, 22);
             this.combatsPage.Name = "combatsPage";
-            this.combatsPage.Size = new System.Drawing.Size(777, 308);
+            this.combatsPage.Size = new System.Drawing.Size(777, 353);
             this.combatsPage.TabIndex = 2;
             this.combatsPage.Text = "Бои";
             this.combatsPage.UseVisualStyleBackColor = true;
@@ -344,18 +342,15 @@ namespace FightClubReports
             // 
             // combatsTable
             // 
-            this.combatsTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.combatsTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.combatsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.combatsTable.Location = new System.Drawing.Point(16, 54);
             this.combatsTable.Name = "combatsTable";
-            this.combatsTable.Size = new System.Drawing.Size(743, 232);
+            this.combatsTable.Size = new System.Drawing.Size(743, 277);
             this.combatsTable.TabIndex = 33;
             // 
             // combatsOk
             // 
-            this.combatsOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.combatsOk.Location = new System.Drawing.Point(513, 18);
             this.combatsOk.Name = "combatsOk";
             this.combatsOk.Size = new System.Drawing.Size(75, 23);
@@ -397,15 +392,38 @@ namespace FightClubReports
             this.combatsByType.Text = "По типу";
             this.combatsByType.UseVisualStyleBackColor = true;
             // 
+            // dBContextDataSet
+            // 
+            this.dBContextDataSet.DataSetName = "DBContextDataSet";
+            this.dBContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // playersBindingSource
+            // 
+            this.playersBindingSource.DataMember = "Players";
+            this.playersBindingSource.DataSource = this.dBContextDataSet;
+            // 
+            // playersTableAdapter
+            // 
+            this.playersTableAdapter.ClearBeforeFill = true;
+            // 
+            // mainPresenterBindingSource
+            // 
+            this.mainPresenterBindingSource.DataSource = typeof(FightClubReports.MainPresenter);
+            // 
+            // mainPresenterBindingSource1
+            // 
+            this.mainPresenterBindingSource1.DataSource = typeof(FightClubReports.MainPresenter);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 396);
+            this.ClientSize = new System.Drawing.Size(854, 441);
             this.Controls.Add(this.infoControl);
             this.Controls.Add(this.title);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(530, 410);
+            this.MaximumSize = new System.Drawing.Size(2000, 1200);
+            this.MinimumSize = new System.Drawing.Size(870, 480);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Данные по игре Fight Club";
@@ -419,6 +437,10 @@ namespace FightClubReports
             this.combatsPage.ResumeLayout(false);
             this.combatsPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.combatsTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBContextDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainPresenterBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainPresenterBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -438,7 +460,6 @@ namespace FightClubReports
         private System.Windows.Forms.RadioButton playersByDate;
         private System.Windows.Forms.RadioButton playersByValidEmail;
         private System.Windows.Forms.RadioButton topPlayers;
-        private System.Windows.Forms.RadioButton playersByNumberOfTransactions;
         private System.Windows.Forms.TextBox loginForPlayers;
         private System.Windows.Forms.DataGridView playersTable;
         private System.Windows.Forms.DataGridView transactionsTable;
@@ -455,6 +476,11 @@ namespace FightClubReports
         private System.Windows.Forms.RadioButton combatsByDate;
         private System.Windows.Forms.RadioButton combatsByType;
         private System.Windows.Forms.RadioButton playersByLogin;
+        private System.Windows.Forms.BindingSource mainPresenterBindingSource;
+        private System.Windows.Forms.BindingSource mainPresenterBindingSource1;
+        private DBContextDataSet dBContextDataSet;
+        private System.Windows.Forms.BindingSource playersBindingSource;
+        private DBContextDataSetTableAdapters.PlayersTableAdapter playersTableAdapter;
     }
 }
 

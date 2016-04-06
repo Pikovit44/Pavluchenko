@@ -1,4 +1,5 @@
 ﻿using FightClubReports.Data;
+using FightClubReports.Entitys;
 using FightClubReports.Interfaces;
 using FightClubReports.Properties;
 using FightClubReports.Repository;
@@ -8,13 +9,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FightClubReports
 {
     public class MainPresenter
     {
         private readonly IView view;
+        private IEnumerable<Player> players;
+        private IEnumerable<Transaction> transactions;
+        private IEnumerable<Combat> combats;
         private readonly ServiceRepository service;
 
         public MainPresenter(IView view)
@@ -75,7 +78,7 @@ namespace FightClubReports
                     view.PlayerTable = service.Player.GetValidEmailPlayers();
                     break;
                 case Enums.OutputInfoType.ULogin:
-                    view.PlayerTable = service.Player.GetPlayerByPlayer(view.CurrentLogin);
+                    view.PlayerTable = service.Player.GetPlayerByLogin(view.CurrentLogin);
                     break;
 
                 default:

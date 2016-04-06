@@ -22,7 +22,7 @@ namespace FightClubReports.Repository
                 .ToList();
         }
 
-        public IEnumerable<Player> GetPlayerByPlayer(string login)
+        public IEnumerable<Player> GetPlayerByLogin(string login)
         {
             return db.Player
                 .Where(l => l.Login == login)

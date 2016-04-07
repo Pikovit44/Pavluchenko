@@ -17,7 +17,7 @@ namespace FightClubReports
     public partial class MainForm : Form, IView
     {
         OutputInfoType outputInfo = OutputInfoType.Unknown;
-        ViewInfoType infoType = ViewInfoType.Player;
+        ViewInfoType infoType = ViewInfoType.Unknown;
         string currentLogin = string.Empty;
         public event EventHandler playersOkClick;
         public event EventHandler transactionsOkClick;
@@ -156,11 +156,11 @@ namespace FightClubReports
         private void ChoosePlayersOuputInfo()
         {
             
-            if (topPlayers.Checked == true) { outputInfo = OutputInfoType.UTop; }
-            if (playersByDate.Checked == true) { outputInfo = OutputInfoType.UDate; }
-            if (playersByAlphabet.Checked == true) { outputInfo = OutputInfoType.UAlphabet; }
-            if (playersByNumberOfCombats.Checked == true) { outputInfo = OutputInfoType.UNumOfComb; }
-            if (playersByValidEmail.Checked == true) { outputInfo = OutputInfoType.UValidEmail; }
+            if (topPlayers.Checked == true) { outputInfo = OutputInfoType.PTop; }
+            if (playersByDate.Checked == true) { outputInfo = OutputInfoType.PDate; }
+            if (playersByAlphabet.Checked == true) { outputInfo = OutputInfoType.PAlphabet; }
+            if (playersByNumberOfCombats.Checked == true) { outputInfo = OutputInfoType.PNumOfComb; }
+            if (playersByValidEmail.Checked == true) { outputInfo = OutputInfoType.PValidEmail; }
             if (playersByLogin.Checked == true)
             {
                 if (loginForPlayers.Text == string.Empty) 
@@ -170,7 +170,7 @@ namespace FightClubReports
                 }
                 else
                 {
-                    outputInfo = OutputInfoType.ULogin; currentLogin = loginForPlayers.Text;
+                    outputInfo = OutputInfoType.PLogin; currentLogin = loginForPlayers.Text;
                 }
             }
         }

@@ -50,30 +50,26 @@ namespace FightClubReports
         {
             switch (view.OutputInfo)
             {
-                case Enums.OutputInfoType.UTop:
+                case Enums.OutputInfoType.PTop:
                     view.PlayerTable = service.Player.GetTopPlayers();
                     break;
 
-                case Enums.OutputInfoType.UDate:
+                case Enums.OutputInfoType.PDate:
                     view.PlayerTable = service.Player.GetPlayersByRegist();
                     break;
 
-                case Enums.OutputInfoType.UAlphabet:
-                    view.PlayerTable = service.Player.GetPlayersByLogin();
+                case Enums.OutputInfoType.PAlphabet:
+                    view.PlayerTable = service.Player.GetPlayersByAlphabet();
                     break;
 
-                case Enums.OutputInfoType.UNumOfComb:
+                case Enums.OutputInfoType.PNumOfComb:
                     view.PlayerTable = service.Player.GetPlayersByNumberOfGame();
                     break;
 
-                case Enums.OutputInfoType.UNumOfTransact:
-                    view.PlayerTable = service.Player.GetPlayersByNumberOfTransactions();
-                    break;
-
-                case Enums.OutputInfoType.UValidEmail:
+                case Enums.OutputInfoType.PValidEmail:
                     view.PlayerTable = service.Player.GetValidEmailPlayers();
                     break;
-                case Enums.OutputInfoType.ULogin:
+                case Enums.OutputInfoType.PLogin:
                     view.PlayerTable = service.Player.GetPlayerByLogin(view.CurrentLogin);
                     break;
 

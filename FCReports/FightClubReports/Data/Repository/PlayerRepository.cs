@@ -15,7 +15,7 @@ namespace FightClubReports.Repository
            
         }
 
-        public IEnumerable<Player> GetPlayersByLogin()
+        public IEnumerable<Player> GetPlayersByAlphabet()
         {
             return db.Player
                 .OrderBy(l => l.Login)
@@ -33,14 +33,6 @@ namespace FightClubReports.Repository
         {
             return db.Player
                 .OrderByDescending(s => s.Statistics.Combats)
-                .ToList();
-        }
-
-        public IEnumerable<Player> GetPlayersByNumberOfTransactions()
-        {
-            return db.Player
-                .Where(t => t.Transactions != null) //?
-                .OrderByDescending(tr => tr.Transactions.Count)
                 .ToList();
         }
 

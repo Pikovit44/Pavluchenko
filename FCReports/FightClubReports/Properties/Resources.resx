@@ -150,6 +150,9 @@
   <data name="noOneOptionIsNotSelected" xml:space="preserve">
     <value>Ни один вариант не выбран</value>
   </data>
+  <data name="notSpecified" xml:space="preserve">
+    <value>Не указан</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>ОК</value>
   </data>

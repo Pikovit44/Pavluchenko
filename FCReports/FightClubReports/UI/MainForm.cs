@@ -18,23 +18,34 @@ namespace FightClubReports
     {
         OutputInfoType outputInfo = OutputInfoType.Unknown;
         ViewInfoType infoType = ViewInfoType.Unknown;
-        string currentLogin = string.Empty;
+        string requiredLogin = string.Empty;
         public event EventHandler playersOkClick;
         public event EventHandler transactionsOkClick;
         public event EventHandler combatsOkClick;
+        public event EventHandler playerSaveClick;
         public MainPresenter presenter;
+        public Player selectedPlayer = new Player();
 
         public MainForm()
         {
             InitializeComponent();
             presenter = new MainPresenter(this);
+            playersTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         #region Properties
-        public string CurrentLogin
+
+        public Player SelectedPlayer
         {
-            get { return currentLogin; }
+            get { return selectedPlayer; }
+        } 
+
+        public string RequiredLogin
+        {
+            get { return requiredLogin; }
         }
+
+
 
         public OutputInfoType OutputInfo
         {
@@ -155,7 +166,6 @@ namespace FightClubReports
 
         private void ChoosePlayersOuputInfo()
         {
-            
             if (topPlayers.Checked == true) { outputInfo = OutputInfoType.PTop; }
             if (playersByDate.Checked == true) { outputInfo = OutputInfoType.PDate; }
             if (playersByAlphabet.Checked == true) { outputInfo = OutputInfoType.PAlphabet; }
@@ -170,7 +180,7 @@ namespace FightClubReports
                 }
                 else
                 {
-                    outputInfo = OutputInfoType.PLogin; currentLogin = loginForPlayers.Text;
+                    outputInfo = OutputInfoType.PLogin; requiredLogin = loginForPlayers.Text;
                 }
             }
         }
@@ -188,7 +198,7 @@ namespace FightClubReports
                 }
                 else
                 {
-                    outputInfo = OutputInfoType.TLogin; currentLogin = loginForTransactions.Text;
+                    outputInfo = OutputInfoType.TLogin; requiredLogin = loginForTransactions.Text;
                 }
             }
         }
@@ -206,13 +216,46 @@ namespace FightClubReports
                 }
                 else
                 {
-                    outputInfo = OutputInfoType.CLogin; currentLogin = loginForCombats.Text;
+                    outputInfo = OutputInfoType.CLogin; requiredLogin = loginForCombats.Text;
                 }
             }
         }
+
         #endregion
 
-        
+       
+
+        private void playersTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedPlayer.Id = (int)playersTable[0, playersTable.CurrentCellAddress.Y].Value;
+            loginEditTb.Text = playersTable[1, playersTable.CurrentCellAddress.Y].Value.ToString();
+            passwordEditTb.Text = playersTable[2, playersTable.CurrentCellAddress.Y].Value.ToString();
+
+            var emailVal = playersTable[3, playersTable.CurrentCellAddress.Y].Value;
+            if ( null != emailVal)
+            {
+                emailEditTb.Text = selectedPlayer.EMail = emailVal.ToString();
+            }
+            else
+            {
+                selectedPlayer.EMail = string.Empty;
+                emailEditTb.Text = Resources.notSpecified;
+            }
+        }
+
+        private void SavePlayerChanges()
+        {
+
+            selectedPlayer.Login = loginEditTb.Text;
+            selectedPlayer.Password = passwordEditTb.Text;
+            selectedPlayer.EMail = emailEditTb.Text;
+        }
+
+        private void save_Click(object sender, EventArgs e)
+        {
+            SavePlayerChanges();
+            if (playerSaveClick != null) {playerSaveClick(this, EventArgs.Empty);}
+        }
     }
 }
 

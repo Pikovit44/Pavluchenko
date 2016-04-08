@@ -82,15 +82,15 @@
     <Compile Include="Data\Context.cs" />
     <Compile Include="UI\Interfaces\IView.cs" />
     <Compile Include="UI\MainPresenter.cs" />
-    <Compile Include="Data\Migrations\201604031425067_InitialCreate.cs" />
-    <Compile Include="Data\Migrations\201604031425067_InitialCreate.Designer.cs">
+    <Compile Include="Migrations\201604031425067_InitialCreate.cs" />
+    <Compile Include="Migrations\201604031425067_InitialCreate.Designer.cs">
       <DependentUpon>201604031425067_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\Migrations\201604031617274_first.cs" />
-    <Compile Include="Data\Migrations\201604031617274_first.Designer.cs">
+    <Compile Include="Migrations\201604031617274_first.cs" />
+    <Compile Include="Migrations\201604031617274_first.Designer.cs">
       <DependentUpon>201604031617274_first.cs</DependentUpon>
     </Compile>
-    <Compile Include="Data\Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Data\Repository\BaseRepository.cs" />
     <Compile Include="Data\Repository\CombatRepository.cs" />
     <Compile Include="UI\MainForm.cs">
@@ -112,10 +112,10 @@
     <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Data\Migrations\201604031425067_InitialCreate.resx">
+    <EmbeddedResource Include="Migrations\201604031425067_InitialCreate.resx">
       <DependentUpon>201604031425067_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Data\Migrations\201604031617274_first.resx">
+    <EmbeddedResource Include="Migrations\201604031617274_first.resx">
       <DependentUpon>201604031617274_first.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

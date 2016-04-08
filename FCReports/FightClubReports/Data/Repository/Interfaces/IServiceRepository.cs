@@ -8,9 +8,9 @@ namespace FightClubReports.Repository.Interfaces
 {
     public interface IServiceRepository
     {
-        IPlayerRepository Player { get; }
-        ICombatRepository Combat { get; }
-        ITransactionRepository Transaction { get; }
+        IPlayerRepository Players { get; }
+        ICombatRepository Combats { get; }
+        ITransactionRepository Transactions { get; }
         void Dispose();
         void Save();
 

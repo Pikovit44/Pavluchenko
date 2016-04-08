@@ -17,35 +17,41 @@ namespace FightClubReports.Repository
 
         public IEnumerable<Player> GetPlayersByAlphabet()
         {
-            return db.Player
+            return db.Players
                 .OrderBy(l => l.Login)
                 .ToList();
         }
 
         public IEnumerable<Player> GetPlayerByLogin(string login)
         {
-            return db.Player
-                .Where(l => l.Login == login)
+            return db.Players
+                .Where(l => l.Login == login);
+        }
+
+        public IEnumerable<Player> GetPlayerById(int id)
+        {
+            return db.Players
+                .Where(i => i.Id == id)
                 .ToList();
         }
 
         public IEnumerable<Player> GetPlayersByNumberOfGame()
         {
-            return db.Player
+            return db.Players
                 .OrderByDescending(s => s.Statistics.Combats)
                 .ToList();
         }
 
         public IEnumerable<Player> GetPlayersByRegist()
         {
-            return db.Player
+            return db.Players
                .OrderBy(t => t.DateOfRegistr)
                .ToList();
         }
 
         public IEnumerable<Player> GetTopPlayers()
         {
-            return db.Player
+            return db.Players
                 .OrderByDescending(w => w.Statistics.Wins)
                 .ThenByDescending(d => d.Statistics.Draws)
                 .ToList();
@@ -53,7 +59,7 @@ namespace FightClubReports.Repository
 
         public IEnumerable<Player> GetValidEmailPlayers()
         {
-            return db.Player
+            return db.Players
                .Where(e => e.IsEmaillValid == true)
                .ToList();
         }

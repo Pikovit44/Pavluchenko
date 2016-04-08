@@ -14,9 +14,10 @@ namespace FightClubReports.Data
         public Context():base("name=DBContextModel")
         { }
 
-        public DbSet<Player> Player { get; set; }
-        public DbSet<Combat> Combat { get; set; }
-        public DbSet<RoundLog> RoundLog { get; set; } //?
-        public DbSet<Transaction> Transaction { get; set; }
+        public DbSet<Player> Players { get; set; }
+        public DbSet<Combat> Combats { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<RoundLog> RoundLogs { get; set; } 
+        
     }
 }

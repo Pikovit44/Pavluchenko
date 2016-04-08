@@ -16,6 +16,11 @@ namespace FightClubReports
     {
         private readonly IView view;
         private readonly ServiceRepository service;
+        private List<Player> players;
+        private Player player;
+        private List<Transaction> transactions;
+        private List<Combat> combats;
+
         public MainPresenter(IView view)
         {
             this.view = view;
@@ -23,6 +28,7 @@ namespace FightClubReports
             view.playersOkClick += onPlayersOkClick;
             view.transactionsOkClick += onTransactionsOkClick;
             view.combatsOkClick += onCombatsOkClick;
+            view.playerSaveClick += onPlayerSaveClick;
         }
 
         #region EventHandlers
@@ -30,47 +36,59 @@ namespace FightClubReports
         private void onPlayersOkClick(object sender, EventArgs e)
         {
             InfoForPlayerTable();
+            view.PlayerTable = players;
         }
 
         private void onTransactionsOkClick(object sender, EventArgs e)
         {
             InfoForTransactionTable();
+            view.TransactionsTable = transactions;
         }
 
         private void onCombatsOkClick(object sender, EventArgs e)
         {
             InfoForCombatTable();
+            view.CombatsTable = combats;
+        }
+
+        private void onPlayerSaveClick(object sender, EventArgs e)
+        {
+            player = (Player)service.Players.GetPlayerById(view.SelectedPlayer.Id);
+            player.Login = view.SelectedPlayer.Login;
+            player.Password = view.SelectedPlayer.Password;
+            player.EMail = view.SelectedPlayer.EMail;
+            service.Save();
         }
 
         #endregion
 
         #region Methods
-       
+
         private void  InfoForPlayerTable()
         {
             switch (view.OutputInfo)
             {
                 case Enums.OutputInfoType.PTop:
-                    view.PlayerTable = service.Player.GetTopPlayers();
+                    players =  service.Players.GetTopPlayers().ToList();
                     break;
 
                 case Enums.OutputInfoType.PDate:
-                    view.PlayerTable = service.Player.GetPlayersByRegist();
+                    players = service.Players.GetPlayersByRegist().ToList();
                     break;
 
                 case Enums.OutputInfoType.PAlphabet:
-                    view.PlayerTable = service.Player.GetPlayersByAlphabet();
+                    players = service.Players.GetPlayersByAlphabet().ToList();
                     break;
 
                 case Enums.OutputInfoType.PNumOfComb:
-                    view.PlayerTable = service.Player.GetPlayersByNumberOfGame();
+                    players = service.Players.GetPlayersByNumberOfGame().ToList();
                     break;
 
                 case Enums.OutputInfoType.PValidEmail:
-                    view.PlayerTable = service.Player.GetValidEmailPlayers();
+                    players = service.Players.GetValidEmailPlayers().ToList();
                     break;
                 case Enums.OutputInfoType.PLogin:
-                    view.PlayerTable = service.Player.GetPlayerByLogin(view.CurrentLogin);
+                    players = service.Players.GetPlayerByLogin(view.SelectedPlayer.Login).ToList();
                     break;
 
                 default:
@@ -83,13 +101,13 @@ namespace FightClubReports
             switch (view.OutputInfo)
             {
                 case Enums.OutputInfoType.TSum:
-                    view.TransactionsTable = service.Transaction.GetTransactionsBySum();
+                    transactions = service.Transactions.GetTransactionsBySum().ToList();
                     break;
                 case Enums.OutputInfoType.TDate:
-                    view.TransactionsTable = service.Transaction.GetTransactionsByDate();
+                    transactions = service.Transactions.GetTransactionsByDate().ToList();
                     break;
                 case Enums.OutputInfoType.TLogin:
-                    view.TransactionsTable = service.Transaction.GetTransactionsByLogin(view.CurrentLogin);
+                    transactions = service.Transactions.GetTransactionsByLogin(view.RequiredLogin).ToList();
                     break;
                 default:
                     break;
@@ -100,13 +118,13 @@ namespace FightClubReports
             switch (view.OutputInfo)
             {
                 case Enums.OutputInfoType.CType:
-                    view.CombatsTable = service.Combat.GetCombatsByType();
+                    combats = service.Combats.GetCombatsByType().ToList();
                     break;
                 case Enums.OutputInfoType.CLogin:
-                    view.CombatsTable = service.Combat.GetCombatsByPlayer(view.CurrentLogin);
+                    combats = service.Combats.GetCombatsByPlayer(view.RequiredLogin).ToList();
                     break;
                 case Enums.OutputInfoType.CDate:
-                    view.CombatsTable = service.Combat.GetCombatsByDate();
+                    combats = service.Combats.GetCombatsByDate().ToList();
                     break;
                 default:
                     break;

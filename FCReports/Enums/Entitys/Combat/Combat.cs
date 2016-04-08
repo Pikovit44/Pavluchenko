@@ -8,10 +8,10 @@ namespace FightClubReports
         public int Id { get; set; }
         public DateTime TimeOfStart { get; set; }
         public bool TypePVP { get; set; } // pvp or pve 
-        public List<RoundLog> Log { get; set; }
-        public Player Player1 { get; set; }
-        public Player Player2 { get; set; }
+        public virtual List<RoundLog> Log { get; set; }
+        public virtual Player Player1 { get; set; }
+        public virtual Player Player2 { get; set; }
         public bool WinnerIsExist { get; set; }
-        public Player Winner { get; set; }
+        public virtual Player Winner { get; set; }
     }
 }

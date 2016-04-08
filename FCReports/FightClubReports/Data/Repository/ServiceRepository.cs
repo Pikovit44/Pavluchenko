@@ -20,7 +20,7 @@ namespace FightClubReports.Repository
             this.db = new Context();
         }
 
-        public ICombatRepository Combat
+        public ICombatRepository Combats
         {
             get
             {
@@ -32,7 +32,7 @@ namespace FightClubReports.Repository
             }
         }
 
-        public IPlayerRepository Player
+        public IPlayerRepository Players
         {
             get
             {
@@ -44,7 +44,7 @@ namespace FightClubReports.Repository
             }
         }
 
-        public ITransactionRepository Transaction
+        public ITransactionRepository Transactions
         {
             get
             {
@@ -65,11 +65,6 @@ namespace FightClubReports.Repository
         {
             db.SaveChanges();
         }
-
-        //public IEnumerable<Player> GetPlayerByTransactions()
-        //{
-
-        //}
             
 
     }

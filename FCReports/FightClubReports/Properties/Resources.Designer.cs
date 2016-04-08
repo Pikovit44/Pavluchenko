@@ -160,6 +160,15 @@ namespace FightClubReports.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не указан.
+        /// </summary>
+        internal static string notSpecified {
+            get {
+                return ResourceManager.GetString("notSpecified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ОК.
         /// </summary>
         internal static string ok {

@@ -10,11 +10,13 @@ namespace FightClubReports.Interfaces
     public interface IView
     {
         OutputInfoType OutputInfo { get; }
-        ViewInfoType InfoType {  get; }
-        string CurrentLogin { get; }
+        ViewInfoType InfoType { get; }
+        Player SelectedPlayer { get; }
+        string RequiredLogin { get; }
         event EventHandler playersOkClick;
         event EventHandler transactionsOkClick;
         event EventHandler combatsOkClick;
+        event EventHandler playerSaveClick;
         object PlayerTable {  set; }
         object TransactionsTable { set; }
         object CombatsTable { set; }

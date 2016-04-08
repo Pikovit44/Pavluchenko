@@ -36,6 +36,13 @@ namespace FightClubReports
             this.loginForCombatsLb = new System.Windows.Forms.Label();
             this.infoControl = new System.Windows.Forms.TabControl();
             this.playersPage = new System.Windows.Forms.TabPage();
+            this.save = new System.Windows.Forms.Button();
+            this.emailEditTb = new System.Windows.Forms.TextBox();
+            this.emailEditLb = new System.Windows.Forms.Label();
+            this.passwordEditTb = new System.Windows.Forms.TextBox();
+            this.passwordEditLb = new System.Windows.Forms.Label();
+            this.loginEditTb = new System.Windows.Forms.TextBox();
+            this.loginEditLb = new System.Windows.Forms.Label();
             this.playersByLogin = new System.Windows.Forms.RadioButton();
             this.loginForPlayers = new System.Windows.Forms.TextBox();
             this.playersByNumberOfCombats = new System.Windows.Forms.RadioButton();
@@ -45,6 +52,7 @@ namespace FightClubReports
             this.topPlayers = new System.Windows.Forms.RadioButton();
             this.playersTable = new System.Windows.Forms.DataGridView();
             this.transactionsPage = new System.Windows.Forms.TabPage();
+            this.sumLb = new System.Windows.Forms.Label();
             this.transactionsTable = new System.Windows.Forms.DataGridView();
             this.transactionsOk = new System.Windows.Forms.Button();
             this.transactionsByLogin = new System.Windows.Forms.RadioButton();
@@ -59,6 +67,8 @@ namespace FightClubReports
             this.combatsByLogin = new System.Windows.Forms.RadioButton();
             this.combatsByDate = new System.Windows.Forms.RadioButton();
             this.combatsByType = new System.Windows.Forms.RadioButton();
+            this.playersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.playersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.mainPresenterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainPresenterBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.infoControl.SuspendLayout();
@@ -68,6 +78,8 @@ namespace FightClubReports
             ((System.ComponentModel.ISupportInitialize)(this.transactionsTable)).BeginInit();
             this.combatsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.combatsTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainPresenterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainPresenterBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -85,9 +97,9 @@ namespace FightClubReports
             // 
             // playersOk
             // 
-            this.playersOk.Location = new System.Drawing.Point(616, 37);
+            this.playersOk.Location = new System.Drawing.Point(633, 35);
             this.playersOk.Name = "playersOk";
-            this.playersOk.Size = new System.Drawing.Size(75, 23);
+            this.playersOk.Size = new System.Drawing.Size(75, 20);
             this.playersOk.TabIndex = 16;
             this.playersOk.Text = global::FightClubReports.Properties.Resources.ok;
             this.playersOk.UseVisualStyleBackColor = true;
@@ -112,11 +124,18 @@ namespace FightClubReports
             this.infoControl.Location = new System.Drawing.Point(21, 36);
             this.infoControl.Name = "infoControl";
             this.infoControl.SelectedIndex = 0;
-            this.infoControl.Size = new System.Drawing.Size(785, 379);
+            this.infoControl.Size = new System.Drawing.Size(785, 344);
             this.infoControl.TabIndex = 21;
             // 
             // playersPage
             // 
+            this.playersPage.Controls.Add(this.save);
+            this.playersPage.Controls.Add(this.emailEditTb);
+            this.playersPage.Controls.Add(this.emailEditLb);
+            this.playersPage.Controls.Add(this.passwordEditTb);
+            this.playersPage.Controls.Add(this.passwordEditLb);
+            this.playersPage.Controls.Add(this.loginEditTb);
+            this.playersPage.Controls.Add(this.loginEditLb);
             this.playersPage.Controls.Add(this.playersByLogin);
             this.playersPage.Controls.Add(this.playersOk);
             this.playersPage.Controls.Add(this.loginForPlayers);
@@ -129,10 +148,68 @@ namespace FightClubReports
             this.playersPage.Location = new System.Drawing.Point(4, 22);
             this.playersPage.Name = "playersPage";
             this.playersPage.Padding = new System.Windows.Forms.Padding(3);
-            this.playersPage.Size = new System.Drawing.Size(777, 353);
+            this.playersPage.Size = new System.Drawing.Size(777, 318);
             this.playersPage.TabIndex = 0;
             this.playersPage.Text = "Пользователи";
             this.playersPage.UseVisualStyleBackColor = true;
+            // 
+            // save
+            // 
+            this.save.Location = new System.Drawing.Point(596, 278);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(151, 21);
+            this.save.TabIndex = 32;
+            this.save.Text = "Сохранить изменения";
+            this.save.UseVisualStyleBackColor = true;
+            this.save.Click += new System.EventHandler(this.save_Click);
+            // 
+            // emailEditTb
+            // 
+            this.emailEditTb.Location = new System.Drawing.Point(442, 279);
+            this.emailEditTb.Name = "emailEditTb";
+            this.emailEditTb.Size = new System.Drawing.Size(118, 20);
+            this.emailEditTb.TabIndex = 31;
+            // 
+            // emailEditLb
+            // 
+            this.emailEditLb.AutoSize = true;
+            this.emailEditLb.Location = new System.Drawing.Point(395, 282);
+            this.emailEditLb.Name = "emailEditLb";
+            this.emailEditLb.Size = new System.Drawing.Size(32, 13);
+            this.emailEditLb.TabIndex = 30;
+            this.emailEditLb.Text = "Email";
+            // 
+            // passwordEditTb
+            // 
+            this.passwordEditTb.Location = new System.Drawing.Point(242, 279);
+            this.passwordEditTb.Name = "passwordEditTb";
+            this.passwordEditTb.Size = new System.Drawing.Size(118, 20);
+            this.passwordEditTb.TabIndex = 29;
+            // 
+            // passwordEditLb
+            // 
+            this.passwordEditLb.AutoSize = true;
+            this.passwordEditLb.Location = new System.Drawing.Point(191, 282);
+            this.passwordEditLb.Name = "passwordEditLb";
+            this.passwordEditLb.Size = new System.Drawing.Size(45, 13);
+            this.passwordEditLb.TabIndex = 28;
+            this.passwordEditLb.Text = "Пароль";
+            // 
+            // loginEditTb
+            // 
+            this.loginEditTb.Location = new System.Drawing.Point(54, 279);
+            this.loginEditTb.Name = "loginEditTb";
+            this.loginEditTb.Size = new System.Drawing.Size(118, 20);
+            this.loginEditTb.TabIndex = 27;
+            // 
+            // loginEditLb
+            // 
+            this.loginEditLb.AutoSize = true;
+            this.loginEditLb.Location = new System.Drawing.Point(13, 282);
+            this.loginEditLb.Name = "loginEditLb";
+            this.loginEditLb.Size = new System.Drawing.Size(38, 13);
+            this.loginEditLb.TabIndex = 22;
+            this.loginEditLb.Text = "Логин";
             // 
             // playersByLogin
             // 
@@ -211,16 +288,17 @@ namespace FightClubReports
             // 
             this.playersTable.AllowUserToAddRows = false;
             this.playersTable.AllowUserToDeleteRows = false;
-            this.playersTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.playersTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.playersTable.Location = new System.Drawing.Point(16, 67);
             this.playersTable.Name = "playersTable";
             this.playersTable.ReadOnly = true;
-            this.playersTable.Size = new System.Drawing.Size(743, 264);
+            this.playersTable.Size = new System.Drawing.Size(743, 198);
             this.playersTable.TabIndex = 18;
+            this.playersTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.playersTable_CellClick);
             // 
             // transactionsPage
             // 
+            this.transactionsPage.Controls.Add(this.sumLb);
             this.transactionsPage.Controls.Add(this.transactionsTable);
             this.transactionsPage.Controls.Add(this.transactionsOk);
             this.transactionsPage.Controls.Add(this.transactionsByLogin);
@@ -231,10 +309,19 @@ namespace FightClubReports
             this.transactionsPage.Location = new System.Drawing.Point(4, 22);
             this.transactionsPage.Name = "transactionsPage";
             this.transactionsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.transactionsPage.Size = new System.Drawing.Size(777, 353);
+            this.transactionsPage.Size = new System.Drawing.Size(777, 318);
             this.transactionsPage.TabIndex = 1;
             this.transactionsPage.Text = "Транзакции";
             this.transactionsPage.UseVisualStyleBackColor = true;
+            // 
+            // sumLb
+            // 
+            this.sumLb.AutoSize = true;
+            this.sumLb.Location = new System.Drawing.Point(173, 266);
+            this.sumLb.Name = "sumLb";
+            this.sumLb.Size = new System.Drawing.Size(41, 13);
+            this.sumLb.TabIndex = 29;
+            this.sumLb.Text = "Сумма";
             // 
             // transactionsTable
             // 
@@ -244,7 +331,7 @@ namespace FightClubReports
             this.transactionsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.transactionsTable.Location = new System.Drawing.Point(162, 58);
             this.transactionsTable.Name = "transactionsTable";
-            this.transactionsTable.Size = new System.Drawing.Size(443, 275);
+            this.transactionsTable.Size = new System.Drawing.Size(443, 194);
             this.transactionsTable.TabIndex = 26;
             // 
             // transactionsOk
@@ -321,7 +408,7 @@ namespace FightClubReports
             this.combatsPage.Controls.Add(this.loginForCombatsLb);
             this.combatsPage.Location = new System.Drawing.Point(4, 22);
             this.combatsPage.Name = "combatsPage";
-            this.combatsPage.Size = new System.Drawing.Size(777, 353);
+            this.combatsPage.Size = new System.Drawing.Size(777, 318);
             this.combatsPage.TabIndex = 2;
             this.combatsPage.Text = "Бои";
             this.combatsPage.UseVisualStyleBackColor = true;
@@ -341,7 +428,7 @@ namespace FightClubReports
             this.combatsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.combatsTable.Location = new System.Drawing.Point(16, 54);
             this.combatsTable.Name = "combatsTable";
-            this.combatsTable.Size = new System.Drawing.Size(743, 277);
+            this.combatsTable.Size = new System.Drawing.Size(743, 242);
             this.combatsTable.TabIndex = 33;
             // 
             // combatsOk
@@ -387,6 +474,17 @@ namespace FightClubReports
             this.combatsByType.Text = "По типу";
             this.combatsByType.UseVisualStyleBackColor = true;
             // 
+            // playersBindingSource
+            // 
+            this.playersBindingSource.DataMember = "Players";
+            // 
+            // playersTableAdapter
+            // 
+            // 
+            // playersBindingSource1
+            // 
+            this.playersBindingSource1.DataMember = "Players";
+            // 
             // mainPresenterBindingSource
             // 
             this.mainPresenterBindingSource.DataSource = typeof(FightClubReports.MainPresenter);
@@ -399,7 +497,7 @@ namespace FightClubReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 441);
+            this.ClientSize = new System.Drawing.Size(854, 478);
             this.Controls.Add(this.infoControl);
             this.Controls.Add(this.title);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -418,6 +516,8 @@ namespace FightClubReports
             this.combatsPage.ResumeLayout(false);
             this.combatsPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.combatsTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playersBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainPresenterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainPresenterBindingSource1)).EndInit();
             this.ResumeLayout(false);
@@ -457,6 +557,16 @@ namespace FightClubReports
         private System.Windows.Forms.RadioButton playersByLogin;
         private System.Windows.Forms.BindingSource mainPresenterBindingSource;
         private System.Windows.Forms.BindingSource mainPresenterBindingSource1;
+        private System.Windows.Forms.BindingSource playersBindingSource;
+        private System.Windows.Forms.Label loginEditLb;
+        private System.Windows.Forms.TextBox loginEditTb;
+        private System.Windows.Forms.TextBox emailEditTb;
+        private System.Windows.Forms.Label emailEditLb;
+        private System.Windows.Forms.TextBox passwordEditTb;
+        private System.Windows.Forms.Label passwordEditLb;
+        private System.Windows.Forms.Button save;
+        private System.Windows.Forms.Label sumLb;
+        private System.Windows.Forms.BindingSource playersBindingSource1;
     }
 }
 

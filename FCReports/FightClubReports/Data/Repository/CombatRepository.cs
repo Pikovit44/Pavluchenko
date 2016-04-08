@@ -18,14 +18,14 @@ namespace FightClubReports.Repository
 
         public IEnumerable<Combat> GetCombatsByPlayer(string login)
         {
-            return db.Combat
+            return db.Combats
                 .Where(p => (p.Player1.Login == login) || (p.Player2.Login == login))
                 .ToList();
         }
 
         public IEnumerable<Combat> GetCombatsByType()
         {
-            return db.Combat
+            return db.Combats
                 .OrderBy(t => (!t.TypePVP))
                 .ThenBy(tr => (tr.TypePVP))
                 .ToList();
@@ -33,7 +33,7 @@ namespace FightClubReports.Repository
 
         public IEnumerable<Combat> GetCombatsByDate()
         {
-            return db.Combat
+            return db.Combats
                 .OrderBy(d => d.TimeOfStart)
                 .ToList();
         }

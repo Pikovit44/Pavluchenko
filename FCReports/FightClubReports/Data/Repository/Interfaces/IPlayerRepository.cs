@@ -13,6 +13,7 @@ namespace FightClubReports.Repository.Interfaces
         IEnumerable<Player> GetPlayersByRegist();
         IEnumerable<Player> GetPlayersByAlphabet();
         IEnumerable<Player> GetPlayerByLogin(string login);
+        IEnumerable<Player> GetPlayerById(int id);
         IEnumerable<Player> GetPlayersByNumberOfGame();
     }
 }

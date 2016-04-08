@@ -28,11 +28,9 @@ namespace FightClubReports.Repository
                 .Where(l => l.Login == login);
         }
 
-        public IEnumerable<Player> GetPlayerById(int id)
+        public Player GetPlayerById(int id)
         {
-            return db.Players
-                .Where(i => i.Id == id)
-                .ToList();
+            return db.Players.FirstOrDefault(i => i.Id == id);
         }
 
         public IEnumerable<Player> GetPlayersByNumberOfGame()

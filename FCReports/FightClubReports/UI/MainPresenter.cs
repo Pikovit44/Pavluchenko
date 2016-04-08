@@ -53,10 +53,10 @@ namespace FightClubReports
 
         private void onPlayerSaveClick(object sender, EventArgs e)
         {
-            player = (Player)service.Players.GetPlayerById(view.SelectedPlayer.Id);
+            player = service.Players.GetPlayerById(view.SelectedPlayer.Id); //TODO: method for changes
             player.Login = view.SelectedPlayer.Login;
             player.Password = view.SelectedPlayer.Password;
-            player.EMail = view.SelectedPlayer.EMail;
+            player.EMail = view.SelectedPlayer.EMail; // MessageBox
             service.Save();
         }
 

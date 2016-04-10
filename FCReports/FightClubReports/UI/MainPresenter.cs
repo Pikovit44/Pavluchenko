@@ -107,7 +107,7 @@ namespace FightClubReports
                     transactions = service.Transactions.GetTransactionsByDate().ToList();
                     break;
                 case Enums.OutputInfoType.TLogin:
-                    transactions = service.Transactions.GetTransactionsByLogin(view.RequiredLogin).ToList();
+                    transactions = service.Transactions.GetTransactionsByLogin(view.SelectedPlayer.Login).ToList();
                     break;
                 default:
                     break;
@@ -121,7 +121,7 @@ namespace FightClubReports
                     combats = service.Combats.GetCombatsByType().ToList();
                     break;
                 case Enums.OutputInfoType.CLogin:
-                    combats = service.Combats.GetCombatsByPlayer(view.RequiredLogin).ToList();
+                    combats = service.Combats.GetCombatsByPlayer(view.SelectedPlayer.Login).ToList();
                     break;
                 case Enums.OutputInfoType.CDate:
                     combats = service.Combats.GetCombatsByDate().ToList();

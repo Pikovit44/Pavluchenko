@@ -80,6 +80,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Context.cs" />
+    <Compile Include="Migrations\201604101551525_New.cs" />
+    <Compile Include="Migrations\201604101551525_New.Designer.cs">
+      <DependentUpon>201604101551525_New.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Interfaces\IView.cs" />
     <Compile Include="UI\MainPresenter.cs" />
     <Compile Include="Migrations\201604031425067_InitialCreate.cs" />
@@ -109,6 +113,9 @@
     <Compile Include="Data\Repository\Interfaces\ITransactionRepository.cs" />
     <Compile Include="Data\Repository\TransactionRepository.cs" />
     <Compile Include="Data\Repository\PlayerRepository.cs" />
+    <EmbeddedResource Include="Migrations\201604101551525_New.resx">
+      <DependentUpon>201604101551525_New.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

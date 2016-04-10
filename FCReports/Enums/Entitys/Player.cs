@@ -14,16 +14,14 @@ namespace FightClubReports
         public string Password { get; set; }
         public string EMail { get; set; }        
         public bool IsEmaillValid { get; set; }
-        public DateTime DateOfRegistr { get; set; }
+        public DateTime DateOfRegistrations { get; set; }
         public virtual List<Combat> GameData { get; set; }
         public Statistics Statistics { get; set; } 
         public virtual List<Transaction> Transactions { get; set; }
 
-
-
         public override string ToString()
         {
-            return string.Format("{0}",Login);
+            return string.Format("{0}", Login);
         }
     }
 }

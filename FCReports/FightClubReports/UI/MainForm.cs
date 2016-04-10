@@ -75,28 +75,88 @@ namespace FightClubReports
 
         #region Events
 
-       
-
-        private void playersOk_Click(object sender, EventArgs e)
+        #region Players
+        private void topPlayers_CheckedChanged(object sender, EventArgs e)
         {
             infoType = ViewInfoType.Player;
-            ChooseOutputInfo();
+            outputInfo = OutputInfoType.PTop;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
         }
 
+        private void playersByValidEmail_CheckedChanged(object sender, EventArgs e)
+        {
+            infoType = ViewInfoType.Player;
+            outputInfo = OutputInfoType.PValidEmail;
+            if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
+        }
+
+        private void playersByNumberOfCombats_CheckedChanged(object sender, EventArgs e)
+        {
+            infoType = ViewInfoType.Player;
+            outputInfo = OutputInfoType.PNumOfComb;
+            if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
+        }
+
+        private void playersByAlphabet_CheckedChanged(object sender, EventArgs e)
+        {
+            infoType = ViewInfoType.Player;
+            outputInfo = OutputInfoType.PAlphabet;
+            if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
+        }
+
+        private void playersByDate_CheckedChanged(object sender, EventArgs e)
+        {
+            infoType = ViewInfoType.Player;
+            outputInfo = OutputInfoType.PDate;
+            if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
+        }
+
+        private void playersByLogin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (playersByLogin.Checked == true)
+            {
+                loginForPlayers.Visible = true;
+                playersOk.Visible = true;
+                loginForPlayers.Focus();
+            }
+            else
+            {
+                loginForPlayers.Visible = false;
+                playersOk.Visible = false;
+            }
+
+        }
+
+        private void playersOk_Click(object sender, EventArgs e)
+        {
+            if (loginForPlayers.Text == string.Empty)
+            {
+                MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
+                loginForTransactions.Focus();
+            }
+            else
+            {
+                outputInfo = OutputInfoType.PLogin; selectedPlayer.Login = loginForPlayers.Text;
+                if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
+            }
+            if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
+        }
+        #endregion
+
+        #region Transactions
         private void transactionsOk_Click(object sender, EventArgs e)
         {
             infoType = ViewInfoType.Transaction;
-            ChooseOutputInfo();
             if (transactionsOkClick != null) { transactionsOkClick(this, EventArgs.Empty); }
         }
 
         private void combatsOk_Click(object sender, EventArgs e)
         {
             infoType = ViewInfoType.Combat;
-            ChooseOutputInfo();
             if (combatsOkClick != null) { combatsOkClick(this, EventArgs.Empty); }
         }
+
+
 
         private void transactionsByLogin_CheckedChanged(object sender, EventArgs e)
         {
@@ -110,19 +170,9 @@ namespace FightClubReports
                 loginForTransactions.Visible = loginForTransactionsLb.Visible = false;
             }
         }
-        private void playersByLogin_CheckedChanged(object sender, EventArgs e)
-        {
-            if (playersByLogin.Checked == true)
-            {
-                loginForPlayers.Visible = true;
-                loginForPlayers.Focus();
-            }
-            else
-            {
-                loginForPlayers.Visible = false;
-            }
+        #endregion
 
-        }
+       
 
         private void combatsByLogin_CheckedChanged(object sender, EventArgs e)
         {
@@ -142,37 +192,11 @@ namespace FightClubReports
         #endregion
 
         #region Methods
-
-        private void ChooseOutputInfo()
-        {
-            switch (infoType)
-            {
-                case ViewInfoType.Player:
-                    ChoosePlayersOuputInfo();
-                    break;
-
-                case ViewInfoType.Transaction:
-                    ChooseTransactionsOuputInfo();
-                    break;
-
-                case ViewInfoType.Combat:
-                    ChooseCombatsOutputInfo();
-                    break;
-
-                default:
-                    break;
-            }
-        }
+        
 
         private void ChoosePlayersOuputInfo()
         {
-            if (topPlayers.Checked == true) { outputInfo = OutputInfoType.PTop; }
-            if (playersByDate.Checked == true) { outputInfo = OutputInfoType.PDate; }
-            if (playersByAlphabet.Checked == true) { outputInfo = OutputInfoType.PAlphabet; }
-            if (playersByNumberOfCombats.Checked == true) { outputInfo = OutputInfoType.PNumOfComb; }
-            if (playersByValidEmail.Checked == true) { outputInfo = OutputInfoType.PValidEmail; }
-            if (playersByLogin.Checked == true)
-            {
+            
                 if (loginForPlayers.Text == string.Empty) 
                 {
                     MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
@@ -182,7 +206,7 @@ namespace FightClubReports
                 {
                     outputInfo = OutputInfoType.PLogin; requiredLogin = loginForPlayers.Text;
                 }
-            }
+            
         }
 
         private void ChooseTransactionsOuputInfo()
@@ -254,8 +278,10 @@ namespace FightClubReports
         private void save_Click(object sender, EventArgs e)
         {
             SavePlayerChanges();
+            MessageBox.Show(Resources.successfulSaving, Resources.saveChanges, MessageBoxButtons.OK);
             if (playerSaveClick != null) {playerSaveClick(this, EventArgs.Empty);}
         }
+        
     }
 }
 

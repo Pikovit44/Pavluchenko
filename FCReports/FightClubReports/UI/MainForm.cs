@@ -26,10 +26,9 @@ namespace FightClubReports
         public event EventHandler playerSaveClick;
         public event EventHandler transactionSaveClick;
 
-        public MainPresenter presenter;
-        public Player selectedPlayer = new Player();
-        public Transaction selectedTransaction = new Transaction();
-        public Combat selectedCombat = new Combat();
+        MainPresenter presenter;
+        Player selectedPlayer;
+        Transaction selectedTransaction;
 
         public MainForm()
         {
@@ -38,14 +37,24 @@ namespace FightClubReports
             playersTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             transactionsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             combatsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        }
+
+            selectedPlayer = new Player();
+            selectedTransaction = new Transaction();
+    }
 
         #region Properties
 
         public Player SelectedPlayer
         {
             get { return selectedPlayer; }
-        } 
+        }
+
+
+        public Transaction SelectedTransaction
+        {
+            get { return selectedTransaction; }
+        }
+        
 
         public string RequiredLogin
         {
@@ -166,6 +175,13 @@ namespace FightClubReports
             }
         }
 
+        private void savePlayers_Click(object sender, EventArgs e)
+        {
+            SavePlayerChanges();
+            MessageBox.Show(Resources.successfulSaving, Resources.saveChanges, MessageBoxButtons.OK);
+            if (playerSaveClick != null) { playerSaveClick(this, EventArgs.Empty); }
+        }
+
         #endregion
 
         #region Transactions
@@ -213,15 +229,26 @@ namespace FightClubReports
                 if (transactionsOkClick != null) { transactionsOkClick(this, EventArgs.Empty); }
             }
         }
+
+        private void transactionsTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedTransaction.Id = (int)transactionsTable[0, transactionsTable.CurrentCellAddress.Y].Value;
+            dateEdit.Text = transactionsTable[1, transactionsTable.CurrentCellAddress.Y].Value.ToString();
+            sumEdit.Text = transactionsTable[3, transactionsTable.CurrentCellAddress.Y].Value.ToString();
+        }
+
+        private void saveTransactions_Click(object sender, EventArgs e)
+        {
+            SaveTransactionChanges();
+            MessageBox.Show(Resources.successfulSaving, Resources.saveChanges, MessageBoxButtons.OK);
+            if (transactionSaveClick != null) { transactionSaveClick(this, EventArgs.Empty); }
+
+        }
+
+
         #endregion
 
         #region Combats
-
-
-
-
-       
-
         private void combatsByType_CheckedChanged(object sender, EventArgs e)
         {
             infoType = ViewInfoType.Combat;
@@ -250,7 +277,6 @@ namespace FightClubReports
             {
                 loginForCombats.Visible = false;
                 combatsOk.Visible = false;
-
             }
 
         }
@@ -268,72 +294,22 @@ namespace FightClubReports
             }
         }
 
+        private void combatsTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void saveCombats_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         #endregion
-
-
 
         #endregion
 
         #region Methods
-
-
-        private void ChoosePlayersOuputInfo()
-        {
-            
-                if (loginForPlayers.Text == string.Empty) 
-                {
-                    MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
-                    loginForTransactions.Focus();
-                }
-                else
-                {
-                    outputInfo = OutputInfoType.PLogin; requiredLogin = loginForPlayers.Text;
-                }
-            
-        }
-
-        private void ChooseTransactionsOuputInfo()
-        {
-            if (transactionsBySum.Checked == true) { outputInfo = OutputInfoType.TSum; }
-            if (transactionsByDate.Checked == true) { outputInfo = OutputInfoType.TDate; }
-            if (transactionsByLogin.Checked == true)
-            {
-                if (loginForTransactions.Text == string.Empty) 
-                {
-                    MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
-                    loginForTransactions.Focus();
-                }
-                else
-                {
-                    outputInfo = OutputInfoType.TLogin; requiredLogin = loginForTransactions.Text;
-                }
-            }
-        }
-
-        private void ChooseCombatsOutputInfo()
-        {
-            if (combatsByType.Checked == true) { outputInfo = OutputInfoType.CType; }
-            if (combatsByDate.Checked == true) { outputInfo = OutputInfoType.CDate; }
-            if (combatsByLogin.Checked == true)
-            {
-                if (loginForCombats.Text == string.Empty)
-                {
-                    MessageBox.Show(Resources.enterLoginInField, Resources.loginIsNotEntered, MessageBoxButtons.OK);
-                    loginForCombats.Focus();
-                }
-                else
-                {
-                    outputInfo = OutputInfoType.CLogin; requiredLogin = loginForCombats.Text;
-                }
-            }
-        }
-
-        #endregion
-
-       
-
-        
 
         private void SavePlayerChanges()
         {
@@ -344,32 +320,20 @@ namespace FightClubReports
 
         private void SaveTransactionChanges()
         {
-            selectedTransaction.Id = (int)transactionsTable[0, transactionsTable.CurrentCellAddress.Y].Value;
-            dateEdit.Text = transactionsTable[1, transactionsTable.CurrentCellAddress.Y].Value.ToString();
-            sumEdit.Text = transactionsTable[2, transactionsTable.CurrentCellAddress.Y].Value.ToString();
+            //selectedTransaction.Date = (DateTime)dateEdit.Text;
+            //selectedTransaction.Sum = (decimal)sumEdit.Text;
         }
 
-        private void save_Click(object sender, EventArgs e)
-        {
-            SavePlayerChanges();
-            MessageBox.Show(Resources.successfulSaving, Resources.saveChanges, MessageBoxButtons.OK);
-            if (playerSaveClick != null) {playerSaveClick(this, EventArgs.Empty);}
-        }
 
-        private void saveTransactions_Click(object sender, EventArgs e)
-        {
-            SaveTransactionChanges();
-            MessageBox.Show(Resources.successfulSaving, Resources.saveChanges, MessageBoxButtons.OK);
-            if (transactionSaveClick != null) { transactionSaveClick(this, EventArgs.Empty); }
 
-        }
+        #endregion
 
-        private void transactionsTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            selectedTransaction.Id = (int)transactionsTable[0, transactionsTable.CurrentCellAddress.Y].Value;
-            dateEdit.Text = transactionsTable[1, transactionsTable.CurrentCellAddress.Y].Value.ToString();
-            sumEdit.Text = transactionsTable[2, transactionsTable.CurrentCellAddress.Y].Value.ToString();
-        }
+
+
+
+
+
+
     }
 }
 

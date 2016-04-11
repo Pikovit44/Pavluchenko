@@ -1,4 +1,5 @@
-﻿using FightClubReports.Entitys;
+﻿using FightClubReports.Data.Entitys;
+using FightClubReports.Entitys;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,12 +13,14 @@ namespace FightClubReports.Data
         
     {
         public Context():base("name=DBContextModel")
-        { }
+        {
+            Database.SetInitializer<Context>(new MigrateDatabaseToLatestVersion<Context, Migrations.Configuration>());
+        }
 
         public DbSet<Player> Players { get; set; }
         public DbSet<Combat> Combats { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
-        public DbSet<RoundLog> RoundLogs { get; set; } 
+        public DbSet<Statistics> Statistics { get; set; } 
         
     }
 }

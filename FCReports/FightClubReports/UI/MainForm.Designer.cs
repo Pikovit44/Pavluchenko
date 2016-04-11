@@ -136,7 +136,7 @@ namespace FightClubReports
             this.save.TabIndex = 32;
             this.save.Text = "Сохранить изменения";
             this.save.UseVisualStyleBackColor = true;
-            this.save.Click += new System.EventHandler(this.save_Click);
+            this.save.Click += new System.EventHandler(this.savePlayers_Click);
             // 
             // emailEditTb
             // 
@@ -363,7 +363,7 @@ namespace FightClubReports
             this.transactionsTable.Name = "transactionsTable";
             this.transactionsTable.Size = new System.Drawing.Size(743, 334);
             this.transactionsTable.TabIndex = 26;
-            this.transactionsTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.transactionsTable_CellContentClick);
+            this.transactionsTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.transactionsTable_CellClick);
             // 
             // transactionsOk
             // 

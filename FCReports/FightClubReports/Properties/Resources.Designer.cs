@@ -61,20 +61,38 @@ namespace FightClubReports.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to По дате регистрации.
+        ///   Looks up a localized string similar to По дате.
         /// </summary>
-        internal static string ByDate {
+        internal static string byDate {
             get {
-                return ResourceManager.GetString("ByDate", resourceCulture);
+                return ResourceManager.GetString("byDate", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to По логину игрока.
+        ///   Looks up a localized string similar to По логину.
         /// </summary>
-        internal static string ByLogin {
+        internal static string byLogin {
             get {
-                return ResourceManager.GetString("ByLogin", resourceCulture);
+                return ResourceManager.GetString("byLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to По сумме.
+        /// </summary>
+        internal static string bySum {
+            get {
+                return ResourceManager.GetString("bySum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to По типу.
+        /// </summary>
+        internal static string byType {
+            get {
+                return ResourceManager.GetString("byType", resourceCulture);
             }
         }
         
@@ -124,6 +142,24 @@ namespace FightClubReports.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Дата.
+        /// </summary>
+        internal static string date {
+            get {
+                return ResourceManager.GetString("date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string email {
+            get {
+                return ResourceManager.GetString("email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Введите логин ниже.
         /// </summary>
         internal static string enterLogin {
@@ -138,6 +174,15 @@ namespace FightClubReports.Properties {
         internal static string enterLoginInField {
             get {
                 return ResourceManager.GetString("enterLoginInField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Логин.
+        /// </summary>
+        internal static string login {
+            get {
+                return ResourceManager.GetString("login", resourceCulture);
             }
         }
         
@@ -178,11 +223,29 @@ namespace FightClubReports.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Пароль.
+        /// </summary>
+        internal static string password {
+            get {
+                return ResourceManager.GetString("password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to По алфавиту.
         /// </summary>
         internal static string playersByAlphabet {
             get {
                 return ResourceManager.GetString("playersByAlphabet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to По регистрации.
+        /// </summary>
+        internal static string playersByDate {
+            get {
+                return ResourceManager.GetString("playersByDate", resourceCulture);
             }
         }
         
@@ -205,7 +268,7 @@ namespace FightClubReports.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to По валидным Email.
+        ///   Looks up a localized string similar to Email валидны.
         /// </summary>
         internal static string playersByValidEmail {
             get {
@@ -228,6 +291,15 @@ namespace FightClubReports.Properties {
         internal static string successfulSaving {
             get {
                 return ResourceManager.GetString("successfulSaving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сумма.
+        /// </summary>
+        internal static string sum {
+            get {
+                return ResourceManager.GetString("sum", resourceCulture);
             }
         }
         

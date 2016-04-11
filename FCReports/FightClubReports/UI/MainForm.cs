@@ -159,6 +159,7 @@ namespace FightClubReports
 
         private void playersTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            saveLb.Visible = false;
             selectedPlayer.Id = (int)playersTable[0, playersTable.CurrentCellAddress.Y].Value;
             loginEditTb.Text = playersTable[1, playersTable.CurrentCellAddress.Y].Value.ToString();
             passwordEditTb.Text = playersTable[2, playersTable.CurrentCellAddress.Y].Value.ToString();
@@ -178,8 +179,23 @@ namespace FightClubReports
         private void savePlayers_Click(object sender, EventArgs e)
         {
             SavePlayerChanges();
-            MessageBox.Show(Resources.successfulSaving, Resources.saveChanges, MessageBoxButtons.OK);
+            saveLb.Visible = true;
             if (playerSaveClick != null) { playerSaveClick(this, EventArgs.Empty); }
+        }
+
+        private void loginEditTb_TextChanged(object sender, EventArgs e)
+        {
+            saveLb.Visible = false;
+        }
+
+        private void passwordEditTb_TextChanged(object sender, EventArgs e)
+        {
+            saveLb.Visible = false;
+        }
+
+        private void emailEditTb_TextChanged(object sender, EventArgs e)
+        {
+            saveLb.Visible = false;
         }
 
         #endregion
@@ -326,10 +342,12 @@ namespace FightClubReports
 
 
 
+
+
+
         #endregion
 
-        
-
+      
     }
 }
 

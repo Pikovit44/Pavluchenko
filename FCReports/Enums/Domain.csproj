@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entitys\BaseEntity.cs" />
     <Compile Include="Entitys\Combat\ActionLog.cs" />
     <Compile Include="Entitys\Combat\BlockLog.cs" />
     <Compile Include="Entitys\Combat\Combat.cs" />

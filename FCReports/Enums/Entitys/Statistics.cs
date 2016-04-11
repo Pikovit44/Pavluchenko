@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Enums.Entitys;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FightClubReports.Data.Entitys
 {
-    public class Statistics
+    public class Statistics: BaseEntity 
     {
         public int Id { get; set; }
         public int Combats { get; set; }

@@ -39,6 +39,7 @@ namespace FightClubReports.Repository
                 if (playerRepository == null)
                 {
                     playerRepository = new PlayerRepository(db);
+
                 }
                 return playerRepository;
             }

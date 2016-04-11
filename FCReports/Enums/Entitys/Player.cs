@@ -1,4 +1,5 @@
-﻿using FightClubReports.Data.Entitys;
+﻿using Enums.Entitys;
+using FightClubReports.Data.Entitys;
 using FightClubReports.Entitys;
 using System;
 using System.Collections.Generic;
@@ -7,8 +8,11 @@ using System.Text;
 
 namespace FightClubReports
 {
-    public class Player
+    public class Player : BaseEntity 
     {
+        public Player():base()
+        { }
+
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }

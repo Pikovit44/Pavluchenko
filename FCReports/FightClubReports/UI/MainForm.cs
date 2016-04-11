@@ -328,11 +328,7 @@ namespace FightClubReports
 
         #endregion
 
-
-
-
-
-
+        
 
     }
 }

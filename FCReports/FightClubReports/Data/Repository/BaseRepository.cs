@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using FightClubReports.Repository.Interfaces;
 using FightClubReports.Data;
 using System.Data.Entity;
+using Enums.Entitys;
 
 namespace FightClubReports.Repository
 {
-    public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
         protected Context db;
 

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Enums.Entitys;
+using System;
 using System.Collections.Generic;
 
 namespace FightClubReports
 {
-    public class Combat
+    public class Combat : BaseEntity
     {
         public int Id { get; set; }
         public DateTime TimeOfStart { get; set; }

@@ -1,4 +1,6 @@
 ﻿using FightClubReports.Data;
+using FightClubReports.Data.Repository;
+using FightClubReports.Data.Repository.Interfaces;
 using FightClubReports.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,7 @@ namespace FightClubReports.Repository
         private IPlayerRepository playerRepository;
         private ICombatRepository combatRepository;
         private ITransactionRepository transactionRepository;
+        private IStatisticsRepository statisticsRepository;
 
         public ServiceRepository()
         {
@@ -39,7 +42,7 @@ namespace FightClubReports.Repository
                 if (playerRepository == null)
                 {
                     playerRepository = new PlayerRepository(db);
-
+                    statisticsRepository = new StaticticsRepository(db);
                 }
                 return playerRepository;
             }

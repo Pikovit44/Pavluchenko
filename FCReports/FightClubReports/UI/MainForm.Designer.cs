@@ -82,7 +82,7 @@ namespace FightClubReports
             this.playersOk.Name = "playersOk";
             this.playersOk.Size = new System.Drawing.Size(33, 21);
             this.playersOk.TabIndex = 16;
-            this.playersOk.Text = Resources.ok;
+            this.playersOk.Text = "ОК";
             this.playersOk.UseVisualStyleBackColor = true;
             this.playersOk.Visible = false;
             this.playersOk.Click += new System.EventHandler(this.playersOk_Click);
@@ -124,7 +124,7 @@ namespace FightClubReports
             this.playersPage.Padding = new System.Windows.Forms.Padding(3);
             this.playersPage.Size = new System.Drawing.Size(743, 405);
             this.playersPage.TabIndex = 0;
-            this.playersPage.Text = Resources.users;
+            this.playersPage.Text = "Пользователи";
             this.playersPage.UseVisualStyleBackColor = true;
             // 
             // save
@@ -134,7 +134,7 @@ namespace FightClubReports
             this.save.Name = "save";
             this.save.Size = new System.Drawing.Size(135, 21);
             this.save.TabIndex = 32;
-            this.save.Text = Resources.saveChanges;
+            this.save.Text = "Сохранить изменения ";
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.savePlayers_Click);
             // 
@@ -154,7 +154,7 @@ namespace FightClubReports
             this.emailEditLb.Name = "emailEditLb";
             this.emailEditLb.Size = new System.Drawing.Size(32, 13);
             this.emailEditLb.TabIndex = 30;
-            this.emailEditLb.Text = Resources.email;
+            this.emailEditLb.Text = "Email";
             // 
             // passwordEditTb
             // 
@@ -172,7 +172,7 @@ namespace FightClubReports
             this.passwordEditLb.Name = "passwordEditLb";
             this.passwordEditLb.Size = new System.Drawing.Size(45, 13);
             this.passwordEditLb.TabIndex = 28;
-            this.passwordEditLb.Text = Resources.password;
+            this.passwordEditLb.Text = "Пароль";
             // 
             // loginEditTb
             // 
@@ -190,7 +190,7 @@ namespace FightClubReports
             this.loginEditLb.Name = "loginEditLb";
             this.loginEditLb.Size = new System.Drawing.Size(38, 13);
             this.loginEditLb.TabIndex = 22;
-            this.loginEditLb.Text = Resources.login;
+            this.loginEditLb.Text = "Логин";
             // 
             // playersByLogin
             // 
@@ -199,7 +199,7 @@ namespace FightClubReports
             this.playersByLogin.Name = "playersByLogin";
             this.playersByLogin.Size = new System.Drawing.Size(76, 17);
             this.playersByLogin.TabIndex = 26;
-            this.playersByLogin.Text = Resources.byLogin;
+            this.playersByLogin.Text = global::FightClubReports.Properties.Resources.byLogin;
             this.playersByLogin.UseVisualStyleBackColor = true;
             this.playersByLogin.CheckedChanged += new System.EventHandler(this.playersByLogin_CheckedChanged);
             // 
@@ -217,9 +217,9 @@ namespace FightClubReports
             this.playersByNumberOfCombats.AutoSize = true;
             this.playersByNumberOfCombats.Location = new System.Drawing.Point(194, 10);
             this.playersByNumberOfCombats.Name = "playersByNumberOfCombats";
-            this.playersByNumberOfCombats.Size = new System.Drawing.Size(119, 17);
+            this.playersByNumberOfCombats.Size = new System.Drawing.Size(126, 17);
             this.playersByNumberOfCombats.TabIndex = 23;
-            this.playersByNumberOfCombats.Text = Resources.playersByNumberOfCombats;
+            this.playersByNumberOfCombats.Text = "По количеству боев";
             this.playersByNumberOfCombats.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.playersByNumberOfCombats.UseVisualStyleBackColor = true;
             this.playersByNumberOfCombats.CheckedChanged += new System.EventHandler(this.playersByNumberOfCombats_CheckedChanged);
@@ -231,7 +231,7 @@ namespace FightClubReports
             this.playersByAlphabet.Name = "playersByAlphabet";
             this.playersByAlphabet.Size = new System.Drawing.Size(90, 17);
             this.playersByAlphabet.TabIndex = 22;
-            this.playersByAlphabet.Text = Resources.playersByAlphabet;
+            this.playersByAlphabet.Text = "По алфавиту";
             this.playersByAlphabet.UseVisualStyleBackColor = true;
             this.playersByAlphabet.CheckedChanged += new System.EventHandler(this.playersByAlphabet_CheckedChanged);
             // 
@@ -242,7 +242,7 @@ namespace FightClubReports
             this.playersByDate.Name = "playersByDate";
             this.playersByDate.Size = new System.Drawing.Size(106, 17);
             this.playersByDate.TabIndex = 21;
-            this.playersByDate.Text = Resources.playersByDate;
+            this.playersByDate.Text = global::FightClubReports.Properties.Resources.playersByDate;
             this.playersByDate.UseVisualStyleBackColor = true;
             this.playersByDate.CheckedChanged += new System.EventHandler(this.playersByDate_CheckedChanged);
             // 
@@ -253,7 +253,7 @@ namespace FightClubReports
             this.playersByValidEmail.Name = "playersByValidEmail";
             this.playersByValidEmail.Size = new System.Drawing.Size(97, 17);
             this.playersByValidEmail.TabIndex = 20;
-            this.playersByValidEmail.Text = Resources.playersByValidEmail;
+            this.playersByValidEmail.Text = "Email валидны";
             this.playersByValidEmail.UseVisualStyleBackColor = true;
             this.playersByValidEmail.CheckedChanged += new System.EventHandler(this.playersByValidEmail_CheckedChanged);
             // 
@@ -264,7 +264,7 @@ namespace FightClubReports
             this.topPlayers.Name = "topPlayers";
             this.topPlayers.Size = new System.Drawing.Size(82, 17);
             this.topPlayers.TabIndex = 19;
-            this.topPlayers.Text = Resources.topPlayers;
+            this.topPlayers.Text = "Топ лучших";
             this.topPlayers.UseVisualStyleBackColor = true;
             this.topPlayers.CheckedChanged += new System.EventHandler(this.topPlayers_CheckedChanged);
             // 
@@ -302,7 +302,7 @@ namespace FightClubReports
             this.transactionsPage.Padding = new System.Windows.Forms.Padding(3);
             this.transactionsPage.Size = new System.Drawing.Size(743, 405);
             this.transactionsPage.TabIndex = 1;
-            this.transactionsPage.Text = Resources.transactions;
+            this.transactionsPage.Text = "Транзакции";
             this.transactionsPage.UseVisualStyleBackColor = true;
             // 
             // saveTransactions
@@ -312,7 +312,7 @@ namespace FightClubReports
             this.saveTransactions.Name = "saveTransactions";
             this.saveTransactions.Size = new System.Drawing.Size(135, 21);
             this.saveTransactions.TabIndex = 39;
-            this.saveTransactions.Text = Resources.saveChanges;
+            this.saveTransactions.Text = "Сохранить изменения ";
             this.saveTransactions.UseVisualStyleBackColor = true;
             this.saveTransactions.Click += new System.EventHandler(this.saveTransactions_Click);
             // 
@@ -332,7 +332,7 @@ namespace FightClubReports
             this.dateEditLb.Name = "dateEditLb";
             this.dateEditLb.Size = new System.Drawing.Size(33, 13);
             this.dateEditLb.TabIndex = 35;
-            this.dateEditLb.Text = Resources.date;
+            this.dateEditLb.Text = "Дата";
             // 
             // sumEdit
             // 
@@ -350,10 +350,12 @@ namespace FightClubReports
             this.sumEditLb.Name = "sumEditLb";
             this.sumEditLb.Size = new System.Drawing.Size(41, 13);
             this.sumEditLb.TabIndex = 33;
-            this.sumEditLb.Text = Resources.sum;
+            this.sumEditLb.Text = "Сумма";
             // 
             // transactionsTable
             // 
+            this.transactionsTable.AllowUserToAddRows = false;
+            this.transactionsTable.AllowUserToDeleteRows = false;
             this.transactionsTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -361,6 +363,7 @@ namespace FightClubReports
             this.transactionsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.transactionsTable.Location = new System.Drawing.Point(0, 34);
             this.transactionsTable.Name = "transactionsTable";
+            this.transactionsTable.ReadOnly = true;
             this.transactionsTable.Size = new System.Drawing.Size(743, 334);
             this.transactionsTable.TabIndex = 26;
             this.transactionsTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.transactionsTable_CellClick);
@@ -372,7 +375,7 @@ namespace FightClubReports
             this.transactionsOk.Name = "transactionsOk";
             this.transactionsOk.Size = new System.Drawing.Size(38, 23);
             this.transactionsOk.TabIndex = 25;
-            this.transactionsOk.Text = Resources.ok;
+            this.transactionsOk.Text = "ОК";
             this.transactionsOk.UseVisualStyleBackColor = true;
             this.transactionsOk.Visible = false;
             this.transactionsOk.Click += new System.EventHandler(this.transactionsOk_Click);
@@ -384,7 +387,7 @@ namespace FightClubReports
             this.transactionsByLogin.Name = "transactionsByLogin";
             this.transactionsByLogin.Size = new System.Drawing.Size(76, 17);
             this.transactionsByLogin.TabIndex = 24;
-            this.transactionsByLogin.Text = Resources.byLogin;
+            this.transactionsByLogin.Text = global::FightClubReports.Properties.Resources.byLogin;
             this.transactionsByLogin.UseVisualStyleBackColor = true;
             this.transactionsByLogin.CheckedChanged += new System.EventHandler(this.transactionsByLogin_CheckedChanged);
             // 
@@ -395,7 +398,7 @@ namespace FightClubReports
             this.transactionsByDate.Name = "transactionsByDate";
             this.transactionsByDate.Size = new System.Drawing.Size(65, 17);
             this.transactionsByDate.TabIndex = 23;
-            this.transactionsByDate.Text = Resources.byDate;
+            this.transactionsByDate.Text = global::FightClubReports.Properties.Resources.byDate;
             this.transactionsByDate.UseVisualStyleBackColor = true;
             this.transactionsByDate.CheckedChanged += new System.EventHandler(this.transactionsByDate_CheckedChanged);
             // 
@@ -406,7 +409,7 @@ namespace FightClubReports
             this.transactionsBySum.Name = "transactionsBySum";
             this.transactionsBySum.Size = new System.Drawing.Size(75, 17);
             this.transactionsBySum.TabIndex = 22;
-            this.transactionsBySum.Text = Resources.bySum;
+            this.transactionsBySum.Text = global::FightClubReports.Properties.Resources.bySum;
             this.transactionsBySum.UseVisualStyleBackColor = true;
             this.transactionsBySum.CheckedChanged += new System.EventHandler(this.transactionsBySum_CheckedChanged);
             // 
@@ -431,7 +434,7 @@ namespace FightClubReports
             this.combatsPage.Name = "combatsPage";
             this.combatsPage.Size = new System.Drawing.Size(743, 405);
             this.combatsPage.TabIndex = 2;
-            this.combatsPage.Text = Resources.combats;
+            this.combatsPage.Text = "Бои";
             this.combatsPage.UseVisualStyleBackColor = true;
             // 
             // loginForCombats
@@ -445,11 +448,14 @@ namespace FightClubReports
             // 
             // combatsTable
             // 
+            this.combatsTable.AllowUserToAddRows = false;
+            this.combatsTable.AllowUserToDeleteRows = false;
             this.combatsTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.combatsTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.combatsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.combatsTable.Location = new System.Drawing.Point(0, 34);
             this.combatsTable.Name = "combatsTable";
+            this.combatsTable.ReadOnly = true;
             this.combatsTable.Size = new System.Drawing.Size(743, 331);
             this.combatsTable.TabIndex = 33;
             // 
@@ -459,7 +465,7 @@ namespace FightClubReports
             this.combatsOk.Name = "combatsOk";
             this.combatsOk.Size = new System.Drawing.Size(36, 23);
             this.combatsOk.TabIndex = 32;
-            this.combatsOk.Text = Resources.ok;
+            this.combatsOk.Text = "ОК";
             this.combatsOk.UseVisualStyleBackColor = true;
             this.combatsOk.Visible = false;
             this.combatsOk.Click += new System.EventHandler(this.combatsOk_Click);
@@ -471,7 +477,7 @@ namespace FightClubReports
             this.combatsByLogin.Name = "combatsByLogin";
             this.combatsByLogin.Size = new System.Drawing.Size(76, 17);
             this.combatsByLogin.TabIndex = 31;
-            this.combatsByLogin.Text = Resources.byLogin;
+            this.combatsByLogin.Text = global::FightClubReports.Properties.Resources.byLogin;
             this.combatsByLogin.UseVisualStyleBackColor = true;
             this.combatsByLogin.CheckedChanged += new System.EventHandler(this.combatsByLogin_CheckedChanged);
             // 
@@ -482,7 +488,7 @@ namespace FightClubReports
             this.combatsByDate.Name = "combatsByDate";
             this.combatsByDate.Size = new System.Drawing.Size(65, 17);
             this.combatsByDate.TabIndex = 30;
-            this.combatsByDate.Text = Resources.byDate;
+            this.combatsByDate.Text = global::FightClubReports.Properties.Resources.byDate;
             this.combatsByDate.UseVisualStyleBackColor = true;
             this.combatsByDate.CheckedChanged += new System.EventHandler(this.combatsByDate_CheckedChanged);
             // 
@@ -493,7 +499,7 @@ namespace FightClubReports
             this.combatsByType.Name = "combatsByType";
             this.combatsByType.Size = new System.Drawing.Size(64, 17);
             this.combatsByType.TabIndex = 29;
-            this.combatsByType.Text = Resources.byType;
+            this.combatsByType.Text = global::FightClubReports.Properties.Resources.byType;
             this.combatsByType.UseVisualStyleBackColor = true;
             this.combatsByType.CheckedChanged += new System.EventHandler(this.combatsByType_CheckedChanged);
             // 

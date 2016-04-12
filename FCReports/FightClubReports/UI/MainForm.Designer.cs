@@ -131,6 +131,7 @@ namespace FightClubReports
             // 
             // saveLb
             // 
+            this.saveLb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.saveLb.AutoSize = true;
             this.saveLb.ForeColor = System.Drawing.Color.DarkGreen;
             this.saveLb.Location = new System.Drawing.Point(674, 377);
@@ -469,7 +470,9 @@ namespace FightClubReports
             // 
             this.combatsTable.AllowUserToAddRows = false;
             this.combatsTable.AllowUserToDeleteRows = false;
-            this.combatsTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.combatsTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.combatsTable.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.combatsTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.combatsTable.Location = new System.Drawing.Point(0, 34);

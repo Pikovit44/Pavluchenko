@@ -98,6 +98,7 @@ namespace FightClubReports
             infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PTop;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
+            ResetTextBoxData();
         }
 
         private void playersByValidEmail_CheckedChanged(object sender, EventArgs e)
@@ -105,6 +106,7 @@ namespace FightClubReports
             infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PValidEmail;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
+            ResetTextBoxData();
         }
 
         private void playersByNumberOfCombats_CheckedChanged(object sender, EventArgs e)
@@ -112,6 +114,7 @@ namespace FightClubReports
             infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PNumOfComb;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
+            ResetTextBoxData();
         }
 
         private void playersByAlphabet_CheckedChanged(object sender, EventArgs e)
@@ -119,6 +122,7 @@ namespace FightClubReports
             infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PAlphabet;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
+            ResetTextBoxData();
         }
 
         private void playersByDate_CheckedChanged(object sender, EventArgs e)
@@ -126,10 +130,12 @@ namespace FightClubReports
             infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PDate;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
+            ResetTextBoxData();
         }
 
         private void playersByLogin_CheckedChanged(object sender, EventArgs e)
         {
+            ResetTextBoxData();
             loginForPlayers.Text = string.Empty;
             if (playersByLogin.Checked == true)
             {
@@ -334,6 +340,7 @@ namespace FightClubReports
             selectedPlayer.Password = passwordEditTb.Text;
             selectedPlayer.EMail = emailEditTb.Text;
         }
+
         private void SaveTransactionChanges()
         {
 
@@ -353,6 +360,14 @@ namespace FightClubReports
             outputInfo = OutputInfoType.CType;
             if (combatsOkClick != null) { combatsOkClick(this, EventArgs.Empty); }
         }
+
+        private void ResetTextBoxData()
+        {
+            loginEditTb.Text = string.Empty;
+            passwordEditTb.Text = string.Empty;
+            emailEditTb.Text = string.Empty;
+        }
+
         #endregion
         
     }

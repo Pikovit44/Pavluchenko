@@ -40,7 +40,8 @@ namespace FightClubReports
 
             selectedPlayer = new Player();
             selectedTransaction = new Transaction();
-    }
+            Setup();
+        }
 
         #region Properties
 
@@ -333,21 +334,27 @@ namespace FightClubReports
             selectedPlayer.Password = passwordEditTb.Text;
             selectedPlayer.EMail = emailEditTb.Text;
         }
-
         private void SaveTransactionChanges()
         {
-            //selectedTransaction.Date = (DateTime)dateEdit.Text;
-            //selectedTransaction.Sum = (decimal)sumEdit.Text;
+
         }
 
+        private void Setup()
+        {
+            infoType = ViewInfoType.Player;
+            outputInfo = OutputInfoType.PTop;
+            if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
 
+            infoType = ViewInfoType.Transaction;
+            outputInfo = OutputInfoType.TSum;
+            if (transactionsOkClick != null) { transactionsOkClick(this, EventArgs.Empty); }
 
-
-
-
+            infoType = ViewInfoType.Combat;
+            outputInfo = OutputInfoType.CType;
+            if (combatsOkClick != null) { combatsOkClick(this, EventArgs.Empty); }
+        }
         #endregion
-
-      
+        
     }
 }
 

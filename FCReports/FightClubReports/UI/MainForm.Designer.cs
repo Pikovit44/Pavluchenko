@@ -276,10 +276,12 @@ namespace FightClubReports
             // topPlayers
             // 
             this.topPlayers.AutoSize = true;
+            this.topPlayers.Checked = true;
             this.topPlayers.Location = new System.Drawing.Point(6, 10);
             this.topPlayers.Name = "topPlayers";
             this.topPlayers.Size = new System.Drawing.Size(82, 17);
             this.topPlayers.TabIndex = 19;
+            this.topPlayers.TabStop = true;
             this.topPlayers.Text = "Топ лучших";
             this.topPlayers.UseVisualStyleBackColor = true;
             this.topPlayers.CheckedChanged += new System.EventHandler(this.topPlayers_CheckedChanged);
@@ -420,10 +422,12 @@ namespace FightClubReports
             // transactionsBySum
             // 
             this.transactionsBySum.AutoSize = true;
+            this.transactionsBySum.Checked = true;
             this.transactionsBySum.Location = new System.Drawing.Point(6, 10);
             this.transactionsBySum.Name = "transactionsBySum";
             this.transactionsBySum.Size = new System.Drawing.Size(75, 17);
             this.transactionsBySum.TabIndex = 22;
+            this.transactionsBySum.TabStop = true;
             this.transactionsBySum.Text = global::FightClubReports.Properties.Resources.bySum;
             this.transactionsBySum.UseVisualStyleBackColor = true;
             this.transactionsBySum.CheckedChanged += new System.EventHandler(this.transactionsBySum_CheckedChanged);
@@ -510,10 +514,12 @@ namespace FightClubReports
             // combatsByType
             // 
             this.combatsByType.AutoSize = true;
+            this.combatsByType.Checked = true;
             this.combatsByType.Location = new System.Drawing.Point(6, 10);
             this.combatsByType.Name = "combatsByType";
             this.combatsByType.Size = new System.Drawing.Size(64, 17);
             this.combatsByType.TabIndex = 29;
+            this.combatsByType.TabStop = true;
             this.combatsByType.Text = global::FightClubReports.Properties.Resources.byType;
             this.combatsByType.UseVisualStyleBackColor = true;
             this.combatsByType.CheckedChanged += new System.EventHandler(this.combatsByType_CheckedChanged);

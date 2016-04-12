@@ -56,14 +56,6 @@ namespace FightClubReports
             get { return selectedTransaction; }
         }
         
-
-        public string RequiredLogin
-        {
-            get { return requiredLogin; }
-        }
-
-
-
         public OutputInfoType OutputInfo
         {
             get { return outputInfo; }
@@ -98,7 +90,7 @@ namespace FightClubReports
             infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PTop;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
-            ResetTextBoxData();
+            ResetTextBoxDataForPlayers();
         }
 
         private void playersByValidEmail_CheckedChanged(object sender, EventArgs e)
@@ -106,7 +98,7 @@ namespace FightClubReports
             infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PValidEmail;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
-            ResetTextBoxData();
+            ResetTextBoxDataForPlayers();
         }
 
         private void playersByNumberOfCombats_CheckedChanged(object sender, EventArgs e)
@@ -114,7 +106,7 @@ namespace FightClubReports
             infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PNumOfComb;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
-            ResetTextBoxData();
+            ResetTextBoxDataForPlayers();
         }
 
         private void playersByAlphabet_CheckedChanged(object sender, EventArgs e)
@@ -122,7 +114,7 @@ namespace FightClubReports
             infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PAlphabet;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
-            ResetTextBoxData();
+            ResetTextBoxDataForPlayers();
         }
 
         private void playersByDate_CheckedChanged(object sender, EventArgs e)
@@ -130,12 +122,12 @@ namespace FightClubReports
             infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PDate;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
-            ResetTextBoxData();
+            ResetTextBoxDataForPlayers();
         }
 
         private void playersByLogin_CheckedChanged(object sender, EventArgs e)
         {
-            ResetTextBoxData();
+            ResetTextBoxDataForPlayers();
             loginForPlayers.Text = string.Empty;
             if (playersByLogin.Checked == true)
             {
@@ -166,7 +158,7 @@ namespace FightClubReports
 
         private void playersTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            saveLb.Visible = false;
+            savePlayerLb.Visible = false;
             selectedPlayer.Id = (int)playersTable[0, playersTable.CurrentCellAddress.Y].Value;
             loginEditTb.Text = playersTable[1, playersTable.CurrentCellAddress.Y].Value.ToString();
             passwordEditTb.Text = playersTable[2, playersTable.CurrentCellAddress.Y].Value.ToString();
@@ -186,23 +178,23 @@ namespace FightClubReports
         private void savePlayers_Click(object sender, EventArgs e)
         {
             SavePlayerChanges();
-            saveLb.Visible = true;
+            savePlayerLb.Visible = true;
             if (playerSaveClick != null) { playerSaveClick(this, EventArgs.Empty); }
         }
 
         private void loginEditTb_TextChanged(object sender, EventArgs e)
         {
-            saveLb.Visible = false;
+            savePlayerLb.Visible = false;
         }
 
         private void passwordEditTb_TextChanged(object sender, EventArgs e)
         {
-            saveLb.Visible = false;
+            savePlayerLb.Visible = false;
         }
 
         private void emailEditTb_TextChanged(object sender, EventArgs e)
         {
-            saveLb.Visible = false;
+            savePlayerLb.Visible = false;
         }
 
         #endregion
@@ -211,6 +203,8 @@ namespace FightClubReports
 
         private void transactionsBySum_CheckedChanged(object sender, EventArgs e)
         {
+            saveTransactionLb.Visible = false;
+            ResetTextBoxDataForTransactions();
             infoType = ViewInfoType.Transaction;
             outputInfo = OutputInfoType.TSum;
             if (transactionsOkClick != null) { transactionsOkClick(this, EventArgs.Empty); }
@@ -218,6 +212,8 @@ namespace FightClubReports
 
         private void transactionsByDate_CheckedChanged(object sender, EventArgs e)
         {
+            saveTransactionLb.Visible = false;
+            ResetTextBoxDataForTransactions();
             infoType = ViewInfoType.Transaction;
             outputInfo = OutputInfoType.TDate;
             if (transactionsOkClick != null) { transactionsOkClick(this, EventArgs.Empty); }
@@ -225,7 +221,10 @@ namespace FightClubReports
 
         private void transactionsByLogin_CheckedChanged(object sender, EventArgs e)
         {
+            saveTransactionLb.Visible = false;
+            ResetTextBoxDataForTransactions();
             loginForTransactions.Text = string.Empty;
+
             if (transactionsByLogin.Checked == true)
             {
                 loginForTransactions.Visible = true; //method (type, bool)
@@ -255,6 +254,7 @@ namespace FightClubReports
 
         private void transactionsTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            saveTransactionLb.Visible = false;
             selectedTransaction.Id = (int)transactionsTable[0, transactionsTable.CurrentCellAddress.Y].Value;
             dateEdit.Text = transactionsTable[1, transactionsTable.CurrentCellAddress.Y].Value.ToString();
             sumEdit.Text = transactionsTable[3, transactionsTable.CurrentCellAddress.Y].Value.ToString();
@@ -263,9 +263,18 @@ namespace FightClubReports
         private void saveTransactions_Click(object sender, EventArgs e)
         {
             SaveTransactionChanges();
-            MessageBox.Show(Resources.successfulSaving, Resources.saveChanges, MessageBoxButtons.OK);
             if (transactionSaveClick != null) { transactionSaveClick(this, EventArgs.Empty); }
+            saveTransactionLb.Visible = true;
+        }
 
+        private void sumEdit_TextChanged(object sender, EventArgs e)
+        {
+            saveTransactionLb.Visible = false;
+        }
+
+        private void dateEdit_TextChanged(object sender, EventArgs e)
+        {
+            saveTransactionLb.Visible = false;
         }
 
 
@@ -343,7 +352,12 @@ namespace FightClubReports
 
         private void SaveTransactionChanges()
         {
-
+            DateTime date;
+            DateTime.TryParse(dateEdit.Text, out date);
+            selectedTransaction.Date = date;
+            decimal sum;
+            decimal.TryParse(sumEdit.Text, out sum);
+            selectedTransaction.Sum = sum;
         }
 
         private void Setup()
@@ -361,15 +375,22 @@ namespace FightClubReports
             if (combatsOkClick != null) { combatsOkClick(this, EventArgs.Empty); }
         }
 
-        private void ResetTextBoxData()
+        private void ResetTextBoxDataForPlayers()
         {
             loginEditTb.Text = string.Empty;
             passwordEditTb.Text = string.Empty;
             emailEditTb.Text = string.Empty;
         }
 
+        private void ResetTextBoxDataForTransactions()
+        {
+            sumEdit.Text = string.Empty;
+            dateEdit.Text = string.Empty;
+        }
+
         #endregion
-        
+
+
     }
 }
 

@@ -19,6 +19,7 @@ namespace FightClubReports
         private List<Player> players;
         private Player player;
         private List<Transaction> transactions;
+        private Transaction transaction;
         private List<Combat> combats;
 
         public MainPresenter(IView view)
@@ -29,6 +30,7 @@ namespace FightClubReports
             view.transactionsOkClick += onTransactionsOkClick;
             view.combatsOkClick += onCombatsOkClick;
             view.playerSaveClick += onPlayerSaveClick;
+            view.transactionSaveClick += onTransactionsSaveClick;
         }
 
         #region EventHandlers
@@ -57,6 +59,14 @@ namespace FightClubReports
             player.Login = view.SelectedPlayer.Login;
             player.Password = view.SelectedPlayer.Password;
             player.EMail = view.SelectedPlayer.EMail; // MessageBox
+            service.Save();
+        }
+
+        private void onTransactionsSaveClick(object sender, EventArgs e)
+        {
+            transaction = service.Transactions.GetTransactionsById(view.SelectedTransaction.Id);
+            transaction.Date = view.SelectedTransaction.Date;
+            transaction.Sum = view.SelectedTransaction.Sum;
             service.Save();
         }
 

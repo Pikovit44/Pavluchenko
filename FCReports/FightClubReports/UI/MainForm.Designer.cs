@@ -33,7 +33,7 @@ namespace FightClubReports
             this.playersOk = new System.Windows.Forms.Button();
             this.infoControl = new System.Windows.Forms.TabControl();
             this.playersPage = new System.Windows.Forms.TabPage();
-            this.saveLb = new System.Windows.Forms.Label();
+            this.savePlayerLb = new System.Windows.Forms.Label();
             this.save = new System.Windows.Forms.Button();
             this.emailEditTb = new System.Windows.Forms.TextBox();
             this.emailEditLb = new System.Windows.Forms.Label();
@@ -68,6 +68,7 @@ namespace FightClubReports
             this.combatsByLogin = new System.Windows.Forms.RadioButton();
             this.combatsByDate = new System.Windows.Forms.RadioButton();
             this.combatsByType = new System.Windows.Forms.RadioButton();
+            this.saveTransactionLb = new System.Windows.Forms.Label();
             this.infoControl.SuspendLayout();
             this.playersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playersTable)).BeginInit();
@@ -104,7 +105,7 @@ namespace FightClubReports
             // 
             // playersPage
             // 
-            this.playersPage.Controls.Add(this.saveLb);
+            this.playersPage.Controls.Add(this.savePlayerLb);
             this.playersPage.Controls.Add(this.save);
             this.playersPage.Controls.Add(this.emailEditTb);
             this.playersPage.Controls.Add(this.emailEditLb);
@@ -129,17 +130,17 @@ namespace FightClubReports
             this.playersPage.Text = "Пользователи";
             this.playersPage.UseVisualStyleBackColor = true;
             // 
-            // saveLb
+            // savePlayerLb
             // 
-            this.saveLb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.saveLb.AutoSize = true;
-            this.saveLb.ForeColor = System.Drawing.Color.DarkGreen;
-            this.saveLb.Location = new System.Drawing.Point(674, 377);
-            this.saveLb.Name = "saveLb";
-            this.saveLb.Size = new System.Drawing.Size(61, 13);
-            this.saveLb.TabIndex = 33;
-            this.saveLb.Text = "Сохранено";
-            this.saveLb.Visible = false;
+            this.savePlayerLb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.savePlayerLb.AutoSize = true;
+            this.savePlayerLb.ForeColor = System.Drawing.Color.DarkGreen;
+            this.savePlayerLb.Location = new System.Drawing.Point(674, 377);
+            this.savePlayerLb.Name = "savePlayerLb";
+            this.savePlayerLb.Size = new System.Drawing.Size(61, 13);
+            this.savePlayerLb.TabIndex = 33;
+            this.savePlayerLb.Text = "Сохранено";
+            this.savePlayerLb.Visible = false;
             // 
             // save
             // 
@@ -289,7 +290,6 @@ namespace FightClubReports
             // 
             // playersTable
             // 
-            this.playersTable.AllowUserToAddRows = false;
             this.playersTable.AllowUserToDeleteRows = false;
             this.playersTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -305,6 +305,7 @@ namespace FightClubReports
             // 
             // transactionsPage
             // 
+            this.transactionsPage.Controls.Add(this.saveTransactionLb);
             this.transactionsPage.Controls.Add(this.saveTransactions);
             this.transactionsPage.Controls.Add(this.dateEdit);
             this.transactionsPage.Controls.Add(this.dateEditLb);
@@ -342,6 +343,7 @@ namespace FightClubReports
             this.dateEdit.Name = "dateEdit";
             this.dateEdit.Size = new System.Drawing.Size(118, 20);
             this.dateEdit.TabIndex = 36;
+            this.dateEdit.TextChanged += new System.EventHandler(this.dateEdit_TextChanged);
             // 
             // dateEditLb
             // 
@@ -360,6 +362,7 @@ namespace FightClubReports
             this.sumEdit.Name = "sumEdit";
             this.sumEdit.Size = new System.Drawing.Size(118, 20);
             this.sumEdit.TabIndex = 34;
+            this.sumEdit.TextChanged += new System.EventHandler(this.sumEdit_TextChanged);
             // 
             // sumEditLb
             // 
@@ -527,6 +530,18 @@ namespace FightClubReports
             this.combatsByType.UseVisualStyleBackColor = true;
             this.combatsByType.CheckedChanged += new System.EventHandler(this.combatsByType_CheckedChanged);
             // 
+            // saveTransactionLb
+            // 
+            this.saveTransactionLb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.saveTransactionLb.AutoSize = true;
+            this.saveTransactionLb.ForeColor = System.Drawing.Color.DarkGreen;
+            this.saveTransactionLb.Location = new System.Drawing.Point(508, 377);
+            this.saveTransactionLb.Name = "saveTransactionLb";
+            this.saveTransactionLb.Size = new System.Drawing.Size(61, 13);
+            this.saveTransactionLb.TabIndex = 40;
+            this.saveTransactionLb.Text = "Сохранено";
+            this.saveTransactionLb.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,7 +606,8 @@ namespace FightClubReports
         private System.Windows.Forms.Label dateEditLb;
         private System.Windows.Forms.TextBox sumEdit;
         private System.Windows.Forms.Label sumEditLb;
-        private System.Windows.Forms.Label saveLb;
+        private System.Windows.Forms.Label savePlayerLb;
+        private System.Windows.Forms.Label saveTransactionLb;
     }
 }
 

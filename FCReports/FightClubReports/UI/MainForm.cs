@@ -227,7 +227,7 @@ namespace FightClubReports
 
             if (transactionsByLogin.Checked == true)
             {
-                loginForTransactions.Visible = true; //method (type, bool)
+                loginForTransactions.Visible = true; //method (type, bool)?
                 transactionsOk.Visible = true;
                 loginForTransactions.Focus();
             }

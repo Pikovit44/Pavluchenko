@@ -55,18 +55,13 @@ namespace FightClubReports
 
         private void onPlayerSaveClick(object sender, EventArgs e)
         {
-            player = service.Players.GetPlayerById(view.SelectedPlayer.Id); //TODO: method for changes
-            player.Login = view.SelectedPlayer.Login;
-            player.Password = view.SelectedPlayer.Password;
-            player.EMail = view.SelectedPlayer.EMail; // MessageBox
+            ChangeSelectedPlayer();
             service.Save();
         }
 
         private void onTransactionsSaveClick(object sender, EventArgs e)
         {
-            transaction = service.Transactions.GetTransactionsById(view.SelectedTransaction.Id);
-            transaction.Date = view.SelectedTransaction.Date;
-            transaction.Sum = view.SelectedTransaction.Sum;
+            ChangeSelectedTransaction();
             service.Save();
         }
 
@@ -106,6 +101,14 @@ namespace FightClubReports
             }
         }
 
+        private void ChangeSelectedPlayer()
+        {
+            player = service.Players.GetPlayerById(view.SelectedPlayer.Id); 
+            player.Login = view.SelectedPlayer.Login;
+            player.Password = view.SelectedPlayer.Password;
+            player.EMail = view.SelectedPlayer.EMail;
+        }
+
         private void InfoForTransactionTable()
         {
             switch (view.OutputInfo)
@@ -123,6 +126,14 @@ namespace FightClubReports
                     break;
             }
         }
+
+        private void ChangeSelectedTransaction()
+        {
+            transaction = service.Transactions.GetTransactionsById(view.SelectedTransaction.Id);
+            transaction.Date = view.SelectedTransaction.Date;
+            transaction.Sum = view.SelectedTransaction.Sum;
+        }
+
         private void InfoForCombatTable()
         {
             switch (view.OutputInfo)

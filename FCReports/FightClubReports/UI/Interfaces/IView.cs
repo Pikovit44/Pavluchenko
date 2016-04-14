@@ -17,8 +17,10 @@ namespace FightClubReports.Interfaces
         bool EmailError { set; }
         bool LoginError {set; }
         bool PasswordError { set; }
+        bool DateError { set; }
 
-        bool Save{set ; }
+        bool SavePlayer{set ; }
+        bool SaveTransaction { set; }
         event EventHandler playersOkClick;
         event EventHandler transactionsOkClick;
         event EventHandler combatsOkClick;

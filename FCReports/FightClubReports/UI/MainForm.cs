@@ -80,6 +80,27 @@ namespace FightClubReports
         {
             set { combatsTable.DataSource = value; }
         }
+
+        public bool EmailError
+        {
+            set { emailValidError.Visible = value; }
+        }
+
+        public bool LoginError
+        {
+            set { loginValidError.Visible = value; }
+        }
+
+        public bool PasswordError
+        {
+            set { passwordValidError.Visible = value; }
+        }
+
+
+        public bool Save
+        {
+            set { savePlayerLb.Visible = value; }
+        }
         #endregion
 
         #region Events
@@ -159,6 +180,7 @@ namespace FightClubReports
         private void playersTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             savePlayerLb.Visible = false;
+            emailValidError.Visible = false;
             selectedPlayer.Id = (int)playersTable[0, playersTable.CurrentCellAddress.Y].Value;
             loginEditTb.Text = playersTable[1, playersTable.CurrentCellAddress.Y].Value.ToString();
             passwordEditTb.Text = playersTable[2, playersTable.CurrentCellAddress.Y].Value.ToString();
@@ -178,7 +200,6 @@ namespace FightClubReports
         private void savePlayers_Click(object sender, EventArgs e)
         {
             SavePlayerChanges();
-            savePlayerLb.Visible = true;
             if (playerSaveClick != null) { playerSaveClick(this, EventArgs.Empty); }
         }
 
@@ -195,6 +216,7 @@ namespace FightClubReports
         private void emailEditTb_TextChanged(object sender, EventArgs e)
         {
             savePlayerLb.Visible = false;
+            emailValidError.Visible = false;
         }
 
         #endregion
@@ -388,9 +410,18 @@ namespace FightClubReports
             dateEdit.Text = string.Empty;
         }
 
+
         #endregion
 
-
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            ToolTip loginTt = new ToolTip();
+            ToolTip passwordTt = new ToolTip();
+            ToolTip emailTt = new ToolTip();
+            loginTt.SetToolTip(loginValidError, "Логин должен содержать только латинские буквы и цифры без пробелов");
+            passwordTt.SetToolTip(passwordValidError, "Пароль должен содержать только латинские буквы и цифры без пробелов");
+            emailTt.SetToolTip(emailValidError, "Пример: Vilka24@gmail.com");
+        }
     }
 }
 

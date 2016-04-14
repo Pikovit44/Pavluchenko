@@ -14,6 +14,11 @@ namespace FightClubReports.Interfaces
         ViewInfoType InfoType { get; }
         Player SelectedPlayer { get; }
         Transaction SelectedTransaction { get; }
+        bool EmailError { set; }
+        bool LoginError {set; }
+        bool PasswordError { set; }
+
+        bool Save{set ; }
         event EventHandler playersOkClick;
         event EventHandler transactionsOkClick;
         event EventHandler combatsOkClick;

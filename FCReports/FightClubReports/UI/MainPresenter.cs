@@ -21,6 +21,9 @@ namespace FightClubReports
         private List<Transaction> transactions;
         private Transaction transaction;
         private List<Combat> combats;
+        bool loginValid;
+        bool passwordValid;
+        bool emailValid;
 
         public MainPresenter(IView view)
         {
@@ -55,8 +58,17 @@ namespace FightClubReports
 
         private void onPlayerSaveClick(object sender, EventArgs e)
         {
-            ChangeSelectedPlayer();
-            service.Save();
+            LoginOrPasswordValid(true);
+            LoginOrPasswordValid(false);
+            ValidEmail();
+
+            if (emailValid && loginValid && passwordValid)
+            {
+                ChangeSelectedPlayer();
+                service.Save();
+                view.Save = true;
+            }
+            ErrorsVisible();
         }
 
         private void onTransactionsSaveClick(object sender, EventArgs e)
@@ -68,6 +80,110 @@ namespace FightClubReports
         #endregion
 
         #region Methods
+
+       
+
+        private void ValidEmail()
+        {
+            if (view.SelectedPlayer.EMail != string.Empty )
+            {
+                char[] currentEmail = view.SelectedPlayer.EMail.ToCharArray();
+
+                if (view.SelectedPlayer.EMail.Contains("@") && view.SelectedPlayer.EMail.Contains("."))
+                {
+                    for (int i = 0; i < currentEmail.Length; i++)
+                    {
+                        if (!((currentEmail[i] >= 'A' && currentEmail[i] <= 'Z') || (currentEmail[i] >= 'a' && currentEmail[i] <= 'z') ||
+                            (currentEmail[i] >= '0' && currentEmail[i] <= '9')))
+                        {
+                            if ((currentEmail[i] != '@') && (currentEmail[i] != '.'))
+                            {
+                                emailValid = false;
+                                break;
+                            }
+                        }
+                        view.SelectedPlayer.IsEmaillValid = true;
+                        emailValid = true;
+                    }
+                    
+                    
+                }
+                else
+                {
+                    emailValid = false;
+                }
+            }
+            else
+            {
+                emailValid = true;
+                view.SelectedPlayer.EMail = null;
+                view.SelectedPlayer.IsEmaillValid = false;
+            }
+            
+        }
+
+
+        private void LoginOrPasswordValid(bool isLogin)
+        {
+            if (isLogin)
+            {
+                string login = view.SelectedPlayer.Login;
+                loginValid = LatinAndNumbersValid(login) ? true : false;
+            }
+            else
+            {
+                string password = view.SelectedPlayer.Password;
+                passwordValid = LatinAndNumbersValid(password) ? true : false;
+            }
+            
+        }
+
+        private bool LatinAndNumbersValid(string text)
+        {
+
+            char[]currentText = text.ToCharArray();
+
+            for (int i = 0; i < currentText.Length; i++)
+            {
+                if (!((currentText[i] >= 'A' && currentText[i] <= 'Z') || (currentText[i] >= 'a' && currentText[i] <= 'z') ||
+                    (currentText[i] >= '0' && currentText[i] <= '9')))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void ErrorsVisible()
+        {
+            if (emailValid)
+            {
+                view.EmailError = false;
+            }
+            else
+            {
+                view.EmailError = true;
+            }
+
+            if (loginValid)
+            {
+                view.LoginError = false;
+            }
+            else
+            {
+                view.LoginError = true;
+            }
+
+            if (passwordValid)
+            {
+                view.PasswordError = false;
+            }
+            else
+            {
+                view.PasswordError = true;
+            }
+        }
+
 
         private void  InfoForPlayerTable()
         {

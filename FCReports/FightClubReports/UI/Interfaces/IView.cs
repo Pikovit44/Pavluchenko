@@ -18,6 +18,7 @@ namespace FightClubReports.Interfaces
         bool LoginError {set; }
         bool PasswordError { set; }
         bool DateError { set; }
+        bool SumError { set; }
 
         bool SavePlayer{set ; }
         bool SaveTransaction { set; }

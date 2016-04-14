@@ -112,6 +112,12 @@ namespace FightClubReports
         {
             set { saveTransactionLb.Visible = value; }
         }
+
+        public bool SumError
+        {
+            set { sumValidError.Visible = value; }
+        }
+
         #endregion
 
         #region Events

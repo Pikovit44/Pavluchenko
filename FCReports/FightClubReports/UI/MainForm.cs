@@ -25,6 +25,7 @@ namespace FightClubReports
         public event EventHandler combatsOkClick;
         public event EventHandler playerSaveClick;
         public event EventHandler transactionSaveClick;
+        bool formatError = false;
 
         MainPresenter presenter;
         Player selectedPlayer;
@@ -96,10 +97,20 @@ namespace FightClubReports
             set { passwordValidError.Visible = value; }
         }
 
+        public bool DateError
+        {
+            set { dateValidError.Visible = value; }
+        }
 
-        public bool Save
+
+        public bool SavePlayer
         {
             set { savePlayerLb.Visible = value; }
+        }
+
+        public bool SaveTransaction
+        {
+            set { saveTransactionLb.Visible = value; }
         }
         #endregion
 
@@ -181,6 +192,8 @@ namespace FightClubReports
         {
             savePlayerLb.Visible = false;
             emailValidError.Visible = false;
+            passwordValidError.Visible = false;
+            loginValidError.Visible = false;
             selectedPlayer.Id = (int)playersTable[0, playersTable.CurrentCellAddress.Y].Value;
             loginEditTb.Text = playersTable[1, playersTable.CurrentCellAddress.Y].Value.ToString();
             passwordEditTb.Text = playersTable[2, playersTable.CurrentCellAddress.Y].Value.ToString();
@@ -193,7 +206,7 @@ namespace FightClubReports
             else
             {
                 selectedPlayer.EMail = string.Empty;
-                emailEditTb.Text = Resources.notSpecified;
+                //emailEditTb.Text = Resources.notSpecified;
             }
         }
 
@@ -277,6 +290,8 @@ namespace FightClubReports
         private void transactionsTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             saveTransactionLb.Visible = false;
+            sumValidError.Visible = false;
+            dateValidError.Visible = false;
             selectedTransaction.Id = (int)transactionsTable[0, transactionsTable.CurrentCellAddress.Y].Value;
             dateEdit.Text = transactionsTable[1, transactionsTable.CurrentCellAddress.Y].Value.ToString();
             sumEdit.Text = transactionsTable[3, transactionsTable.CurrentCellAddress.Y].Value.ToString();
@@ -285,8 +300,11 @@ namespace FightClubReports
         private void saveTransactions_Click(object sender, EventArgs e)
         {
             SaveTransactionChanges();
-            if (transactionSaveClick != null) { transactionSaveClick(this, EventArgs.Empty); }
-            saveTransactionLb.Visible = true;
+            if (!formatError)
+            {
+                if (transactionSaveClick != null) { transactionSaveClick(this, EventArgs.Empty); }
+            }
+            
         }
 
         private void sumEdit_TextChanged(object sender, EventArgs e)
@@ -374,12 +392,14 @@ namespace FightClubReports
 
         private void SaveTransactionChanges()
         {
-            DateTime date;
-            DateTime.TryParse(dateEdit.Text, out date);
-            selectedTransaction.Date = date;
-            decimal sum;
-            decimal.TryParse(sumEdit.Text, out sum);
-            selectedTransaction.Sum = sum;
+                DateTime date;
+                DateTime.TryParse(dateEdit.Text, out date);
+                selectedTransaction.Date = date;
+           
+                decimal sum;
+                decimal.TryParse(sumEdit.Text, out sum);
+                selectedTransaction.Sum = sum;
+           
         }
 
         private void Setup()
@@ -418,9 +438,9 @@ namespace FightClubReports
             ToolTip loginTt = new ToolTip();
             ToolTip passwordTt = new ToolTip();
             ToolTip emailTt = new ToolTip();
-            loginTt.SetToolTip(loginValidError, "Логин должен содержать только латинские буквы и цифры без пробелов");
+            loginTt.SetToolTip(loginValidError, "Логин должен содержать только латинские буквы и цифры без пробелов"); // hardcode!
             passwordTt.SetToolTip(passwordValidError, "Пароль должен содержать только латинские буквы и цифры без пробелов");
-            emailTt.SetToolTip(emailValidError, "Пример: Vilka24@gmail.com");
+            emailTt.SetToolTip(emailValidError, "Пример: Vilka24@gmail.com \nИли оставьте поле пустым");
         }
     }
 }

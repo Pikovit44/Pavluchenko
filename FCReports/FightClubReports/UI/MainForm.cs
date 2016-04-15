@@ -196,7 +196,7 @@ namespace FightClubReports
 
         private void playersTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            savePlayerLb.Visible = false;
+            savePlayerLb.Visible = false;// visible method
             emailValidError.Visible = false;
             passwordValidError.Visible = false;
             loginValidError.Visible = false;

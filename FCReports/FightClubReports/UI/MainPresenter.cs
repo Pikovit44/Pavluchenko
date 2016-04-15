@@ -66,41 +66,20 @@ namespace FightClubReports
                 service.Save();
                 view.SavePlayer = true;
             }
-            ErrorsVisible();
+                PlayersErrorsVisible();
+            
         }
 
         private void onTransactionsSaveClick(object sender, EventArgs e)
         {
-            dateValid = true;
-            
-            if ((view.SelectedTransaction.Date == DateTime.MinValue))
-            {
-                dateValid = false;
-            }
-
-            //try
-            //{
-            //    service.Transactions.Save();
-            //}
-            //catch (System.Data.Entity.Infrastructure.DbUpdateException)
-            //{
-            //    dateValid = false;
-            //}
-
-            if (dateValid)
+            if (TransactionsValidation())
             {
                 ChangeSelectedTransaction();
-                view.DateError = false;
                 service.Save();
                 view.SaveTransaction = true;
-                
             }
-            else
-            {
-                view.DateError = true;
-                view.SaveTransaction = false;
-            }
-            
+            TransactionsErrorsVisible();
+
         }
 
         #endregion
@@ -125,7 +104,6 @@ namespace FightClubReports
                 return false;
             }
         }
-
 
         private void ValidEmail()
         {
@@ -174,7 +152,6 @@ namespace FightClubReports
             }
         }
 
-
         private void LoginOrPasswordValid(bool isLogin)
         {
             if (isLogin)
@@ -187,12 +164,10 @@ namespace FightClubReports
                 string password = view.SelectedPlayer.Password;
                 passwordValid = LatinAndNumbersValid(password) ? true : false;
             }
-
         }
 
         private bool LatinAndNumbersValid(string text)
         {
-
             char[] currentText = text.ToCharArray();
 
             for (int i = 0; i < currentText.Length; i++)
@@ -206,34 +181,11 @@ namespace FightClubReports
             return true;
         }
 
-        private void ErrorsVisible()
+        private void PlayersErrorsVisible()
         {
-            if (emailValid)
-            {
-                view.EmailError = false;
-            }
-            else
-            {
-                view.EmailError = true;
-            }
-
-            if (loginValid)
-            {
-                view.LoginError = false;
-            }
-            else
-            {
-                view.LoginError = true;
-            }
-
-            if (passwordValid)
-            {
-                view.PasswordError = false;
-            }
-            else
-            {
-                view.PasswordError = true;
-            }
+            view.EmailError = !emailValid;
+            view.LoginError = !loginValid;
+            view.PasswordError = !passwordValid;
         }
         #endregion
 
@@ -242,17 +194,37 @@ namespace FightClubReports
         private bool TransactionsValidation()
         {
             SumValidation();
-
-            if (true)
+            DateValidation();
+            if (sumValid && dateValid)
             {
-
-
+                return true;
             }
-            return true;
+            return false;
+        }
+
+        private void TransactionsErrorsVisible()
+        {
+            view.DateError = !dateValid;
+            view.SumError = !sumValid;
+        }
+
+        private void DateValidation()
+        {
+            dateValid = true;
+            if ((view.SelectedTransaction.Date == DateTime.MinValue))
+            {
+                dateValid = false;
+            }
+            
         }
 
         private void SumValidation()
         {
+            sumValid = true;
+            if (view.SelectedTransaction.Sum == 0)
+            {
+                sumValid = false;
+            }
             
         }
         

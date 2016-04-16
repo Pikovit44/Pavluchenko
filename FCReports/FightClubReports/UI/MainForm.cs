@@ -44,7 +44,6 @@ namespace FightClubReports
             get { return selectedPlayer; }
         }
 
-
         public Transaction SelectedTransaction
         {
             get { return selectedTransaction; }
@@ -85,20 +84,14 @@ namespace FightClubReports
             set { passwordValidError.Visible = value; }
         }
 
-        public bool DateError
-        {
-            set { dateValidError.Visible = value; }
-        }
-
-
         public bool SavePlayer
         {
             set { savePlayerLb.Visible = value; }
         }
-
-        public bool SaveTransaction
+        
+        public bool DateError
         {
-            set { saveTransactionLb.Visible = value; }
+            set { dateValidError.Visible = value; }
         }
 
         public bool SumError
@@ -106,11 +99,18 @@ namespace FightClubReports
             set { sumValidError.Visible = value; }
         }
 
+        public bool SaveTransaction
+        {
+            set { saveTransactionLb.Visible = value; }
+        }
+
+        
         #endregion
 
         #region Events
 
         #region Players
+
         private void topPlayers_CheckedChanged(object sender, EventArgs e)
         {
             outputInfo = OutputInfoType.PTop;
@@ -163,7 +163,7 @@ namespace FightClubReports
             }
         }
 
-        private void playersOk_Click(object sender, EventArgs e)
+        private void playersLoginOk_Click(object sender, EventArgs e)
         {
             if (loginForPlayers.Text == string.Empty)
             {
@@ -179,10 +179,7 @@ namespace FightClubReports
 
         private void playersTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            savePlayerLb.Visible = false;// visible method
-            emailValidError.Visible = false;
-            passwordValidError.Visible = false;
-            loginValidError.Visible = false;
+            PlayersErrorsUnvisible();
             selectedPlayer.Id = (int)playersTable[0, playersTable.CurrentCellAddress.Y].Value;
             loginEditTb.Text = playersTable[1, playersTable.CurrentCellAddress.Y].Value.ToString();
             passwordEditTb.Text = playersTable[2, playersTable.CurrentCellAddress.Y].Value.ToString();
@@ -194,7 +191,7 @@ namespace FightClubReports
             }
             else
             {
-                selectedPlayer.EMail = string.Empty;
+                emailEditTb.Text = selectedPlayer.EMail = string.Empty;
             }
         }
 
@@ -206,26 +203,17 @@ namespace FightClubReports
 
         private void loginEditTb_TextChanged(object sender, EventArgs e)
         {
-            emailValidError.Visible = false;
-            passwordValidError.Visible = false;
-            loginValidError.Visible = false;
-            savePlayerLb.Visible = false;
+            PlayersErrorsUnvisible();
         }
 
         private void passwordEditTb_TextChanged(object sender, EventArgs e)
         {
-            emailValidError.Visible = false;
-            passwordValidError.Visible = false;
-            loginValidError.Visible = false;
-            savePlayerLb.Visible = false;
+            PlayersErrorsUnvisible();
         }
 
         private void emailEditTb_TextChanged(object sender, EventArgs e)
         {
-            savePlayerLb.Visible = false;
-            emailValidError.Visible = false;
-            passwordValidError.Visible = false;
-            loginValidError.Visible = false;
+            PlayersErrorsUnvisible();
         }
 
         #endregion
@@ -256,7 +244,7 @@ namespace FightClubReports
 
             if (transactionsByLogin.Checked == true)
             {
-                loginForTransactions.Visible = true; //method (type, bool)?
+                loginForTransactions.Visible = true; 
                 transactionsOk.Visible = true;
                 loginForTransactions.Focus();
             }
@@ -283,9 +271,7 @@ namespace FightClubReports
 
         private void transactionsTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            saveTransactionLb.Visible = false;
-            sumValidError.Visible = false;
-            dateValidError.Visible = false;
+            TransactionsErrorsUnvisible();
             selectedTransaction.Id = (int)transactionsTable[0, transactionsTable.CurrentCellAddress.Y].Value;
             dateEdit.Text = transactionsTable[1, transactionsTable.CurrentCellAddress.Y].Value.ToString();
             sumEdit.Text = transactionsTable[3, transactionsTable.CurrentCellAddress.Y].Value.ToString();
@@ -295,17 +281,16 @@ namespace FightClubReports
         {
             SaveTransactionChanges();
             if (transactionSaveClick != null) { transactionSaveClick(this, EventArgs.Empty); }
-            
         }
 
         private void sumEdit_TextChanged(object sender, EventArgs e)
         {
-            saveTransactionLb.Visible = false;
+            TransactionsErrorsUnvisible();
         }
 
         private void dateEdit_TextChanged(object sender, EventArgs e)
         {
-            saveTransactionLb.Visible = false;
+            TransactionsErrorsUnvisible();
         }
 
 
@@ -404,7 +389,7 @@ namespace FightClubReports
             ToolTip loginTt = new ToolTip();
             ToolTip passwordTt = new ToolTip();
             ToolTip emailTt = new ToolTip();
-            loginTt.SetToolTip(loginValidError, Resources.loginValidError); // hardcode!
+            loginTt.SetToolTip(loginValidError, Resources.loginValidError); 
             passwordTt.SetToolTip(passwordValidError, Resources.passwordValidError);
             emailTt.SetToolTip(emailValidError, Resources.emailValidError);
         }
@@ -426,6 +411,21 @@ namespace FightClubReports
             playersTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             transactionsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             combatsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void PlayersErrorsUnvisible()
+        {
+            savePlayerLb.Visible = false;
+            emailValidError.Visible = false;
+            passwordValidError.Visible = false;
+            loginValidError.Visible = false;
+        }
+
+        private void TransactionsErrorsUnvisible()
+        {
+            saveTransactionLb.Visible = false;
+            sumValidError.Visible = false;
+            dateValidError.Visible = false;
         }
 
         private void ResetTextBoxDataForPlayers()

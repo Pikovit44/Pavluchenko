@@ -269,6 +269,14 @@ namespace FightClubReports
             player.Login = view.SelectedPlayer.Login;
             player.Password = view.SelectedPlayer.Password;
             player.EMail = view.SelectedPlayer.EMail;
+            if (player.EMail != null)
+            {
+                player.IsEmaillValid = true;
+            }
+            else
+            {
+                player.IsEmaillValid = false;
+            }
         }
 
         private void InfoForTransactionTable()

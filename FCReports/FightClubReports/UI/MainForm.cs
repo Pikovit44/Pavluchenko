@@ -18,7 +18,6 @@ namespace FightClubReports
     public partial class MainForm : Form, IView
     {
         OutputInfoType outputInfo = OutputInfoType.Unknown;
-        //ViewInfoType infoType = ViewInfoType.Unknown;
         string requiredLogin = string.Empty;
         public event EventHandler playersOkClick;
         public event EventHandler transactionsOkClick;
@@ -60,11 +59,6 @@ namespace FightClubReports
         {
             get { return outputInfo; }
         }
-
-        //public ViewInfoType InfoType
-        //{
-        //    get { return infoType; }
-        //}
 
         public object PlayerTable
         {
@@ -124,7 +118,6 @@ namespace FightClubReports
         #region Players
         private void topPlayers_CheckedChanged(object sender, EventArgs e)
         {
-           // infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PTop;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
             ResetTextBoxDataForPlayers();
@@ -132,7 +125,6 @@ namespace FightClubReports
 
         private void playersByValidEmail_CheckedChanged(object sender, EventArgs e)
         {
-            //infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PValidEmail;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
             ResetTextBoxDataForPlayers();
@@ -140,7 +132,6 @@ namespace FightClubReports
 
         private void playersByNumberOfCombats_CheckedChanged(object sender, EventArgs e)
         {
-           // infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PNumOfComb;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
             ResetTextBoxDataForPlayers();
@@ -148,7 +139,6 @@ namespace FightClubReports
 
         private void playersByAlphabet_CheckedChanged(object sender, EventArgs e)
         {
-            //infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PAlphabet;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
             ResetTextBoxDataForPlayers();
@@ -156,7 +146,6 @@ namespace FightClubReports
 
         private void playersByDate_CheckedChanged(object sender, EventArgs e)
         {
-           // infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PDate;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
             ResetTextBoxDataForPlayers();
@@ -211,7 +200,6 @@ namespace FightClubReports
             else
             {
                 selectedPlayer.EMail = string.Empty;
-                //emailEditTb.Text = Resources.notSpecified;
             }
         }
 
@@ -245,7 +233,6 @@ namespace FightClubReports
         {
             saveTransactionLb.Visible = false;
             ResetTextBoxDataForTransactions();
-          //  infoType = ViewInfoType.Transaction;
             outputInfo = OutputInfoType.TSum;
             if (transactionsOkClick != null) { transactionsOkClick(this, EventArgs.Empty); }
         }
@@ -254,7 +241,6 @@ namespace FightClubReports
         {
             saveTransactionLb.Visible = false;
             ResetTextBoxDataForTransactions();
-         //   infoType = ViewInfoType.Transaction;
             outputInfo = OutputInfoType.TDate;
             if (transactionsOkClick != null) { transactionsOkClick(this, EventArgs.Empty); }
         }
@@ -325,14 +311,12 @@ namespace FightClubReports
         #region Combats
         private void combatsByType_CheckedChanged(object sender, EventArgs e)
         {
-           // infoType = ViewInfoType.Combat;
             outputInfo = OutputInfoType.CType;
             if (combatsOkClick != null) { combatsOkClick(this, EventArgs.Empty); }
         }
 
         private void combatsByDate_CheckedChanged(object sender, EventArgs e)
         {
-           // infoType = ViewInfoType.Combat;
             outputInfo = OutputInfoType.CDate;
             if (combatsOkClick != null) { combatsOkClick(this, EventArgs.Empty); }
 
@@ -406,15 +390,12 @@ namespace FightClubReports
 
         private void Setup()
         {
-           // infoType = ViewInfoType.Player;
             outputInfo = OutputInfoType.PTop;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
-
-            //infoType = ViewInfoType.Transaction;
+            
             outputInfo = OutputInfoType.TSum;
             if (transactionsOkClick != null) { transactionsOkClick(this, EventArgs.Empty); }
-
-            //infoType = ViewInfoType.Combat;
+            
             outputInfo = OutputInfoType.CType;
             if (combatsOkClick != null) { combatsOkClick(this, EventArgs.Empty); }
         }

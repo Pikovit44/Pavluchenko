@@ -87,6 +87,10 @@
     <Compile Include="Migrations\201604101551525_New.Designer.cs">
       <DependentUpon>201604101551525_New.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604160838223_newDate.cs" />
+    <Compile Include="Migrations\201604160838223_newDate.Designer.cs">
+      <DependentUpon>201604160838223_newDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Interfaces\IView.cs" />
     <Compile Include="UI\MainPresenter.cs" />
     <Compile Include="Migrations\201604031425067_InitialCreate.cs" />
@@ -118,6 +122,9 @@
     <Compile Include="Data\Repository\PlayerRepository.cs" />
     <EmbeddedResource Include="Migrations\201604101551525_New.resx">
       <DependentUpon>201604101551525_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604160838223_newDate.resx">
+      <DependentUpon>201604160838223_newDate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

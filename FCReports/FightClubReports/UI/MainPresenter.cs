@@ -25,7 +25,7 @@ namespace FightClubReports
         bool passwordValid;
         bool emailValid;
         bool sumValid;
-        bool dateValid = true;
+        bool dateValid;
 
         public MainPresenter(IView view)
         {
@@ -201,13 +201,7 @@ namespace FightClubReports
             }
             return false;
         }
-
-        private void TransactionsErrorsVisible()
-        {
-            view.DateError = !dateValid;
-            view.SumError = !sumValid;
-        }
-
+        
         private void DateValidation()
         {
             dateValid = true;
@@ -221,18 +215,21 @@ namespace FightClubReports
         private void SumValidation()
         {
             sumValid = true;
-            if (view.SelectedTransaction.Sum == 0)
+            if (view.SelectedTransaction.Sum <= 0)
             {
                 sumValid = false;
             }
-            
         }
-        
+
+        private void TransactionsErrorsVisible()
+        {
+            view.DateError = !dateValid;
+            view.SumError = !sumValid;
+        }
 
         #endregion
 
         #endregion
-
 
         private void  InfoForPlayerTable()
         {

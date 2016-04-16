@@ -11,7 +11,7 @@ namespace FightClubReports.Interfaces
     public interface IView
     {
         OutputInfoType OutputInfo { get; }
-        ViewInfoType InfoType { get; }
+        //ViewInfoType InfoType { get; }
         Player SelectedPlayer { get; }
         Transaction SelectedTransaction { get; }
         bool EmailError { set; }

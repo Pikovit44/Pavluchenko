@@ -18,7 +18,6 @@ namespace FightClubReports
     public partial class MainForm : Form, IView
     {
         OutputInfoType outputInfo = OutputInfoType.Unknown;
-        string requiredLogin = string.Empty;
         public event EventHandler playersOkClick;
         public event EventHandler transactionsOkClick;
         public event EventHandler combatsOkClick;
@@ -32,11 +31,7 @@ namespace FightClubReports
         public MainForm()
         {
             InitializeComponent();
-            presenter = new MainPresenter(this);
-            playersTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            transactionsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            combatsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
+            presenter = new MainPresenter(this);//?
             selectedPlayer = new Player();
             selectedTransaction = new Transaction();
             Setup();
@@ -211,11 +206,17 @@ namespace FightClubReports
 
         private void loginEditTb_TextChanged(object sender, EventArgs e)
         {
+            emailValidError.Visible = false;
+            passwordValidError.Visible = false;
+            loginValidError.Visible = false;
             savePlayerLb.Visible = false;
         }
 
         private void passwordEditTb_TextChanged(object sender, EventArgs e)
         {
+            emailValidError.Visible = false;
+            passwordValidError.Visible = false;
+            loginValidError.Visible = false;
             savePlayerLb.Visible = false;
         }
 
@@ -223,6 +224,8 @@ namespace FightClubReports
         {
             savePlayerLb.Visible = false;
             emailValidError.Visible = false;
+            passwordValidError.Visible = false;
+            loginValidError.Visible = false;
         }
 
         #endregion
@@ -338,7 +341,8 @@ namespace FightClubReports
             }
 
         }
-        private void combatsOk_Click(object sender, EventArgs e)
+
+        private void combatsLoginOk_Click(object sender, EventArgs e)
         {
             if (loginForCombats.Text == string.Empty)
             {
@@ -390,14 +394,38 @@ namespace FightClubReports
 
         private void Setup()
         {
+            StartInfoForTabs();
+            CreateToolTips();
+            DGVSelectionMode();
+        }
+
+        private void CreateToolTips()
+        {
+            ToolTip loginTt = new ToolTip();
+            ToolTip passwordTt = new ToolTip();
+            ToolTip emailTt = new ToolTip();
+            loginTt.SetToolTip(loginValidError, Resources.loginValidError); // hardcode!
+            passwordTt.SetToolTip(passwordValidError, Resources.passwordValidError);
+            emailTt.SetToolTip(emailValidError, Resources.emailValidError);
+        }
+
+        private void StartInfoForTabs()
+        {
             outputInfo = OutputInfoType.PTop;
             if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
-            
+
             outputInfo = OutputInfoType.TSum;
             if (transactionsOkClick != null) { transactionsOkClick(this, EventArgs.Empty); }
-            
+
             outputInfo = OutputInfoType.CType;
             if (combatsOkClick != null) { combatsOkClick(this, EventArgs.Empty); }
+        }
+
+        private void DGVSelectionMode()
+        {
+            playersTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            transactionsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            combatsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void ResetTextBoxDataForPlayers()
@@ -412,19 +440,9 @@ namespace FightClubReports
             sumEdit.Text = string.Empty;
             dateEdit.Text = string.Empty;
         }
-
-
+        
         #endregion
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            ToolTip loginTt = new ToolTip();
-            ToolTip passwordTt = new ToolTip();
-            ToolTip emailTt = new ToolTip();
-            loginTt.SetToolTip(loginValidError, "Логин должен содержать только латинские буквы и цифры без пробелов"); // hardcode!
-            passwordTt.SetToolTip(passwordValidError, "Пароль должен содержать только латинские буквы и цифры без пробелов");
-            emailTt.SetToolTip(emailValidError, "Пример: Vilka24@gmail.com \nИли оставьте поле пустым");
-        }
+       
     }
 }
 

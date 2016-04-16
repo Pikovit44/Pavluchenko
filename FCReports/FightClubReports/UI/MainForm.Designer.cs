@@ -554,7 +554,7 @@ namespace FightClubReports
             this.combatsOk.Text = "ОК";
             this.combatsOk.UseVisualStyleBackColor = true;
             this.combatsOk.Visible = false;
-            this.combatsOk.Click += new System.EventHandler(this.combatsOk_Click);
+            this.combatsOk.Click += new System.EventHandler(this.combatsLoginOk_Click);
             // 
             // combatsByLogin
             // 
@@ -629,7 +629,6 @@ namespace FightClubReports
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fight Club Analitycs";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.infoControl.ResumeLayout(false);
             this.playersPage.ResumeLayout(false);
             this.playersPage.PerformLayout();

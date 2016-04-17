@@ -23,18 +23,15 @@ namespace FightClubReports
         public event EventHandler combatsOkClick;
         public event EventHandler playerSaveClick;
         public event EventHandler transactionSaveClick;
-
-        MainPresenter presenter;
+        
         Player selectedPlayer;
         Transaction selectedTransaction;
 
         public MainForm()
         {
             InitializeComponent();
-            presenter = new MainPresenter(this);//?
             selectedPlayer = new Player();
             selectedTransaction = new Transaction();
-            Setup();
         }
 
         #region Properties
@@ -104,10 +101,15 @@ namespace FightClubReports
             set { saveTransactionLb.Visible = value; }
         }
 
-        
+
         #endregion
 
         #region Events
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Setup();
+        }
 
         #region Players
 
@@ -440,9 +442,10 @@ namespace FightClubReports
             sumEdit.Text = string.Empty;
             dateEdit.Text = string.Empty;
         }
-        
+
         #endregion
-       
+
+
     }
 }
 

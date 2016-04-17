@@ -151,7 +151,7 @@
     <value>Email</value>
   </data>
   <data name="emailValidError" xml:space="preserve">
-    <value>Пример: Vilka24@gmail.com \nИли оставьте поле пустым</value>
+    <value>Пример: "Vilka24@gmail.com". Или оставьте поле пустым</value>
   </data>
   <data name="enterLogin" xml:space="preserve">
     <value>Введите логин ниже</value>
@@ -166,7 +166,7 @@
     <value>Логин игрока не введен</value>
   </data>
   <data name="loginValidError" xml:space="preserve">
-    <value>Логин должен содержать только латинские буквы и цифры без пробелов</value>
+    <value>Логин должен содержать только латинские буквы и цифры без пробелов (максимум 20 символов)</value>
   </data>
   <data name="noOneOptionIsNotSelected" xml:space="preserve">
     <value>Ни один вариант не выбран</value>
@@ -181,7 +181,7 @@
     <value>Пароль</value>
   </data>
   <data name="passwordValidError" xml:space="preserve">
-    <value>Пароль должен содержать только латинские буквы и цифры без пробелов</value>
+    <value>Пароль должен содержать только латинские буквы и цифры без пробелов (максимум 20 символов)</value>
   </data>
   <data name="playersByAlphabet" xml:space="preserve">
     <value>По алфавиту</value>

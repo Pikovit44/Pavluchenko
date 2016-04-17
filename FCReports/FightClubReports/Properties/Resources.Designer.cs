@@ -160,7 +160,7 @@ namespace FightClubReports.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Пример: Vilka24@gmail.com \nИли оставьте поле пустым.
+        ///   Looks up a localized string similar to Пример: &quot;Vilka24@gmail.com&quot;. Или оставьте поле пустым.
         /// </summary>
         internal static string emailValidError {
             get {
@@ -205,7 +205,7 @@ namespace FightClubReports.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Логин должен содержать только латинские буквы и цифры без пробелов.
+        ///   Looks up a localized string similar to Логин должен содержать только латинские буквы и цифры без пробелов (максимум 20 символов).
         /// </summary>
         internal static string loginValidError {
             get {
@@ -250,7 +250,7 @@ namespace FightClubReports.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Пароль должен содержать только латинские буквы и цифры без пробелов.
+        ///   Looks up a localized string similar to Пароль должен содержать только латинские буквы и цифры без пробелов (максимум 20 символов).
         /// </summary>
         internal static string passwordValidError {
             get {

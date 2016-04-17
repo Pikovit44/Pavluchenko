@@ -33,6 +33,7 @@ namespace FightClubReports
             this.playersOk = new System.Windows.Forms.Button();
             this.infoControl = new System.Windows.Forms.TabControl();
             this.playersPage = new System.Windows.Forms.TabPage();
+            this.nonExistentPlayer = new System.Windows.Forms.Label();
             this.loginValidError = new System.Windows.Forms.Label();
             this.passwordValidError = new System.Windows.Forms.Label();
             this.emailValidError = new System.Windows.Forms.Label();
@@ -74,7 +75,6 @@ namespace FightClubReports
             this.combatsByLogin = new System.Windows.Forms.RadioButton();
             this.combatsByDate = new System.Windows.Forms.RadioButton();
             this.combatsByType = new System.Windows.Forms.RadioButton();
-            this.nonExistentPlayer = new System.Windows.Forms.Label();
             this.infoControl.SuspendLayout();
             this.playersPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playersTable)).BeginInit();
@@ -139,6 +139,20 @@ namespace FightClubReports
             this.playersPage.TabIndex = 0;
             this.playersPage.Text = "Пользователи";
             this.playersPage.UseVisualStyleBackColor = true;
+            // 
+            // nonExistentPlayer
+            // 
+            this.nonExistentPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.nonExistentPlayer.AutoSize = true;
+            this.nonExistentPlayer.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.nonExistentPlayer.ForeColor = System.Drawing.Color.DarkRed;
+            this.nonExistentPlayer.Location = new System.Drawing.Point(583, 40);
+            this.nonExistentPlayer.Name = "nonExistentPlayer";
+            this.nonExistentPlayer.Size = new System.Drawing.Size(134, 13);
+            this.nonExistentPlayer.TabIndex = 36;
+            this.nonExistentPlayer.Text = "Пользователь не найден";
+            this.nonExistentPlayer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.nonExistentPlayer.Visible = false;
             // 
             // loginValidError
             // 
@@ -619,20 +633,6 @@ namespace FightClubReports
             this.combatsByType.UseVisualStyleBackColor = true;
             this.combatsByType.CheckedChanged += new System.EventHandler(this.combatsByType_CheckedChanged);
             // 
-            // nonExistentPlayer
-            // 
-            this.nonExistentPlayer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.nonExistentPlayer.AutoSize = true;
-            this.nonExistentPlayer.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.nonExistentPlayer.ForeColor = System.Drawing.Color.DarkRed;
-            this.nonExistentPlayer.Location = new System.Drawing.Point(583, 40);
-            this.nonExistentPlayer.Name = "nonExistentPlayer";
-            this.nonExistentPlayer.Size = new System.Drawing.Size(134, 13);
-            this.nonExistentPlayer.TabIndex = 36;
-            this.nonExistentPlayer.Text = "Пользователь не найден";
-            this.nonExistentPlayer.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.nonExistentPlayer.Visible = false;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -645,6 +645,7 @@ namespace FightClubReports
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fight Club Analitycs";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.infoControl.ResumeLayout(false);
             this.playersPage.ResumeLayout(false);
             this.playersPage.PerformLayout();

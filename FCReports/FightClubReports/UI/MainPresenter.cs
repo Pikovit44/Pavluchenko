@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace FightClubReports
@@ -107,37 +108,17 @@ namespace FightClubReports
 
         private void ValidEmail()
         {
-            if (view.SelectedPlayer.EMail != string.Empty)
+            string pattern = @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$";
+
+            string email = view.SelectedPlayer.EMail;
+
+            if (email != string.Empty)
             {
-                if (view.SelectedPlayer.EMail.Contains("@") && view.SelectedPlayer.EMail.Contains("."))
+                if (Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase))
                 {
-                    char[] currentEmail = view.SelectedPlayer.EMail.ToCharArray();
-                    int NumbersOfNecessarySymbol = 0;
-
-                    for (int i = 0; i < currentEmail.Length; i++)
-                    {
-                        if (!((currentEmail[i] >= 'A' && currentEmail[i] <= 'Z') || (currentEmail[i] >= 'a' && currentEmail[i] <= 'z') ||
-                            (currentEmail[i] >= '0' && currentEmail[i] <= '9')))
-                        {
-                            if ((currentEmail[i] != '@') && (currentEmail[i] != '.'))
-                            {
-                                emailValid = false;
-                                break;
-                            }
-                            else if (NumbersOfNecessarySymbol == 2)
-                            {
-                                emailValid = false;
-                                break;
-                            }
-                            else
-                            {
-                                NumbersOfNecessarySymbol++;
-                            }
-                        }
-                        view.SelectedPlayer.IsEmaillValid = true;
-                        emailValid = true;
-                    }
-
+                    emailValid = true;
+                    view.SelectedPlayer.IsEmaillValid = true;
                 }
                 else
                 {
@@ -168,17 +149,16 @@ namespace FightClubReports
 
         private bool LatinAndNumbersValid(string text)
         {
-            char[] currentText = text.ToCharArray();
+            string pattern = @"^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$";
 
-            for (int i = 0; i < currentText.Length; i++)
+            if (Regex.IsMatch(text, pattern, RegexOptions.IgnoreCase))
             {
-                if (!((currentText[i] >= 'A' && currentText[i] <= 'Z') || (currentText[i] >= 'a' && currentText[i] <= 'z') ||
-                    (currentText[i] >= '0' && currentText[i] <= '9')))
-                {
-                    return false;
-                }
+                return true;
             }
-            return true;
+            else
+            {
+                return false;
+            }
         }
 
         private void PlayersErrorsVisible()

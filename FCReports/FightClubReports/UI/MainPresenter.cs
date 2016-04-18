@@ -97,7 +97,6 @@ namespace FightClubReports
             ValidEmail();
 
             return (emailValid && loginValid && passwordValid) ? true : false;
-
         }
 
         private void ValidEmail()
@@ -144,15 +143,8 @@ namespace FightClubReports
         private bool LatinAndNumbersValid(string text)
         {
             string pattern = @"^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$";
-
-            if (Regex.IsMatch(text, pattern, RegexOptions.IgnoreCase))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            
+            return (Regex.IsMatch(text, pattern, RegexOptions.IgnoreCase)) ? true : false;
         }
 
         private void PlayersErrorsVisible()

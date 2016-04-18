@@ -174,7 +174,8 @@ namespace FightClubReports
             }
             else
             {
-                outputInfo = OutputInfoType.PLogin; selectedPlayer.Login = loginForPlayers.Text;
+                outputInfo = OutputInfoType.PLogin;
+                selectedPlayer.Login = loginForPlayers.Text;
                 if (playersOkClick != null) { playersOkClick(this, EventArgs.Empty); }
             }
         }
@@ -187,14 +188,7 @@ namespace FightClubReports
             passwordEditTb.Text = playersTable[2, playersTable.CurrentCellAddress.Y].Value.ToString();
 
             var emailVal = playersTable[3, playersTable.CurrentCellAddress.Y].Value;
-            if (null != emailVal)
-            {
-                emailEditTb.Text = emailVal.ToString();
-            }
-            else
-            {
-                emailEditTb.Text = string.Empty;
-            }
+            emailEditTb.Text = (null != emailVal) ? emailVal.ToString() : string.Empty;
         }
 
         private void savePlayers_Click(object sender, EventArgs e)
@@ -266,7 +260,8 @@ namespace FightClubReports
             }
             else
             {
-                outputInfo = OutputInfoType.TLogin; selectedPlayer.Login = loginForTransactions.Text;
+                outputInfo = OutputInfoType.TLogin;
+                selectedPlayer.Login = loginForTransactions.Text;
                 if (transactionsOkClick != null) { transactionsOkClick(this, EventArgs.Empty); }
             }
         }

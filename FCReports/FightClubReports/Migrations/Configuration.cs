@@ -19,7 +19,7 @@ namespace FightClubReports.Migrations
         protected override void Seed(FightClubReports.Data.Context context)
         {
 
-            if (context.Players.Count() == 0) //?
+            if (context.Players.Count() == 0)
             {
                 #region Statistics
                 var statistics1 = new Statistics()
@@ -167,9 +167,6 @@ namespace FightClubReports.Migrations
 
                 context.SaveChanges();
             }
-                
-            
-
         }
     }
 }

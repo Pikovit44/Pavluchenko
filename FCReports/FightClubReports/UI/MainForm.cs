@@ -189,11 +189,11 @@ namespace FightClubReports
             var emailVal = playersTable[3, playersTable.CurrentCellAddress.Y].Value;
             if (null != emailVal)
             {
-                emailEditTb.Text = selectedPlayer.EMail = emailVal.ToString();
+                emailEditTb.Text = emailVal.ToString();
             }
             else
             {
-                emailEditTb.Text = selectedPlayer.EMail = string.Empty;
+                emailEditTb.Text = string.Empty;
             }
         }
 
@@ -413,6 +413,7 @@ namespace FightClubReports
             playersTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             transactionsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             combatsTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            playersTable.MultiSelect = transactionsTable.MultiSelect = combatsTable.MultiSelect = false;
         }
 
         private void PlayersErrorsUnvisible()

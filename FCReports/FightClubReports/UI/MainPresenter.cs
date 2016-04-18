@@ -96,14 +96,8 @@ namespace FightClubReports
             LoginOrPasswordValid(false);
             ValidEmail();
 
-            if (emailValid && loginValid && passwordValid)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return (emailValid && loginValid && passwordValid) ? true : false;
+
         }
 
         private void ValidEmail()

@@ -169,30 +169,17 @@ namespace FightClubReports
         {
             SumValidation();
             DateValidation();
-            if (sumValid && dateValid)
-            {
-                return true;
-            }
-            return false;
+            return (sumValid && dateValid) ? true : false;
         }
         
         private void DateValidation()
         {
-            dateValid = true;
-            if ((view.SelectedTransaction.Date == DateTime.MinValue))
-            {
-                dateValid = false;
-            }
-            
+            dateValid = (view.SelectedTransaction.Date == DateTime.MinValue) ? false : true;
         }
 
         private void SumValidation()
         {
-            sumValid = true;
-            if (view.SelectedTransaction.Sum <= 0)
-            {
-                sumValid = false;
-            }
+            sumValid = (view.SelectedTransaction.Sum <= 0) ? false : true;
         }
 
         private void TransactionsErrorsVisible()
@@ -239,18 +226,11 @@ namespace FightClubReports
 
         private void ChangeSelectedPlayer()
         {
-            player = service.Players.GetPlayerById(view.SelectedPlayer.Id); 
+            player = service.Players.GetPlayerById(view.SelectedPlayer.Id);
             player.Login = view.SelectedPlayer.Login;
             player.Password = view.SelectedPlayer.Password;
             player.EMail = view.SelectedPlayer.EMail;
-            if (player.EMail != null)
-            {
-                player.IsEmaillValid = true;
-            }
-            else
-            {
-                player.IsEmaillValid = false;
-            }
+            player.IsEmaillValid = (player.EMail != null) ? true : false;
         }
 
         private void InfoForTransactionTable()

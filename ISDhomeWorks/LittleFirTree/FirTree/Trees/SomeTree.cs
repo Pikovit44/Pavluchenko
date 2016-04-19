@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirTree.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FirTree
 {
-    public class SomeTree: BaseTree
+    public class SomeTree: BaseTree, ISomeTree 
     {
         public SomeTree() :base()
         {
@@ -15,7 +16,7 @@ namespace FirTree
 
         public override void ShowInfo()
         {
-            Console.WriteLine("Другое дерево.");
+            Console.WriteLine("Другое дерево");
             base.ShowInfo();
         }
     }

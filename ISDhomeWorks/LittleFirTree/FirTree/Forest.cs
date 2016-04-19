@@ -39,8 +39,7 @@ namespace FirTree
 
         public List<BaseTree> AllTrees
         { get { return allTrees; } }
-
-
+        
         public double Age
         { get { return age; } }
 

@@ -2,63 +2,53 @@
 using FirTree.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FirTree
 {
-    public class FirTree: IFirTree
+    public class FirTree: BaseTree, IFirTree  
     {
-        IForest forest;
-        Colour condition;
-        Shape form; 
-        double height;
-        double age;
-        const double DeltaHeight = 0.5;
-        const double DeltaAge = 0.25;
+        const double FirTreeDeltaHeight = 0.5;
+        const double FirTreeDeltaAge = 0.25;
         
-        public FirTree(IForest forest)
+        public FirTree() : base()
         {
-            this.forest = forest;
-            height = 0;
-            age = 0;
             ConditionAndFormChange();
+            Nature.changeSeason += Nature_changeSeason;
         }
 
-        #region Properties
-
-        public Colour Condition
-        { get { return condition; } }
-
-        public Shape Form
-        { get { return form; } }
-
-        public double Height
-        { get { return height; } }
-
-        public double Age
-        { get { return age; } }
-        
-        #endregion
-
-        public void Growth()
+        public override void ShowInfo()
         {
-            height += DeltaHeight; 
-            age += DeltaAge;
-            ConditionAndFormChange();
+            Console.WriteLine("Ёлочка.");
+            base.ShowInfo();
         }
 
-            void ConditionAndFormChange()
+        private void Nature_changeSeason(object sender, EventArgs e)
         {
-            if (forest.ActualSeason == PartOfYear.Autumn || forest.ActualSeason == PartOfYear.Spring)
+            Growth();
+        }
+
+        protected override void Growth()
+        {
+            height += FirTreeDeltaHeight;
+            age += FirTreeDeltaAge;
+            ConditionAndFormChange();
+        }
+        
+        private void ConditionAndFormChange()
+        {
+            if (Nature.actualSeason == PartOfYear.Autumn || Nature.actualSeason == PartOfYear.Spring)
             {
-                condition = Colour.Unknown;
+                state = Color.Unknown;
                 form = Shape.Unknown;
             }
             else
             {
-                condition = Colour.Green;
+                state = Color.Green;
                 form = Shape.Shapely;
             }
         }

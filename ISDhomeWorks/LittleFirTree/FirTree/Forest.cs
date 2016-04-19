@@ -7,114 +7,76 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Enums;
+using FirTree.Factory;
 
 namespace FirTree
 {
     public class Forest: IForest
     {
-        FirTree firTree; 
-        PartOfYear actualSeason;
+        List <FirTree> firTrees;
+        List<BaseTree> allTrees;
+
         double age;
         const double DeltaAge = 0.25;
-        
-        public Forest (PartOfYear season)
+        string actualSeason;
+
+        public Forest ()
         {
+            firTrees = new List<FirTree>();
+            allTrees = new List<BaseTree>();
             age = 0;
-            actualSeason = season;
+            Nature.changeSeason += Nature_changeSeason;
         }
 
-        public PartOfYear ActualSeason
-        { get { return actualSeason; } }
+        private void Nature_changeSeason(object sender, EventArgs e)
+        {
+            age += DeltaAge;
+            actualSeason =  DiscriptionHelper.GetDescription(Nature.actualSeason);
+        }
+
+        public List<FirTree> FirTrees
+        { get { return firTrees; } }
+
+        public List<BaseTree> AllTrees
+        { get { return allTrees; } }
+
 
         public double Age
         { get { return age; } }
 
         public void FirTreeBorn()
         {
-            firTree = new FirTree(this); ;
-        }
-        
-        public void NextSeason()
-        {
-            age += DeltaAge;
-            ChooseSeason();
-            IfExistGrowth();
+            FirTree ft = (FirTree)TreeCreator.Create(TreeType.FirTree);
+            allTrees.Add(ft); 
         }
 
-        private void ChooseSeason()
+        public void SomeTreeBorn()
         {
-            switch (actualSeason)
-            {
-                case PartOfYear.Spring:
-                    actualSeason = PartOfYear.Summer;
-                    break;
-
-                case PartOfYear.Summer:
-                    actualSeason = PartOfYear.Autumn;
-                    break;
-
-                case PartOfYear.Autumn:
-                    actualSeason = PartOfYear.Winter;
-                    break;
-
-                case PartOfYear.Winter:
-                    actualSeason = PartOfYear.Spring;
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        private void IfExistGrowth()
-        {
-            if (firTree != null)
-            {
-                firTree.Growth();
-            }
-        }
-
-        public Shape GetFormFirTree()
-        {
-            return firTree.Form;
-        }
-
-        public Colour GetConditionFirTree()
-        {
-            return firTree.Condition;
-        }
-
-        public double GetAgeFirTree()
-        {
-            return firTree.Age;
-        }
-
-        public double GetHeightFirTree()
-        {
-            return firTree.Height;
+            SomeTree st = (SomeTree)TreeCreator.Create(TreeType.SomeTree);
+            allTrees.Add(st);
         }
 
         public void ShowFirTreesInfo()
         {
-            Console.WriteLine("Сезон: {0}", GetDescription(actualSeason));
-            Console.WriteLine("Информация о ёлочке:");
-            Console.WriteLine("Форма: {0}.", GetDescription(firTree.Form));
-            Console.WriteLine("Цвет: {0}.", GetDescription(firTree.Condition));
-            Console.WriteLine("Высота: {0} м.", firTree.Height);
-            Console.WriteLine("Возраст: {0} года.", firTree.Age);
-            Console.WriteLine();
-            
+            Console.WriteLine(actualSeason);
+            for (int i = 0; i < allTrees.Count; i++)
+            {
+                if (allTrees[i] is FirTree)
+                {
+                    allTrees[i].ShowInfo();
+                }
+            }
             Console.ReadLine();
         }
-        
-        static string GetDescription(Enum value)
-        {
-            FieldInfo fi = value.GetType().GetField(value.ToString());
-            DescriptionAttribute[] attributes =
-                  (DescriptionAttribute[])fi.GetCustomAttributes(
-                  typeof(DescriptionAttribute), false);
-            return (attributes.Length > 0) ? attributes[0].Description : value.ToString();
-        }
 
+        public void ShowAllTreesInfo()
+        {
+            Console.WriteLine(actualSeason);
+            foreach (var tree in allTrees)
+            {
+                tree.ShowInfo();
+            }
+        }
 
     }
 }

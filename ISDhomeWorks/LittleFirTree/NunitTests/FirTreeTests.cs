@@ -9,126 +9,109 @@ using Enums;
 
 namespace NunitTests
 {
-    [TestFixture]
-    public class FirTreeTests
-    {
-        Forest forest;
-        [SetUp]
-        public void SetUp()
-        {
-            forest = new Forest(PartOfYear.Winter);
-            forest.FirTreeBorn(); 
-        }
+    //[TestFixture]
+    //public class FirTreeTests
+    //{
+    //    Forest forest;
+    //    [SetUp]
+    //    public void SetUp()
+    //    {
+    //        forest = new Forest(PartOfYear.Winter);
+    //        forest.FirTreeBorn(); 
+    //    }
 
-        [Test]
-        public void FormFirTreeForSeason()
-        {
-            // ёлочка родилась (зимой. должна быть стройной)
+    //    [Test]
+    //    public void FormFirTreeForSeason()
+    //    {
+    //        Shape form = forest.GetFormFirTree();
+    //        Assert.AreEqual(Shape.Shapely, form);
 
-            Shape form = forest.GetFormFirTree();
-            Assert.AreEqual(Shape.Shapely, form);
+    //        forest.NextSeason();
+    //        form = forest.GetFormFirTree();
+    //        Assert.AreEqual(Shape.Unknown, form);
 
-            forest.NextSeason(); // весна
-            // в описании ничего не указано по поводу формы ёлочки весной и осенью
-            // стройность в эти сезоны не должна быть определена
+    //        forest.NextSeason();
+    //        form = forest.GetFormFirTree();
+    //        Assert.AreEqual(Shape.Shapely, form);
 
-            form = forest.GetFormFirTree();
-            Assert.AreEqual(Shape.Unknown, form);
+    //        forest.NextSeason();
+    //        form = forest.GetFormFirTree();
+    //        Assert.AreEqual(Shape.Unknown, form);
+    //    }
 
-            forest.NextSeason(); // лето. ёлочка по условию опять стройная
-            form = forest.GetFormFirTree();
-            Assert.AreEqual(Shape.Shapely, form);
+    //    [Test]
+    //    public void ConditionFirTreeForSeason()
+    //    {
+    //        Color condition = forest.GetConditionFirTree();
+    //        Assert.AreEqual(Color.Green, condition);
 
-            forest.NextSeason(); // осень. стройность неизвестна
-            form = forest.GetFormFirTree();
-            Assert.AreEqual(Shape.Unknown, form);
-        }
+    //        forest.NextSeason(); 
+    //        condition = forest.GetConditionFirTree();
+    //        Assert.AreEqual(Color.Unknown, condition);
 
-        [Test]
-        public void ConditionFirTreeForSeason()
-        {
-            //цвет ёлочки меняется по сезонам аналогично форме
+    //        forest.NextSeason(); 
+    //        condition = forest.GetConditionFirTree();
+    //        Assert.AreEqual(Color.Green, condition);
+
+    //        forest.NextSeason();
+    //        condition = forest.GetConditionFirTree();
+    //        Assert.AreEqual(Color.Unknown, condition);
+    //    }
+
+    //    [Test]
+    //    public void AgeFirTreeForSeason()
+    //    {
+    //        double age = forest.GetAgeFirTree();
+    //        Assert.AreEqual(0, age);
+
+    //        forest.NextSeason();
+    //        forest.NextSeason();
             
-            Colour condition = forest.GetConditionFirTree();
-            Assert.AreEqual(Colour.Green, condition);
+    //        age = forest.GetAgeFirTree();
+    //        Assert.AreEqual(0.5, age);
+    //    }
 
-            forest.NextSeason(); 
-            condition = forest.GetConditionFirTree();
-            Assert.AreEqual(Colour.Unknown, condition);
+    //    [Test]
+    //    public void HeightFirTreeForSeason()
+    //    {
+    //        double height = forest.GetHeightFirTree();
+    //        Assert.AreEqual(0, height);
 
-            forest.NextSeason(); 
-            condition = forest.GetConditionFirTree();
-            Assert.AreEqual(Colour.Green, condition);
+    //        forest.NextSeason();
+    //        forest.NextSeason();
 
-            forest.NextSeason();
-            condition = forest.GetConditionFirTree();
-            Assert.AreEqual(Colour.Unknown, condition);
-        }
+    //        height = forest.GetHeightFirTree();
+    //        Assert.AreEqual(1, height);
+    //    }
+    //    [Test]
+    //    public void SeasonActuality()
+    //    {
+    //        Assert.AreEqual(PartOfYear.Winter, forest.ActualSeason);
 
-        [Test]
-        public void AgeFirTreeForSeason()
-        {
-            //при рождении ёлочки ее возраст = 0
-            //с каждым новым сезоном возраст увеличивается на 0,25 года (сделать константу)
+    //        forest.NextSeason();
+    //        Assert.AreEqual(PartOfYear.Spring, forest.ActualSeason);
 
-            double age = forest.GetAgeFirTree();
-            Assert.AreEqual(0, age);
+    //        forest.NextSeason();
+    //        Assert.AreEqual(PartOfYear.Summer, forest.ActualSeason);
 
-            forest.NextSeason();
-            forest.NextSeason();
-            
-            age = forest.GetAgeFirTree();
-            Assert.AreEqual(0.5, age);
-        }
+    //        forest.NextSeason();
+    //        Assert.AreEqual(PartOfYear.Autumn, forest.ActualSeason);
 
-        [Test]
-        public void HeightFirTreeForSeason()
-        {
-            //при рождении ёлочки ее рост = 0
-            //с каждым новым сезоном возраст увеличивается на 0,5 метра (сделать константу)
+    //        forest.NextSeason();
+    //        Assert.AreEqual(PartOfYear.Winter, forest.ActualSeason);
+    //    }
 
-            double height = forest.GetHeightFirTree();
-            Assert.AreEqual(0, height);
+    //    [Test]
+    //    public void AgeForestForSeason()
+    //    {
+    //        double age = forest.Age;
+    //        Assert.AreEqual(0, age);
 
-            forest.NextSeason();
-            forest.NextSeason();
+    //        forest.NextSeason();
+    //        forest.NextSeason();
 
-            height = forest.GetHeightFirTree();
-            Assert.AreEqual(1, height);
-        }
-        [Test]
-        public void SeasonActuality()
-        {
-            //циклическая последовательность сезонов зима -> весна -> лето -> осень и тд.
-            Assert.AreEqual(PartOfYear.Winter, forest.ActualSeason);
-
-            forest.NextSeason();
-            Assert.AreEqual(PartOfYear.Spring, forest.ActualSeason);
-
-            forest.NextSeason();
-            Assert.AreEqual(PartOfYear.Summer, forest.ActualSeason);
-
-            forest.NextSeason();
-            Assert.AreEqual(PartOfYear.Autumn, forest.ActualSeason);
-
-            forest.NextSeason();
-            Assert.AreEqual(PartOfYear.Winter, forest.ActualSeason);
-        }
-
-        [Test]
-        public void AgeForestForSeason()
-        {
-            //при рождении леса его возраст = 0
-            //с каждым новым сезоном возраст увеличивается на 0,25 года
-
-            double age = forest.Age;
-            Assert.AreEqual(0, age);
-
-            forest.NextSeason();
-            forest.NextSeason();
-
-            age = forest.Age;
-            Assert.AreEqual(0.5, age);
-        }
-    }
+    //        age = forest.Age;
+    //        Assert.AreEqual(0.5, age);
+    //    }
+    //}
 }

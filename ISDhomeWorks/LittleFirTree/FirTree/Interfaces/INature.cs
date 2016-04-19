@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace FirTree.Interfaces
 {
-    public interface IFirTree 
+    interface INature
     {
-        Color State { get; }
-        Shape Form { get; }
-        double Height { get; }
-        double Age { get; }
+        void NextSeason();
     }
 }

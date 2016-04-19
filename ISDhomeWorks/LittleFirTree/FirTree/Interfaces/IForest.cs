@@ -9,6 +9,9 @@ namespace FirTree.Interfaces
 {
     public interface IForest
     {
-        PartOfYear ActualSeason { get; }
+        void FirTreeBorn();
+        void ShowFirTreesInfo();
+        void ShowAllTreesInfo();
+        List<FirTree> FirTrees { get; }
     }
 }

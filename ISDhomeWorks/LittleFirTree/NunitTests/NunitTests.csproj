@@ -51,9 +51,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Enums\Enums.csproj">
+    <ProjectReference Include="..\Enums\Constants.csproj">
       <Project>{4d82031d-b00b-49c6-91e8-b40984269f15}</Project>
-      <Name>Enums</Name>
+      <Name>Constants</Name>
     </ProjectReference>
     <ProjectReference Include="..\FirTree\FirTree.csproj">
       <Project>{e3f4f050-d3a9-4838-a350-1a7f518a200a}</Project>

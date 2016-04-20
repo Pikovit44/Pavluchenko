@@ -14,7 +14,18 @@ namespace FirTree
         {
             Forest sherwood = new Forest();
 
+            Display.ShowActualSeason();
             Nature.NextSeason();
+
+            Display.ShowActualSeason();
+            Nature.NextSeason();
+
+            Display.ShowActualSeason();
+            Nature.NextSeason();
+
+            Display.ShowActualSeason();
+            Nature.NextSeason();
+
             Nature.NextSeason();
 
             sherwood.BornFirTree( 1.2, 12, 23);

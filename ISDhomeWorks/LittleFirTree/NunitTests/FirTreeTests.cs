@@ -89,30 +89,26 @@ namespace NunitTests
         [Test]
         public void SeasonActuality()
         {
-            Assert.AreEqual(PartOfYear.Summer, Nature.actualSeason);
+            Assert.AreEqual(PartOfYear.Winter, Nature.actualSeason);
 
             Nature.NextSeason();
-
-            Assert.AreEqual(PartOfYear.Autumn, Nature.actualSeason);
-
-            Nature.NextSeason();
-            Nature.NextSeason();
-
             Assert.AreEqual(PartOfYear.Spring, Nature.actualSeason);
 
+            Nature.NextSeason();
+            Assert.AreEqual(PartOfYear.Summer, Nature.actualSeason);
         }
 
-        //    [Test]
-        //    public void AgeForestForSeason()
-        //    {
-        //        double age = forest.Age;
-        //        Assert.AreEqual(0, age);
+        [Test]
+        public void AgeForestForSeason()
+        {
+            double age = forest.Age;
+            Assert.AreEqual(0, age);
 
-        //        forest.NextSeason();
-        //        forest.NextSeason();
+            Nature.NextSeason();
+            Nature.NextSeason();
 
-        //        age = forest.Age;
-        //        Assert.AreEqual(0.5, age);
-        //    }
+            age = forest.Age;
+            Assert.AreEqual(0.5, age);
+        }
     }
 }

@@ -21,7 +21,7 @@ namespace NunitTests
             double deltaHeight = 1.2;
             int needleLength = 11;
             int numberOfCones = 24;
-            forest = new FirTree.Forest();
+            forest = new Forest();
             forest.BornFirTree(deltaHeight, needleLength, numberOfCones);
             firTree = forest.FirTrees[0];
         }
@@ -110,5 +110,30 @@ namespace NunitTests
             age = forest.Age;
             Assert.AreEqual(0.5, age);
         }
+
+        [Test]
+        public void FirTreeBornAndDelete()
+        {
+            double deltaHeight = 0.6;
+            int needleLength = 12;
+            int numberOfCones = 15;
+
+            int count = forest.FirTrees.Count;
+            Assert.AreEqual(1, count);
+
+            forest.BornFirTree(deltaHeight, needleLength, numberOfCones);
+            forest.BornFirTree(deltaHeight, needleLength, numberOfCones);
+            forest.BornFirTree(deltaHeight, needleLength, numberOfCones);
+
+            count = forest.FirTrees.Count;
+            Assert.AreEqual(4, count);
+
+            forest.DeleteFirTree(forest.FirTrees[1]);
+
+            count = forest.FirTrees.Count;
+            Assert.AreEqual(3, count);
+        }
+        
+
     }
 }

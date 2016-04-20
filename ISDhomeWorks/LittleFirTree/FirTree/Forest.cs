@@ -13,69 +13,52 @@ namespace FirTree
 {
     public class Forest: IForest
     {
-        List <FirTree> firTrees;
-        List<BaseTree> allTrees;
-
-        double age;
         const double DeltaAge = 0.25;
-        string actualSeason;
+
+        public double Age{ get; private set; }
+        public List<BaseTree> AllTrees { get; private set; }
+        public List<FirTree> FirTrees { get; private set; }
+        public List<SomeTree> SomeTrees { get; private set; }
 
         public Forest ()
         {
-            firTrees = new List<FirTree>();
-            allTrees = new List<BaseTree>();
-            age = 0;
+            FirTrees = new List<FirTree>();
+            SomeTrees = new List<SomeTree>();
+            AllTrees = new List<BaseTree>();
+
             Nature.changeSeason += Nature_changeSeason;
         }
 
         private void Nature_changeSeason(object sender, EventArgs e)
         {
-            age += DeltaAge;
-            actualSeason =  DiscriptionHelper.GetDescription(Nature.actualSeason);
+            Age += DeltaAge;
         }
-
-        public List<FirTree> FirTrees
-        { get { return firTrees; } }
-
-        public List<BaseTree> AllTrees
-        { get { return allTrees; } }
         
-        public double Age
-        { get { return age; } }
-
-        public void FirTreeBorn()
+        public void BornFirTree(double deltaHeight, int needleLength, int numberOfCones)
         {
-            FirTree ft = (FirTree)TreeCreator.Create(TreeType.FirTree);
-            allTrees.Add(ft); 
+            FirTree ft = TreeCreator.CreateFirTree( FirTrees.Count + 1, deltaHeight, needleLength, numberOfCones);
+            AllTrees.Add(ft);
+            FirTrees.Add(ft); 
         }
 
-        public void SomeTreeBorn()
+        public  void BornSomeTree(double deltaHeight)
         {
-            SomeTree st = (SomeTree)TreeCreator.Create(TreeType.SomeTree);
-            allTrees.Add(st);
+            SomeTree st = TreeCreator.CreateSomeTree(SomeTrees.Count + 1, deltaHeight);
+            AllTrees.Add(st);
+            SomeTrees.Add(st);
         }
 
-        public void ShowFirTreesInfo()
+        public void DeleteFirTree(FirTree ft)
         {
-            Console.WriteLine(actualSeason);
-            for (int i = 0; i < allTrees.Count; i++)
-            {
-                if (allTrees[i] is FirTree)
-                {
-                    allTrees[i].ShowInfo();
-                }
-            }
-            Console.ReadLine();
+            AllTrees.Remove(ft);
+            FirTrees.Remove(ft);
         }
 
-        public void ShowAllTreesInfo()
+        public void DeleteSomeTree(SomeTree st)
         {
-            Console.WriteLine(actualSeason);
-            foreach (var tree in allTrees)
-            {
-                tree.ShowInfo();
-            }
+            AllTrees.Remove(st);
+            SomeTrees.Remove(st);
         }
-
+        
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FirTree.Interfaces
 {
-    public interface ISomeTree
+    public interface ISomeTree : ITree
     {
 
     }

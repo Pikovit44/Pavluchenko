@@ -9,15 +9,11 @@ namespace FirTree
 {
     public class SomeTree: BaseTree, ISomeTree 
     {
-        public SomeTree() :base()
+        public SomeTree(int number, double deltaHeight)
         {
-
+            Number = number;
+            this.deltaHeight = deltaHeight;
         }
-
-        public override void ShowInfo()
-        {
-            Console.WriteLine("Другое дерево");
-            base.ShowInfo();
-        }
+        
     }
 }

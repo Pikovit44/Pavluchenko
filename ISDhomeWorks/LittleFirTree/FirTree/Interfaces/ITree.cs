@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace FirTree.Interfaces
 {
-    public interface IFirTree : ITree
+    public interface ITree
     {
-        void Prick();
-        int NeedleLength { get; }
-        int NumberOfCones { get; }
+        Color State { get; }
+        Shape Form { get; }
+        int Number { get; }
+        double Height { get; }
+        double Age { get; }
     }
 }

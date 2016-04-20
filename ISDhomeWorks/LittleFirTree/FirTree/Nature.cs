@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace FirTree
 {
-    public static class Nature
+    public  static class Nature
     {
-
         public static PartOfYear actualSeason = PartOfYear.Spring;
         public static event EventHandler changeSeason;
 

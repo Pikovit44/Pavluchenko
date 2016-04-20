@@ -17,20 +17,23 @@ namespace FirTree
             Nature.NextSeason();
             Nature.NextSeason();
 
-            sherwood.FirTreeBorn();
-            sherwood.ShowFirTreesInfo();
+            sherwood.BornFirTree( 1.2, 12, 23);
+            sherwood.BornSomeTree(0.7);
+            sherwood.BornSomeTree(1.2);
+            Nature.NextSeason();
+            sherwood.BornFirTree(0.3, 12, 21);
+            FirTree ft = sherwood.FirTrees[0];
             
-            Nature.NextSeason();
+            ft.Prick();
 
-            sherwood.FirTreeBorn();
-
-            Nature.NextSeason();
-
-            sherwood.SomeTreeBorn();
+            sherwood.FirTrees[1].Prick();
 
             Nature.NextSeason();
+            sherwood.BornSomeTree(1.3);
 
-            sherwood.ShowAllTreesInfo();
+            Display.ShowActualSeason();
+
+            Display.ShowForest(sherwood);
 
 
 

@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Display.cs" />
     <Compile Include="Interfaces\ISomeTree.cs" />
+    <Compile Include="Interfaces\ITree.cs" />
     <Compile Include="Trees\BaseTree.cs" />
     <Compile Include="DiscriptionHelper.cs" />
     <Compile Include="Factory\TreeCreator.cs" />

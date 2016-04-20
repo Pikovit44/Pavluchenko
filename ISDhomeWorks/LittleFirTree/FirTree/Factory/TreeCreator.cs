@@ -9,17 +9,17 @@ namespace FirTree.Factory
 {
     public static class TreeCreator
     {
-        public static BaseTree Create(TreeType type)
+        public static FirTree CreateFirTree(int number, double deltaHeight, int needleLength, int numberOfCones)
         {
-            if (type == TreeType.FirTree) //swich in future
-            {
-                return new FirTree();
-            }
-            else
-            {
-                return new SomeTree(); 
-            }
-
+            FirTree newTree = new FirTree(number, deltaHeight, needleLength, numberOfCones);
+            return newTree;
         }
+
+        public static SomeTree CreateSomeTree(int number, double deltaHeight)
+        {
+            SomeTree newTree = new SomeTree(number, deltaHeight);
+            return newTree;
+        }
+
     }
 }

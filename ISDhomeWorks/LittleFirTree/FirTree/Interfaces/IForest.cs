@@ -9,9 +9,13 @@ namespace FirTree.Interfaces
 {
     public interface IForest
     {
-        void FirTreeBorn();
-        void ShowFirTreesInfo();
-        void ShowAllTreesInfo();
+        double Age { get;  }
+        List<BaseTree> AllTrees { get; }
         List<FirTree> FirTrees { get; }
+        List<SomeTree> SomeTrees { get; }
+        void BornFirTree(double deltaHeight, int needleLength, int numberOfCones);
+        void BornSomeTree(double deltaHeight); // + delete
+        void DeleteFirTree(FirTree ft);
+        void DeleteSomeTree(SomeTree st);
     }
 }

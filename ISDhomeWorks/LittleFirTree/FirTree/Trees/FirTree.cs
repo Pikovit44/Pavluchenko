@@ -12,45 +12,26 @@ namespace FirTree
 {
     public class FirTree: BaseTree, IFirTree  
     {
-        const double FirTreeDeltaHeight = 0.5;
-        const double FirTreeDeltaAge = 0.25;
-        
-        public FirTree() : base()
-        {
-            ConditionAndFormChange();
-            Nature.changeSeason += Nature_changeSeason;
-        }
+        public int NeedleLength { get; private set; }
+        public int NumberOfCones { get; private set; }
 
-        public override void ShowInfo()
+        public FirTree(int number, double deltaHeight, int needleLength, int numberOfCones) : base()
         {
-            Console.WriteLine("Ёлочка.");
-            base.ShowInfo();
-        }
-
-        private void Nature_changeSeason(object sender, EventArgs e)
-        {
-            Growth();
-        }
-
-        protected override void Growth()
-        {
-            height += FirTreeDeltaHeight;
-            age += FirTreeDeltaAge;
-            ConditionAndFormChange();
+            this.deltaHeight = deltaHeight;
+            NeedleLength = needleLength;
+            Number = number;
+            NumberOfCones = numberOfCones;
+            State = Color.Green;
+            Form = Shape.Shapely;
         }
         
-        private void ConditionAndFormChange()
+
+       
+        
+
+        public void Prick()
         {
-            if (Nature.actualSeason == PartOfYear.Autumn || Nature.actualSeason == PartOfYear.Spring)
-            {
-                state = Color.Unknown;
-                form = Shape.Unknown;
-            }
-            else
-            {
-                state = Color.Green;
-                form = Shape.Shapely;
-            }
+            Display.FirTreePrick(Number); 
         }
     }
 }

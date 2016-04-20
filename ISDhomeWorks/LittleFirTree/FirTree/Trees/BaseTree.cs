@@ -32,8 +32,10 @@ namespace FirTree
 
         #endregion
 
-        public BaseTree()
+        public BaseTree(int number, double deltaHeight)
         {
+            this.deltaHeight = deltaHeight;
+            Number = number;
             Nature.changeSeason += Nature_changeSeason;
         }
 

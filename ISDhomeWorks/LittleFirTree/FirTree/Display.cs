@@ -10,6 +10,9 @@ namespace FirTree
 {
     public static class Display
     {
+
+        // + methods for actions
+
         public static void ShowActualSeason()
         {
             string actualSeason = DiscriptionHelper.GetDescription(Nature.actualSeason);
@@ -73,6 +76,5 @@ namespace FirTree
             Console.WriteLine("Возраст: {0} года", ft.Age);
             Console.WriteLine();
         }
-
     }
 }

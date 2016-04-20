@@ -4,114 +4,115 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using FirTree;
 using Enums;
+using FirTree;
+using FirTree.Interfaces;
 
 namespace NunitTests
 {
-    //[TestFixture]
-    //public class FirTreeTests
-    //{
-    //    Forest forest;
-    //    [SetUp]
-    //    public void SetUp()
-    //    {
-    //        forest = new Forest(PartOfYear.Winter);
-    //        forest.FirTreeBorn(); 
-    //    }
+    [TestFixture]
+    public class FirTreeTests
+    {
+        IForest forest;
+        IFirTree firTree;
+        [SetUp]
+        public void SetUp()
+        {
+            double deltaHeight = 1.2;
+            int needleLength = 11;
+            int numberOfCones = 24;
+            forest = new FirTree.Forest();
+            forest.BornFirTree(deltaHeight, needleLength, numberOfCones);
+            firTree = forest.FirTrees[0];
+        }
 
-    //    [Test]
-    //    public void FormFirTreeForSeason()
-    //    {
-    //        Shape form = forest.GetFormFirTree();
-    //        Assert.AreEqual(Shape.Shapely, form);
+        [Test]
+        public void FormFirTreeForSeason()
+        {
+            Nature.NextSeason();
 
-    //        forest.NextSeason();
-    //        form = forest.GetFormFirTree();
-    //        Assert.AreEqual(Shape.Unknown, form);
+            Shape form = firTree.Form;
+            Assert.AreEqual(Shape.Shapely, form);
 
-    //        forest.NextSeason();
-    //        form = forest.GetFormFirTree();
-    //        Assert.AreEqual(Shape.Shapely, form);
+            Nature.NextSeason();
 
-    //        forest.NextSeason();
-    //        form = forest.GetFormFirTree();
-    //        Assert.AreEqual(Shape.Unknown, form);
-    //    }
+            form = firTree.Form;
+            Assert.AreEqual(Shape.Shapely, form);
+        }
 
-    //    [Test]
-    //    public void ConditionFirTreeForSeason()
-    //    {
-    //        Color condition = forest.GetConditionFirTree();
-    //        Assert.AreEqual(Color.Green, condition);
-
-    //        forest.NextSeason(); 
-    //        condition = forest.GetConditionFirTree();
-    //        Assert.AreEqual(Color.Unknown, condition);
-
-    //        forest.NextSeason(); 
-    //        condition = forest.GetConditionFirTree();
-    //        Assert.AreEqual(Color.Green, condition);
-
-    //        forest.NextSeason();
-    //        condition = forest.GetConditionFirTree();
-    //        Assert.AreEqual(Color.Unknown, condition);
-    //    }
-
-    //    [Test]
-    //    public void AgeFirTreeForSeason()
-    //    {
-    //        double age = forest.GetAgeFirTree();
-    //        Assert.AreEqual(0, age);
-
-    //        forest.NextSeason();
-    //        forest.NextSeason();
+        [Test]
+        public void StateFirTreeForSeason()
+        {
+            Color state = firTree.State;
+            Assert.AreEqual(Color.Green, state);
             
-    //        age = forest.GetAgeFirTree();
-    //        Assert.AreEqual(0.5, age);
-    //    }
+            Nature.NextSeason();
+            Nature.NextSeason();
 
-    //    [Test]
-    //    public void HeightFirTreeForSeason()
-    //    {
-    //        double height = forest.GetHeightFirTree();
-    //        Assert.AreEqual(0, height);
+            state = firTree.State;
+            Assert.AreEqual(Color.Green, state);
+        }
 
-    //        forest.NextSeason();
-    //        forest.NextSeason();
+        [Test]
+        public void AgeFirTreeForSeason()
+        {
+            double age = firTree.Age;
+            Assert.AreEqual(0, age);
 
-    //        height = forest.GetHeightFirTree();
-    //        Assert.AreEqual(1, height);
-    //    }
-    //    [Test]
-    //    public void SeasonActuality()
-    //    {
-    //        Assert.AreEqual(PartOfYear.Winter, forest.ActualSeason);
+            Nature.NextSeason();
+            Nature.NextSeason();
 
-    //        forest.NextSeason();
-    //        Assert.AreEqual(PartOfYear.Spring, forest.ActualSeason);
+            age = firTree.Age;
+            Assert.AreEqual(0.5, age);
+        }
 
-    //        forest.NextSeason();
-    //        Assert.AreEqual(PartOfYear.Summer, forest.ActualSeason);
+        [Test]
+        public void HeightFirTreeForSeason()
+        {
+            double height = firTree.Height;
+            Assert.AreEqual(0, height);
 
-    //        forest.NextSeason();
-    //        Assert.AreEqual(PartOfYear.Autumn, forest.ActualSeason);
+            Nature.NextSeason();
+            Nature.NextSeason();
 
-    //        forest.NextSeason();
-    //        Assert.AreEqual(PartOfYear.Winter, forest.ActualSeason);
-    //    }
+            height = firTree.Height;
+            Assert.AreEqual(2.4, height);
 
-    //    [Test]
-    //    public void AgeForestForSeason()
-    //    {
-    //        double age = forest.Age;
-    //        Assert.AreEqual(0, age);
+            Nature.NextSeason();
+            Nature.NextSeason();
+            Nature.NextSeason();
 
-    //        forest.NextSeason();
-    //        forest.NextSeason();
+            height = firTree.Height;
+            Assert.AreEqual(6, height);
+        }
 
-    //        age = forest.Age;
-    //        Assert.AreEqual(0.5, age);
-    //    }
-    //}
+        [Test]
+        public void SeasonActuality()
+        {
+            Assert.AreEqual(PartOfYear.Summer, Nature.actualSeason);
+
+            Nature.NextSeason();
+
+            Assert.AreEqual(PartOfYear.Autumn, Nature.actualSeason);
+
+            Nature.NextSeason();
+            Nature.NextSeason();
+
+            Assert.AreEqual(PartOfYear.Spring, Nature.actualSeason);
+
+        }
+
+        //    [Test]
+        //    public void AgeForestForSeason()
+        //    {
+        //        double age = forest.Age;
+        //        Assert.AreEqual(0, age);
+
+        //        forest.NextSeason();
+        //        forest.NextSeason();
+
+        //        age = forest.Age;
+        //        Assert.AreEqual(0.5, age);
+        //    }
+    }
 }

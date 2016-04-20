@@ -9,10 +9,9 @@ namespace FirTree
 {
     public class SomeTree: BaseTree, ISomeTree 
     {
-        public SomeTree(int number, double deltaHeight)
+        public SomeTree(int number, double deltaHeight) :base (number, deltaHeight)
         {
-            Number = number;
-            this.deltaHeight = deltaHeight;
+
         }
         
     }

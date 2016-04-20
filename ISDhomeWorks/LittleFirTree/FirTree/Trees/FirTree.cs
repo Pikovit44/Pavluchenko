@@ -15,19 +15,13 @@ namespace FirTree
         public int NeedleLength { get; private set; }
         public int NumberOfCones { get; private set; }
 
-        public FirTree(int number, double deltaHeight, int needleLength, int numberOfCones) : base()
+        public FirTree(int number, double deltaHeight, int needleLength, int numberOfCones) : base(number, deltaHeight)
         {
-            this.deltaHeight = deltaHeight;
             NeedleLength = needleLength;
-            Number = number;
             NumberOfCones = numberOfCones;
             State = Color.Green;
             Form = Shape.Shapely;
         }
-        
-
-       
-        
 
         public void Prick()
         {

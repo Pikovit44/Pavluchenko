@@ -14,7 +14,7 @@ namespace FirTree.Interfaces
         List<FirTree> FirTrees { get; }
         List<SomeTree> SomeTrees { get; }
         void BornFirTree(double deltaHeight, int needleLength, int numberOfCones);
-        void BornSomeTree(double deltaHeight); // + delete
+        void BornSomeTree(double deltaHeight); 
         void DeleteFirTree(FirTree ft);
         void DeleteSomeTree(SomeTree st);
     }

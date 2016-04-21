@@ -8,6 +8,6 @@ namespace Enums
 {
     public static class ConstantsLib
     {
-        
+        public const double DeltaAge = 0.25;
     }
 }

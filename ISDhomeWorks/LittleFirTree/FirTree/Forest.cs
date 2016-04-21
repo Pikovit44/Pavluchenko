@@ -13,8 +13,7 @@ namespace FirTree
 {
     public class Forest: IForest
     {
-        const double DeltaAge = 0.25;
-
+        
         public double Age{ get; private set; }
         public List<BaseTree> AllTrees { get; private set; }
         public List<FirTree> FirTrees { get; private set; }
@@ -31,19 +30,19 @@ namespace FirTree
 
         private void Nature_changeSeason(object sender, EventArgs e)
         {
-            Age += DeltaAge;
+            Age += ConstantsLib.DeltaAge;
         }
         
         public void BornFirTree(double deltaHeight, int needleLength, int numberOfCones)
         {
-            FirTree ft = TreeCreator.CreateFirTree( FirTrees.Count + 1, deltaHeight, needleLength, numberOfCones);
+            FirTree ft = TreeCreator.FirTree( FirTrees.Count + 1, deltaHeight, needleLength, numberOfCones);
             AllTrees.Add(ft);
             FirTrees.Add(ft); 
         }
 
         public  void BornSomeTree(double deltaHeight)
         {
-            SomeTree st = TreeCreator.CreateSomeTree(SomeTrees.Count + 1, deltaHeight);
+            SomeTree st = TreeCreator.SomeTree(SomeTrees.Count + 1, deltaHeight);
             AllTrees.Add(st);
             SomeTrees.Add(st);
         }

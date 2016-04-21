@@ -10,7 +10,6 @@ namespace FirTree
 {
     public abstract class BaseTree : ITree
     {
-        const double DeltaAge = 0.25;
         protected double deltaHeight;
 
         #region Properties
@@ -46,7 +45,7 @@ namespace FirTree
 
         protected virtual void Growth()
         {
-            Age += DeltaAge;
+            Age += ConstantsLib.DeltaAge;
             Height += deltaHeight;
         }
     }

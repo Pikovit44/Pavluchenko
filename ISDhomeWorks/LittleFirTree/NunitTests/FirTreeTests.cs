@@ -133,7 +133,5 @@ namespace NunitTests
             count = forest.FirTrees.Count;
             Assert.AreEqual(3, count);
         }
-        
-
     }
 }

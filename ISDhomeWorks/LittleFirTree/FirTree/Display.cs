@@ -10,9 +10,7 @@ namespace FirTree
 {
     public static class Display
     {
-
-        // + methods for actions
-
+        
         public static void ShowActualSeason()
         {
             string actualSeason = DiscriptionHelper.GetDescription(Nature.actualSeason);
@@ -22,6 +20,8 @@ namespace FirTree
         public static void ShowFirTree(FirTree ft)
         {
             Console.WriteLine("Елочка");
+            Console.WriteLine("Длина иголок: {0}", ft.NeedleLength);
+            Console.WriteLine("Количество шишек: {0}", ft.NumberOfCones);
             ShowTree(ft);
         }
 

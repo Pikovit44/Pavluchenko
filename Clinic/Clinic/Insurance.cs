@@ -17,18 +17,15 @@ namespace Clinic
         public Insurance()
         {
             clients = new List<Patient>();
-            reasons = new List<string>();
+            List<string> reasons = new List<string> { "Treatment of headache", "Treatment of heartache", "Treatment of headache" };
         }
 
-        public void AddClient(ref Patient client)
+        public void AddClient(Patient client)
         {
-            Person person = clients.FirstOrDefault();//!!!
-            if (person == null)
+            if (ClientIsPresent(client) == false)
             {
                 clients.Add(client);
-                client.InsuranceRegistration(this);
             }
-
         }
 
         public void BillPayment( ref CashAccount account)//?
@@ -39,6 +36,21 @@ namespace Clinic
             }
         }
 
+        bool ClientIsPresent(Patient client)
+        {
+            bool clientIsPresent = false;
+
+            foreach (var cl in clients)
+            {
+                if (cl.FullName == client.FullName)
+                {
+                    clientIsPresent = true;
+                    break;
+                }
+            }
+            return clientIsPresent;
+        }
+
         void Validation(CashAccount account)
         {
             ReasonValidation(account);
@@ -47,6 +59,7 @@ namespace Clinic
 
         void ReasonValidation(CashAccount account)
         {
+            validReason = false;
             foreach (var reason in reasons)
             {
                 if (reason == account.Discription.Reason)
@@ -59,6 +72,7 @@ namespace Clinic
 
         void FullNameValidation(CashAccount account)
         {
+            validFulName = false;
             foreach (var client in clients)
             {
                 if (client.FullName == account.Discription.ClientFullName)

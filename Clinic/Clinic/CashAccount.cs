@@ -37,7 +37,6 @@ namespace Clinic
                 {
                     status = true;
                 }
-
             }
         }
 

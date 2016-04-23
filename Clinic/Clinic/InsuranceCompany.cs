@@ -7,20 +7,21 @@ using System.Threading.Tasks;
 
 namespace Clinic
 {
-    public class Insurance
+    public class InsuranceCompany
     {
         List<Person> clients;
-        Dictionary<string, decimal> reasonsSum;
+        Dictionary<string, decimal> caseLumit;
         bool validFulName;
-        bool validReason;
-        bool validSum;
-        CashAccount currentAccount;
+        bool validCase;
+        bool validLimit;
+        Bill currentBill;
+        decimal shortfall;
 
-        public Insurance()
+        public InsuranceCompany()
         {
             clients = new List<Person>();
 
-            reasonsSum = new Dictionary<string, decimal>
+            caseLumit = new Dictionary<string, decimal>
             {
                 {"Dentistdiagnosise1", (decimal)300.00},
                 {"Dentistdiagnosise2", (decimal)380.00},
@@ -33,40 +34,50 @@ namespace Clinic
 
         public void AddClient(Person client)
         {
-            if (ClientIsPresent(client) == false)
+            if (ClientInBase(client) == false)
             {
                 clients.Add(client);
             }
         }
 
-        public void BillPayment( ref CashAccount account)//?
+        public void BillPayment( ref Bill bill)//?
         {
-            currentAccount = account;
+            currentBill = bill;
             Validation();
-            if (validReason && validFulName && validSum)
+            if (validCase && validFulName)
             {
-                account.Status = "payment";
+                if (validLimit)
+                {
+                    bill.Status = "payment";
+                }
+                else
+                {
+                    StringBuilder s = new StringBuilder();
+                    s.AppendFormat("shortfall is {0}", shortfall);
+                    bill.Status = s.ToString();
+                }
+                
             }
         }
 
-        bool ClientIsPresent(Person client)
+        bool ClientInBase(Person client)
         {
-            bool clientIsPresent = false;
+            bool clientInBase = false;
 
             foreach (var cl in clients)
             {
                 if (cl.FullName == client.FullName)
                 {
-                    clientIsPresent = true;
+                    clientInBase = true;
                     break;
                 }
             }
-            return clientIsPresent;
+            return clientInBase;
         }
 
         void Validation()
         {
-            ReasonValidation();
+            CaseValidation();
             FullNameValidation();
         }
 
@@ -74,23 +85,25 @@ namespace Clinic
         {
             if (bill <= limit)
             {
-                validSum = true;
+                validLimit = true;
             }
             else
             {
-                validSum = false;
+
+                validLimit = false;
+                shortfall = bill - limit;
             }
         }
 
-        void ReasonValidation()
+        void CaseValidation()
         {
-            validReason = false;
-            foreach (var reasonSum in reasonsSum)
+            validCase = false;
+            foreach (var reasonSum in caseLumit)
             {
-                if (reasonSum.Key == currentAccount.Reason)
+                if (reasonSum.Key == currentBill.Reason)
                 {
-                    SumValidation(currentAccount.Sum, reasonSum.Value);
-                    validReason = true;
+                    SumValidation(currentBill.Sum, reasonSum.Value);
+                    validCase = true;
                     break;
                 }
             }
@@ -101,7 +114,7 @@ namespace Clinic
             validFulName = false;
             foreach (var client in clients)
             {
-                if (client.FullName == currentAccount.ClientFullName)
+                if (client.FullName == currentBill.ClientFullName)
                 {
                     validFulName = true;
                     break;

@@ -43,13 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CashAccount.cs" />
+    <Compile Include="Bill.cs" />
     <Compile Include="Doctors\BaseDoctor.cs" />
     <Compile Include="Doctors\Dentist.cs" />
     <Compile Include="Doctors\ENT.cs" />
     <Compile Include="Doctors\Podiatrist.cs" />
     <Compile Include="Hospital.cs" />
-    <Compile Include="Insurance.cs" />
+    <Compile Include="InsuranceCompany.cs" />
     <Compile Include="Interfaces\Discription.cs" />
     <Compile Include="Interfaces\ICashAccount.cs" />
     <Compile Include="Interfaces\IPatient.cs" />

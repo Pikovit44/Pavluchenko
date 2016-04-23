@@ -28,10 +28,8 @@ namespace Clinic
         Doctor currentDoctorType;
         BaseDoctor currentDoctor;
         string currentTreatment;
-        decimal currentSum;
-        bool currentBill;
-
-
+        decimal currentSum; 
+         
         public Hospital()
         {
 
@@ -97,42 +95,38 @@ namespace Clinic
 
         void SendToTheDoctor()
         {
-            currentTreatment = string.Empty;
             switch (currentDoctorType)
             {
                 case Doctor.Unknown:
                     break;
                 case Doctor.Dentist:
                     currentDoctor = dentist;
-                    currentTreatment = dentist.Diagnosise(currentPatient);
                     break;
                 case Doctor.ENT:
                     currentDoctor = ent;
-                    currentTreatment = ent.Diagnosise(currentPatient);
                     break;
                 case Doctor.Podiatrist:
                     currentDoctor = podiatrist;
-                    currentTreatment = podiatrist.Diagnosise(currentPatient);
                     break;
                 default:
                     break;
             }
+            currentTreatment =  currentDoctor.Diagnosise(currentPatient);
         }
 
-        public CashAccount CreateBill( )
+        public Bill CreateBill( )
         {
             ChooseSum();
-            CashAccount currentBill = new CashAccount(DateTime.Now, currentPatient.FullName, currentTreatment, currentSum);
+            Bill currentBill = new Bill(DateTime.Now, currentPatient.FullName, currentTreatment, currentSum);
             return currentBill;
         }
 
-        public bool ChecBill(CashAccount bill)
+        public void ChecBill(Bill bill)
         {
             if (bill.Status == "paid")
             {
-                return true;
+                Treatment();
             }
-            return false;
         }
 
         public void Treatment()

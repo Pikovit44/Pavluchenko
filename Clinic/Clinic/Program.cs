@@ -12,21 +12,19 @@ namespace Clinic
     {
         static void Main(string[] args)
         {
-
-
             #region SetUp
-            Patient person1 = new Patient("John Doe", "Dentistcomplaint2");
+            Patient person1 = new Patient("John Doe", "Podiatristcomplaint3");
             //Person person2 = new Patient("John Doe2", "Hearthache");
             //Person person3 = new Patient("John Doe3", "Hearthache");
             //Person person4 = new Patient("John Doe4", "Simulated pain");
 
             Hospital hospital = new Hospital();
             hospital.AddDoctor(new Dentist("Doctor Doctorus"));
-            hospital.AddDoctor(new Dentist("Doctor Doctorusus"));
-            hospital.AddDoctor(new Dentist("Doctor Doctorusis"));
+            hospital.AddDoctor(new ENT("Doctor Doctorusus"));
+            hospital.AddDoctor(new Podiatrist("Doctor Doctorusis"));
 
 
-            Insurance insuranceCompany = new Insurance();
+            InsuranceCompany insuranceCompany = new InsuranceCompany();
 
             insuranceCompany.AddClient(person1);
             #endregion
@@ -35,15 +33,15 @@ namespace Clinic
 
             hospital.Reception(person1);
             
-            CashAccount cashAccount =  hospital.CreateBill();
-            insuranceCompany.BillPayment(ref cashAccount);
+            Bill bill =  hospital.CreateBill();
 
-            if (hospital.ChecBill(cashAccount))
-            {
-                hospital.Treatment();
-            };
+            insuranceCompany.BillPayment(ref bill);
+
+            hospital.ChecBill(bill);
 
             Console.WriteLine(person1.Complaint);
+
+            Console.WriteLine(bill.Status);
             
         }
     }

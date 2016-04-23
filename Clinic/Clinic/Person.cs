@@ -8,7 +8,7 @@ namespace Clinic.Interfaces
 {
     public abstract class Person
     {
-        public  Person(string fullName)
+        public Person(string fullName)
         {
             FullName = fullName;
         }

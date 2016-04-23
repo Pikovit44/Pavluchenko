@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Clinic
 {
-    public class CashAccount : ICashAccount
+    public class Bill : ICashAccount
     {
         bool status;
 
-        public CashAccount(DateTime date, string clientFullName, string reason, decimal sum)
+        public Bill(DateTime date, string clientFullName, string reason, decimal sum)
         {
             Date = date;
             ClientFullName = clientFullName;
@@ -26,6 +26,8 @@ namespace Clinic
 
         public string Reason { get; private set; }
 
+        string shortfall;
+
         public string Status
         {
             get
@@ -33,6 +35,10 @@ namespace Clinic
                 if (status == true)
                 {
                     return "paid";
+                }
+                else if (shortfall != string.Empty)
+                {
+                    return shortfall;
                 }
                 else
                 {
@@ -44,6 +50,10 @@ namespace Clinic
                 if (value == "payment")
                 {
                     status = true;
+                }
+                else
+                {
+                    shortfall = value;
                 }
             }
         }

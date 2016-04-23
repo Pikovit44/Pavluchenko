@@ -9,18 +9,29 @@ namespace Clinic
 {
     public class Insurance
     {
-        List<Patient> clients;
-        List<string> reasons;
+        List<Person> clients;
+        Dictionary<string, decimal> reasonsSum;
         bool validFulName;
         bool validReason;
+        bool validSum;
+        CashAccount currentAccount;
 
         public Insurance()
         {
-            clients = new List<Patient>();
-            List<string> reasons = new List<string> { "Treatment of headache", "Treatment of heartache", "Treatment of headache" };
+            clients = new List<Person>();
+
+            reasonsSum = new Dictionary<string, decimal>
+            {
+                {"Dentistdiagnosise1", (decimal)300.00},
+                {"Dentistdiagnosise2", (decimal)380.00},
+                {"ENTdiagnosise1", (decimal)600.00},
+                {"ENTdiagnosise2", (decimal)270.00},
+                {"Podiatristdiagnosise1", (decimal)300.00},
+                {"Podiatristdiagnosise2", (decimal)790.00}
+            };
         }
 
-        public void AddClient(Patient client)
+        public void AddClient(Person client)
         {
             if (ClientIsPresent(client) == false)
             {
@@ -30,13 +41,15 @@ namespace Clinic
 
         public void BillPayment( ref CashAccount account)//?
         {
-            if (validReason && validFulName)
+            currentAccount = account;
+            Validation();
+            if (validReason && validFulName && validSum)
             {
                 account.Status = "payment";
             }
         }
 
-        bool ClientIsPresent(Patient client)
+        bool ClientIsPresent(Person client)
         {
             bool clientIsPresent = false;
 
@@ -51,31 +64,44 @@ namespace Clinic
             return clientIsPresent;
         }
 
-        void Validation(CashAccount account)
+        void Validation()
         {
-            ReasonValidation(account);
-            FullNameValidation(account);
+            ReasonValidation();
+            FullNameValidation();
         }
 
-        void ReasonValidation(CashAccount account)
+        void SumValidation(decimal bill, decimal limit)
+        {
+            if (bill <= limit)
+            {
+                validSum = true;
+            }
+            else
+            {
+                validSum = false;
+            }
+        }
+
+        void ReasonValidation()
         {
             validReason = false;
-            foreach (var reason in reasons)
+            foreach (var reasonSum in reasonsSum)
             {
-                if (reason == account.Discription.Reason)
+                if (reasonSum.Key == currentAccount.Reason)
                 {
+                    SumValidation(currentAccount.Sum, reasonSum.Value);
                     validReason = true;
                     break;
                 }
             }
         }
 
-        void FullNameValidation(CashAccount account)
+        void FullNameValidation()
         {
             validFulName = false;
             foreach (var client in clients)
             {
-                if (client.FullName == account.Discription.ClientFullName)
+                if (client.FullName == currentAccount.ClientFullName)
                 {
                     validFulName = true;
                     break;

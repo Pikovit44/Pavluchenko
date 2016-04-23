@@ -8,10 +8,9 @@ namespace Clinic.Interfaces
 {
     public interface ICashAccount
     {
-        string Sender { get; }
-        string Recipient { get; }
         decimal Sum { get; }
-        Discription Discription { get; }
+        string ClientFullName { get; }
+        string Reason { get; }
         string Status { get; }
         DateTime Date { get; }
     }

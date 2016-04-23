@@ -9,15 +9,32 @@ namespace Clinic.Doctors
 {
     public abstract class BaseDoctor: Person
     {
-        protected string currentComplaint;
-        protected List<string> complaints;
-        protected List<string> diagnosises;
+        protected Dictionary<string, string> diagnosises;
+        protected string currentTreatment;
 
         public BaseDoctor(string fullName) : base (fullName)
         {
 
         }
 
-        public abstract string Diagnosise(Patient patient);
+        public string Diagnosise(Patient patient)
+        {
+            currentTreatment = string.Empty;
+            foreach (var item in diagnosises)
+            {
+                if (item.Key == patient.Complaint)
+                {
+                    currentTreatment = item.Value;
+                    break;
+                }
+            }
+            return currentTreatment;
+        }
+
+        public void Treatment(ref Patient patient)
+        {
+            patient.Complaint = "No complaints";
+        }
+
     }
 }

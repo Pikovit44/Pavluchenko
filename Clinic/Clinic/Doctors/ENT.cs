@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Clinic.Doctors
 {
-    class ENT
+    public class ENT : BaseDoctor
     {
+        public ENT(string fullName) : base (fullName)
+        {
+            diagnosises = new Dictionary<string, string>
+            {
+                {"ENTcomplaint1", "ENTdiagnosise1"},
+                {"ENTcomplaint2", "ENTdiagnosise1"},
+                {"ENTcomplaint3", "ENTdiagnosise2"}
+            };
+        }
     }
 }

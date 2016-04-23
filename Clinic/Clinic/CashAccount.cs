@@ -10,13 +10,21 @@ namespace Clinic
     public class CashAccount : ICashAccount
     {
         bool status;
-        Discription discription;
+
+        public CashAccount(DateTime date, string clientFullName, string reason, decimal sum)
+        {
+            Date = date;
+            ClientFullName = clientFullName;
+            Reason = reason;
+            Sum = sum;
+        }
+
 
         public DateTime Date { get; private set; }
 
-        public string Recipient { get; private set; }
+        public string ClientFullName { get; private set; }
 
-        public string Sender { get; private set; }
+        public string Reason { get; private set; }
 
         public string Status
         {
@@ -41,8 +49,5 @@ namespace Clinic
         }
 
         public decimal Sum { get; private set; }
-
-        public Discription Discription
-        { get { return discription; }  }
     }
 }

@@ -8,7 +8,6 @@ namespace Clinic.Interfaces
 {
     public class Discription
     {
-        public string ClientFullName { get; private set; }
-        public string Reason { get; private set; }
+        
     }
 }

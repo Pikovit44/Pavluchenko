@@ -16,7 +16,7 @@ namespace Clinic
         }
 
         public string Complaint
-        { get; private set; }
+        { get; set; }
         
     }
 }

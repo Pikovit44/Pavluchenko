@@ -48,7 +48,6 @@ namespace Clinic
             }
         }
 
-
         public void BillPayment( ref Bill bill)
         {
                 currentBill = bill;
@@ -65,7 +64,6 @@ namespace Clinic
                         s.AppendFormat(" Shortfall is {0}", shortfall);
                         bill.Status = s.ToString();
                     }
-
                 }
         }
 

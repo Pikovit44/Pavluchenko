@@ -10,6 +10,7 @@ namespace Clinic
     public class Bill 
     {
         bool status;
+        string shortfall;
 
         public Bill(DateTime date, string clientFullName, string reason, decimal sum)
         {
@@ -24,8 +25,6 @@ namespace Clinic
         public string ClientFullName { get; private set; }
 
         public string Case { get; private set; }
-
-        string shortfall;
 
         public string Status
         {

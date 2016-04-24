@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clinic.Interfaces
 {
-    public abstract class Person
+    public abstract class Person 
     {
         public Person(string fullName)
         {

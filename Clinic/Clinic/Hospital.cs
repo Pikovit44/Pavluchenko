@@ -65,9 +65,7 @@ namespace Clinic
             get; protected set;
         }
 
-
-
-        public void AddDoctor(BaseDoctor doctor) // + poly
+        public void AddDoctor(BaseDoctor doctor)
         {
             if (doctor is Dentist)
             {
@@ -131,8 +129,6 @@ namespace Clinic
         {
             switch (currentDoctorType)
             {
-                case Doctor.Unknown:
-                    break;
                 case Doctor.Dentist:
                     CurrentDoctor = dentist;
                     break;
@@ -146,7 +142,6 @@ namespace Clinic
                     break;
             }
             CurrentTreatment = CurrentDoctor.Diagnosise(currentPatient);
-
         }
 
         public Bill CreateBill()

@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2645C4C2-988A-48B6-8058-267049806651}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{84E45D6A-932E-4820-846C-4204DAD63A49}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Clinic</RootNamespace>
-    <AssemblyName>Clinic</AssemblyName>
+    <RootNamespace>ClinicTests</RootNamespace>
+    <AssemblyName>ClinicTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -47,26 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bill.cs" />
-    <Compile Include="Doctors\BaseDoctor.cs" />
-    <Compile Include="Doctors\Dentist.cs" />
-    <Compile Include="Doctors\ENT.cs" />
-    <Compile Include="Doctors\Podiatrist.cs" />
-    <Compile Include="Hospital.cs" />
-    <Compile Include="InsuranceCompany.cs" />
-    <Compile Include="Interfaces\IHospital.cs" />
-    <Compile Include="Interfaces\IInsuranceCompany.cs" />
-    <Compile Include="Interfaces\IPatient.cs" />
-    <Compile Include="Person.cs" />
-    <Compile Include="Patient.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ClinicTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <ProjectReference Include="..\Clinic\Clinic.csproj">
+      <Project>{2645c4c2-988a-48b6-8058-267049806651}</Project>
+      <Name>Clinic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

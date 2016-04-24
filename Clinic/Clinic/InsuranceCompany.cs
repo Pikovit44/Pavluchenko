@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Clinic
 {
-    public class InsuranceCompany
+    public class InsuranceCompany : IInsuranceCompany
     {
         List<Person> clients;
-        Dictionary<string, decimal> caseLumit;
+        Dictionary<string, decimal> caseLimit;
         bool validFulName;
         bool validCase;
         bool validLimit;
@@ -21,7 +21,7 @@ namespace Clinic
         {
             clients = new List<Person>();
 
-            caseLumit = new Dictionary<string, decimal>
+            caseLimit = new Dictionary<string, decimal>
             {
                 {"Dentistdiagnosise1", (decimal)300.00},
                 {"Dentistdiagnosise2", (decimal)380.00},
@@ -40,24 +40,33 @@ namespace Clinic
             }
         }
 
-        public void BillPayment( ref Bill bill)//?
+        public void AddRangeClients(List<Person> clients)
         {
-            currentBill = bill;
-            Validation();
-            if (validCase && validFulName)
+            foreach (var client in clients)
             {
-                if (validLimit)
-                {
-                    bill.Status = "payment";
-                }
-                else
-                {
-                    StringBuilder s = new StringBuilder();
-                    s.AppendFormat("shortfall is {0}", shortfall);
-                    bill.Status = s.ToString();
-                }
-                
+                AddClient(client);
             }
+        }
+
+
+        public void BillPayment( ref Bill bill)
+        {
+                currentBill = bill;
+                Validation();
+                if (validCase && validFulName)
+                {
+                    if (validLimit)
+                    {
+                        bill.Status = "payment";
+                    }
+                    else
+                    {
+                        StringBuilder s = new StringBuilder();
+                        s.AppendFormat(" Shortfall is {0}", shortfall);
+                        bill.Status = s.ToString();
+                    }
+
+                }
         }
 
         bool ClientInBase(Person client)
@@ -98,11 +107,11 @@ namespace Clinic
         void CaseValidation()
         {
             validCase = false;
-            foreach (var reasonSum in caseLumit)
+            foreach (var caseSum in caseLimit)
             {
-                if (reasonSum.Key == currentBill.Reason)
+                if (caseSum.Key == currentBill.Case)
                 {
-                    SumValidation(currentBill.Sum, reasonSum.Value);
+                    SumValidation(currentBill.Sum, caseSum.Value);
                     validCase = true;
                     break;
                 }

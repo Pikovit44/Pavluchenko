@@ -9,7 +9,6 @@ namespace Clinic
 {
     public class Patient : Person, IPatient
     {
-
         public Patient(string fullName, string complaint) : base ( fullName )
         {
             Complaint = complaint;

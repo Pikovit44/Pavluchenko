@@ -17,7 +17,7 @@ namespace Clinic
         Podiatrist
     }
 
-    public class Hospital
+    public class Hospital : IHospital
     {
         Dentist dentist;
         ENT ent;
@@ -26,10 +26,8 @@ namespace Clinic
         Dictionary<string, decimal> treatmentsBills;
         Patient currentPatient;
         Doctor currentDoctorType;
-        BaseDoctor currentDoctor;
-        string currentTreatment;
         decimal currentSum; 
-         
+        
         public Hospital()
         {
 
@@ -57,7 +55,19 @@ namespace Clinic
             };
         }
 
-        public void AddDoctor(BaseDoctor doctor)
+        public BaseDoctor CurrentDoctor
+        {
+            get; protected set;
+        }
+
+        public string CurrentTreatment
+        {
+            get; protected set;
+        }
+
+
+
+        public void AddDoctor(BaseDoctor doctor) // + poly
         {
             if (doctor is Dentist)
             {
@@ -73,18 +83,42 @@ namespace Clinic
             }
         }
 
+        public void AddRangeDoctors(List<BaseDoctor> doctors)
+        {
+            foreach (var doctor in doctors)
+            {
+                AddDoctor(doctor);
+            }
+        }
+
         public void Reception(Patient patient)
         {
             currentPatient = patient;
             ChooseDoctor();
-            SendToTheDoctor();
+            if (currentDoctorType != Doctor.Unknown)
+            {
+                SendToTheDoctor();
+            }
+            else
+            {
+                ResetCurrentData();
+            }
+            
+        }
+
+        void ResetCurrentData()
+        {
+            CurrentDoctor = null;
+            currentSum = (decimal)0.00;
+            CurrentTreatment = string.Empty;
+            
         }
 
         void ChooseDoctor()
         {
-            currentDoctorType = Doctor.Unknown;
             foreach (var compDoct in complaintsDoctors)
             {
+                currentDoctorType = Doctor.Unknown;
                 if (compDoct.Key == currentPatient.Complaint)
                 {
                     currentDoctorType = compDoct.Value;
@@ -100,38 +134,39 @@ namespace Clinic
                 case Doctor.Unknown:
                     break;
                 case Doctor.Dentist:
-                    currentDoctor = dentist;
+                    CurrentDoctor = dentist;
                     break;
                 case Doctor.ENT:
-                    currentDoctor = ent;
+                    CurrentDoctor = ent;
                     break;
                 case Doctor.Podiatrist:
-                    currentDoctor = podiatrist;
+                    CurrentDoctor = podiatrist;
                     break;
                 default:
                     break;
             }
-            currentTreatment =  currentDoctor.Diagnosise(currentPatient);
+            CurrentTreatment = CurrentDoctor.Diagnosise(currentPatient);
+
         }
 
-        public Bill CreateBill( )
+        public Bill CreateBill()
         {
             ChooseSum();
-            Bill currentBill = new Bill(DateTime.Now, currentPatient.FullName, currentTreatment, currentSum);
+            Bill currentBill = new Bill(DateTime.Now, currentPatient.FullName, CurrentTreatment, currentSum);
             return currentBill;
         }
 
         public void ChecBill(Bill bill)
         {
-            if (bill.Status == "paid")
+            if (bill.Status == "Paid")
             {
                 Treatment();
             }
         }
 
-        public void Treatment()
+        void Treatment()
         {
-            currentDoctor.Treatment(ref currentPatient);
+            CurrentDoctor.Treatment(ref currentPatient);
         }
 
         void ChooseSum()
@@ -139,15 +174,12 @@ namespace Clinic
             currentSum = 0;
             foreach (var trBill in treatmentsBills)
             {
-                if (trBill.Key == currentTreatment)
+                if (trBill.Key == CurrentTreatment)
                 {
                     currentSum = trBill.Value;
                     break;
                 }
             }
         }
-
-
-
     }
 }

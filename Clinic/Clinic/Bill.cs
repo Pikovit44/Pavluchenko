@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Clinic
 {
-    public class Bill : ICashAccount
+    public class Bill 
     {
         bool status;
 
@@ -15,16 +15,15 @@ namespace Clinic
         {
             Date = date;
             ClientFullName = clientFullName;
-            Reason = reason;
+            Case = reason;
             Sum = sum;
         }
-
-
+        
         public DateTime Date { get; private set; }
 
         public string ClientFullName { get; private set; }
 
-        public string Reason { get; private set; }
+        public string Case { get; private set; }
 
         string shortfall;
 
@@ -34,15 +33,13 @@ namespace Clinic
             {
                 if (status == true)
                 {
-                    return "paid";
+                    return "Paid";
                 }
-                else if (shortfall != string.Empty)
+                else 
                 {
-                    return shortfall;
-                }
-                else
-                {
-                    return "not paid";
+                    StringBuilder s = new StringBuilder();
+                    s.AppendFormat("Not paid.{0}", shortfall);
+                    return s.ToString();
                 }
             }
             set

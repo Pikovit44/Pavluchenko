@@ -84,8 +84,8 @@ namespace Clinic
 
         void Validation()
         {
-            CaseValidation();
             FullNameValidation();
+            CaseValidation();
         }
 
         void SumValidation(decimal bill, decimal limit)
@@ -96,7 +96,6 @@ namespace Clinic
             }
             else
             {
-
                 validLimit = false;
                 shortfall = bill - limit;
             }

@@ -33,7 +33,7 @@ namespace Clinic.Doctors
 
         public void Treatment(ref Patient patient)
         {
-            patient.Complaint = "No complaints";
+            patient.Complaint = "Actual treatment";
         }
 
     }

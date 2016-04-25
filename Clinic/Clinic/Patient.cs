@@ -9,13 +9,36 @@ namespace Clinic
 {
     public class Patient : Person, IPatient
     {
+        string complaint;
+        bool complaintStatus;
+
         public Patient(string fullName, string complaint) : base ( fullName )
         {
-            Complaint = complaint;
+            this.complaint = complaint;
+            complaintStatus = true;
         }
 
         public string Complaint
-        { get; set; }
+        {
+            get
+            {
+                if (complaintStatus == true)
+                {
+                    return complaint;
+                }
+                else
+                {
+                    return "No complaints";
+                }
+            }
+            set
+            {
+                if (value == "Actual treatment")
+                {
+                    complaintStatus = false;
+                }
+            }
+        }
         
     }
 }

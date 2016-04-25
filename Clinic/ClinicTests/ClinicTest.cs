@@ -45,7 +45,6 @@ namespace ClinicTests
             insuranceCompany.AddRangeClients(clients);
         }
 
-
         [Test]
         public void HospiralReception()
         {
@@ -76,13 +75,8 @@ namespace ClinicTests
             hospital.Reception(patient4);
             treatment = hospital.CurrentTreatment;
             Assert.AreEqual("", treatment);
-
-            patient4.Complaint = "Podiatristcomplaint2";
-            hospital.Reception(patient4);
-            treatment = hospital.CurrentTreatment;
-            Assert.AreEqual("Podiatristdiagnosise2", treatment);
+            
         }
-
 
         [Test]
         public void SumForTreatment()
@@ -102,7 +96,6 @@ namespace ClinicTests
             sum = currentBill.Sum;
             Assert.AreEqual(sum, 0.00);
         }
-
 
         [Test]
         public void UseCase()
@@ -134,6 +127,5 @@ namespace ClinicTests
             Assert.AreEqual("Not paid.", billStatus);
             Assert.AreEqual("Pain simulation", complaint);
         }
-
     }
 }

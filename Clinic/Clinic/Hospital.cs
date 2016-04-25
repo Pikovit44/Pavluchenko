@@ -30,7 +30,6 @@ namespace Clinic
         
         public Hospital()
         {
-
             complaintsDoctors = new Dictionary<string, Doctor>
             {
                 {"Dentistcomplaint1", Doctor.Dentist},
@@ -101,7 +100,6 @@ namespace Clinic
             {
                 ResetCurrentData();
             }
-            
         }
 
         void ResetCurrentData()
@@ -109,7 +107,6 @@ namespace Clinic
             CurrentDoctor = null;
             currentSum = (decimal)0.00;
             CurrentTreatment = string.Empty;
-            
         }
 
         void ChooseDoctor()

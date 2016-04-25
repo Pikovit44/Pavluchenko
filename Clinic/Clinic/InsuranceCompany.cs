@@ -20,16 +20,7 @@ namespace Clinic
         public InsuranceCompany()
         {
             clients = new List<Person>();
-
-            caseLimit = new Dictionary<string, decimal>
-            {
-                {"Dentistdiagnosise1", (decimal)300.00},
-                {"Dentistdiagnosise2", (decimal)380.00},
-                {"ENTdiagnosise1", (decimal)600.00},
-                {"ENTdiagnosise2", (decimal)270.00},
-                {"Podiatristdiagnosise1", (decimal)300.00},
-                {"Podiatristdiagnosise2", (decimal)790.00}
-            };
+            caseLimit = Constants.InsuranceCaseLimit;
         }
 
         public void AddClient(Person client)

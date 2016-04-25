@@ -10,12 +10,7 @@ namespace Clinic.Doctors
     {
         public ENT(string fullName) : base (fullName)
         {
-            diagnosises = new Dictionary<string, string>
-            {
-                {"ENTcomplaint1", "ENTdiagnosise1"},
-                {"ENTcomplaint2", "ENTdiagnosise1"},
-                {"ENTcomplaint3", "ENTdiagnosise2"}
-            };
+            diagnosises = Constants.entDiagnosises;
         }
     }
 }

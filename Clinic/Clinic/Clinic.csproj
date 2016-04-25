@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bill.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Doctors\BaseDoctor.cs" />
     <Compile Include="Doctors\Dentist.cs" />
     <Compile Include="Doctors\ENT.cs" />

@@ -9,16 +9,9 @@ namespace Clinic.Doctors
 {
     public class Dentist : BaseDoctor
     {
-        
         public Dentist(string fullName) : base (fullName)
         {
-            diagnosises = new Dictionary<string, string>
-            {
-                {"Dentistcomplaint1", "Dentistdiagnosise1"},
-                {"Dentistcomplaint2", "Dentistdiagnosise2"},
-                {"Dentistcomplaint3", "Dentistdiagnosise2"}
-            };
+            diagnosises = Constants.dentistDiagnosises;
         }
-        
     }
 }

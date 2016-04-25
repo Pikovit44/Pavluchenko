@@ -8,15 +8,6 @@ using System.Threading.Tasks;
 
 namespace Clinic
 {
-
-    public enum Doctor
-    {
-        Unknown,
-        Dentist,
-        ENT,
-        Podiatrist
-    }
-
     public class Hospital : IHospital
     {
         Dentist dentist;
@@ -30,28 +21,8 @@ namespace Clinic
         
         public Hospital()
         {
-            complaintsDoctors = new Dictionary<string, Doctor>
-            {
-                {"Dentistcomplaint1", Doctor.Dentist},
-                {"Dentistcomplaint2", Doctor.Dentist},
-                {"Dentistcomplaint3", Doctor.Dentist},
-                {"ENTcomplaint1", Doctor.ENT},
-                {"ENTcomplaint2", Doctor.ENT},
-                {"ENTcomplaint3", Doctor.ENT},
-                {"Podiatristcomplaint1", Doctor.Podiatrist},
-                {"Podiatristcomplaint2", Doctor.Podiatrist},
-                {"Podiatristcomplaint3", Doctor.Podiatrist}
-            };
-
-            treatmentsBills = new Dictionary<string, decimal>
-            {
-                {"Dentistdiagnosise1", (decimal)200.00},
-                {"Dentistdiagnosise2", (decimal)280.00},
-                {"ENTdiagnosise1", (decimal)500.00},
-                {"ENTdiagnosise2", (decimal)170.00},
-                {"Podiatristdiagnosise1", (decimal)200.00},
-                {"Podiatristdiagnosise2", (decimal)890.00}
-            };
+            complaintsDoctors = Constants.hospitalComplaintsDoctors;
+            treatmentsBills = Constants.hospitalTreatmentsBills;
         }
 
         public BaseDoctor CurrentDoctor

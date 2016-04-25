@@ -26,6 +26,8 @@ namespace Clinic
 
         public string Case { get; private set; }
 
+        public decimal Sum { get; private set; }
+
         public string Status
         {
             get
@@ -53,7 +55,6 @@ namespace Clinic
                 }
             }
         }
-
-        public decimal Sum { get; private set; }
+        
     }
 }

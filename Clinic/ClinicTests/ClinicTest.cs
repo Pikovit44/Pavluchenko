@@ -75,7 +75,6 @@ namespace ClinicTests
             hospital.Reception(patient4);
             treatment = hospital.CurrentTreatment;
             Assert.AreEqual("", treatment);
-            
         }
 
         [Test]

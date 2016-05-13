@@ -18,6 +18,7 @@ namespace Clinic
     {
         static Constants()
         {
+            
             dentistDiagnosises = new Dictionary<string, string>
             {
                 {"Dentistcomplaint1", "Dentistdiagnosise1"},

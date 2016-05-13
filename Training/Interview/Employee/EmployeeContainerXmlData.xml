@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfBaseEmployee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BaseEmployee xsi:type="FixedPaymentEmployee">
+    <LastName>Miller</LastName>
+    <AverageMonthlySalary>1600</AverageMonthlySalary>
+  </BaseEmployee>
+  <BaseEmployee xsi:type="FixedPaymentEmployee">
+    <LastName>MartinThompson</LastName>
+    <AverageMonthlySalary>300</AverageMonthlySalary>
+  </BaseEmployee>
+  <BaseEmployee xsi:type="FixedPaymentEmployee">
+    <LastName>Lewis</LastName>
+    <AverageMonthlySalary>1200</AverageMonthlySalary>
+  </BaseEmployee>
+  <BaseEmployee xsi:type="FixedPaymentEmployee">
+    <LastName>Wood</LastName>
+    <AverageMonthlySalary>700</AverageMonthlySalary>
+  </BaseEmployee>
+  <BaseEmployee xsi:type="FixedPaymentEmployee">
+    <LastName>Anderson</LastName>
+    <AverageMonthlySalary>300</AverageMonthlySalary>
+  </BaseEmployee>
+  <BaseEmployee xsi:type="FixedPaymentEmployee">
+    <LastName>Smith</LastName>
+    <AverageMonthlySalary>1600</AverageMonthlySalary>
+  </BaseEmployee>
+  <BaseEmployee xsi:type="HourlyPaymentEmployee">
+    <LastName>Smith</LastName>
+    <AverageMonthlySalary>336</AverageMonthlySalary>
+  </BaseEmployee>
+  <BaseEmployee xsi:type="HourlyPaymentEmployee">
+    <LastName>Johnson</LastName>
+    <AverageMonthlySalary>504</AverageMonthlySalary>
+  </BaseEmployee>
+  <BaseEmployee xsi:type="HourlyPaymentEmployee">
+    <LastName>Brown</LastName>
+    <AverageMonthlySalary>672</AverageMonthlySalary>
+  </BaseEmployee>
+  <BaseEmployee xsi:type="HourlyPaymentEmployee">
+    <LastName>Scott</LastName>
+    <AverageMonthlySalary>504</AverageMonthlySalary>
+  </BaseEmployee>
+  <BaseEmployee xsi:type="HourlyPaymentEmployee">
+    <LastName>Cooper</LastName>
+    <AverageMonthlySalary>504</AverageMonthlySalary>
+  </BaseEmployee>
+</ArrayOfBaseEmployee>

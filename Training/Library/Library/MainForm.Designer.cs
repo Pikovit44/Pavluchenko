@@ -1,6 +1,6 @@
 ﻿namespace Library
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.mainPanel = new System.Windows.Forms.Panel();
+            this.SuspendLayout();
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.Location = new System.Drawing.Point(-5, 0);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(760, 420);
+            this.mainPanel.TabIndex = 1;
+            // 
+            // MainForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(754, 421);
+            this.Controls.Add(this.mainPanel);
+            this.MaximizeBox = false;
+            this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Library";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel mainPanel;
     }
 }
 

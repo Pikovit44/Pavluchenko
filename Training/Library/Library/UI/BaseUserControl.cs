@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +10,14 @@ using System.Windows.Forms;
 
 namespace Library
 {
-    public partial class Form1 : Form
+    public partial class BaseUserControl : UserControl
     {
-        public Form1()
+        public void SwitchScene(Scene targetScene)
         {
-            InitializeComponent();
+            var form = this.FindForm() as MainForm;
+            form.SwitchScene(targetScene);
         }
+
+
     }
 }

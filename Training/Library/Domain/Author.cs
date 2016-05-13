@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public class Author
+    public class Author : BaseEntity
     {
-        public int Id { get; set; }
         public string FullName { get; set; }
         public virtual List<Book> books { get; set; }
 

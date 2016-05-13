@@ -57,6 +57,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Repository\BaseRepository.cs" />
+    <Compile Include="Data\Repository\BooksRepository.cs" />
+    <Compile Include="Data\Repository\Interfaces\IBookRepository.cs" />
+    <Compile Include="Data\Repository\Interfaces\IRepository.cs" />
     <Compile Include="UI\BaseUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

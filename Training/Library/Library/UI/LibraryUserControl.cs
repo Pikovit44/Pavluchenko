@@ -7,18 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Library.UI.Interfaces;
 
 namespace Library.UI
 {
-    public partial class LibraryUserControl : BaseUserControl
+    public partial class LibraryUserControl : BaseUserControl, ILibrary 
     {
+        bool isAdmin;
+
+        public event EventHandler LoadLibrary;
+        public bool IsAdmin
+        {
+            get
+            {
+                return isAdmin;
+            }
+        }
+
+        public object BooksBindingSource
+        {
+            set { booksBindingSource.DataSource = value; }
+        }
+
+        public event EventHandler LibraryLoad;
+
         public LibraryUserControl()
         {
             InitializeComponent();
             DoubleBuffered = true;
+            Presenter presenter = new Presenter(this);
             if (LoginUserControl.Admin)
             {
                 removeBtn.Visible = true;
+                isAdmin = true;
+            }
+            else
+            {
+                isAdmin = false;
             }
         }
 
@@ -31,13 +56,7 @@ namespace Library.UI
         {
             SwitchScene(Scene.Journal);
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
         
-
         void HistoryVisible(bool flag)
         {
             historyPl.Visible = flag;
@@ -53,17 +72,7 @@ namespace Library.UI
         {
             addBookPl.Visible = false;
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void returnBookPl_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             returnBookPl.Visible = false;
@@ -74,6 +83,11 @@ namespace Library.UI
         {
             returnBookPl.Visible = true;
             addBookPl.Visible = false;
+        }
+
+        private void LibraryUserControl_Load(object sender, EventArgs e)
+        {
+            if (LibraryLoad != null) { LibraryLoad(this, EventArgs.Empty); }
         }
     }
 }

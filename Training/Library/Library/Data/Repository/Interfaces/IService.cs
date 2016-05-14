@@ -1,5 +1,4 @@
-﻿using Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Library.Data.Repository.Interfaces
 {
-    public interface IBookRepository: IRepository<Book>
+    public interface IService
     {
-        List<Book> GetAvalible();
-        List<Book> GetTaken();
+        IBookRepository Books {get;}
+        void Dispose();
+        void Save();
     }
 }

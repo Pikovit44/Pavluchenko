@@ -11,6 +11,7 @@ namespace Library.Data
         public Context()
             : base("name=LibraryDBContextModel")
         {
+
         }
 
         public DbSet<Author> Authors { get; set; }

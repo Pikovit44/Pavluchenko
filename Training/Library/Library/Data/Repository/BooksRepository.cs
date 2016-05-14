@@ -12,20 +12,15 @@ namespace Library.Data.Repository
     {
         public BooksRepository(Context db) : base(db)
         { }
-
-        public void Delete(string title, string author)
+        
+        public List<Book> GetAvalible()
         {
-            throw new NotImplementedException();
+            return db.Books.Where( s => s.AvalibleStatus == true).ToList();
         }
 
-        public IEnumerable<Book> GetAvalible()
+        public List<Book> GetTaken()
         {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Book> GetTaken()
-        {
-            throw new NotImplementedException();
+            return db.Books.Where(s => s.AvalibleStatus == false).ToList();
         }
     }
 }

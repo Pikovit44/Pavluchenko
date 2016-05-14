@@ -13,6 +13,7 @@ namespace Library.UI
     public partial class LoginUserControl : BaseUserControl
     {
         static bool admin;
+        
 
         public LoginUserControl()
         {
@@ -44,6 +45,7 @@ namespace Library.UI
 
         private void okBtn_Click(object sender, EventArgs e)
         {
+
             SwitchScene(Scene.Library);
         }
 

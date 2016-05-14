@@ -61,6 +61,22 @@
     <Compile Include="Data\Repository\BooksRepository.cs" />
     <Compile Include="Data\Repository\Interfaces\IBookRepository.cs" />
     <Compile Include="Data\Repository\Interfaces\IRepository.cs" />
+    <Compile Include="Data\Repository\Interfaces\IService.cs" />
+    <Compile Include="Data\Repository\Service.cs" />
+    <Compile Include="LibraryDBContextDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryDBContextDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605141145334_First.cs" />
+    <Compile Include="Migrations\201605141145334_First.Designer.cs">
+      <DependentUpon>201605141145334_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605141202246_Author discr.cs" />
+    <Compile Include="Migrations\201605141202246_Author discr.Designer.cs">
+      <DependentUpon>201605141202246_Author discr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UI\BaseUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -76,6 +92,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Interfaces\ILibrary.cs" />
     <Compile Include="UI\JournalUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,8 +111,15 @@
     <Compile Include="UI\LoginUserControl.Designer.cs">
       <DependentUpon>LoginUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Presenter.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605141145334_First.resx">
+      <DependentUpon>201605141145334_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605141202246_Author discr.resx">
+      <DependentUpon>201605141202246_Author discr.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -116,6 +140,17 @@
     <EmbeddedResource Include="UI\LoginUserControl.resx">
       <DependentUpon>LoginUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="LibraryDBContextDataSet.xsc">
+      <DependentUpon>LibraryDBContextDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LibraryDBContextDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LibraryDBContextDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LibraryDBContextDataSet.xss">
+      <DependentUpon>LibraryDBContextDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -145,6 +180,7 @@
   <ItemGroup>
     <None Include="Properties\letters.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

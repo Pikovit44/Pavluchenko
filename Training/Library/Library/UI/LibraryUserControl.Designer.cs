@@ -45,6 +45,8 @@
             this.addBookBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.booksTable = new System.Windows.Forms.DataGridView();
+            this.titleDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avalableBooksRb = new System.Windows.Forms.RadioButton();
             this.takenBooksRb = new System.Windows.Forms.RadioButton();
             this.allBooksRb = new System.Windows.Forms.RadioButton();
@@ -57,6 +59,10 @@
             this.addNewBookLb = new System.Windows.Forms.Label();
             this.regPasswordTb = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.avalableDiscrLb = new System.Windows.Forms.Label();
+            this.countDiscrLb = new System.Windows.Forms.Label();
+            this.genreDiscrLb = new System.Windows.Forms.Label();
+            this.genreLb = new System.Windows.Forms.Label();
             this.addBtn = new System.Windows.Forms.Button();
             this.removeBtn = new System.Windows.Forms.Button();
             this.ownerDiscrLb = new System.Windows.Forms.Label();
@@ -74,12 +80,6 @@
             this.historyLb = new System.Windows.Forms.Label();
             this.toJournal = new System.Windows.Forms.Button();
             this.toMenuBtn = new System.Windows.Forms.Button();
-            this.titleDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genreLb = new System.Windows.Forms.Label();
-            this.genreDiscrLb = new System.Windows.Forms.Label();
-            this.countDiscrLb = new System.Windows.Forms.Label();
-            this.avalableDiscrLb = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDBContextDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             this.returnBookPl.SuspendLayout();
@@ -246,7 +246,23 @@
             this.booksTable.ReadOnly = true;
             this.booksTable.Size = new System.Drawing.Size(477, 266);
             this.booksTable.TabIndex = 4;
-            this.booksTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksTable_CellContentClick);
+            this.booksTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksTable_CellClick);
+            // 
+            // titleDataGridViewTextBoxColumn2
+            // 
+            this.titleDataGridViewTextBoxColumn2.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn2.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn2.Name = "titleDataGridViewTextBoxColumn2";
+            this.titleDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.titleDataGridViewTextBoxColumn2.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "authorDiscription";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Author(s)";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 235;
             // 
             // avalableBooksRb
             // 
@@ -393,6 +409,54 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(234, 148);
             this.panel1.TabIndex = 18;
+            // 
+            // avalableDiscrLb
+            // 
+            this.avalableDiscrLb.AutoSize = true;
+            this.avalableDiscrLb.BackColor = System.Drawing.Color.Transparent;
+            this.avalableDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.avalableDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.avalableDiscrLb.Location = new System.Drawing.Point(161, 99);
+            this.avalableDiscrLb.Name = "avalableDiscrLb";
+            this.avalableDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.avalableDiscrLb.TabIndex = 24;
+            this.avalableDiscrLb.Text = ".";
+            // 
+            // countDiscrLb
+            // 
+            this.countDiscrLb.AutoSize = true;
+            this.countDiscrLb.BackColor = System.Drawing.Color.Transparent;
+            this.countDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.countDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.countDiscrLb.Location = new System.Drawing.Point(62, 99);
+            this.countDiscrLb.Name = "countDiscrLb";
+            this.countDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.countDiscrLb.TabIndex = 23;
+            this.countDiscrLb.Text = ".";
+            // 
+            // genreDiscrLb
+            // 
+            this.genreDiscrLb.AutoSize = true;
+            this.genreDiscrLb.BackColor = System.Drawing.Color.Transparent;
+            this.genreDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.genreDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.genreDiscrLb.Location = new System.Drawing.Point(82, 60);
+            this.genreDiscrLb.Name = "genreDiscrLb";
+            this.genreDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.genreDiscrLb.TabIndex = 22;
+            this.genreDiscrLb.Text = ".";
+            // 
+            // genreLb
+            // 
+            this.genreLb.AutoSize = true;
+            this.genreLb.BackColor = System.Drawing.Color.Transparent;
+            this.genreLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.genreLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.genreLb.Location = new System.Drawing.Point(3, 60);
+            this.genreLb.Name = "genreLb";
+            this.genreLb.Size = new System.Drawing.Size(58, 20);
+            this.genreLb.TabIndex = 21;
+            this.genreLb.Text = "Genre:";
             // 
             // addBtn
             // 
@@ -583,70 +647,6 @@
             this.toMenuBtn.Text = "To Main Menu";
             this.toMenuBtn.UseVisualStyleBackColor = true;
             this.toMenuBtn.Click += new System.EventHandler(this.toMenuBtn_Click);
-            // 
-            // titleDataGridViewTextBoxColumn2
-            // 
-            this.titleDataGridViewTextBoxColumn2.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn2.HeaderText = "Title";
-            this.titleDataGridViewTextBoxColumn2.Name = "titleDataGridViewTextBoxColumn2";
-            this.titleDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.titleDataGridViewTextBoxColumn2.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "authorDiscription";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Author(s)";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 235;
-            // 
-            // genreLb
-            // 
-            this.genreLb.AutoSize = true;
-            this.genreLb.BackColor = System.Drawing.Color.Transparent;
-            this.genreLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.genreLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.genreLb.Location = new System.Drawing.Point(3, 60);
-            this.genreLb.Name = "genreLb";
-            this.genreLb.Size = new System.Drawing.Size(58, 20);
-            this.genreLb.TabIndex = 21;
-            this.genreLb.Text = "Genre:";
-            // 
-            // genreDiscrLb
-            // 
-            this.genreDiscrLb.AutoSize = true;
-            this.genreDiscrLb.BackColor = System.Drawing.Color.Transparent;
-            this.genreDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.genreDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.genreDiscrLb.Location = new System.Drawing.Point(82, 60);
-            this.genreDiscrLb.Name = "genreDiscrLb";
-            this.genreDiscrLb.Size = new System.Drawing.Size(13, 20);
-            this.genreDiscrLb.TabIndex = 22;
-            this.genreDiscrLb.Text = ".";
-            // 
-            // countDiscrLb
-            // 
-            this.countDiscrLb.AutoSize = true;
-            this.countDiscrLb.BackColor = System.Drawing.Color.Transparent;
-            this.countDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.countDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.countDiscrLb.Location = new System.Drawing.Point(62, 99);
-            this.countDiscrLb.Name = "countDiscrLb";
-            this.countDiscrLb.Size = new System.Drawing.Size(13, 20);
-            this.countDiscrLb.TabIndex = 23;
-            this.countDiscrLb.Text = ".";
-            // 
-            // avalableDiscrLb
-            // 
-            this.avalableDiscrLb.AutoSize = true;
-            this.avalableDiscrLb.BackColor = System.Drawing.Color.Transparent;
-            this.avalableDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.avalableDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.avalableDiscrLb.Location = new System.Drawing.Point(161, 99);
-            this.avalableDiscrLb.Name = "avalableDiscrLb";
-            this.avalableDiscrLb.Size = new System.Drawing.Size(13, 20);
-            this.avalableDiscrLb.TabIndex = 24;
-            this.avalableDiscrLb.Text = ".";
             // 
             // LibraryUserControl
             // 

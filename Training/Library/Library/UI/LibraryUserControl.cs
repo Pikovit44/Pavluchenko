@@ -14,12 +14,9 @@ namespace Library.UI
 {
     public partial class LibraryUserControl : BaseUserControl, ILibrary 
     {
-        bool isAdmin;
-        
         public event EventHandler AllBooksClick;
         public event EventHandler AvalibleBooksClick;
         public event EventHandler TakenBooksClick;
-        public bool IsAdmin {get { return isAdmin; }}
         Book selectedBook;
 
         public object BooksBindingSource
@@ -33,35 +30,10 @@ namespace Library.UI
         {
             InitializeComponent();
             DGVSelectionMode();
-            helloLb.Text += LoginUserControl.Login;
-            helloLb.Text += "!";
-            DoubleBuffered = true;
+            SetUp();
             Presenter presenter = new Presenter(this);
-            if (LoginUserControl.Admin)
-            {
-                removeBtn.Visible = true;
-                isAdmin = true;
-            }
-            else
-            {
-                isAdmin = false;
-            }
-        }
-
-        private void toMenuBtn_Click(object sender, EventArgs e)
-        {
-            SwitchScene(Scene.Login);
-        }
-
-        private void toJournal_Click(object sender, EventArgs e)
-        {
-            SwitchScene(Scene.Journal);
         }
         
-        void HistoryVisible(bool flag)
-        {
-            historyPl.Visible = flag;
-        }
 
         private void addBookBtn_Click(object sender, EventArgs e)
         {
@@ -74,11 +46,6 @@ namespace Library.UI
             addBookPl.Visible = false;
         }
         
-        private void button1_Click(object sender, EventArgs e)
-        {
-            returnBookPl.Visible = false;
-
-        }
 
         private void returnBookBtn_Click(object sender, EventArgs e)
         {
@@ -94,7 +61,6 @@ namespace Library.UI
         private void allBooksRb_CheckedChanged(object sender, EventArgs e)
         {
             if (AllBooksClick != null) { AllBooksClick(this, EventArgs.Empty); }
-
         }
 
         private void avalableBooksRb_CheckedChanged(object sender, EventArgs e)
@@ -107,18 +73,52 @@ namespace Library.UI
             if (TakenBooksClick != null) { TakenBooksClick(this, EventArgs.Empty); }
         }
 
-        private void DGVSelectionMode()
-        {
-            booksTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            booksTable.MultiSelect = false;
-        }
+        
 
-        private void booksTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void booksTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedBook = (Book)booksTable.CurrentRow.DataBoundItem;
             titleDiscrLb.Text = selectedBook.Title;
             authorDiscrLb.Text = selectedBook.authorDiscription;
             genreDiscrLb.Text = selectedBook.Id.ToString();
+        }
+
+        #region Methods
+
+        private void SetUp()
+        {
+            helloLb.Text += LoginUserControl.Login; // 
+            helloLb.Text += "!";
+            DoubleBuffered = true;
+        }
+
+        void HistoryVisible(bool flag)
+        {
+            historyPl.Visible = flag;
+        }
+
+        private void DGVSelectionMode()
+        {
+            booksTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            booksTable.MultiSelect = false;
+        }
+        #endregion
+
+        #region Navigation
+        private void toMenuBtn_Click(object sender, EventArgs e)
+        {
+            SwitchScene(Scene.Login);
+        }
+
+        private void toJournal_Click(object sender, EventArgs e)
+        {
+            SwitchScene(Scene.Journal);
+        }
+        #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

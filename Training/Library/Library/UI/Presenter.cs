@@ -18,18 +18,30 @@ namespace Library.UI
         public Presenter(ILibrary library)
         {
             this.library = library;
-            library.LoadLibrary += Library_LoadLibrary;
             servise = new Service();
+            library.AllBooksClick += Library_AllBooksClick;
+            library.AvalibleBooksClick += Library_AvalibleBooksClick;
+            library.TakenBooksClick += Library_TakenBooksClick;
             books = servise.Books.GetAll().ToList();
             library.BooksBindingSource = books;
-
         }
 
-        private void Library_LoadLibrary(object sender, EventArgs e)
+        private void Library_TakenBooksClick(object sender, EventArgs e)
         {
-            
+            books = servise.Books.GetTaken().ToList();
+            library.BooksBindingSource = books;
         }
 
+        private void Library_AvalibleBooksClick(object sender, EventArgs e)
+        {
+            books = servise.Books.GetAvalible().ToList();
+            library.BooksBindingSource = books;
+        }
 
+        private void Library_AllBooksClick(object sender, EventArgs e)
+        {
+            books = servise.Books.GetAll().ToList();
+            library.BooksBindingSource = books;
+        }
     }
 }

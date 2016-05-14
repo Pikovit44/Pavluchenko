@@ -8,21 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Library.UI.Interfaces;
+using Domain;
 
 namespace Library.UI
 {
     public partial class LibraryUserControl : BaseUserControl, ILibrary 
     {
         bool isAdmin;
-
-        public event EventHandler LoadLibrary;
-        public bool IsAdmin
-        {
-            get
-            {
-                return isAdmin;
-            }
-        }
+        
+        public event EventHandler AllBooksClick;
+        public event EventHandler AvalibleBooksClick;
+        public event EventHandler TakenBooksClick;
+        public bool IsAdmin {get { return isAdmin; }}
+        Book selectedBook;
 
         public object BooksBindingSource
         {
@@ -34,6 +32,9 @@ namespace Library.UI
         public LibraryUserControl()
         {
             InitializeComponent();
+            DGVSelectionMode();
+            helloLb.Text += LoginUserControl.Login;
+            helloLb.Text += "!";
             DoubleBuffered = true;
             Presenter presenter = new Presenter(this);
             if (LoginUserControl.Admin)
@@ -88,6 +89,36 @@ namespace Library.UI
         private void LibraryUserControl_Load(object sender, EventArgs e)
         {
             if (LibraryLoad != null) { LibraryLoad(this, EventArgs.Empty); }
+        }
+
+        private void allBooksRb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (AllBooksClick != null) { AllBooksClick(this, EventArgs.Empty); }
+
+        }
+
+        private void avalableBooksRb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (AvalibleBooksClick != null) { AvalibleBooksClick(this, EventArgs.Empty); }
+        }
+
+        private void takenBooksRb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (TakenBooksClick != null) { TakenBooksClick(this, EventArgs.Empty); }
+        }
+
+        private void DGVSelectionMode()
+        {
+            booksTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            booksTable.MultiSelect = false;
+        }
+
+        private void booksTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedBook = (Book)booksTable.CurrentRow.DataBoundItem;
+            titleDiscrLb.Text = selectedBook.Title;
+            authorDiscrLb.Text = selectedBook.authorDiscription;
+            genreDiscrLb.Text = selectedBook.Id.ToString();
         }
     }
 }

@@ -44,7 +44,7 @@
             this.helloLb = new System.Windows.Forms.Label();
             this.addBookBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.booksTable = new System.Windows.Forms.DataGridView();
             this.avalableBooksRb = new System.Windows.Forms.RadioButton();
             this.takenBooksRb = new System.Windows.Forms.RadioButton();
             this.allBooksRb = new System.Windows.Forms.RadioButton();
@@ -59,14 +59,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.addBtn = new System.Windows.Forms.Button();
             this.removeBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ownerDiscrLb = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.titleDiscrLb = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.authorDiscrLb = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.avalableLb = new System.Windows.Forms.Label();
+            this.countLb = new System.Windows.Forms.Label();
             this.takeBtn = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.historyPl = new System.Windows.Forms.Panel();
@@ -76,11 +76,15 @@
             this.toMenuBtn = new System.Windows.Forms.Button();
             this.titleDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genreLb = new System.Windows.Forms.Label();
+            this.genreDiscrLb = new System.Windows.Forms.Label();
+            this.countDiscrLb = new System.Windows.Forms.Label();
+            this.avalableDiscrLb = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.libraryDBContextDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
             this.returnBookPl.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.booksTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.addBookPl.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -129,7 +133,7 @@
             this.returnBookPl.Controls.Add(this.comboBox1);
             this.returnBookPl.Controls.Add(this.button1);
             this.returnBookPl.Controls.Add(this.returnBookLb);
-            this.returnBookPl.Location = new System.Drawing.Point(521, 209);
+            this.returnBookPl.Location = new System.Drawing.Point(514, 209);
             this.returnBookPl.Name = "returnBookPl";
             this.returnBookPl.Size = new System.Drawing.Size(234, 83);
             this.returnBookPl.TabIndex = 22;
@@ -158,7 +162,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(83, 54);
+            this.button1.Location = new System.Drawing.Point(86, 55);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(77, 23);
             this.button1.TabIndex = 20;
@@ -182,7 +186,7 @@
             // 
             this.returnBookBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.returnBookBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.returnBookBtn.Location = new System.Drawing.Point(639, 354);
+            this.returnBookBtn.Location = new System.Drawing.Point(632, 358);
             this.returnBookBtn.Name = "returnBookBtn";
             this.returnBookBtn.Size = new System.Drawing.Size(112, 23);
             this.returnBookBtn.TabIndex = 23;
@@ -198,15 +202,15 @@
             this.helloLb.ForeColor = System.Drawing.SystemColors.Control;
             this.helloLb.Location = new System.Drawing.Point(585, 6);
             this.helloLb.Name = "helloLb";
-            this.helloLb.Size = new System.Drawing.Size(103, 20);
+            this.helloLb.Size = new System.Drawing.Size(60, 20);
             this.helloLb.TabIndex = 21;
-            this.helloLb.Text = "Hello, User!";
+            this.helloLb.Text = "Hello, ";
             // 
             // addBookBtn
             // 
             this.addBookBtn.BackColor = System.Drawing.SystemColors.ControlDark;
             this.addBookBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addBookBtn.Location = new System.Drawing.Point(521, 354);
+            this.addBookBtn.Location = new System.Drawing.Point(514, 358);
             this.addBookBtn.Name = "addBookBtn";
             this.addBookBtn.Size = new System.Drawing.Size(112, 23);
             this.addBookBtn.TabIndex = 22;
@@ -217,7 +221,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DimGray;
-            this.panel3.Controls.Add(this.dataGridView2);
+            this.panel3.Controls.Add(this.booksTable);
             this.panel3.Controls.Add(this.avalableBooksRb);
             this.panel3.Controls.Add(this.takenBooksRb);
             this.panel3.Controls.Add(this.allBooksRb);
@@ -227,21 +231,22 @@
             this.panel3.Size = new System.Drawing.Size(483, 297);
             this.panel3.TabIndex = 21;
             // 
-            // dataGridView2
+            // booksTable
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.booksTable.AllowUserToAddRows = false;
+            this.booksTable.AllowUserToDeleteRows = false;
+            this.booksTable.AutoGenerateColumns = false;
+            this.booksTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.booksTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.titleDataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn1});
-            this.dataGridView2.DataSource = this.booksBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 28);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(477, 266);
-            this.dataGridView2.TabIndex = 4;
+            this.booksTable.DataSource = this.booksBindingSource;
+            this.booksTable.Location = new System.Drawing.Point(3, 28);
+            this.booksTable.Name = "booksTable";
+            this.booksTable.ReadOnly = true;
+            this.booksTable.Size = new System.Drawing.Size(477, 266);
+            this.booksTable.TabIndex = 4;
+            this.booksTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksTable_CellContentClick);
             // 
             // avalableBooksRb
             // 
@@ -250,9 +255,9 @@
             this.avalableBooksRb.Name = "avalableBooksRb";
             this.avalableBooksRb.Size = new System.Drawing.Size(98, 17);
             this.avalableBooksRb.TabIndex = 3;
-            this.avalableBooksRb.TabStop = true;
             this.avalableBooksRb.Text = "Avalable books";
             this.avalableBooksRb.UseVisualStyleBackColor = true;
+            this.avalableBooksRb.CheckedChanged += new System.EventHandler(this.avalableBooksRb_CheckedChanged);
             // 
             // takenBooksRb
             // 
@@ -261,13 +266,14 @@
             this.takenBooksRb.Name = "takenBooksRb";
             this.takenBooksRb.Size = new System.Drawing.Size(88, 17);
             this.takenBooksRb.TabIndex = 2;
-            this.takenBooksRb.TabStop = true;
             this.takenBooksRb.Text = "Taken books";
             this.takenBooksRb.UseVisualStyleBackColor = true;
+            this.takenBooksRb.CheckedChanged += new System.EventHandler(this.takenBooksRb_CheckedChanged);
             // 
             // allBooksRb
             // 
             this.allBooksRb.AutoSize = true;
+            this.allBooksRb.Checked = true;
             this.allBooksRb.Location = new System.Drawing.Point(13, 5);
             this.allBooksRb.Name = "allBooksRb";
             this.allBooksRb.Size = new System.Drawing.Size(68, 17);
@@ -275,6 +281,7 @@
             this.allBooksRb.TabStop = true;
             this.allBooksRb.Text = "All books";
             this.allBooksRb.UseVisualStyleBackColor = true;
+            this.allBooksRb.CheckedChanged += new System.EventHandler(this.allBooksRb_CheckedChanged);
             // 
             // dataGridView1
             // 
@@ -296,7 +303,7 @@
             this.addBookPl.Controls.Add(this.label15);
             this.addBookPl.Controls.Add(this.addNewBookLb);
             this.addBookPl.Controls.Add(this.regPasswordTb);
-            this.addBookPl.Location = new System.Drawing.Point(521, 209);
+            this.addBookPl.Location = new System.Drawing.Point(514, 209);
             this.addBookPl.Name = "addBookPl";
             this.addBookPl.Size = new System.Drawing.Size(234, 115);
             this.addBookPl.TabIndex = 21;
@@ -366,19 +373,23 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DimGray;
+            this.panel1.Controls.Add(this.avalableDiscrLb);
+            this.panel1.Controls.Add(this.countDiscrLb);
+            this.panel1.Controls.Add(this.genreDiscrLb);
+            this.panel1.Controls.Add(this.genreLb);
             this.panel1.Controls.Add(this.addBtn);
             this.panel1.Controls.Add(this.removeBtn);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.ownerDiscrLb);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.titleDiscrLb);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.authorDiscrLb);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.avalableLb);
+            this.panel1.Controls.Add(this.countLb);
             this.panel1.Controls.Add(this.takeBtn);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(521, 34);
+            this.panel1.Location = new System.Drawing.Point(517, 34);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(234, 148);
             this.panel1.TabIndex = 18;
@@ -404,17 +415,17 @@
             this.removeBtn.UseVisualStyleBackColor = true;
             this.removeBtn.Visible = false;
             // 
-            // label1
+            // ownerDiscrLb
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(83, 60);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 20);
-            this.label1.TabIndex = 17;
-            this.label1.Text = ".";
+            this.ownerDiscrLb.AutoSize = true;
+            this.ownerDiscrLb.BackColor = System.Drawing.Color.Transparent;
+            this.ownerDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ownerDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.ownerDiscrLb.Location = new System.Drawing.Point(82, 79);
+            this.ownerDiscrLb.Name = "ownerDiscrLb";
+            this.ownerDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.ownerDiscrLb.TabIndex = 17;
+            this.ownerDiscrLb.Text = ".";
             // 
             // label2
             // 
@@ -422,23 +433,23 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(3, 60);
+            this.label2.Location = new System.Drawing.Point(3, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 20);
             this.label2.TabIndex = 16;
             this.label2.Text = "Owner:";
             // 
-            // label3
+            // titleDiscrLb
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(82, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(13, 20);
-            this.label3.TabIndex = 15;
-            this.label3.Text = ".";
+            this.titleDiscrLb.AutoSize = true;
+            this.titleDiscrLb.BackColor = System.Drawing.Color.Transparent;
+            this.titleDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.titleDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.titleDiscrLb.Location = new System.Drawing.Point(82, 20);
+            this.titleDiscrLb.Name = "titleDiscrLb";
+            this.titleDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.titleDiscrLb.TabIndex = 15;
+            this.titleDiscrLb.Text = ".";
             // 
             // label4
             // 
@@ -452,18 +463,17 @@
             this.label4.TabIndex = 14;
             this.label4.Text = "Title: ";
             // 
-            // label5
+            // authorDiscrLb
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(82, 40);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(13, 20);
-            this.label5.TabIndex = 13;
-            this.label5.Text = ".";
-            this.label5.Visible = false;
+            this.authorDiscrLb.AutoSize = true;
+            this.authorDiscrLb.BackColor = System.Drawing.Color.Transparent;
+            this.authorDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.authorDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.authorDiscrLb.Location = new System.Drawing.Point(82, 40);
+            this.authorDiscrLb.Name = "authorDiscrLb";
+            this.authorDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.authorDiscrLb.TabIndex = 13;
+            this.authorDiscrLb.Text = ".";
             // 
             // label6
             // 
@@ -471,35 +481,35 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(2, 40);
+            this.label6.Location = new System.Drawing.Point(3, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 20);
             this.label6.TabIndex = 12;
             this.label6.Text = "Author(s): ";
             // 
-            // label7
+            // avalableLb
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(3, 100);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 20);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Available:";
+            this.avalableLb.AutoSize = true;
+            this.avalableLb.BackColor = System.Drawing.Color.Transparent;
+            this.avalableLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.avalableLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.avalableLb.Location = new System.Drawing.Point(82, 99);
+            this.avalableLb.Name = "avalableLb";
+            this.avalableLb.Size = new System.Drawing.Size(76, 20);
+            this.avalableLb.TabIndex = 11;
+            this.avalableLb.Text = "Available:";
             // 
-            // label8
+            // countLb
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.ForeColor = System.Drawing.SystemColors.Control;
-            this.label8.Location = new System.Drawing.Point(3, 80);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 20);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Count:";
+            this.countLb.AutoSize = true;
+            this.countLb.BackColor = System.Drawing.Color.Transparent;
+            this.countLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.countLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.countLb.Location = new System.Drawing.Point(3, 99);
+            this.countLb.Name = "countLb";
+            this.countLb.Size = new System.Drawing.Size(56, 20);
+            this.countLb.TabIndex = 10;
+            this.countLb.Text = "Count:";
             // 
             // takeBtn
             // 
@@ -529,14 +539,14 @@
             this.historyPl.Controls.Add(this.historyLb);
             this.historyPl.Location = new System.Drawing.Point(12, 325);
             this.historyPl.Name = "historyPl";
-            this.historyPl.Size = new System.Drawing.Size(486, 81);
+            this.historyPl.Size = new System.Drawing.Size(486, 85);
             this.historyPl.TabIndex = 11;
             // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(3, 23);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(480, 69);
+            this.richTextBox1.Size = new System.Drawing.Size(480, 59);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
@@ -555,7 +565,7 @@
             // toJournal
             // 
             this.toJournal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toJournal.Location = new System.Drawing.Point(521, 383);
+            this.toJournal.Location = new System.Drawing.Point(514, 387);
             this.toJournal.Name = "toJournal";
             this.toJournal.Size = new System.Drawing.Size(112, 23);
             this.toJournal.TabIndex = 1;
@@ -566,7 +576,7 @@
             // toMenuBtn
             // 
             this.toMenuBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toMenuBtn.Location = new System.Drawing.Point(639, 383);
+            this.toMenuBtn.Location = new System.Drawing.Point(632, 387);
             this.toMenuBtn.Name = "toMenuBtn";
             this.toMenuBtn.Size = new System.Drawing.Size(113, 23);
             this.toMenuBtn.TabIndex = 0;
@@ -589,6 +599,54 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 235;
+            // 
+            // genreLb
+            // 
+            this.genreLb.AutoSize = true;
+            this.genreLb.BackColor = System.Drawing.Color.Transparent;
+            this.genreLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.genreLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.genreLb.Location = new System.Drawing.Point(3, 60);
+            this.genreLb.Name = "genreLb";
+            this.genreLb.Size = new System.Drawing.Size(58, 20);
+            this.genreLb.TabIndex = 21;
+            this.genreLb.Text = "Genre:";
+            // 
+            // genreDiscrLb
+            // 
+            this.genreDiscrLb.AutoSize = true;
+            this.genreDiscrLb.BackColor = System.Drawing.Color.Transparent;
+            this.genreDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.genreDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.genreDiscrLb.Location = new System.Drawing.Point(82, 60);
+            this.genreDiscrLb.Name = "genreDiscrLb";
+            this.genreDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.genreDiscrLb.TabIndex = 22;
+            this.genreDiscrLb.Text = ".";
+            // 
+            // countDiscrLb
+            // 
+            this.countDiscrLb.AutoSize = true;
+            this.countDiscrLb.BackColor = System.Drawing.Color.Transparent;
+            this.countDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.countDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.countDiscrLb.Location = new System.Drawing.Point(62, 99);
+            this.countDiscrLb.Name = "countDiscrLb";
+            this.countDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.countDiscrLb.TabIndex = 23;
+            this.countDiscrLb.Text = ".";
+            // 
+            // avalableDiscrLb
+            // 
+            this.avalableDiscrLb.AutoSize = true;
+            this.avalableDiscrLb.BackColor = System.Drawing.Color.Transparent;
+            this.avalableDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.avalableDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.avalableDiscrLb.Location = new System.Drawing.Point(161, 99);
+            this.avalableDiscrLb.Name = "avalableDiscrLb";
+            this.avalableDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.avalableDiscrLb.TabIndex = 24;
+            this.avalableDiscrLb.Text = ".";
             // 
             // LibraryUserControl
             // 
@@ -615,7 +673,7 @@
             this.returnBookPl.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.booksTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.addBookPl.ResumeLayout(false);
             this.addBookPl.PerformLayout();
@@ -636,14 +694,14 @@
         private System.Windows.Forms.TextBox regPasswordTb;
         private System.Windows.Forms.Label historyLb;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label ownerDiscrLb;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label titleDiscrLb;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label authorDiscrLb;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label avalableLb;
+        private System.Windows.Forms.Label countLb;
         private System.Windows.Forms.Button takeBtn;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox richTextBox1;
@@ -671,7 +729,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn authors;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView booksTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn authorDiscriptionDataGridViewTextBoxColumn;
         private LibraryDBContextDataSetTableAdapters.BooksTableAdapter booksTableAdapter;
@@ -681,5 +739,9 @@
         private LibraryDBContextDataSetTableAdapters.BooksTableAdapter booksTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label genreDiscrLb;
+        private System.Windows.Forms.Label genreLb;
+        private System.Windows.Forms.Label avalableDiscrLb;
+        private System.Windows.Forms.Label countDiscrLb;
     }
 }

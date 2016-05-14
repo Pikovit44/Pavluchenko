@@ -9,7 +9,9 @@ namespace Library.UI.Interfaces
     public interface ILibrary
     {
         bool IsAdmin { get; }
-        event EventHandler LoadLibrary;
+        event EventHandler AllBooksClick;
+        event EventHandler AvalibleBooksClick;
+        event EventHandler TakenBooksClick;
         object BooksBindingSource { set; }
     }
 }

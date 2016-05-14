@@ -23,6 +23,7 @@ namespace Library.UI
         }
 
         public static bool Admin { get { return admin; }  }
+        public static string Login { get; private set; }
 
         void SetUp()
         {
@@ -45,7 +46,7 @@ namespace Library.UI
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-
+            Login = loginTb.Text;
             SwitchScene(Scene.Library);
         }
 

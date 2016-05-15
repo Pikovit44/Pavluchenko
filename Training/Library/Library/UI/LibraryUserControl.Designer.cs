@@ -32,12 +32,9 @@
             this.authors = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libraryDBContextDataSet1 = new Library.LibraryDBContextDataSet();
-            this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.booksTableAdapter1 = new Library.LibraryDBContextDataSetTableAdapters.BooksTableAdapter();
             this.returnBookPl = new System.Windows.Forms.Panel();
             this.chooseBookLb = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.returnBookCb = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.returnBookLb = new System.Windows.Forms.Label();
             this.returnBookBtn = new System.Windows.Forms.Button();
@@ -45,24 +42,24 @@
             this.addBookBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.booksTable = new System.Windows.Forms.DataGridView();
-            this.titleDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.booksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryDBContextDataSet = new Library.LibraryDBContextDataSet();
             this.avalableBooksRb = new System.Windows.Forms.RadioButton();
             this.takenBooksRb = new System.Windows.Forms.RadioButton();
             this.allBooksRb = new System.Windows.Forms.RadioButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.addBookPl = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.addAuthorsTb = new System.Windows.Forms.TextBox();
             this.addNewBook = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.addNewBookLb = new System.Windows.Forms.Label();
-            this.regPasswordTb = new System.Windows.Forms.TextBox();
+            this.addTitleTb = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.avalableDiscrLb = new System.Windows.Forms.Label();
             this.countDiscrLb = new System.Windows.Forms.Label();
-            this.genreDiscrLb = new System.Windows.Forms.Label();
-            this.genreLb = new System.Windows.Forms.Label();
             this.addBtn = new System.Windows.Forms.Button();
             this.removeBtn = new System.Windows.Forms.Button();
             this.ownerDiscrLb = new System.Windows.Forms.Label();
@@ -80,11 +77,12 @@
             this.historyLb = new System.Windows.Forms.Label();
             this.toJournal = new System.Windows.Forms.Button();
             this.toMenuBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDBContextDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).BeginInit();
+            this.booksTableAdapter = new Library.LibraryDBContextDataSetTableAdapters.BooksTableAdapter();
             this.returnBookPl.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDBContextDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.addBookPl.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -112,25 +110,11 @@
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
             this.titleDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // libraryDBContextDataSet1
-            // 
-            this.libraryDBContextDataSet1.DataSetName = "LibraryDBContextDataSet";
-            this.libraryDBContextDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // booksBindingSource
-            // 
-            this.booksBindingSource.DataMember = "Books";
-            this.booksBindingSource.DataSource = this.libraryDBContextDataSet1;
-            // 
-            // booksTableAdapter1
-            // 
-            this.booksTableAdapter1.ClearBeforeFill = true;
-            // 
             // returnBookPl
             // 
             this.returnBookPl.BackColor = System.Drawing.Color.DimGray;
             this.returnBookPl.Controls.Add(this.chooseBookLb);
-            this.returnBookPl.Controls.Add(this.comboBox1);
+            this.returnBookPl.Controls.Add(this.returnBookCb);
             this.returnBookPl.Controls.Add(this.button1);
             this.returnBookPl.Controls.Add(this.returnBookLb);
             this.returnBookPl.Location = new System.Drawing.Point(514, 209);
@@ -151,13 +135,13 @@
             this.chooseBookLb.TabIndex = 22;
             this.chooseBookLb.Text = "Choose a book";
             // 
-            // comboBox1
+            // returnBookCb
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(109, 28);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 21;
+            this.returnBookCb.FormattingEnabled = true;
+            this.returnBookCb.Location = new System.Drawing.Point(109, 28);
+            this.returnBookCb.Name = "returnBookCb";
+            this.returnBookCb.Size = new System.Drawing.Size(121, 21);
+            this.returnBookCb.TabIndex = 21;
             // 
             // button1
             // 
@@ -238,9 +222,9 @@
             this.booksTable.AutoGenerateColumns = false;
             this.booksTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.booksTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.titleDataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn1});
-            this.booksTable.DataSource = this.booksBindingSource;
+            this.titleDataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn2});
+            this.booksTable.DataSource = this.booksBindingSource1;
             this.booksTable.Location = new System.Drawing.Point(3, 28);
             this.booksTable.Name = "booksTable";
             this.booksTable.ReadOnly = true;
@@ -248,21 +232,31 @@
             this.booksTable.TabIndex = 4;
             this.booksTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.booksTable_CellClick);
             // 
-            // titleDataGridViewTextBoxColumn2
+            // titleDataGridViewTextBoxColumn3
             // 
-            this.titleDataGridViewTextBoxColumn2.DataPropertyName = "Title";
-            this.titleDataGridViewTextBoxColumn2.HeaderText = "Title";
-            this.titleDataGridViewTextBoxColumn2.Name = "titleDataGridViewTextBoxColumn2";
-            this.titleDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.titleDataGridViewTextBoxColumn2.Width = 200;
+            this.titleDataGridViewTextBoxColumn3.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn3.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn3.Name = "titleDataGridViewTextBoxColumn3";
+            this.titleDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.titleDataGridViewTextBoxColumn3.Width = 200;
             // 
-            // dataGridViewTextBoxColumn1
+            // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "authorDiscription";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Author(s)";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 235;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "authorDiscription";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Author(s)";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 233;
+            // 
+            // booksBindingSource1
+            // 
+            this.booksBindingSource1.DataMember = "Books";
+            this.booksBindingSource1.DataSource = this.libraryDBContextDataSet;
+            // 
+            // libraryDBContextDataSet
+            // 
+            this.libraryDBContextDataSet.DataSetName = "LibraryDBContextDataSet";
+            this.libraryDBContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // avalableBooksRb
             // 
@@ -313,24 +307,24 @@
             // addBookPl
             // 
             this.addBookPl.BackColor = System.Drawing.Color.DimGray;
-            this.addBookPl.Controls.Add(this.textBox1);
+            this.addBookPl.Controls.Add(this.addAuthorsTb);
             this.addBookPl.Controls.Add(this.addNewBook);
             this.addBookPl.Controls.Add(this.label13);
             this.addBookPl.Controls.Add(this.label15);
             this.addBookPl.Controls.Add(this.addNewBookLb);
-            this.addBookPl.Controls.Add(this.regPasswordTb);
+            this.addBookPl.Controls.Add(this.addTitleTb);
             this.addBookPl.Location = new System.Drawing.Point(514, 209);
             this.addBookPl.Name = "addBookPl";
             this.addBookPl.Size = new System.Drawing.Size(234, 115);
             this.addBookPl.TabIndex = 21;
             this.addBookPl.Visible = false;
             // 
-            // textBox1
+            // addAuthorsTb
             // 
-            this.textBox1.Location = new System.Drawing.Point(86, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 21;
+            this.addAuthorsTb.Location = new System.Drawing.Point(86, 54);
+            this.addAuthorsTb.Name = "addAuthorsTb";
+            this.addAuthorsTb.Size = new System.Drawing.Size(145, 20);
+            this.addAuthorsTb.TabIndex = 21;
             // 
             // addNewBook
             // 
@@ -379,20 +373,18 @@
             this.addNewBookLb.TabIndex = 1;
             this.addNewBookLb.Text = "Add new book";
             // 
-            // regPasswordTb
+            // addTitleTb
             // 
-            this.regPasswordTb.Location = new System.Drawing.Point(86, 28);
-            this.regPasswordTb.Name = "regPasswordTb";
-            this.regPasswordTb.Size = new System.Drawing.Size(145, 20);
-            this.regPasswordTb.TabIndex = 8;
+            this.addTitleTb.Location = new System.Drawing.Point(86, 28);
+            this.addTitleTb.Name = "addTitleTb";
+            this.addTitleTb.Size = new System.Drawing.Size(145, 20);
+            this.addTitleTb.TabIndex = 8;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.Controls.Add(this.avalableDiscrLb);
             this.panel1.Controls.Add(this.countDiscrLb);
-            this.panel1.Controls.Add(this.genreDiscrLb);
-            this.panel1.Controls.Add(this.genreLb);
             this.panel1.Controls.Add(this.addBtn);
             this.panel1.Controls.Add(this.removeBtn);
             this.panel1.Controls.Add(this.ownerDiscrLb);
@@ -405,7 +397,7 @@
             this.panel1.Controls.Add(this.countLb);
             this.panel1.Controls.Add(this.takeBtn);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Location = new System.Drawing.Point(517, 34);
+            this.panel1.Location = new System.Drawing.Point(514, 34);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(234, 148);
             this.panel1.TabIndex = 18;
@@ -416,7 +408,7 @@
             this.avalableDiscrLb.BackColor = System.Drawing.Color.Transparent;
             this.avalableDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.avalableDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.avalableDiscrLb.Location = new System.Drawing.Point(161, 99);
+            this.avalableDiscrLb.Location = new System.Drawing.Point(82, 60);
             this.avalableDiscrLb.Name = "avalableDiscrLb";
             this.avalableDiscrLb.Size = new System.Drawing.Size(13, 20);
             this.avalableDiscrLb.TabIndex = 24;
@@ -428,35 +420,11 @@
             this.countDiscrLb.BackColor = System.Drawing.Color.Transparent;
             this.countDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.countDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.countDiscrLb.Location = new System.Drawing.Point(62, 99);
+            this.countDiscrLb.Location = new System.Drawing.Point(82, 80);
             this.countDiscrLb.Name = "countDiscrLb";
             this.countDiscrLb.Size = new System.Drawing.Size(13, 20);
             this.countDiscrLb.TabIndex = 23;
             this.countDiscrLb.Text = ".";
-            // 
-            // genreDiscrLb
-            // 
-            this.genreDiscrLb.AutoSize = true;
-            this.genreDiscrLb.BackColor = System.Drawing.Color.Transparent;
-            this.genreDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.genreDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.genreDiscrLb.Location = new System.Drawing.Point(82, 60);
-            this.genreDiscrLb.Name = "genreDiscrLb";
-            this.genreDiscrLb.Size = new System.Drawing.Size(13, 20);
-            this.genreDiscrLb.TabIndex = 22;
-            this.genreDiscrLb.Text = ".";
-            // 
-            // genreLb
-            // 
-            this.genreLb.AutoSize = true;
-            this.genreLb.BackColor = System.Drawing.Color.Transparent;
-            this.genreLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.genreLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.genreLb.Location = new System.Drawing.Point(3, 60);
-            this.genreLb.Name = "genreLb";
-            this.genreLb.Size = new System.Drawing.Size(58, 20);
-            this.genreLb.TabIndex = 21;
-            this.genreLb.Text = "Genre:";
             // 
             // addBtn
             // 
@@ -485,7 +453,7 @@
             this.ownerDiscrLb.BackColor = System.Drawing.Color.Transparent;
             this.ownerDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ownerDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.ownerDiscrLb.Location = new System.Drawing.Point(82, 79);
+            this.ownerDiscrLb.Location = new System.Drawing.Point(82, 100);
             this.ownerDiscrLb.Name = "ownerDiscrLb";
             this.ownerDiscrLb.Size = new System.Drawing.Size(13, 20);
             this.ownerDiscrLb.TabIndex = 17;
@@ -497,7 +465,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(3, 79);
+            this.label2.Location = new System.Drawing.Point(3, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 20);
             this.label2.TabIndex = 16;
@@ -557,7 +525,7 @@
             this.avalableLb.BackColor = System.Drawing.Color.Transparent;
             this.avalableLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.avalableLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.avalableLb.Location = new System.Drawing.Point(82, 99);
+            this.avalableLb.Location = new System.Drawing.Point(3, 60);
             this.avalableLb.Name = "avalableLb";
             this.avalableLb.Size = new System.Drawing.Size(76, 20);
             this.avalableLb.TabIndex = 11;
@@ -569,7 +537,7 @@
             this.countLb.BackColor = System.Drawing.Color.Transparent;
             this.countLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.countLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.countLb.Location = new System.Drawing.Point(3, 99);
+            this.countLb.Location = new System.Drawing.Point(3, 80);
             this.countLb.Name = "countLb";
             this.countLb.Size = new System.Drawing.Size(56, 20);
             this.countLb.TabIndex = 10;
@@ -583,6 +551,7 @@
             this.takeBtn.TabIndex = 9;
             this.takeBtn.Text = "Take";
             this.takeBtn.UseVisualStyleBackColor = true;
+            this.takeBtn.Click += new System.EventHandler(this.takeBtn_Click);
             // 
             // label9
             // 
@@ -648,6 +617,10 @@
             this.toMenuBtn.UseVisualStyleBackColor = true;
             this.toMenuBtn.Click += new System.EventHandler(this.toMenuBtn_Click);
             // 
+            // booksTableAdapter
+            // 
+            this.booksTableAdapter.ClearBeforeFill = true;
+            // 
             // LibraryUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -666,14 +639,13 @@
             this.Controls.Add(this.toMenuBtn);
             this.Name = "LibraryUserControl";
             this.Size = new System.Drawing.Size(760, 426);
-            this.Load += new System.EventHandler(this.LibraryUserControl_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.libraryDBContextDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource)).EndInit();
             this.returnBookPl.ResumeLayout(false);
             this.returnBookPl.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.booksBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDBContextDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.addBookPl.ResumeLayout(false);
             this.addBookPl.PerformLayout();
@@ -691,7 +663,7 @@
         private System.Windows.Forms.Button toMenuBtn;
         private System.Windows.Forms.Button toJournal;
         private System.Windows.Forms.Panel historyPl;
-        private System.Windows.Forms.TextBox regPasswordTb;
+        private System.Windows.Forms.TextBox addTitleTb;
         private System.Windows.Forms.Label historyLb;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label ownerDiscrLb;
@@ -708,7 +680,7 @@
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button removeBtn;
         private System.Windows.Forms.Panel addBookPl;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox addAuthorsTb;
         private System.Windows.Forms.Button addNewBook;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
@@ -722,7 +694,7 @@
         private System.Windows.Forms.RadioButton takenBooksRb;
         private System.Windows.Forms.Panel returnBookPl;
         private System.Windows.Forms.Label chooseBookLb;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox returnBookCb;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label returnBookLb;
         private System.Windows.Forms.Button returnBookBtn;
@@ -732,16 +704,14 @@
         private System.Windows.Forms.DataGridView booksTable;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn authorDiscriptionDataGridViewTextBoxColumn;
-        private LibraryDBContextDataSetTableAdapters.BooksTableAdapter booksTableAdapter;
-        private LibraryDBContextDataSet libraryDBContextDataSet;
-        private System.Windows.Forms.BindingSource booksBindingSource;
-        private LibraryDBContextDataSet libraryDBContextDataSet1;
-        private LibraryDBContextDataSetTableAdapters.BooksTableAdapter booksTableAdapter1;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.Label genreDiscrLb;
-        private System.Windows.Forms.Label genreLb;
         private System.Windows.Forms.Label avalableDiscrLb;
         private System.Windows.Forms.Label countDiscrLb;
+        private System.Windows.Forms.BindingSource booksBindingSource1;
+        private LibraryDBContextDataSet libraryDBContextDataSet;
+        private LibraryDBContextDataSetTableAdapters.BooksTableAdapter booksTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }
 }

@@ -22,8 +22,15 @@ namespace Library.UI
             library.AllBooksClick += Library_AllBooksClick;
             library.AvalibleBooksClick += Library_AvalibleBooksClick;
             library.TakenBooksClick += Library_TakenBooksClick;
+            library.AddNewBook += Library_AddNewBook;
             books = servise.Books.GetAll().ToList();
             library.BooksBindingSource = books;
+        }
+
+        private void Library_AddNewBook(object sender, EventArgs e)
+        {
+            servise.Books.Create(library.NewBook);
+            servise.Save();
         }
 
         private void Library_TakenBooksClick(object sender, EventArgs e)

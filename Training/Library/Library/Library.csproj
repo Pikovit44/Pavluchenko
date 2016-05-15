@@ -62,7 +62,9 @@
     <Compile Include="Data\Repository\Interfaces\IBookRepository.cs" />
     <Compile Include="Data\Repository\Interfaces\IRepository.cs" />
     <Compile Include="Data\Repository\Interfaces\IService.cs" />
+    <Compile Include="Data\Repository\Interfaces\IUserRepository.cs" />
     <Compile Include="Data\Repository\Service.cs" />
+    <Compile Include="Data\Repository\UsersRepository.cs" />
     <Compile Include="LibraryDBContextDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -75,6 +77,14 @@
     <Compile Include="Migrations\201605141202246_Author discr.cs" />
     <Compile Include="Migrations\201605141202246_Author discr.Designer.cs">
       <DependentUpon>201605141202246_Author discr.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605151102176_add.cs" />
+    <Compile Include="Migrations\201605151102176_add.Designer.cs">
+      <DependentUpon>201605151102176_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605151202417_addNew.cs" />
+    <Compile Include="Migrations\201605151202417_addNew.Designer.cs">
+      <DependentUpon>201605151202417_addNew.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UI\BaseUserControl.cs">
@@ -120,6 +130,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605141202246_Author discr.resx">
       <DependentUpon>201605141202246_Author discr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605151102176_add.resx">
+      <DependentUpon>201605151102176_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605151202417_addNew.resx">
+      <DependentUpon>201605151202417_addNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

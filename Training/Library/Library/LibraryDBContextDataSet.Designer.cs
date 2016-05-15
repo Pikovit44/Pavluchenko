@@ -287,6 +287,10 @@ namespace Library {
             
             private global::System.Data.DataColumn columnauthorDiscription;
             
+            private global::System.Data.DataColumn columnAuthor_Id;
+            
+            private global::System.Data.DataColumn columnAuthor_Id1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BooksDataTable() {
@@ -354,6 +358,22 @@ namespace Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Author_IdColumn {
+                get {
+                    return this.columnAuthor_Id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Author_Id1Column {
+                get {
+                    return this.columnAuthor_Id1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +409,15 @@ namespace Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BooksRow AddBooksRow(string Title, bool AvalibleStatus, string authorDiscription) {
+            public BooksRow AddBooksRow(string Title, bool AvalibleStatus, string authorDiscription, int Author_Id, int Author_Id1) {
                 BooksRow rowBooksRow = ((BooksRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Title,
                         AvalibleStatus,
-                        authorDiscription};
+                        authorDiscription,
+                        Author_Id,
+                        Author_Id1};
                 rowBooksRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBooksRow);
                 return rowBooksRow;
@@ -429,6 +451,8 @@ namespace Library {
                 this.columnTitle = base.Columns["Title"];
                 this.columnAvalibleStatus = base.Columns["AvalibleStatus"];
                 this.columnauthorDiscription = base.Columns["authorDiscription"];
+                this.columnAuthor_Id = base.Columns["Author_Id"];
+                this.columnAuthor_Id1 = base.Columns["Author_Id1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -442,6 +466,10 @@ namespace Library {
                 base.Columns.Add(this.columnAvalibleStatus);
                 this.columnauthorDiscription = new global::System.Data.DataColumn("authorDiscription", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnauthorDiscription);
+                this.columnAuthor_Id = new global::System.Data.DataColumn("Author_Id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAuthor_Id);
+                this.columnAuthor_Id1 = new global::System.Data.DataColumn("Author_Id1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAuthor_Id1);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -649,6 +677,38 @@ namespace Library {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Author_Id {
+                get {
+                    try {
+                        return ((int)(this[this.tableBooks.Author_IdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Author_Id\' in table \'Books\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBooks.Author_IdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Author_Id1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableBooks.Author_Id1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Author_Id1\' in table \'Books\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBooks.Author_Id1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTitleNull() {
                 return this.IsNull(this.tableBooks.TitleColumn);
             }
@@ -669,6 +729,30 @@ namespace Library {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetauthorDiscriptionNull() {
                 this[this.tableBooks.authorDiscriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAuthor_IdNull() {
+                return this.IsNull(this.tableBooks.Author_IdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAuthor_IdNull() {
+                this[this.tableBooks.Author_IdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAuthor_Id1Null() {
+                return this.IsNull(this.tableBooks.Author_Id1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAuthor_Id1Null() {
+                this[this.tableBooks.Author_Id1Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -835,33 +919,45 @@ namespace Library.LibraryDBContextDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Title", "Title");
             tableMapping.ColumnMappings.Add("AvalibleStatus", "AvalibleStatus");
             tableMapping.ColumnMappings.Add("authorDiscription", "authorDiscription");
+            tableMapping.ColumnMappings.Add("Author_Id", "Author_Id");
+            tableMapping.ColumnMappings.Add("Author_Id1", "Author_Id1");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Books] WHERE (([Id] = @Original_Id) AND ([AvalibleStatus] = @O" +
-                "riginal_AvalibleStatus))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Books] WHERE (([Id] = @Original_Id) AND ([AvalibleStatus] = @Original_AvalibleStatus) AND ((@IsNull_Author_Id = 1 AND [Author_Id] IS NULL) OR ([Author_Id] = @Original_Author_Id)) AND ((@IsNull_Author_Id1 = 1 AND [Author_Id1] IS NULL) OR ([Author_Id1] = @Original_Author_Id1)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AvalibleStatus", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AvalibleStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Author_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author_Id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Author_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Author_Id1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author_Id1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Author_Id1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author_Id1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Books] ([Title], [AvalibleStatus], [authorDiscription]) VALUES" +
-                " (@Title, @AvalibleStatus, @authorDiscription);\r\nSELECT Id, Title, AvalibleStatu" +
-                "s, authorDiscription FROM Books WHERE (Id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Books] ([Title], [AvalibleStatus], [authorDiscription], [Author_Id], [Author_Id1]) VALUES (@Title, @AvalibleStatus, @authorDiscription, @Author_Id, @Author_Id1);
+SELECT Id, Title, AvalibleStatus, authorDiscription, Author_Id, Author_Id1 FROM Books WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AvalibleStatus", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AvalibleStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@authorDiscription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "authorDiscription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Author_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Author_Id1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author_Id1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Books] SET [Title] = @Title, [AvalibleStatus] = @AvalibleStatus, [authorDiscription] = @authorDiscription WHERE (([Id] = @Original_Id) AND ([AvalibleStatus] = @Original_AvalibleStatus));
-SELECT Id, Title, AvalibleStatus, authorDiscription FROM Books WHERE (Id = @Id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Books] SET [Title] = @Title, [AvalibleStatus] = @AvalibleStatus, [authorDiscription] = @authorDiscription, [Author_Id] = @Author_Id, [Author_Id1] = @Author_Id1 WHERE (([Id] = @Original_Id) AND ([AvalibleStatus] = @Original_AvalibleStatus) AND ((@IsNull_Author_Id = 1 AND [Author_Id] IS NULL) OR ([Author_Id] = @Original_Author_Id)) AND ((@IsNull_Author_Id1 = 1 AND [Author_Id1] IS NULL) OR ([Author_Id1] = @Original_Author_Id1)));
+SELECT Id, Title, AvalibleStatus, authorDiscription, Author_Id, Author_Id1 FROM Books WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AvalibleStatus", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AvalibleStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@authorDiscription", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "authorDiscription", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Author_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author_Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Author_Id1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author_Id1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AvalibleStatus", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AvalibleStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Author_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author_Id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Author_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author_Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Author_Id1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author_Id1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Author_Id1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Author_Id1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -878,7 +974,8 @@ SELECT Id, Title, AvalibleStatus, authorDiscription FROM Books WHERE (Id = @Id)"
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Title, AvalibleStatus, authorDiscription FROM dbo.Books";
+            this._commandCollection[0].CommandText = "SELECT Id, Title, AvalibleStatus, authorDiscription, Author_Id, Author_Id1 FROM d" +
+                "bo.Books";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -939,9 +1036,25 @@ SELECT Id, Title, AvalibleStatus, authorDiscription FROM Books WHERE (Id = @Id)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, bool Original_AvalibleStatus) {
+        public virtual int Delete(int Original_Id, bool Original_AvalibleStatus, global::System.Nullable<int> Original_Author_Id, global::System.Nullable<int> Original_Author_Id1) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((bool)(Original_AvalibleStatus));
+            if ((Original_Author_Id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_Author_Id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Author_Id1.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_Author_Id1.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -962,7 +1075,7 @@ SELECT Id, Title, AvalibleStatus, authorDiscription FROM Books WHERE (Id = @Id)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Title, bool AvalibleStatus, string authorDiscription) {
+        public virtual int Insert(string Title, bool AvalibleStatus, string authorDiscription, global::System.Nullable<int> Author_Id, global::System.Nullable<int> Author_Id1) {
             if ((Title == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -975,6 +1088,18 @@ SELECT Id, Title, AvalibleStatus, authorDiscription FROM Books WHERE (Id = @Id)"
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(authorDiscription));
+            }
+            if ((Author_Id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Author_Id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Author_Id1.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Author_Id1.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -996,7 +1121,7 @@ SELECT Id, Title, AvalibleStatus, authorDiscription FROM Books WHERE (Id = @Id)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Title, bool AvalibleStatus, string authorDiscription, int Original_Id, bool Original_AvalibleStatus, int Id) {
+        public virtual int Update(string Title, bool AvalibleStatus, string authorDiscription, global::System.Nullable<int> Author_Id, global::System.Nullable<int> Author_Id1, int Original_Id, bool Original_AvalibleStatus, global::System.Nullable<int> Original_Author_Id, global::System.Nullable<int> Original_Author_Id1, int Id) {
             if ((Title == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1010,9 +1135,37 @@ SELECT Id, Title, AvalibleStatus, authorDiscription FROM Books WHERE (Id = @Id)"
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(authorDiscription));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_Id));
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((bool)(Original_AvalibleStatus));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Id));
+            if ((Author_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Author_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Author_Id1.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Author_Id1.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((bool)(Original_AvalibleStatus));
+            if ((Original_Author_Id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Author_Id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((Original_Author_Id1.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_Author_Id1.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1033,8 +1186,8 @@ SELECT Id, Title, AvalibleStatus, authorDiscription FROM Books WHERE (Id = @Id)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Title, bool AvalibleStatus, string authorDiscription, int Original_Id, bool Original_AvalibleStatus) {
-            return this.Update(Title, AvalibleStatus, authorDiscription, Original_Id, Original_AvalibleStatus, Original_Id);
+        public virtual int Update(string Title, bool AvalibleStatus, string authorDiscription, global::System.Nullable<int> Author_Id, global::System.Nullable<int> Author_Id1, int Original_Id, bool Original_AvalibleStatus, global::System.Nullable<int> Original_Author_Id, global::System.Nullable<int> Original_Author_Id1) {
+            return this.Update(Title, AvalibleStatus, authorDiscription, Author_Id, Author_Id1, Original_Id, Original_AvalibleStatus, Original_Author_Id, Original_Author_Id1, Original_Id);
         }
     }
     

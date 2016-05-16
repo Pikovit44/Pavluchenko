@@ -14,11 +14,51 @@ namespace Library.UI
         Service servise;
         List<Book> books;
         ILibrary library;
+        ILogin loginMenu;
+        User currentUser;
 
-        public Presenter(ILibrary library)
+        public Presenter(ILogin loginMenu)
+        {
+            this.loginMenu = loginMenu;
+            Login = loginMenu.Login;
+            loginMenu.SignIn += LoginMenu_SignIn;
+            loginMenu.Registration += LoginMenu_Registration;
+            servise = new Service();
+        }
+
+        public User CurrentUser { get { return currentUser; } }
+
+        private void LoginMenu_Registration(object sender, EventArgs e)
+        {
+            bool error = IsEmailOrUserExist(loginMenu.Login, loginMenu.Email);
+            if (!error)
+            {
+                currentUser = servise.Users.Create(loginMenu.Login, loginMenu.Email, loginMenu.Admin);
+            }
+        }
+
+        bool IsEmailOrUserExist(string login, string email)
+        {
+            bool log = servise.Users.IsUserExist(login);
+            bool em = servise.Users.IsEmailExist(email);
+            loginMenu.LoginEmailError(log, em);
+            return (log && em);
+        }
+
+        private void LoginMenu_SignIn(object sender, EventArgs e)
+        {
+            bool log = servise.Users.IsUserExist(loginMenu.Login);
+            if (log )
+            {
+                currentUser = servise.Users.GetByLogin(loginMenu.Login);
+            }
+        }
+
+        public string Login { get; private set; }
+
+        public void AddLibrary(ILibrary library)
         {
             this.library = library;
-            servise = new Service();
             library.AllBooksClick += Library_AllBooksClick;
             library.AvalibleBooksClick += Library_AvalibleBooksClick;
             library.TakenBooksClick += Library_TakenBooksClick;

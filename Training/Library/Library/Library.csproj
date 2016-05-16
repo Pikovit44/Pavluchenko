@@ -103,6 +103,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Interfaces\ILibrary.cs" />
+    <Compile Include="UI\Interfaces\ILogin.cs" />
     <Compile Include="UI\JournalUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

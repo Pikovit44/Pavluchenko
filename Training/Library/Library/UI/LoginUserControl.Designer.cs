@@ -34,7 +34,7 @@
             this.adminCb = new System.Windows.Forms.CheckBox();
             this.regLoginTb = new System.Windows.Forms.TextBox();
             this.regLoginLb = new System.Windows.Forms.Label();
-            this.regPasswordTb = new System.Windows.Forms.TextBox();
+            this.regEmailTb = new System.Windows.Forms.TextBox();
             this.regEmailLb = new System.Windows.Forms.Label();
             this.okBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,11 +48,11 @@
             this.helloLb.BackColor = System.Drawing.Color.Transparent;
             this.helloLb.Font = new System.Drawing.Font("Modern No. 20", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.helloLb.ForeColor = System.Drawing.Color.Snow;
-            this.helloLb.Location = new System.Drawing.Point(81, 8);
+            this.helloLb.Location = new System.Drawing.Point(55, 8);
             this.helloLb.Name = "helloLb";
-            this.helloLb.Size = new System.Drawing.Size(95, 36);
+            this.helloLb.Size = new System.Drawing.Size(153, 36);
             this.helloLb.TabIndex = 0;
-            this.helloLb.Text = "Hello";
+            this.helloLb.Text = "Welcome!";
             // 
             // enterLoginLb
             // 
@@ -60,7 +60,7 @@
             this.enterLoginLb.BackColor = System.Drawing.Color.Transparent;
             this.enterLoginLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.enterLoginLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.enterLoginLb.Location = new System.Drawing.Point(66, 44);
+            this.enterLoginLb.Location = new System.Drawing.Point(69, 48);
             this.enterLoginLb.Name = "enterLoginLb";
             this.enterLoginLb.Size = new System.Drawing.Size(119, 20);
             this.enterLoginLb.TabIndex = 1;
@@ -78,17 +78,18 @@
             this.adminCb.AutoSize = true;
             this.adminCb.BackColor = System.Drawing.Color.Transparent;
             this.adminCb.ForeColor = System.Drawing.SystemColors.Control;
-            this.adminCb.Location = new System.Drawing.Point(51, 97);
+            this.adminCb.Location = new System.Drawing.Point(89, 167);
             this.adminCb.Name = "adminCb";
             this.adminCb.Size = new System.Drawing.Size(86, 17);
             this.adminCb.TabIndex = 3;
             this.adminCb.Text = "Administrator";
             this.adminCb.UseVisualStyleBackColor = false;
+            this.adminCb.Visible = false;
             this.adminCb.CheckedChanged += new System.EventHandler(this.adminCb_CheckedChanged);
             // 
             // regLoginTb
             // 
-            this.regLoginTb.Location = new System.Drawing.Point(87, 131);
+            this.regLoginTb.Location = new System.Drawing.Point(89, 118);
             this.regLoginTb.Name = "regLoginTb";
             this.regLoginTb.Size = new System.Drawing.Size(143, 20);
             this.regLoginTb.TabIndex = 6;
@@ -100,20 +101,20 @@
             this.regLoginLb.BackColor = System.Drawing.Color.Transparent;
             this.regLoginLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.regLoginLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.regLoginLb.Location = new System.Drawing.Point(33, 129);
+            this.regLoginLb.Location = new System.Drawing.Point(35, 116);
             this.regLoginLb.Name = "regLoginLb";
             this.regLoginLb.Size = new System.Drawing.Size(48, 20);
             this.regLoginLb.TabIndex = 5;
             this.regLoginLb.Text = "Login";
             this.regLoginLb.Visible = false;
             // 
-            // regPasswordTb
+            // regEmailTb
             // 
-            this.regPasswordTb.Location = new System.Drawing.Point(87, 154);
-            this.regPasswordTb.Name = "regPasswordTb";
-            this.regPasswordTb.Size = new System.Drawing.Size(143, 20);
-            this.regPasswordTb.TabIndex = 8;
-            this.regPasswordTb.Visible = false;
+            this.regEmailTb.Location = new System.Drawing.Point(89, 141);
+            this.regEmailTb.Name = "regEmailTb";
+            this.regEmailTb.Size = new System.Drawing.Size(143, 20);
+            this.regEmailTb.TabIndex = 8;
+            this.regEmailTb.Visible = false;
             // 
             // regEmailLb
             // 
@@ -121,7 +122,7 @@
             this.regEmailLb.BackColor = System.Drawing.Color.Transparent;
             this.regEmailLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.regEmailLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.regEmailLb.Location = new System.Drawing.Point(33, 154);
+            this.regEmailLb.Location = new System.Drawing.Point(35, 141);
             this.regEmailLb.Name = "regEmailLb";
             this.regEmailLb.Size = new System.Drawing.Size(48, 20);
             this.regEmailLb.TabIndex = 7;
@@ -130,7 +131,7 @@
             // 
             // okBtn
             // 
-            this.okBtn.Location = new System.Drawing.Point(180, 193);
+            this.okBtn.Location = new System.Drawing.Point(182, 185);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(50, 23);
             this.okBtn.TabIndex = 9;
@@ -142,7 +143,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.Controls.Add(this.okBtn);
-            this.panel1.Controls.Add(this.regPasswordTb);
+            this.panel1.Controls.Add(this.regEmailTb);
             this.panel1.Controls.Add(this.regEmailLb);
             this.panel1.Controls.Add(this.regLoginTb);
             this.panel1.Controls.Add(this.regLoginLb);
@@ -153,7 +154,7 @@
             this.panel1.Controls.Add(this.helloLb);
             this.panel1.Location = new System.Drawing.Point(247, 86);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(252, 231);
+            this.panel1.Size = new System.Drawing.Size(252, 217);
             this.panel1.TabIndex = 10;
             // 
             // signUpCb
@@ -191,7 +192,7 @@
         private System.Windows.Forms.CheckBox adminCb;
         private System.Windows.Forms.TextBox regLoginTb;
         private System.Windows.Forms.Label regLoginLb;
-        private System.Windows.Forms.TextBox regPasswordTb;
+        private System.Windows.Forms.TextBox regEmailTb;
         private System.Windows.Forms.Label regEmailLb;
         private System.Windows.Forms.Button okBtn;
         private System.Windows.Forms.Panel panel1;

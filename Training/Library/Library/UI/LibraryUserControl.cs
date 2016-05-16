@@ -20,6 +20,7 @@ namespace Library.UI
         public event EventHandler AddNewBook;
         Book selectedBook;
         Book newBook;
+        Presenter presenter;
 
         public Book NewBook
         {
@@ -36,8 +37,9 @@ namespace Library.UI
         {
             InitializeComponent();
             DGVSelectionMode();
+            presenter = LoginUserControl.Presenter;
             SetUp();
-            Presenter presenter = new Presenter(this);
+            presenter.AddLibrary(this);
         }
         
 
@@ -93,9 +95,7 @@ namespace Library.UI
         {
             if (TakenBooksClick != null) { TakenBooksClick(this, EventArgs.Empty); }
         }
-
         
-
         private void booksTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             selectedBook = (Book)booksTable.CurrentRow.DataBoundItem;
@@ -124,7 +124,7 @@ namespace Library.UI
 
         private void SetUp()
         {
-            helloLb.Text += LoginUserControl.Login; // 
+            helloLb.Text += presenter.CurrentUser.Login; // 
             helloLb.Text += "!";
             DoubleBuffered = true;
         }

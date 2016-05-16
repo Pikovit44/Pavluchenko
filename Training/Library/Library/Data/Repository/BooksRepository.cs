@@ -12,7 +12,7 @@ namespace Library.Data.Repository
     {
         public BooksRepository(Context db) : base(db)
         { }
-        
+            
         public List<Book> GetAvalible()
         {
             return db.Books.Where( s => s.AvalibleStatus == true).ToList();

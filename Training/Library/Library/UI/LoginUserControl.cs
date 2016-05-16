@@ -7,23 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Library.UI.Interfaces;
 
 namespace Library.UI
 {
-    public partial class LoginUserControl : BaseUserControl
+    public partial class LoginUserControl : BaseUserControl, ILogin 
     {
-        static bool admin;
-        
+        bool admin;
+        string login;
+        string email;
+        static Presenter presenter;
 
         public LoginUserControl()
         {
+            presenter = new Presenter(this); 
             admin = false;
             InitializeComponent();
             DoubleBuffered = true;
         }
 
-        public static bool Admin { get { return admin; }  }
-        public static string Login { get; private set; }
+        public bool Admin { get { return admin; }  }
+        public static Presenter Presenter { get { return presenter; } }
+        public string Login { get { return login; } }
+        public string Email { get { return email; } }
+        public event EventHandler SignIn;
+        public event EventHandler Registration;
 
         void SetUp()
         {
@@ -36,18 +44,46 @@ namespace Library.UI
             regLoginTb.Focus();
         }
 
+        public void LoginEmailError(bool log, bool em)
+        {
+            if (log) { MessageBox.Show("User with this login is already exists", "Login error", MessageBoxButtons.OK); }
+            if (em) { MessageBox.Show("User with this email is already exists", "Login error", MessageBoxButtons.OK); }
+        }
+
         void SignUpVisible(bool flag)
         {
             regLoginLb.Visible = flag;
             regLoginTb.Visible = flag;
             regEmailLb.Visible = flag;
-            regPasswordTb.Visible = flag;
+            regEmailTb.Visible = flag;
+            adminCb.Visible = flag;
+            loginTb.Visible = !flag;
+            loginTb.Text = string.Empty;
         }
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            Login = loginTb.Text;
-            SwitchScene(Scene.Library);
+            if (signUpCb.Checked)
+            {
+                login = regLoginTb.Text;
+                email = regEmailTb.Text;
+                if (Registration != null) { Registration(this, EventArgs.Empty); }
+            }
+            else
+            {
+                login = loginTb.Text;
+                if (SignIn != null) { SignIn(this, EventArgs.Empty); }
+            }
+
+            if (presenter.CurrentUser != null)
+            {
+                SwitchScene(Scene.Library);
+            }
+            else
+            {
+                MessageBox.Show("User with this login is not found", "Login error", MessageBoxButtons.OK);
+            }
+            
         }
 
         private void adminCb_CheckedChanged(object sender, EventArgs e)

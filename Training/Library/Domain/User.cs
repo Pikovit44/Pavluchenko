@@ -11,9 +11,20 @@ namespace Domain
         public string Login { get; set; }
         public string EMail { get; set; }
         public bool Administrator { get; set; }
-        public Dictionary<DateTime, Book> History { get; set; }
         public List<string> Letters { get; set; }
         public List<Book> Books { get; set; }
+
+        public User(string login, string email, bool isAdmin)
+        {
+            Login = login;
+            EMail = email;
+            Administrator = isAdmin;
+            Letters = new List<string>();
+            Books = new List<Book>();
+        }
+
+        public User ()
+        { }
 
         public override string ToString()
         {

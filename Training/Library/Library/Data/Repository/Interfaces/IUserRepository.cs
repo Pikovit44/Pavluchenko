@@ -9,6 +9,11 @@ namespace Library.Data.Repository.Interfaces
 {
     public interface IUserRepository: IRepository<User>
     {
-
+        User Create(string login, string email, bool isAdmin);
+        List<Book> GetTakenBook(User user);
+        bool IsUserExist(string login);
+        bool IsEmailExist(string login);
+        bool IsUserAdmin(string login);
+        User GetByLogin(string login);
     }
 }

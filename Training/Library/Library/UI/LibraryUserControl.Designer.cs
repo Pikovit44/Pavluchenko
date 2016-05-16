@@ -33,9 +33,10 @@
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnBookPl = new System.Windows.Forms.Panel();
+            this.CancelReturnBookBtn = new System.Windows.Forms.Button();
             this.chooseBookLb = new System.Windows.Forms.Label();
             this.returnBookCb = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.okReturnBookBtn = new System.Windows.Forms.Button();
             this.returnBookLb = new System.Windows.Forms.Label();
             this.returnBookBtn = new System.Windows.Forms.Button();
             this.helloLb = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.avalableDiscrLb = new System.Windows.Forms.Label();
             this.countDiscrLb = new System.Windows.Forms.Label();
-            this.addBtn = new System.Windows.Forms.Button();
             this.removeBtn = new System.Windows.Forms.Button();
             this.ownerDiscrLb = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,11 +73,12 @@
             this.takeBtn = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.historyPl = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.historyRtb = new System.Windows.Forms.RichTextBox();
             this.historyLb = new System.Windows.Forms.Label();
             this.toJournal = new System.Windows.Forms.Button();
             this.toMenuBtn = new System.Windows.Forms.Button();
             this.booksTableAdapter = new Library.LibraryDBContextDataSetTableAdapters.BooksTableAdapter();
+            this.historyBtn = new System.Windows.Forms.Button();
             this.returnBookPl.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksTable)).BeginInit();
@@ -113,15 +114,27 @@
             // returnBookPl
             // 
             this.returnBookPl.BackColor = System.Drawing.Color.DimGray;
+            this.returnBookPl.Controls.Add(this.CancelReturnBookBtn);
             this.returnBookPl.Controls.Add(this.chooseBookLb);
             this.returnBookPl.Controls.Add(this.returnBookCb);
-            this.returnBookPl.Controls.Add(this.button1);
+            this.returnBookPl.Controls.Add(this.okReturnBookBtn);
             this.returnBookPl.Controls.Add(this.returnBookLb);
             this.returnBookPl.Location = new System.Drawing.Point(514, 209);
             this.returnBookPl.Name = "returnBookPl";
             this.returnBookPl.Size = new System.Drawing.Size(234, 83);
             this.returnBookPl.TabIndex = 22;
             this.returnBookPl.Visible = false;
+            // 
+            // CancelReturnBookBtn
+            // 
+            this.CancelReturnBookBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CancelReturnBookBtn.Location = new System.Drawing.Point(26, 54);
+            this.CancelReturnBookBtn.Name = "CancelReturnBookBtn";
+            this.CancelReturnBookBtn.Size = new System.Drawing.Size(60, 23);
+            this.CancelReturnBookBtn.TabIndex = 23;
+            this.CancelReturnBookBtn.Text = "Cancel";
+            this.CancelReturnBookBtn.UseVisualStyleBackColor = true;
+            this.CancelReturnBookBtn.Click += new System.EventHandler(this.CancelReturnBookBtn_Click);
             // 
             // chooseBookLb
             // 
@@ -143,16 +156,16 @@
             this.returnBookCb.Size = new System.Drawing.Size(121, 21);
             this.returnBookCb.TabIndex = 21;
             // 
-            // button1
+            // okReturnBookBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(86, 55);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 23);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.okReturnBookBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.okReturnBookBtn.Location = new System.Drawing.Point(141, 54);
+            this.okReturnBookBtn.Name = "okReturnBookBtn";
+            this.okReturnBookBtn.Size = new System.Drawing.Size(60, 23);
+            this.okReturnBookBtn.TabIndex = 20;
+            this.okReturnBookBtn.Text = "OK";
+            this.okReturnBookBtn.UseVisualStyleBackColor = true;
+            this.okReturnBookBtn.Click += new System.EventHandler(this.okReturnBookBtn_Click);
             // 
             // returnBookLb
             // 
@@ -168,7 +181,7 @@
             // 
             // returnBookBtn
             // 
-            this.returnBookBtn.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.returnBookBtn.BackColor = System.Drawing.SystemColors.Control;
             this.returnBookBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnBookBtn.Location = new System.Drawing.Point(632, 358);
             this.returnBookBtn.Name = "returnBookBtn";
@@ -192,11 +205,11 @@
             // 
             // addBookBtn
             // 
-            this.addBookBtn.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.addBookBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addBookBtn.Location = new System.Drawing.Point(514, 358);
+            this.addBookBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.addBookBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addBookBtn.Location = new System.Drawing.Point(90, 122);
             this.addBookBtn.Name = "addBookBtn";
-            this.addBookBtn.Size = new System.Drawing.Size(112, 23);
+            this.addBookBtn.Size = new System.Drawing.Size(64, 23);
             this.addBookBtn.TabIndex = 22;
             this.addBookBtn.Text = "Add new book";
             this.addBookBtn.UseVisualStyleBackColor = false;
@@ -261,10 +274,12 @@
             // avalableBooksRb
             // 
             this.avalableBooksRb.AutoSize = true;
-            this.avalableBooksRb.Location = new System.Drawing.Point(87, 5);
+            this.avalableBooksRb.Checked = true;
+            this.avalableBooksRb.Location = new System.Drawing.Point(13, 5);
             this.avalableBooksRb.Name = "avalableBooksRb";
             this.avalableBooksRb.Size = new System.Drawing.Size(98, 17);
             this.avalableBooksRb.TabIndex = 3;
+            this.avalableBooksRb.TabStop = true;
             this.avalableBooksRb.Text = "Avalable books";
             this.avalableBooksRb.UseVisualStyleBackColor = true;
             this.avalableBooksRb.CheckedChanged += new System.EventHandler(this.avalableBooksRb_CheckedChanged);
@@ -272,7 +287,7 @@
             // takenBooksRb
             // 
             this.takenBooksRb.AutoSize = true;
-            this.takenBooksRb.Location = new System.Drawing.Point(191, 5);
+            this.takenBooksRb.Location = new System.Drawing.Point(117, 5);
             this.takenBooksRb.Name = "takenBooksRb";
             this.takenBooksRb.Size = new System.Drawing.Size(88, 17);
             this.takenBooksRb.TabIndex = 2;
@@ -283,12 +298,10 @@
             // allBooksRb
             // 
             this.allBooksRb.AutoSize = true;
-            this.allBooksRb.Checked = true;
-            this.allBooksRb.Location = new System.Drawing.Point(13, 5);
+            this.allBooksRb.Location = new System.Drawing.Point(211, 5);
             this.allBooksRb.Name = "allBooksRb";
             this.allBooksRb.Size = new System.Drawing.Size(68, 17);
             this.allBooksRb.TabIndex = 1;
-            this.allBooksRb.TabStop = true;
             this.allBooksRb.Text = "All books";
             this.allBooksRb.UseVisualStyleBackColor = true;
             this.allBooksRb.CheckedChanged += new System.EventHandler(this.allBooksRb_CheckedChanged);
@@ -385,9 +398,9 @@
             this.panel1.BackColor = System.Drawing.Color.DimGray;
             this.panel1.Controls.Add(this.avalableDiscrLb);
             this.panel1.Controls.Add(this.countDiscrLb);
-            this.panel1.Controls.Add(this.addBtn);
             this.panel1.Controls.Add(this.removeBtn);
             this.panel1.Controls.Add(this.ownerDiscrLb);
+            this.panel1.Controls.Add(this.addBookBtn);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.titleDiscrLb);
             this.panel1.Controls.Add(this.label4);
@@ -425,16 +438,6 @@
             this.countDiscrLb.Size = new System.Drawing.Size(13, 20);
             this.countDiscrLb.TabIndex = 23;
             this.countDiscrLb.Text = ".";
-            // 
-            // addBtn
-            // 
-            this.addBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addBtn.Location = new System.Drawing.Point(86, 122);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(74, 23);
-            this.addBtn.TabIndex = 20;
-            this.addBtn.Text = "Add same";
-            this.addBtn.UseVisualStyleBackColor = true;
             // 
             // removeBtn
             // 
@@ -568,20 +571,20 @@
             // historyPl
             // 
             this.historyPl.BackColor = System.Drawing.Color.DimGray;
-            this.historyPl.Controls.Add(this.richTextBox1);
+            this.historyPl.Controls.Add(this.historyRtb);
             this.historyPl.Controls.Add(this.historyLb);
             this.historyPl.Location = new System.Drawing.Point(12, 325);
             this.historyPl.Name = "historyPl";
             this.historyPl.Size = new System.Drawing.Size(486, 85);
             this.historyPl.TabIndex = 11;
             // 
-            // richTextBox1
+            // historyRtb
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(3, 23);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(480, 59);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.historyRtb.Location = new System.Drawing.Point(3, 23);
+            this.historyRtb.Name = "historyRtb";
+            this.historyRtb.Size = new System.Drawing.Size(480, 59);
+            this.historyRtb.TabIndex = 2;
+            this.historyRtb.Text = "";
             // 
             // historyLb
             // 
@@ -621,16 +624,27 @@
             // 
             this.booksTableAdapter.ClearBeforeFill = true;
             // 
+            // historyBtn
+            // 
+            this.historyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.historyBtn.Location = new System.Drawing.Point(514, 358);
+            this.historyBtn.Name = "historyBtn";
+            this.historyBtn.Size = new System.Drawing.Size(112, 23);
+            this.historyBtn.TabIndex = 25;
+            this.historyBtn.Text = "History";
+            this.historyBtn.UseVisualStyleBackColor = true;
+            this.historyBtn.Click += new System.EventHandler(this.historyBtn_Click);
+            // 
             // LibraryUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Library.Properties.Resources._32b159de59431ea9cd535d3105fdfe5e;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Controls.Add(this.historyBtn);
             this.Controls.Add(this.returnBookPl);
             this.Controls.Add(this.returnBookBtn);
             this.Controls.Add(this.helloLb);
-            this.Controls.Add(this.addBookBtn);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.addBookPl);
             this.Controls.Add(this.panel1);
@@ -676,8 +690,7 @@
         private System.Windows.Forms.Label countLb;
         private System.Windows.Forms.Button takeBtn;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.RichTextBox historyRtb;
         private System.Windows.Forms.Button removeBtn;
         private System.Windows.Forms.Panel addBookPl;
         private System.Windows.Forms.TextBox addAuthorsTb;
@@ -695,7 +708,7 @@
         private System.Windows.Forms.Panel returnBookPl;
         private System.Windows.Forms.Label chooseBookLb;
         private System.Windows.Forms.ComboBox returnBookCb;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button okReturnBookBtn;
         private System.Windows.Forms.Label returnBookLb;
         private System.Windows.Forms.Button returnBookBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn authors;
@@ -713,5 +726,7 @@
         private LibraryDBContextDataSetTableAdapters.BooksTableAdapter booksTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Button CancelReturnBookBtn;
+        private System.Windows.Forms.Button historyBtn;
     }
 }

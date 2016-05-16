@@ -12,7 +12,14 @@ namespace Library.Data.Repository
     {
         public BooksRepository(Context db) : base(db)
         { }
-            
+
+        public void ChangeStatus(int id)
+        {
+            Book book = db.Books.FirstOrDefault(i => i.Id == id);
+            book.AvalibleStatus = true;
+            db.SaveChanges();
+        }
+
         public List<Book> GetAvalible()
         {
             return db.Books.Where( s => s.AvalibleStatus == true).ToList();
@@ -21,6 +28,11 @@ namespace Library.Data.Repository
         public List<Book> GetTaken()
         {
             return db.Books.Where(s => s.AvalibleStatus == false).ToList();
+        }
+
+        public Book GetById(int id)
+        {
+            return db.Books.FirstOrDefault(i => i.Id == id);
         }
     }
 }

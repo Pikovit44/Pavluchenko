@@ -56,6 +56,12 @@ namespace Library.Data.Repository
             us.Books.Add(book);
             db.SaveChanges();
         }
-        
+        public void RemoveBook(User user, int id)
+        {
+            User us = db.Users.FirstOrDefault(l => l.Login == user.Login);
+            Book bk = db.Books.FirstOrDefault(i => i.Id == id);
+            us.Books.Remove(bk);
+            db.SaveChanges();
+        }
     }
 }

@@ -24,7 +24,10 @@ namespace Domain
         }
 
         public User ()
-        { }
+        {
+            Letters = new List<string>();
+            Books = new List<Book>();
+        }
 
         public override string ToString()
         {

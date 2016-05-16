@@ -17,10 +17,12 @@ namespace Domain
             BaseCtor(title);
             Authors = authors;
             StringBuilder discr = new StringBuilder();
-            foreach (var auth in Authors)
+
+            for (int i = 0; i < Authors.Count - 1; i++)
             {
-                discr.AppendFormat("{0}, ", auth.FullName);
+                discr.AppendFormat("{0}, ", Authors[i].FullName);
             }
+            discr.AppendFormat(" {0}.", Authors[Authors.Count - 1].FullName);
             authorDiscription = discr.ToString();
         }
 
@@ -31,7 +33,7 @@ namespace Domain
             authorDiscription = author.FullName;
         }
         
-        public Book() { }
+        public Book() { BaseCtor(string.Empty); }
 
         void BaseCtor(string title)
         {

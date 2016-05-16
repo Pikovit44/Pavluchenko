@@ -14,9 +14,13 @@ namespace Library.UI.Interfaces
         event EventHandler TakenBooksClick;
         event EventHandler AddNewBook;
         event EventHandler TakeBook;
+        event EventHandler OkReturnClick;
         object BooksBindingSource { set; }
         Book NewBook { get; }
         Book SelectedBook { get; }
+        int ReturnId { get; }
         void Reflesh();
+        void InfoForHistoryTake();
+        void InfoForReturn(Book book);
     }
 }

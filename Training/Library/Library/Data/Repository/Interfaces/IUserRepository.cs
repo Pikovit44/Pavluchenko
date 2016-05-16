@@ -16,5 +16,6 @@ namespace Library.Data.Repository.Interfaces
         bool IsUserAdmin(string login);
         User GetByLogin(string login);
         void AddBook(User user, Book book);
+        void RemoveBook(User user, int id);
     }
 }

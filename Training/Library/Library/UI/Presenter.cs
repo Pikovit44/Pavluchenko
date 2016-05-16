@@ -64,15 +64,31 @@ namespace Library.UI
             library.TakenBooksClick += Library_TakenBooksClick;
             library.AddNewBook += Library_AddNewBook;
             library.TakeBook += Library_TakeBook;
-            books = servise.Books.GetAll().ToList();
+            library.OkReturnClick += Library_OkReturnClick;
+            books = servise.Books.GetAvalible().ToList();
             library.BooksBindingSource = books;
+        }
+
+        private void Library_OkReturnClick(object sender, EventArgs e)
+        {
+            servise.Books.ChangeStatus(library.ReturnId);
+            servise.Users.RemoveBook(currentUser, library.ReturnId);
+            Book book = servise.Books.GetById(library.ReturnId);
+            book.History.Add(DateTime.Now, currentUser);
+            library.InfoForReturn(book);
         }
 
         private void Library_TakeBook(object sender, EventArgs e)
         {
-            library.SelectedBook.AvalibleStatus = false;
-            servise.Users.AddBook(currentUser, library.SelectedBook);
-            library.Reflesh();
+            if (library.SelectedBook.AvalibleStatus == true)
+            {
+                library.SelectedBook.AvalibleStatus = false;
+                servise.Users.AddBook(currentUser, library.SelectedBook);
+                library.SelectedBook.History.Add(DateTime.Now, currentUser);
+                library.Reflesh();
+                library.InfoForHistoryTake();
+            }
+            
         }
 
         private void Library_AddNewBook(object sender, EventArgs e)

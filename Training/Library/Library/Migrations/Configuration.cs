@@ -48,12 +48,15 @@ namespace Library.Migrations
 
                 #region Books with multiple authors
 
-                List<Author> authors = new List<Author> { author1, author2, author3 };
+                List<Author> authors = new List<Author> { author1, author3 };
                 var book7 = new Book("Title10", authors);
                 #endregion
 
                 context.Authors.AddRange(new List<Author> { author1, author2, author3 });
                 context.Books.AddRange(new List<Book> { book1, book4, book6, book7});
+
+                User user = new User("q", "d", false);
+                context.Users.Add(user);
 
                 context.SaveChanges();
                 base.Seed(context);

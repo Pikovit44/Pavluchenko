@@ -19,10 +19,18 @@ namespace Library.UI
         public event EventHandler TakenBooksClick;
         public event EventHandler AddNewBook;
         public event EventHandler TakeBook;
+        public event EventHandler OkReturnClick;
 
         Book selectedBook;
         Book newBook;
+        int returnId;
+
         Presenter presenter;
+
+        public int ReturnId
+        {
+            get { return returnId; }
+        }
 
         public Book NewBook
         {
@@ -71,22 +79,58 @@ namespace Library.UI
 
         private void takeBtn_Click(object sender, EventArgs e)
         {
+            returnBookCb.Items.Clear();
             if (TakeBook != null) { TakeBook(this, EventArgs.Empty); }
-        }
-
-        private void returnBookBtn_Click(object sender, EventArgs e)
-        {
-            returnBookPl.Visible = true;
-            addBookPl.Visible = false; // refact!
             User user = presenter.CurrentUser;
             List<string> cBitems = new List<string>();
 
             for (int i = 0; i < user.Books.Count; i++)
             {
-                returnBookCb.Items.Add(user.Books[i].Id.ToString() + " " + user.Books[i].Title);
+                returnBookCb.Items.Add("Id" + user.Books[i].Id.ToString() + " " + user.Books[i].Title);
             }
+            returnBookCb.Text = string.Empty;
+            authorDiscrLb.Text = string.Empty;
+            titleDiscrLb.Text = string.Empty;
+
         }
 
+
+
+        private void returnBookBtn_Click(object sender, EventArgs e)
+        {
+            returnBookPl.Visible = true;
+            addBookPl.Visible = false; // refact!
+            
+        }
+
+        private void okReturnBookBtn_Click(object sender, EventArgs e)
+        {
+            if (returnBookCb.Items.Count != 0)
+            {
+                string bookInfo = returnBookCb.Text;
+                int s = bookInfo.IndexOf("d"); // 1
+                int f = bookInfo.IndexOf(" ");// 3
+                string currentId = bookInfo.Substring(s + 1, f - s); // ref!
+                returnId = int.Parse(currentId);
+                if (OkReturnClick != null) { OkReturnClick(this, EventArgs.Empty); }
+                returnBookCb.Items.Remove(bookInfo);
+                
+            }
+
+            if (returnBookCb.Items.Count == 0)
+            {
+                returnBookCb.Text = "Empty";
+            }
+
+            returnBookPl.Visible = false;
+            Reflesh();
+        }
+
+        private void CancelReturnBookBtn_Click(object sender, EventArgs e)
+        {
+            returnBookPl.Visible = false;
+        }
+        
         #region Table
         private void allBooksRb_CheckedChanged(object sender, EventArgs e)
         {
@@ -130,6 +174,24 @@ namespace Library.UI
             };
         }
 
+        public void InfoForHistoryTake()
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.AppendFormat("{0}(Id {1}) was taken at {2} by {3}",  selectedBook.Title, selectedBook.Id, selectedBook.History.Last().Key, selectedBook.History.Last().Value);
+            builder.ToString();
+            historyRtb.Text += builder;
+            historyRtb.AppendText("\n");
+        }
+
+        public void InfoForReturn(Book book)
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.AppendFormat("{0}(Id {1}) was returned at {2} by {3}", book.Title, book.Id, book.History.Last().Key, selectedBook.History.Last().Value);
+            builder.ToString();
+            historyRtb.Text += builder;
+            historyRtb.AppendText("\n");
+        }
+
         private void SetUp()
         {
             helloLb.Text += presenter.CurrentUser.Login; // 
@@ -160,12 +222,20 @@ namespace Library.UI
             SwitchScene(Scene.Journal);
         }
         #endregion
+        
 
-        private void button1_Click(object sender, EventArgs e)
+        private void historyBtn_Click(object sender, EventArgs e)
         {
-
+            if (historyPl.Visible)
+            {
+                historyPl.Visible = false;
+            }
+            else
+            {
+                historyPl.Visible = true;
+            }
         }
 
-       
+        
     }
 }

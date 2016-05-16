@@ -18,6 +18,8 @@ namespace Library.UI
         public event EventHandler AvalibleBooksClick;
         public event EventHandler TakenBooksClick;
         public event EventHandler AddNewBook;
+        public event EventHandler TakeBook;
+
         Book selectedBook;
         Book newBook;
         Presenter presenter;
@@ -32,6 +34,10 @@ namespace Library.UI
             set { booksBindingSource1.DataSource = value; }
         }
         
+        public Book SelectedBook
+        {
+            get { return selectedBook; }
+        }
 
         public LibraryUserControl()
         {
@@ -65,22 +71,23 @@ namespace Library.UI
 
         private void takeBtn_Click(object sender, EventArgs e)
         {
-
+            if (TakeBook != null) { TakeBook(this, EventArgs.Empty); }
         }
 
         private void returnBookBtn_Click(object sender, EventArgs e)
         {
             returnBookPl.Visible = true;
             addBookPl.Visible = false; // refact!
-            Author awd = new Author("awdawd");
-            Book book = new Book("ex", awd);
-            
-            string comboItem = book.Id.ToString();
-            comboItem += book.Title;
-            returnBookCb.Items.Add(comboItem);
-        }
-        
+            User user = presenter.CurrentUser;
+            List<string> cBitems = new List<string>();
 
+            for (int i = 0; i < user.Books.Count; i++)
+            {
+                returnBookCb.Items.Add(user.Books[i].Id.ToString() + " " + user.Books[i].Title);
+            }
+        }
+
+        #region Table
         private void allBooksRb_CheckedChanged(object sender, EventArgs e)
         {
             if (AllBooksClick != null) { AllBooksClick(this, EventArgs.Empty); }
@@ -102,6 +109,7 @@ namespace Library.UI
             titleDiscrLb.Text = selectedBook.Title;
             authorDiscrLb.Text = selectedBook.authorDiscription;
         }
+        #endregion
 
         #region Methods
 

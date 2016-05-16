@@ -15,5 +15,6 @@ namespace Library.Data.Repository.Interfaces
         bool IsEmailExist(string login);
         bool IsUserAdmin(string login);
         User GetByLogin(string login);
+        void AddBook(User user, Book book);
     }
 }

@@ -63,8 +63,16 @@ namespace Library.UI
             library.AvalibleBooksClick += Library_AvalibleBooksClick;
             library.TakenBooksClick += Library_TakenBooksClick;
             library.AddNewBook += Library_AddNewBook;
+            library.TakeBook += Library_TakeBook;
             books = servise.Books.GetAll().ToList();
             library.BooksBindingSource = books;
+        }
+
+        private void Library_TakeBook(object sender, EventArgs e)
+        {
+            library.SelectedBook.AvalibleStatus = false;
+            servise.Users.AddBook(currentUser, library.SelectedBook);
+            library.Reflesh();
         }
 
         private void Library_AddNewBook(object sender, EventArgs e)

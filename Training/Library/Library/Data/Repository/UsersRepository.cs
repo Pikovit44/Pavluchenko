@@ -50,5 +50,12 @@ namespace Library.Data.Repository
             return db.Users.FirstOrDefault(l => l.Login == login);
         }
         
+        public void AddBook(User user, Book book)
+        {
+            User us = db.Users.FirstOrDefault(l => l.Login == user.Login);
+            us.Books.Add(book);
+            db.SaveChanges();
+        }
+        
     }
 }

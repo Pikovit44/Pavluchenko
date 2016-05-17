@@ -9,7 +9,7 @@ namespace Domain
         public string Title { get; set; }
         public virtual List<Author> Authors { get; set; }
         public bool AvalibleStatus { get; set; }
-        public string authorDiscription { get; set; }
+        public string AuthorDiscription { get; set; }
         public Dictionary<DateTime, User> History { get; set; }
 
         public Book(string title, List<Author> authors)
@@ -23,14 +23,14 @@ namespace Domain
                 discr.AppendFormat("{0}, ", Authors[i].FullName);
             }
             discr.AppendFormat(" {0}.", Authors[Authors.Count - 1].FullName);
-            authorDiscription = discr.ToString();
+            AuthorDiscription = discr.ToString();
         }
 
         public Book(string title, Author author)
         {
             BaseCtor(title);
             Authors.Add(author);
-            authorDiscription = author.FullName;
+            AuthorDiscription = author.FullName;
         }
         
         public Book() { BaseCtor(string.Empty); }

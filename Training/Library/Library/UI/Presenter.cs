@@ -16,6 +16,8 @@ namespace Library.UI
         ILibrary library;
         ILogin loginMenu;
         User currentUser;
+        Book currentBook;
+        bool flag;
 
         public Presenter(ILogin loginMenu)
         {
@@ -27,6 +29,7 @@ namespace Library.UI
         }
 
         public User CurrentUser { get { return currentUser; } }
+        public Book CurrentBook { get { return CurrentBook; } }
 
         private void LoginMenu_Registration(object sender, EventArgs e)
         {
@@ -65,8 +68,17 @@ namespace Library.UI
             library.AddNewBook += Library_AddNewBook;
             library.TakeBook += Library_TakeBook;
             library.OkReturnClick += Library_OkReturnClick;
+            library.TableClick += Library_TableClick;
             books = servise.Books.GetAvalible().ToList();
-            library.BooksBindingSource = books;
+            library.BooksBindingSource = AvalableBooksCount(books);
+        }
+
+        private void Library_TableClick(object sender, EventArgs e)
+        {
+            List<Book> books = servise.Books.GetByTitleAndAuthor(library.SelectedBook.Title, library.SelectedBook.AuthorDiscription);
+            library.CountOfBook = books.Count;
+            List<Book> avalible = books.Where(s => s.AvalibleStatus == true).ToList();
+            library.CountOfAvalibleBook = avalible.Count;
         }
 
         private void Library_OkReturnClick(object sender, EventArgs e)
@@ -80,16 +92,39 @@ namespace Library.UI
 
         private void Library_TakeBook(object sender, EventArgs e)
         {
-            if (library.SelectedBook.AvalibleStatus == true)
+            if (library.OutputInfo == InfoType.Avalible)
             {
-                library.SelectedBook.AvalibleStatus = false;
-                servise.Users.AddBook(currentUser, library.SelectedBook);
-                library.SelectedBook.History.Add(DateTime.Now, currentUser);
+                List<Book> books = servise.Books.GetByTitleAndAuthor(library.SelectedBook.Title, library.SelectedBook.AuthorDiscription);
+                library.CountOfBook = books.Count;//
+                books = books.Where(a => a.AvalibleStatus == true).ToList();
+                Book currentBook = books.First();
+                currentBook.AvalibleStatus = false;
+                servise.Users.AddBook(currentUser, currentBook);
+                currentBook.History.Add(DateTime.Now, currentUser);
+                library.InfoForHistoryTake(currentBook);
+                library.CountOfAvalibleBook = books.Count();//
+                library.AllBook = false;
+                library.AvalibleBook = false;
                 library.Reflesh();
-                library.InfoForHistoryTake();
             }
-            
-        }
+            if (library.OutputInfo == InfoType.All)
+            {
+                if (library.SelectedBook.AvalibleStatus == true )
+                {
+                    library.SelectedBook.AvalibleStatus = false;
+                    servise.Users.AddBook(currentUser, library.SelectedBook);
+                    library.SelectedBook.History.Add(DateTime.Now, currentUser);
+                    library.Reflesh();
+                    library.InfoForHistoryTake();
+                    
+                    library.AllBook = false;
+                    library.AvalibleBook = false;
+                }
+
+            }
+                
+                
+            }
 
         private void Library_AddNewBook(object sender, EventArgs e)
         {
@@ -106,7 +141,39 @@ namespace Library.UI
         private void Library_AvalibleBooksClick(object sender, EventArgs e)
         {
             books = servise.Books.GetAvalible().ToList();
-            library.BooksBindingSource = books;
+            library.BooksBindingSource = AvalableBooksCount(books);
+        }
+
+        List<Book> AvalableBooksCount ( List<Book> books)
+        {
+            for (int i = 0; i < books.Count; i++)
+            {
+                for (int k = 0; k < books.Count - i; k++)
+                {
+                    if ((i != k) && (books[i].Title == books[k].Title))
+                    {
+                        flag = false;
+                        for (int j = 0; j < books[i].Authors.Count; j++)
+                        {
+                            if (books[i].Authors[j].FullName.ToCharArray() == books[k].Authors[j].FullName.ToCharArray())
+                            {
+                                flag = true;
+                            }
+                            else
+                            {
+                                flag = false;
+                                break;
+                            }
+                        }
+
+                        if (flag == false)
+                        {
+                            books.Remove(books[k]);
+                        }
+                    }
+                }
+            }
+            return books;
         }
 
         private void Library_AllBooksClick(object sender, EventArgs e)

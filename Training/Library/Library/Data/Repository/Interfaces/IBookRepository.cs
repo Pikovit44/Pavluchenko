@@ -13,5 +13,6 @@ namespace Library.Data.Repository.Interfaces
         List<Book> GetTaken();
         void ChangeStatus(int id);
         Book GetById(int id);
+        List<Book> GetByTitleAndAuthor(string title, string authors);
     }
 }

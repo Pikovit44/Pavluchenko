@@ -18,6 +18,7 @@ namespace Library.Migrations
                 var author1 = new Author("Name1");
 
                 var book1 = new Book("Title1", author1);
+                var book3 = new Book("Title1", author1);
                 author1.books.Add(book1);
 
                 //var book2 = new Book("Title2", author1);
@@ -29,6 +30,7 @@ namespace Library.Migrations
 
                 var author2 = new Author("Name2");
                 var book4 = new Book("Title4", author2);
+                var book5 = new Book("Title4", author2);
                 author1.books.Add(book4);
                 //var book5 = new Book("Title5", author2);
                 //author1.books.Add(book3);
@@ -53,7 +55,7 @@ namespace Library.Migrations
                 #endregion
 
                 context.Authors.AddRange(new List<Author> { author1, author2, author3 });
-                context.Books.AddRange(new List<Book> { book1, book4, book6, book7});
+                context.Books.AddRange(new List<Book> { book1, book3, book4, book5, book6, book7});
 
                 User user = new User("q", "d", false);
                 context.Users.Add(user);

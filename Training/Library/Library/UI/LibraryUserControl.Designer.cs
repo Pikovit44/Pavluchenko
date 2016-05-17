@@ -63,8 +63,7 @@
             this.countDiscrLb = new System.Windows.Forms.Label();
             this.removeBtn = new System.Windows.Forms.Button();
             this.ownerDiscrLb = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.titleDiscrLb = new System.Windows.Forms.Label();
+            this.ownerLb = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.authorDiscrLb = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -79,6 +78,7 @@
             this.toMenuBtn = new System.Windows.Forms.Button();
             this.booksTableAdapter = new Library.LibraryDBContextDataSetTableAdapters.BooksTableAdapter();
             this.historyBtn = new System.Windows.Forms.Button();
+            this.titleDiscrLb = new System.Windows.Forms.Label();
             this.returnBookPl.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksTable)).BeginInit();
@@ -274,12 +274,10 @@
             // avalableBooksRb
             // 
             this.avalableBooksRb.AutoSize = true;
-            this.avalableBooksRb.Checked = true;
             this.avalableBooksRb.Location = new System.Drawing.Point(13, 5);
             this.avalableBooksRb.Name = "avalableBooksRb";
             this.avalableBooksRb.Size = new System.Drawing.Size(98, 17);
             this.avalableBooksRb.TabIndex = 3;
-            this.avalableBooksRb.TabStop = true;
             this.avalableBooksRb.Text = "Avalable books";
             this.avalableBooksRb.UseVisualStyleBackColor = true;
             this.avalableBooksRb.CheckedChanged += new System.EventHandler(this.avalableBooksRb_CheckedChanged);
@@ -401,7 +399,7 @@
             this.panel1.Controls.Add(this.removeBtn);
             this.panel1.Controls.Add(this.ownerDiscrLb);
             this.panel1.Controls.Add(this.addBookBtn);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.ownerLb);
             this.panel1.Controls.Add(this.titleDiscrLb);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.authorDiscrLb);
@@ -423,9 +421,8 @@
             this.avalableDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
             this.avalableDiscrLb.Location = new System.Drawing.Point(82, 60);
             this.avalableDiscrLb.Name = "avalableDiscrLb";
-            this.avalableDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.avalableDiscrLb.Size = new System.Drawing.Size(0, 20);
             this.avalableDiscrLb.TabIndex = 24;
-            this.avalableDiscrLb.Text = ".";
             // 
             // countDiscrLb
             // 
@@ -435,9 +432,8 @@
             this.countDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
             this.countDiscrLb.Location = new System.Drawing.Point(82, 80);
             this.countDiscrLb.Name = "countDiscrLb";
-            this.countDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.countDiscrLb.Size = new System.Drawing.Size(0, 20);
             this.countDiscrLb.TabIndex = 23;
-            this.countDiscrLb.Text = ".";
             // 
             // removeBtn
             // 
@@ -458,33 +454,20 @@
             this.ownerDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
             this.ownerDiscrLb.Location = new System.Drawing.Point(82, 100);
             this.ownerDiscrLb.Name = "ownerDiscrLb";
-            this.ownerDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.ownerDiscrLb.Size = new System.Drawing.Size(0, 20);
             this.ownerDiscrLb.TabIndex = 17;
-            this.ownerDiscrLb.Text = ".";
             // 
-            // label2
+            // ownerLb
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(3, 100);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 20);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Owner:";
-            // 
-            // titleDiscrLb
-            // 
-            this.titleDiscrLb.AutoSize = true;
-            this.titleDiscrLb.BackColor = System.Drawing.Color.Transparent;
-            this.titleDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.titleDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
-            this.titleDiscrLb.Location = new System.Drawing.Point(82, 20);
-            this.titleDiscrLb.Name = "titleDiscrLb";
-            this.titleDiscrLb.Size = new System.Drawing.Size(13, 20);
-            this.titleDiscrLb.TabIndex = 15;
-            this.titleDiscrLb.Text = ".";
+            this.ownerLb.AutoSize = true;
+            this.ownerLb.BackColor = System.Drawing.Color.Transparent;
+            this.ownerLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ownerLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.ownerLb.Location = new System.Drawing.Point(3, 100);
+            this.ownerLb.Name = "ownerLb";
+            this.ownerLb.Size = new System.Drawing.Size(59, 20);
+            this.ownerLb.TabIndex = 16;
+            this.ownerLb.Text = "Owner:";
             // 
             // label4
             // 
@@ -506,9 +489,8 @@
             this.authorDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
             this.authorDiscrLb.Location = new System.Drawing.Point(82, 40);
             this.authorDiscrLb.Name = "authorDiscrLb";
-            this.authorDiscrLb.Size = new System.Drawing.Size(13, 20);
+            this.authorDiscrLb.Size = new System.Drawing.Size(0, 20);
             this.authorDiscrLb.TabIndex = 13;
-            this.authorDiscrLb.Text = ".";
             // 
             // label6
             // 
@@ -635,6 +617,17 @@
             this.historyBtn.UseVisualStyleBackColor = true;
             this.historyBtn.Click += new System.EventHandler(this.historyBtn_Click);
             // 
+            // titleDiscrLb
+            // 
+            this.titleDiscrLb.AutoSize = true;
+            this.titleDiscrLb.BackColor = System.Drawing.Color.Transparent;
+            this.titleDiscrLb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.titleDiscrLb.ForeColor = System.Drawing.SystemColors.Control;
+            this.titleDiscrLb.Location = new System.Drawing.Point(82, 20);
+            this.titleDiscrLb.Name = "titleDiscrLb";
+            this.titleDiscrLb.Size = new System.Drawing.Size(0, 20);
+            this.titleDiscrLb.TabIndex = 15;
+            // 
             // LibraryUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -681,8 +674,7 @@
         private System.Windows.Forms.Label historyLb;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label ownerDiscrLb;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label titleDiscrLb;
+        private System.Windows.Forms.Label ownerLb;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label authorDiscrLb;
         private System.Windows.Forms.Label label6;
@@ -728,5 +720,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button CancelReturnBookBtn;
         private System.Windows.Forms.Button historyBtn;
+        private System.Windows.Forms.Label titleDiscrLb;
     }
 }

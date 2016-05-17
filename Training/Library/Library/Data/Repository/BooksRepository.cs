@@ -34,5 +34,11 @@ namespace Library.Data.Repository
         {
             return db.Books.FirstOrDefault(i => i.Id == id);
         }
+
+        public List<Book> GetByTitleAndAuthor(string title, string authors)
+        {
+            return db.Books.Where((t => t.Title == title)).
+                            Where(a => a.AuthorDiscription == authors).ToList();
+        }
     }
 }

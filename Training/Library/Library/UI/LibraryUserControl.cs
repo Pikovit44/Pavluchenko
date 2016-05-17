@@ -12,6 +12,13 @@ using Domain;
 
 namespace Library.UI
 {
+    public enum InfoType
+    {
+        Avalible,
+        All, 
+        Taken
+    }
+
     public partial class LibraryUserControl : BaseUserControl, ILibrary 
     {
         public event EventHandler AllBooksClick;
@@ -20,12 +27,19 @@ namespace Library.UI
         public event EventHandler AddNewBook;
         public event EventHandler TakeBook;
         public event EventHandler OkReturnClick;
+        public event EventHandler TableClick;
 
         Book selectedBook;
         Book newBook;
         int returnId;
+        InfoType outputInfo;
 
         Presenter presenter;
+
+        public InfoType OutputInfo
+        {
+            get { return outputInfo; }
+        }
 
         public int ReturnId
         {
@@ -36,6 +50,27 @@ namespace Library.UI
         {
             get { return newBook; }
         }
+
+        public int CountOfBook
+        {
+            set { countDiscrLb.Text = value.ToString(); }
+        }
+
+        public int CountOfAvalibleBook
+        {
+            set { avalableDiscrLb.Text = value.ToString(); }
+        }
+
+        public bool AvalibleBook
+        {
+            set { avalableDiscrLb.Visible = value; }
+        }
+
+        public bool AllBook
+        {
+            set { countDiscrLb.Visible = value; }
+        }
+
 
         public object BooksBindingSource
         {
@@ -88,9 +123,12 @@ namespace Library.UI
             {
                 returnBookCb.Items.Add("Id" + user.Books[i].Id.ToString() + " " + user.Books[i].Title);
             }
+
+            
             returnBookCb.Text = string.Empty;
             authorDiscrLb.Text = string.Empty;
             titleDiscrLb.Text = string.Empty;
+
 
         }
 
@@ -134,24 +172,49 @@ namespace Library.UI
         #region Table
         private void allBooksRb_CheckedChanged(object sender, EventArgs e)
         {
+            DiscribVisilbe();
+            outputInfo = InfoType.All;
             if (AllBooksClick != null) { AllBooksClick(this, EventArgs.Empty); }
         }
 
         private void avalableBooksRb_CheckedChanged(object sender, EventArgs e)
         {
+            DiscribVisilbe();
+            ownerLb.Visible = false;
+            outputInfo = InfoType.Avalible;
             if (AvalibleBooksClick != null) { AvalibleBooksClick(this, EventArgs.Empty); }
         }
 
         private void takenBooksRb_CheckedChanged(object sender, EventArgs e)
         {
+            DiscribVisilbe();
+            outputInfo = InfoType.Taken;
             if (TakenBooksClick != null) { TakenBooksClick(this, EventArgs.Empty); }
+
         }
         
         private void booksTable_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            countDiscrLb.Visible = true;
+            avalableDiscrLb.Visible = true;
+            authorDiscrLb.Visible = true;
+            titleDiscrLb.Visible = true;
             selectedBook = (Book)booksTable.CurrentRow.DataBoundItem;
+            if ((outputInfo == InfoType.All || outputInfo == InfoType.Taken) && selectedBook.AvalibleStatus == false)
+            {
+                ownerLb.Visible = true;
+                ownerDiscrLb.Visible = true;
+                ownerDiscrLb.Text = selectedBook.History.Last().Value.Login;
+            }
+            else
+            {
+                ownerLb.Visible = false;
+                ownerDiscrLb.Visible = false;
+            }
+
             titleDiscrLb.Text = selectedBook.Title;
-            authorDiscrLb.Text = selectedBook.authorDiscription;
+            authorDiscrLb.Text = selectedBook.AuthorDiscription;
+            if(TableClick != null) { TableClick(this, EventArgs.Empty); }
         }
         #endregion
 
@@ -183,6 +246,15 @@ namespace Library.UI
             historyRtb.AppendText("\n");
         }
 
+        public void InfoForHistoryTake(Book book)
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.AppendFormat("{0}(Id {1}) was taken at {2} by {3}", book.Title, book.Id, book.History.Last().Key, book.History.Last().Value);
+            builder.ToString();
+            historyRtb.Text += builder;
+            historyRtb.AppendText("\n");
+        }
+
         public void InfoForReturn(Book book)
         {
             StringBuilder builder = new StringBuilder();
@@ -192,8 +264,17 @@ namespace Library.UI
             historyRtb.AppendText("\n");
         }
 
+        private void DiscribVisilbe()
+        {
+            authorDiscrLb.Visible = false;
+            titleDiscrLb.Visible = false;
+            countDiscrLb.Visible = false;
+            avalableDiscrLb.Visible = false;
+            ownerDiscrLb.Visible = false;
+        }
         private void SetUp()
         {
+            avalableBooksRb.Checked = true;
             helloLb.Text += presenter.CurrentUser.Login; // 
             helloLb.Text += "!";
             DoubleBuffered = true;
@@ -235,7 +316,6 @@ namespace Library.UI
                 historyPl.Visible = true;
             }
         }
-
         
     }
 }

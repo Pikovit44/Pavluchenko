@@ -28,14 +28,39 @@ namespace Library.UI
         public event EventHandler TakeBook;
         public event EventHandler OkReturnClick;
         public event EventHandler TableClick;
+        public event EventHandler LastOwner;
+        public event EventHandler HistoryForBook;
+        public event EventHandler HistoryForBooks;
+        public event EventHandler RemoveBook;
 
+        string owner;
         Book selectedBook;
+        List<Domain.Action> booksActions;
         Book newBook;
         int returnId;
         InfoType outputInfo;
-
         Presenter presenter;
 
+        public LibraryUserControl()
+        {
+            InitializeComponent();
+            DGVSelectionMode();
+            presenter = LoginUserControl.Presenter;
+            SetUp();
+            presenter.AddLibrary(this);
+        }
+
+
+        #region Properties
+        public List<Domain.Action> BooksActions
+        {
+            set { booksActions = value; }
+        }
+
+        public string Owner
+        {
+            set { owner = value; }
+        }
         public InfoType OutputInfo
         {
             get { return outputInfo; }
@@ -76,21 +101,98 @@ namespace Library.UI
         {
             set { booksBindingSource1.DataSource = value; }
         }
-        
+
         public Book SelectedBook
         {
             get { return selectedBook; }
         }
 
-        public LibraryUserControl()
+        #endregion
+
+        #region Events
+
+        #region Table
+        private void allBooksRb_CheckedChanged(object sender, EventArgs e)
         {
-            InitializeComponent();
-            DGVSelectionMode();
-            presenter = LoginUserControl.Presenter;
-            SetUp();
-            presenter.AddLibrary(this);
+            DiscribVisilbe();
+            historyRtb.Text = string.Empty;
+            outputInfo = InfoType.All;
+            if (AllBooksClick != null) { AllBooksClick(this, EventArgs.Empty); }
         }
-        
+
+        private void avalableBooksRb_CheckedChanged(object sender, EventArgs e)
+        {
+            DiscribVisilbe();
+            historyRtb.Text = string.Empty;
+            ownerLb.Visible = false;
+            outputInfo = InfoType.Avalible;
+            if (AvalibleBooksClick != null) { AvalibleBooksClick(this, EventArgs.Empty); }
+        }
+
+        private void takenBooksRb_CheckedChanged(object sender, EventArgs e)
+        {
+            DiscribVisilbe();
+            historyRtb.Text = string.Empty;
+            outputInfo = InfoType.Taken;
+            if (TakenBooksClick != null) { TakenBooksClick(this, EventArgs.Empty); }
+
+        }
+
+        private void booksTable_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            returnBookPl.Visible = false;
+            historyRtb.Text = string.Empty;
+
+            authorDiscrLb.Visible = true;
+            titleDiscrLb.Visible = true;
+            countDiscrLb.Visible = true;
+            avalableDiscrLb.Visible = true;
+
+            selectedBook = (Book)booksTable.CurrentRow.DataBoundItem;
+
+            if (outputInfo == InfoType.All || outputInfo == InfoType.Taken)
+            {
+                ownerLb.Visible = true;
+                ownerDiscrLb.Visible = true;
+                if (selectedBook.AvalibleStatus == false)
+                {
+                    if (LastOwner != null) { LastOwner(this, EventArgs.Empty); }
+                    ownerDiscrLb.Text = owner;
+                }
+                else
+                {
+                    ownerLb.Visible = false;
+                    ownerDiscrLb.Visible = false;
+                }
+
+                if (HistoryForBook != null) { HistoryForBook(this, EventArgs.Empty); }
+
+            }
+            else
+            {
+                if (HistoryForBooks != null) { HistoryForBooks(this, EventArgs.Empty); }
+            }
+
+            StringBuilder builder = new StringBuilder();
+            foreach (var action in booksActions)
+            {
+                if (action.Status == true)
+                {
+                    builder.AppendFormat("[{0}] {1}(id{2}) was taken by {3}\n", action.Date, action.Book.Title, action.Book.Id, action.User.Login);
+                }
+                else
+                {
+                    builder.AppendFormat("[{0}] {1}(id{2}) was returned by {3}\n", action.Date, action.Book.Title, action.Book.Id, action.User.Login);
+                }
+            }
+
+            historyRtb.Text = builder.ToString();
+
+            titleDiscrLb.Text = selectedBook.Title;
+            authorDiscrLb.Text = selectedBook.AuthorDiscription;
+            if (TableClick != null) { TableClick(this, EventArgs.Empty); }
+        }
+        #endregion
 
         private void addBookBtn_Click(object sender, EventArgs e)
         {
@@ -98,14 +200,13 @@ namespace Library.UI
             returnBookPl.Visible = false;
         }
 
-        private void addNewBook_Click(object sender, EventArgs e)
+        private void addNewBookOk_Click(object sender, EventArgs e)
         {
-            
             addBookPl.Visible = false;
             Author newAuthor = new Author(addAuthorsTb.Text);
             List<Author> authors = new List<Author>();
             authors.Add(newAuthor);
-            newBook = new Book(addTitleTb.Text, newAuthor); //repository for authors (add book) 
+            newBook = new Book(addTitleTb.Text, newAuthor);
             if (AddNewBook != null) { AddNewBook(this, EventArgs.Empty); }
             Reflesh();
             addTitleTb.Text = string.Empty;
@@ -114,45 +215,52 @@ namespace Library.UI
 
         private void takeBtn_Click(object sender, EventArgs e)
         {
+            if (selectedBook.AvalibleStatus == true)
+            {
+                if (TakeBook != null) { TakeBook(this, EventArgs.Empty); }
+            }
+            else
+            {
+                MessageBox.Show("This book is already taken", "Take error", MessageBoxButtons.OK);
+                countDiscrLb.Text = string.Empty;
+                avalableDiscrLb.Text = string.Empty;
+                ownerDiscrLb.Text = string.Empty;
+            }
+
+            
+
+            returnBookCb.Text = string.Empty;
+            authorDiscrLb.Text = string.Empty;
+            titleDiscrLb.Text = string.Empty;
+            Reflesh();
+        }
+
+        private void returnBookBtn_Click(object sender, EventArgs e)
+        {
             returnBookCb.Items.Clear();
-            if (TakeBook != null) { TakeBook(this, EventArgs.Empty); }
             User user = presenter.CurrentUser;
             List<string> cBitems = new List<string>();
-
             for (int i = 0; i < user.Books.Count; i++)
             {
                 returnBookCb.Items.Add("Id" + user.Books[i].Id.ToString() + " " + user.Books[i].Title);
             }
-
-            
-            returnBookCb.Text = string.Empty;
-            authorDiscrLb.Text = string.Empty;
-            titleDiscrLb.Text = string.Empty;
-
-
-        }
-
-
-
-        private void returnBookBtn_Click(object sender, EventArgs e)
-        {
             returnBookPl.Visible = true;
-            addBookPl.Visible = false; // refact!
-            
+            addBookPl.Visible = false;
         }
 
         private void okReturnBookBtn_Click(object sender, EventArgs e)
         {
             if (returnBookCb.Items.Count != 0)
             {
+                //take Id
                 string bookInfo = returnBookCb.Text;
-                int s = bookInfo.IndexOf("d"); // 1
-                int f = bookInfo.IndexOf(" ");// 3
-                string currentId = bookInfo.Substring(s + 1, f - s); // ref!
+                int s = bookInfo.IndexOf("d");
+                int f = bookInfo.IndexOf(" ");
+                string currentId = bookInfo.Substring(s + 1, f - s);
+
                 returnId = int.Parse(currentId);
                 if (OkReturnClick != null) { OkReturnClick(this, EventArgs.Empty); }
                 returnBookCb.Items.Remove(bookInfo);
-                
             }
 
             if (returnBookCb.Items.Count == 0)
@@ -168,56 +276,34 @@ namespace Library.UI
         {
             returnBookPl.Visible = false;
         }
-        
-        #region Table
-        private void allBooksRb_CheckedChanged(object sender, EventArgs e)
-        {
-            DiscribVisilbe();
-            outputInfo = InfoType.All;
-            if (AllBooksClick != null) { AllBooksClick(this, EventArgs.Empty); }
-        }
 
-        private void avalableBooksRb_CheckedChanged(object sender, EventArgs e)
+        private void removeBtn_Click(object sender, EventArgs e)
         {
-            DiscribVisilbe();
-            ownerLb.Visible = false;
-            outputInfo = InfoType.Avalible;
-            if (AvalibleBooksClick != null) { AvalibleBooksClick(this, EventArgs.Empty); }
-        }
-
-        private void takenBooksRb_CheckedChanged(object sender, EventArgs e)
-        {
-            DiscribVisilbe();
-            outputInfo = InfoType.Taken;
-            if (TakenBooksClick != null) { TakenBooksClick(this, EventArgs.Empty); }
-
-        }
-        
-        private void booksTable_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            countDiscrLb.Visible = true;
-            avalableDiscrLb.Visible = true;
-            authorDiscrLb.Visible = true;
-            titleDiscrLb.Visible = true;
-            selectedBook = (Book)booksTable.CurrentRow.DataBoundItem;
-            if ((outputInfo == InfoType.All || outputInfo == InfoType.Taken) && selectedBook.AvalibleStatus == false)
+            if (selectedBook.AvalibleStatus == true)
             {
-                ownerLb.Visible = true;
-                ownerDiscrLb.Visible = true;
-                ownerDiscrLb.Text = selectedBook.History.Last().Value.Login;
+                if (RemoveBook != null) { RemoveBook(this, EventArgs.Empty); }
+                DiscribVisilbe();
+                Reflesh();
             }
             else
             {
-                ownerLb.Visible = false;
-                ownerDiscrLb.Visible = false;
+                MessageBox.Show("You can't delete this book", "Delete error", MessageBoxButtons.OK);
             }
+        }
 
-            titleDiscrLb.Text = selectedBook.Title;
-            authorDiscrLb.Text = selectedBook.AuthorDiscription;
-            if(TableClick != null) { TableClick(this, EventArgs.Empty); }
+        private void historyBtn_Click(object sender, EventArgs e)
+        {
+            if (historyPl.Visible)
+            {
+                historyPl.Visible = false;
+            }
+            else
+            {
+                historyPl.Visible = true;
+            }
         }
         #endregion
-
+        
         #region Methods
 
         public void Reflesh()
@@ -237,33 +323,6 @@ namespace Library.UI
             };
         }
 
-        public void InfoForHistoryTake()
-        {
-            StringBuilder builder = new StringBuilder();
-            builder.AppendFormat("{0}(Id {1}) was taken at {2} by {3}",  selectedBook.Title, selectedBook.Id, selectedBook.History.Last().Key, selectedBook.History.Last().Value);
-            builder.ToString();
-            historyRtb.Text += builder;
-            historyRtb.AppendText("\n");
-        }
-
-        public void InfoForHistoryTake(Book book)
-        {
-            StringBuilder builder = new StringBuilder();
-            builder.AppendFormat("{0}(Id {1}) was taken at {2} by {3}", book.Title, book.Id, book.History.Last().Key, book.History.Last().Value);
-            builder.ToString();
-            historyRtb.Text += builder;
-            historyRtb.AppendText("\n");
-        }
-
-        public void InfoForReturn(Book book)
-        {
-            StringBuilder builder = new StringBuilder();
-            builder.AppendFormat("{0}(Id {1}) was returned at {2} by {3}", book.Title, book.Id, book.History.Last().Key, selectedBook.History.Last().Value);
-            builder.ToString();
-            historyRtb.Text += builder;
-            historyRtb.AppendText("\n");
-        }
-
         private void DiscribVisilbe()
         {
             authorDiscrLb.Visible = false;
@@ -272,8 +331,20 @@ namespace Library.UI
             avalableDiscrLb.Visible = false;
             ownerDiscrLb.Visible = false;
         }
+        
         private void SetUp()
         {
+
+            if (presenter.CurrentUser.Administrator == true)
+            {
+                removeBtn.Visible = true;
+            }
+
+            else
+            {
+                removeBtn.Visible = false;
+            }
+
             avalableBooksRb.Checked = true;
             helloLb.Text += presenter.CurrentUser.Login; // 
             helloLb.Text += "!";
@@ -303,19 +374,5 @@ namespace Library.UI
             SwitchScene(Scene.Journal);
         }
         #endregion
-        
-
-        private void historyBtn_Click(object sender, EventArgs e)
-        {
-            if (historyPl.Visible)
-            {
-                historyPl.Visible = false;
-            }
-            else
-            {
-                historyPl.Visible = true;
-            }
-        }
-        
     }
 }

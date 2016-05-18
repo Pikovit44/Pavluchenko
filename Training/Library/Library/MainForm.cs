@@ -20,12 +20,15 @@ namespace Library
 
     public partial class MainForm : Form
     {
+        public static Presenter Presenter;
         public MainForm()
         {
             InitializeComponent();
             DoubleBuffered = true;
+            Presenter = new Presenter();
             SwitchScene(Scene.Login);
-        }
+           
+    }
 
         public void SwitchScene(Scene scene)
         {

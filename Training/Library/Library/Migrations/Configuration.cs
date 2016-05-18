@@ -52,10 +52,12 @@ namespace Library.Migrations
 
                 List<Author> authors = new List<Author> { author1, author3 };
                 var book7 = new Book("Title10", authors);
+                var book8 = new Book("Title11", authors);
                 #endregion
 
                 context.Authors.AddRange(new List<Author> { author1, author2, author3 });
-                context.Books.AddRange(new List<Book> { book1, book3, book4, book5, book6, book7});
+                context.Books.AddRange(new List<Book> { book1, book3, book4, book5, book6, book7, book8 });
+                
 
                 User user = new User("q", "d", false);
                 context.Users.Add(user);

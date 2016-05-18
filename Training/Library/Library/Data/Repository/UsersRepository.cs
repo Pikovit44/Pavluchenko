@@ -21,6 +21,11 @@ namespace Library.Data.Repository
             return us;
         }
 
+        public List<Letter> GetAllLettersByUser(User user)
+        {
+            return db.Users.FirstOrDefault(u => u.Login == user.Login).Email.Letters.ToList();
+        }
+
         public List<Book> GetTakenBook(User user)
         {
             User us = db.Users.FirstOrDefault(l => l.Login == user.Login);
@@ -35,7 +40,7 @@ namespace Library.Data.Repository
 
         public bool IsEmailExist(string email)
         {
-            User us = db.Users.FirstOrDefault(e => e.EMail == email);
+            User us = db.Users.FirstOrDefault(u => u.Email.Adress == email);
             return (us != null) ? true : false;
         }
 

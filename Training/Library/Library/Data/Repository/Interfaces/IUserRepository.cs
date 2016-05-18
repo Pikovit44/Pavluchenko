@@ -17,5 +17,6 @@ namespace Library.Data.Repository.Interfaces
         User GetByLogin(string login);
         void AddBook(User user, Book book);
         void RemoveBook(User user, int id);
+        List<Letter> GetAllLettersByUser(User user);
     }
 }

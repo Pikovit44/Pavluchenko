@@ -12,6 +12,7 @@ namespace Library.Data.Repository
         private readonly Context db;
         private IBookRepository bookRepository;
         private IUserRepository userRepository;
+        private IActionRepository actionRepository;
 
         public Service ()
         {
@@ -39,6 +40,18 @@ namespace Library.Data.Repository
                     userRepository = new UsersRepository(db);
                 }
                 return userRepository;
+            }
+        }
+
+        public IActionRepository Actions
+        {
+            get
+            {
+                if (actionRepository == null)
+                {
+                    actionRepository = new ActionsRepository(db);
+                }
+                return actionRepository;
             }
         }
 

@@ -11,8 +11,10 @@ namespace Library.Data.Repository.Interfaces
     {
         List<Book> GetAvalible();
         List<Book> GetTaken();
-        void ChangeStatus(int id);
-        Book GetById(int id);
         List<Book> GetByTitleAndAuthor(string title, string authors);
+        Book GetById(int id);
+        void ChangeStatus(int id);
+        
+        
     }
 }

@@ -28,16 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.lettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryDBContextDataSet1 = new Library.LibraryDBContextDataSet1();
+            this.lettersTableAdapter = new Library.LibraryDBContextDataSet1TableAdapters.LettersTableAdapter();
+            this.lettersTable = new System.Windows.Forms.DataGridView();
+            this.LettersRtB = new System.Windows.Forms.RichTextBox();
             this.toMainMenuLb = new System.Windows.Forms.Button();
             this.toLibraryBtn = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Theme = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.topikDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.lettersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDBContextDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lettersTable)).BeginInit();
             this.SuspendLayout();
+            // 
+            // lettersBindingSource
+            // 
+            this.lettersBindingSource.DataMember = "Letters";
+            this.lettersBindingSource.DataSource = this.libraryDBContextDataSet1;
+            // 
+            // libraryDBContextDataSet1
+            // 
+            this.libraryDBContextDataSet1.DataSetName = "LibraryDBContextDataSet1";
+            this.libraryDBContextDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // lettersTableAdapter
+            // 
+            this.lettersTableAdapter.ClearBeforeFill = true;
+            // 
+            // lettersTable
+            // 
+            this.lettersTable.AllowUserToAddRows = false;
+            this.lettersTable.AllowUserToDeleteRows = false;
+            this.lettersTable.AutoGenerateColumns = false;
+            this.lettersTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lettersTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dateDataGridViewTextBoxColumn,
+            this.topikDataGridViewTextBoxColumn});
+            this.lettersTable.DataSource = this.lettersBindingSource;
+            this.lettersTable.Location = new System.Drawing.Point(97, 42);
+            this.lettersTable.Name = "lettersTable";
+            this.lettersTable.ReadOnly = true;
+            this.lettersTable.Size = new System.Drawing.Size(220, 294);
+            this.lettersTable.TabIndex = 24;
+            this.lettersTable.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.lettersTable_CellClick);
+            // 
+            // LettersRtB
+            // 
+            this.LettersRtB.Location = new System.Drawing.Point(323, 42);
+            this.LettersRtB.Name = "LettersRtB";
+            this.LettersRtB.Size = new System.Drawing.Size(326, 294);
+            this.LettersRtB.TabIndex = 23;
+            this.LettersRtB.Text = "";
             // 
             // toMainMenuLb
             // 
@@ -61,48 +104,20 @@
             this.toLibraryBtn.UseVisualStyleBackColor = true;
             this.toLibraryBtn.Click += new System.EventHandler(this.toLibraryBtn_Click);
             // 
-            // panel3
+            // dateDataGridViewTextBoxColumn
             // 
-            this.panel3.BackColor = System.Drawing.Color.DimGray;
-            this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(71, 36);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(250, 319);
-            this.panel3.TabIndex = 22;
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridView1
+            // topikDataGridViewTextBoxColumn
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.date,
-            this.Theme});
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(244, 313);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Date";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // Theme
-            // 
-            this.Theme.HeaderText = "Theme";
-            this.Theme.Name = "Theme";
-            this.Theme.ReadOnly = true;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(324, 39);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(368, 313);
-            this.richTextBox1.TabIndex = 23;
-            this.richTextBox1.Text = "";
+            this.topikDataGridViewTextBoxColumn.DataPropertyName = "Topik";
+            this.topikDataGridViewTextBoxColumn.HeaderText = "Topik";
+            this.topikDataGridViewTextBoxColumn.Name = "topikDataGridViewTextBoxColumn";
+            this.topikDataGridViewTextBoxColumn.ReadOnly = true;
+            this.topikDataGridViewTextBoxColumn.Width = 77;
             // 
             // JournalUserControl
             // 
@@ -110,14 +125,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Library.Properties.Resources.letters;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.lettersTable);
+            this.Controls.Add(this.LettersRtB);
             this.Controls.Add(this.toMainMenuLb);
             this.Controls.Add(this.toLibraryBtn);
             this.Name = "JournalUserControl";
             this.Size = new System.Drawing.Size(760, 420);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lettersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryDBContextDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lettersTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -126,10 +142,12 @@
 
         private System.Windows.Forms.Button toLibraryBtn;
         private System.Windows.Forms.Button toMainMenuLb;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Theme;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox LettersRtB;
+        private System.Windows.Forms.DataGridView lettersTable;
+        private System.Windows.Forms.BindingSource lettersBindingSource;
+        private LibraryDBContextDataSet1 libraryDBContextDataSet1;
+        private LibraryDBContextDataSet1TableAdapters.LettersTableAdapter lettersTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn topikDataGridViewTextBoxColumn;
     }
 }

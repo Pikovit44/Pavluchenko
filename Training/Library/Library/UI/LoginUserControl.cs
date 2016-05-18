@@ -20,12 +20,13 @@ namespace Library.UI
 
         public LoginUserControl()
         {
-            presenter = new Presenter(this); 
+            presenter = MainForm.Presenter;
             admin = false;
             InitializeComponent();
+            presenter.AddLoginMenu(this);
             DoubleBuffered = true;
         }
-
+        
         public bool Admin { get { return admin; }  }
         public static Presenter Presenter { get { return presenter; } }
         public string Login { get { return login; } }

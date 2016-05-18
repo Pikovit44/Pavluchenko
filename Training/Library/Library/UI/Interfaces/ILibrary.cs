@@ -16,6 +16,11 @@ namespace Library.UI.Interfaces
         event EventHandler TakeBook;
         event EventHandler OkReturnClick;
         event EventHandler TableClick;
+        event EventHandler LastOwner;
+        event EventHandler HistoryForBook;
+        event EventHandler HistoryForBooks;
+        event EventHandler RemoveBook;
+
         object BooksBindingSource { set; }
         Book NewBook { get; }
         Book SelectedBook { get; }
@@ -25,9 +30,7 @@ namespace Library.UI.Interfaces
         bool AllBook { set; }
         bool AvalibleBook { set; }
         InfoType OutputInfo { get; }
-        void Reflesh();
-        void InfoForHistoryTake();
-        void InfoForHistoryTake(Book book);
-        void InfoForReturn(Book book);
+        string Owner { set; }
+        List<Domain.Action> BooksActions { set; }
     }
 }

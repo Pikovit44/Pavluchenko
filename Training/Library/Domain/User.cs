@@ -9,7 +9,7 @@ namespace Domain
     public class User : BaseEntity
     {
         public string Login { get; set; }
-        public string EMail { get; set; }
+        public Email Email { get; set; }
         public bool Administrator { get; set; }
         public List<string> Letters { get; set; }
         public List<Book> Books { get; set; }
@@ -17,7 +17,16 @@ namespace Domain
         public User(string login, string email, bool isAdmin)
         {
             Login = login;
-            EMail = email;
+            Email = new Email(email);
+            Administrator = isAdmin;
+            Letters = new List<string>();
+            Books = new List<Book>();
+        }
+
+        public User(string login, Email email, bool isAdmin)
+        {
+            Login = login;
+            Email = email;
             Administrator = isAdmin;
             Letters = new List<string>();
             Books = new List<Book>();
@@ -25,6 +34,7 @@ namespace Domain
 
         public User ()
         {
+            Email = new Email();
             Letters = new List<string>();
             Books = new List<Book>();
         }

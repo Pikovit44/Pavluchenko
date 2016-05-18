@@ -9,6 +9,8 @@ namespace Library.Data.Repository.Interfaces
     public interface IService
     {
         IBookRepository Books {get;}
+        IUserRepository Users { get; }
+        IActionRepository Actions { get; }
         void Dispose();
         void Save();
     }
